@@ -1,0 +1,56 @@
+id: STORY-010
+title: Inicializar Python e qualidade mínima
+epic: EPIC-001
+description: Preparar ambiente, teste de instalação, lint, typing e CI reproduzíveis após descoberta.
+objective: Preparar ambiente, teste de instalação, lint, typing e CI reproduzíveis após descoberta.
+context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-004
+scope:
+  included:
+  - Decisão de versões e gerenciador
+  - Estrutura Python mínima
+  - Teste significativo de importação/configuração
+  - Lint, typing e CI mínimos
+  excluded:
+  - LLM, banco, broker, Kubernetes
+  - API completa
+  - Camadas vazias
+acceptance_criteria:
+- id: AC-01
+  criterion: Um clone limpo instala o projeto pelos comandos documentados com dependências reprodutíveis.
+- id: AC-02
+  criterion: Teste mínimo verifica importação/configuração e detecta instalação incorreta; lint e type
+    checker passam.
+- id: AC-03
+  criterion: GitHub Actions tem comandos reproduzíveis de teste/lint/typing e uma falha deliberada de
+    teste faz o job falhar em validação controlada.
+- id: AC-04
+  criterion: Escolhas estruturais e versões compatíveis estão justificadas em ADR antes da adoção; nenhum
+    segredo é versionado.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- pyproject.toml
+- src/aegisops/
+- tests/
+- doc/DEVELOPMENT.md
+- .github/workflows/quality.yml
+validation:
+  automated_tests: []
+  manual_checks:
+  - Reproduzir setup em ambiente limpo.
+  - Não declarar CI remota executada quando só os comandos locais foram rodados.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

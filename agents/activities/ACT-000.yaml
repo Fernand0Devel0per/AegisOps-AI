@@ -1,0 +1,50 @@
+id: ACT-000
+story_id: STORY-000
+spec_id: SPEC-000
+title: Executar bootstrap documental agent-first
+objective: Estabelecer contratos agent-first sem implementar a aplicação.
+status: completed
+agent:
+  role: Arquiteto / engenheiro responsável pelo bootstrap
+  responsibility: Entregar documentos, contratos e evidências sem implementar produto.
+inputs:
+- AGENTS.md
+- AegisOps_AI_Plano_do_Zero.md
+- roadmap/stories/STORY-000.yaml
+- agents/specs/SPEC-000.yaml
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+expected_outputs:
+- README.md
+- AGENTS.md
+- roadmap/index.yaml
+- doc/standards/workflow.md
+- agents/specs/SPEC-001.yaml
+- agents/activities/ACT-001.yaml
+- agents/handoffs/HANDOFF-000.yaml
+constraints:
+- Código da aplicação
+- Execução da descoberta de produto
+- Publicação remota
+- Preservar integralmente o plano original.
+- Não marcar a Etapa 0 concluída.
+execution_steps:
+- Ler integralmente o plano e inspecionar a pasta.
+- Criar documentação e contratos sem alterar a fonte.
+- Catalogar etapas e preparar SPEC-001/ACT-001.
+- Validar, revisar e produzir handoff.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_repository.py --self-test
+  - git diff --cached --check -- . ':(exclude)AegisOps_AI_Plano_do_Zero.md'
+  manual_checks:
+  - Revisar cada AC da história contra os artefatos, registrar resultado e evidência.
+  - Conferir SHA-256 anterior/posterior por hashlib e verificar src reservado por asserções Python.
+  expected_results:
+  - Comandos concluídos sem erro; hash original preservado; evidências no relatório e HANDOFF-000.
+dependencies: []
+handoff_required: true
+references:
+- doc/standards/workflow.md
+- doc/standards/conventions.md

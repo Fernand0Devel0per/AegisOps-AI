@@ -1,0 +1,20 @@
+id: STORY-000
+title: ""
+epic: EPIC-000
+description: ""
+objective: ""
+context: ""
+priority: medium
+status: backlog
+dependencies: []
+scope:
+  included: []
+  excluded: []
+acceptance_criteria: []
+technical_constraints: []
+deliverables: []
+validation:
+  automated_tests: []
+  manual_checks: []
+references: []
+definition_of_done: []

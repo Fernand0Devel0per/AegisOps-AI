@@ -1,0 +1,54 @@
+id: STORY-002
+title: Especificar três incidentes sintéticos reproduzíveis
+epic: EPIC-000
+description: Versionar dados e resultados esperados de latência, 5xx e saturação para orientar a triagem.
+objective: Versionar dados e resultados esperados de latência, 5xx e saturação para orientar a triagem.
+context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: false
+dependencies:
+- STORY-001
+scope:
+  included:
+  - Três cenários sintéticos legíveis por máquina
+  - Origem, unidade e intervalo de sinais
+  - Resultados esperados e limites da evidência
+  excluded:
+  - Motor de classificação
+  - Métricas reais
+  - Causalidade confirmada
+  - Banco de dados
+acceptance_criteria:
+- id: AC-01
+  criterion: 'Existem três cenários distintos: latência elevada, taxa 5xx alta e saturação de recursos.'
+- id: AC-02
+  criterion: Cada cenário informa ID estável, serviço fictício, ambiente sintético, janela temporal e
+    sinais com unidade/origem.
+- id: AC-03
+  criterion: Cada cenário tem classificação esperada e IDs das evidências que a sustentam; valores são
+    declarados sintéticos e não regras de produção.
+- id: AC-04
+  criterion: Outro agente consegue ler/reproduzir as entradas sem contexto da conversa; ambiguidades de
+    limiares são documentadas para STORY-003.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- datasets/incidents/
+- doc/INCIDENTS.md
+validation:
+  automated_tests:
+  - Na spec, definir validação de sintaxe e integridade referencial das fixtures, sem implementar motor.
+  manual_checks:
+  - Conferir três cenários e rastreabilidade sinal→evidência→resultado esperado.
+  - Revisar que nenhum dado veio de incidentes reais ou identifica clientes.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

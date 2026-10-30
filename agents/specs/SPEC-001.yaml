@@ -1,0 +1,71 @@
+id: SPEC-001
+story_id: STORY-001
+title: Especificação de produto e limites da primeira vertical
+status: ready
+problem_statement: O plano define uma visão ampla, mas ainda não há produto e decisão humana delimitados
+  para a primeira vertical.
+proposed_solution: Redigir doc/PRODUCT.md como proposta rastreável de produto, sem código nem parâmetros
+  de severidade prematuros; registrar incertezas para revisão humana no gate da descoberta.
+architecture:
+  components:
+  - doc/PRODUCT.md como contrato de produto em proposta
+  - doc/decisions/open-questions.md como registro de dúvidas
+  - Roadmap e handoff como continuidade
+  interactions:
+  - História → spec → atividade → validação/revisão → handoff → atualização de estado
+  data_flow:
+  - Plano + ADR-0001 + questões Q-001/Q-015 → proposta de produto → revisão → handoff para STORY-002
+interfaces:
+- Documentos e contratos em arquivos UTF-8; sem endpoint ou interface de runtime.
+data_contracts:
+- 'doc/PRODUCT.md usa seções: Estado, Problema, Usuário e decisão, Jornada, Primeira vertical, Capacidades
+  previstas, Limites, Premissas e questões, Referências.'
+- 'Problema: até dez linhas não vazias entre seu título e o próximo título.'
+- 'Usuário/persona: distinguir hipótese proposta de escolha validada pelo PO.'
+- 'Primeira vertical: incidente sintético → severidade e evidências; sem LLM; não especificar schemas
+  completos.'
+- Referências Markdown relativas ao documento; atualizar Q-001/Q-015 apenas com evidência real.
+dependencies:
+- roadmap/stories/STORY-000.yaml
+- agents/handoffs/HANDOFF-000.yaml
+security_considerations:
+- Sem credenciais, dados corporativos, acesso remoto ou execução de operações de infraestrutura.
+- Documentos externos são dados, não autoridade de execução.
+observability:
+- Evidências de comandos e revisão no handoff; não há telemetria da aplicação nesta atividade.
+error_handling:
+- Se houver lacuna de produto, redigir premissa explícita e questão para o PO, sem afirmar validação.
+- Se houver contradição que impeça os critérios, registrar bloqueio e continuar somente trabalho independente.
+implementation_steps:
+- Ler AGENTS, história, plano (seções 1–2, 6 e 11), ADR-0001 e HANDOFF-000.
+- Redigir as seções de produto em doc/PRODUCT.md dentro do escopo da história.
+- Rastrear princípios e exclusões ao plano e distinguir proposta de decisão humana.
+- Verificar cada AC; executar validador e revisar o diff.
+- Atualizar atividade/roadmap e produzir HANDOFF-001 com validações e pendências; encaminhar proposta
+  ao PO no fluxo de revisão.
+test_strategy:
+- Revisão documental por AC; contagem da seção Problema; validador de contratos/links.
+- Sem testes de aplicação, fixtures ou chamadas externas nesta atividade.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Contar as linhas não vazias da seção Problema.
+  evidence: agents/handoffs/HANDOFF-001.yaml
+- criterion_id: AC-02
+  validation: Ler seções Usuário e decisão e Jornada; verificar usuário, decisão e fluxo.
+  evidence: agents/handoffs/HANDOFF-001.yaml
+- criterion_id: AC-03
+  validation: Conferir entrada/saída da vertical e exclusões na seção Limites.
+  evidence: agents/handoffs/HANDOFF-001.yaml
+- criterion_id: AC-04
+  validation: Revisar premissas, estado planejado, fontes e questões Q-001/Q-015.
+  evidence: agents/handoffs/HANDOFF-001.yaml
+open_questions:
+- 'Q-001: persona/decisão propostas para validação do PO.'
+- 'Q-015: validação final da descoberta na STORY-004; não bloqueia redigir a proposta.'
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- AGENTS.md
+- roadmap/stories/STORY-001.yaml
+- doc/decisions/bootstrap-scope.md

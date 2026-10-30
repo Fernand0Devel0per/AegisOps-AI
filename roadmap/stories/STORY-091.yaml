@@ -1,0 +1,47 @@
+id: STORY-091
+title: Demonstrar deploy Kubernetes local e rollback
+epic: EPIC-009
+description: Validar deploy reprodutível com probes, recursos e políticas proporcionais.
+objective: Validar deploy reprodutível com probes, recursos e políticas proporcionais.
+context: Derivada da Etapa 9 do plano original; não há implementação desta capacidade no bootstrap.
+priority: low
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-090
+scope:
+  included:
+  - kind/k3d e Helm/Kustomize após ADR
+  - Probes, limites, secrets, RBAC e rede
+  - Rollback e gates futuros
+  excluded:
+  - Cloud paga sem autorização
+  - HPA/KEDA sem carga medida
+  - Argo CD obrigatório neste incremento
+acceptance_criteria:
+- id: AC-01
+  criterion: Deploy local reproduzível possui readiness/liveness e limites de recursos.
+- id: AC-02
+  criterion: Rollback documentado é executado em demonstração controlada.
+- id: AC-03
+  criterion: GitOps e autoscaling ficam em histórias próprias após necessidade, gatilhos e validação;
+    não são declarados implementados.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- deploy/kubernetes/
+- doc/OPERATIONS.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Revisar custo e permissões antes do deploy.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

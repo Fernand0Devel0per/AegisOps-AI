@@ -1,0 +1,22 @@
+id: EPIC-003
+title: Documentação operacional e recuperação básica
+source_phase: 3
+objective: Construir baseline lexical de runbooks Markdown com rastreabilidade.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-002
+scope:
+- Formato de runbooks e dataset
+- Ranking e avaliação lexical
+exit_criteria:
+- Cada trecho recuperado tem ID, origem e versão.
+- Dataset verifica relevância e ausência de runbook aplicável.
+stories:
+- STORY-030
+- STORY-031
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

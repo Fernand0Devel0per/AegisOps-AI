@@ -1,0 +1,46 @@
+id: STORY-090
+title: Consolidar containers e CI do golden path
+epic: EPIC-009
+description: Reproduzir desenvolvimento e imagens com qualidade e configuração segura.
+objective: Reproduzir desenvolvimento e imagens com qualidade e configuração segura.
+context: Derivada da Etapa 9 do plano original; não há implementação desta capacidade no bootstrap.
+priority: low
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-081
+scope:
+  included:
+  - Dockerfile e Compose
+  - CI de teste/build/análise
+  - Golden path documentado
+  excluded:
+  - Deploy cloud
+  - GitOps antecipado
+acceptance_criteria:
+- id: AC-01
+  criterion: Ambiente de demonstração nasce pelos comandos documentados em ambiente limpo.
+- id: AC-02
+  criterion: CI detecta teste quebrado e valida imagem/configuração sem expor segredos.
+- id: AC-03
+  criterion: Novo serviço de exemplo recebe contrato, testes e instrumentação pelo processo documentado.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- deploy/compose/
+- .github/workflows/
+- doc/DEVELOPMENT.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Distinguir CI remota de execução local dos comandos.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

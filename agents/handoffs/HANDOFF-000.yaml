@@ -1,0 +1,226 @@
+id: HANDOFF-000
+activity_id: ACT-000
+story_id: STORY-000
+spec_id: SPEC-000
+source_agent: Codex — responsável pelo bootstrap
+target_agent: Agente de análise de produto — ACT-001
+status: completed
+summary: 'Fundação documental preparada; nenhuma funcionalidade de aplicação implementada. Próxima execução:
+  proposta de produto na STORY-001.'
+completed_work:
+- Plano original lido integralmente e preservado; adaptações atuais documentadas.
+- README/AGENTS, arquitetura, ADR-0001 e processo agent-first criados.
+- 11 épicos e 22 histórias catalogados; Etapa 0 detalhada e fases futuras sujeitas a refinamento.
+- Quatro templates YAML e um template ADR criados.
+- SPEC-001 e ACT-001 prontas para iniciar a descoberta, sem execução da atividade.
+- Validador documental criado; validações e autorrevisão passaram; Git local inicializado para versionar
+  os 61 arquivos no commit do bootstrap.
+changed_files:
+- path: .gitignore
+  reason: Excluir ambiente Python, cache e arquivos locais de segredos do versionamento.
+- path: AGENTS.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: README.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: agents/README.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: agents/activities/ACT-000.yaml
+  reason: Delimitar responsabilidade, entradas, saídas e validação da atividade.
+- path: agents/activities/ACT-001.yaml
+  reason: Delimitar responsabilidade, entradas, saídas e validação da atividade.
+- path: agents/handoffs/HANDOFF-000.yaml
+  reason: Transferir estado real, evidências e próximo passo sem memória da conversa.
+- path: agents/specs/SPEC-000.yaml
+  reason: Registrar o bootstrap ou preparar a primeira execução de descoberta.
+- path: agents/specs/SPEC-001.yaml
+  reason: Registrar o bootstrap ou preparar a primeira execução de descoberta.
+- path: agents/templates/activity.template.yaml
+  reason: Disponibilizar contrato reutilizável de formato válido.
+- path: agents/templates/handoff.template.yaml
+  reason: Disponibilizar contrato reutilizável de formato válido.
+- path: agents/templates/spec.template.yaml
+  reason: Disponibilizar contrato reutilizável de formato válido.
+- path: doc/adr/0000-template.md
+  reason: Disponibilizar contrato reutilizável de formato válido.
+- path: doc/adr/0001-monolito-modular-baseline-deterministico.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/adr/README.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/architecture/overview.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/decisions/bootstrap-scope.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/decisions/open-questions.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/standards/bootstrap-validation.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/standards/conventions.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/standards/validation.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: doc/standards/workflow.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: roadmap/README.md
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: roadmap/epics/EPIC-000.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-001.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-002.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-003.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-004.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-005.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-006.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-007.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-008.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-009.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/epics/EPIC-010.yaml
+  reason: Representar uma etapa do plano com escopo e gate de saída.
+- path: roadmap/index.yaml
+  reason: Documentar contexto, decisões, processo ou evidência conforme sua responsabilidade.
+- path: roadmap/stories/STORY-000.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-001.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-002.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-003.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-004.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-010.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-011.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-012.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-020.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-021.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-030.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-031.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-040.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-041.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-050.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-060.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-070.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-080.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-081.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-090.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-091.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/stories/STORY-100.yaml
+  reason: Delimitar entrega e aceite rastreáveis; execução futura depende dos gates.
+- path: roadmap/templates/story.template.yaml
+  reason: Disponibilizar contrato reutilizável de formato válido.
+- path: scripts/validate_repository.py
+  reason: Automatizar validação estrutural e referencial da documentação.
+- path: src/.gitkeep
+  reason: Preservar src vazio no Git, reservado à implementação.
+decisions_made:
+- Pedido atual rege colaboração por agentes; manter aprendizagem e humano como PO.
+- doc/ é canônico; plano e seu registro inicial são preservados; continuidade nos handoffs.
+- ADR-0001 formaliza somente a decisão explícita de monolito modular e baseline sem LLM.
+- Versões, gerenciador, type checker, LLM, persistência, filas e frameworks continuam pendentes.
+- STORY-001 é a próxima história pronta; STORY-010 é a primeira implementação futura, após gate humano
+  STORY-004.
+validation:
+  executed:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_repository.py --self-test
+  - 'Python: ast.parse do validador e hashlib.sha256 do plano.'
+  - 'Python: asserções de src reservado, ausência de implementação e ACT-001 pending.'
+  - git diff --cached --check -- . ':(exclude)AegisOps_AI_Plano_do_Zero.md'
+  - git remote -v
+  - Autorrevisão documental de cada AC contra fonte, contratos e artefatos; sem revisão humana.
+  passed:
+  - check: 43 YAML e 15 Markdown válidos; catálogo de 11 épicos/22 histórias e vínculos consistentes.
+    evidence: doc/standards/bootstrap-validation.md
+  - check: 'Self-test: quatro entradas inválidas rejeitadas e uma válida aceita.'
+    evidence: doc/standards/bootstrap-validation.md
+  - check: Plano original preservado com SHA-256 idêntico ao anterior ao bootstrap.
+    evidence: doc/standards/bootstrap-validation.md
+  - check: src contém somente .gitkeep; aplicação e descoberta não foram antecipadas.
+    evidence: doc/standards/bootstrap-validation.md
+  - check: Whitespace dos arquivos novos sem falha; fonte original preservada foi excluída dessa checagem.
+    evidence: doc/standards/bootstrap-validation.md
+  - check: Autorrevisão dos quatro ACs de STORY-000 concluída; sem aprovação humana presumida.
+    evidence: doc/standards/bootstrap-validation.md
+  - check: Git local inicializado e arquivos preparados para o commit inicial; sem remoto.
+    evidence: doc/standards/bootstrap-validation.md
+  failed: []
+  not_executed:
+  - 'Testes de aplicação/API/integração/carga: não há aplicação.'
+  - 'CI remota e deploy: não configurados nesta fase.'
+  - 'Aceite humano da descoberta: pendente na STORY-004.'
+review:
+  type: Autorrevisão documental pelo agente executor; sem revisão humana ou segundo agente.
+  evidence: doc/standards/bootstrap-validation.md
+known_issues:
+- Produto, incidentes, regras de severidade e critérios de falha ainda serão definidos.
+- Histórias futuras com refinement_required exigem refinamento antes de execução.
+- Licença e repositório remoto ainda não definidos.
+pending_work:
+- Executar ACT-001 para produzir doc/PRODUCT.md como proposta.
+- Especificar e executar STORY-002/003, então obter gate do PO na STORY-004.
+- Decidir versões e ferramentas de setup antes da STORY-010.
+next_steps:
+- Ler AGENTS.md, STORY-001, SPEC-001, ACT-001 e este handoff.
+- Iniciar somente a proposta de produto, sem implementar código da aplicação.
+- Preservar fonte original e produzir HANDOFF-001 com evidências reais.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+references:
+- roadmap/index.yaml
+- doc/decisions/open-questions.md
+- doc/decisions/bootstrap-scope.md
+git:
+  branch: main
+  remote: null
+  commit_lookup: git log -1 --oneline
+  note: Commit local inicial do bootstrap; sem publicação. O ID fica no histórico Git, não no próprio
+    conteúdo do commit.
+maintenance_updates:
+- date: '2026-10-30'
+  authorization: Pedido do PO para remover o Git e ampliar o .gitignore, descartando o histórico inicial.
+  summary: Diretório .git removido; arquivos do projeto preservados. Nenhum novo repositório foi inicializado
+    no workspace.
+  changed_files:
+  - path: .gitignore
+    reason: Ignorar plano pessoal, .local, caches, cobertura e artefatos de empacotamento; manter exclusões
+      anteriores e .env.example público.
+  - path: README.md
+    reason: Informar ausência atual de Git e pendência de migração das referências ao plano privado.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar Q-014 após descarte do histórico inicial.
+  - path: agents/handoffs/HANDOFF-000.yaml
+    reason: Registrar a manutenção sem apagar o relato histórico da execução original.
+  validation:
+  - 'Comparação SHA-256 dos 61 arquivos de trabalho antes/depois da remoção de .git: idênticos.'
+  - 'git check-ignore em repositório temporário: 17 caminhos locais/gerados ignorados e 8 caminhos públicos
+    não ignorados; diretório temporário removido.'
+  - Ausência de .git e git rev-parse fora de repositório confirmados.
+  pending_work:
+  - Antes da publicação, migrar referências e a dependência obrigatória do plano local para documentos
+    técnicos públicos.
+  git_state: Sem repositório Git local; campos git e relato de commit acima descrevem a execução histórica
+    anterior, descartada a pedido do PO.

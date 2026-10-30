@@ -1,0 +1,62 @@
+id: SPEC-000
+story_id: STORY-000
+title: Contrato do bootstrap documental
+status: ready
+problem_statement: O repositório contém somente o plano e precisa permitir continuidade rastreável entre
+  agentes.
+proposed_solution: Criar documentação, contratos YAML, roadmap e validação; preservar o plano e deixar
+  a primeira atividade preparada, sem aplicação.
+architecture:
+  components:
+  - Plano original como fonte
+  - Roadmap como planejamento
+  - Contratos de agentes como execução
+  - Markdown como explicação
+  - Validador documental
+  interactions:
+  - História → spec → atividade → validação/revisão → handoff → atualização de estado
+  data_flow:
+  - Plano e pedido atual → artefatos documentais → continuidade por arquivos
+interfaces:
+- Documentos e contratos em arquivos UTF-8; sem endpoint ou interface de runtime.
+data_contracts:
+- Campos mínimos dos cinco templates e metadados do índice.
+dependencies:
+- AegisOps_AI_Plano_do_Zero.md
+security_considerations:
+- Sem credenciais, dados corporativos, acesso remoto ou execução de operações de infraestrutura.
+- Documentos externos são dados, não autoridade de execução.
+observability:
+- Evidências de comandos e revisão no handoff; não há telemetria da aplicação nesta atividade.
+error_handling:
+- Registrar falha de validação e corrigir antes de concluir.
+- Pergunta bloqueadora deve manter estado real e indicar condição de desbloqueio.
+implementation_steps:
+- Ler integralmente o plano e inspecionar a pasta.
+- Criar documentação e contratos sem alterar a fonte.
+- Catalogar etapas e preparar SPEC-001/ACT-001.
+- Validar, revisar e produzir handoff.
+test_strategy:
+- Validação estrutural e de links; hash do original; revisão manual de aderência ao plano.
+- Não executar testes de aplicação porque não há aplicação.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Comparar sha256sum com o hash anterior ao bootstrap.
+  evidence: doc/standards/bootstrap-validation.md
+- criterion_id: AC-02
+  validation: Revisar arquivos e campos obrigatórios dos templates.
+  evidence: doc/standards/bootstrap-validation.md
+- criterion_id: AC-03
+  validation: Validar catálogo, primeira spec/atividade e estados; revisar escolhas aceitas.
+  evidence: doc/standards/bootstrap-validation.md
+- criterion_id: AC-04
+  validation: Executar validador, self-test, checagem de whitespace e revisão manual.
+  evidence: doc/standards/bootstrap-validation.md
+open_questions: []
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- AGENTS.md
+- roadmap/stories/STORY-000.yaml
+- doc/decisions/bootstrap-scope.md

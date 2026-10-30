@@ -1,0 +1,47 @@
+id: STORY-012
+title: Expor consulta de incidentes e saúde pela primeira API
+epic: EPIC-001
+description: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
+objective: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
+context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-011
+scope:
+  included:
+  - Rotas mínimas de consulta e saúde
+  - Configuração por ambiente
+  - Testes de contrato e instruções locais
+  excluded:
+  - Triagem já integrada
+  - Jobs assíncronos
+  - Banco, filas e autenticação empresarial
+acceptance_criteria:
+- id: AC-01
+  criterion: Comandos documentados iniciam a API e consultam um incidente sintético e health.
+- id: AC-02
+  criterion: Entrada inválida e incidente inexistente retornam erros estruturados e testados.
+- id: AC-03
+  criterion: Testes da API executam em CI sem credenciais; configurações sensíveis não aparecem em repositório/logs.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/integration/
+- doc/DEVELOPMENT.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Reproduzir consultas e falhas por comandos documentados.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

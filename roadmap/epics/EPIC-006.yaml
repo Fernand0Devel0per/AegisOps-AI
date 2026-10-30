@@ -1,0 +1,21 @@
+id: EPIC-006
+title: RAG com documentos ricos
+source_phase: 6
+objective: Comparar ingestão e recuperação estruturadas com o baseline.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-005
+scope:
+- Corpus autorizado e ingestão
+- Avaliação de chunking e retrieval
+exit_criteria:
+- Documentos têm origem autorizada e citações por página/seção.
+- Comparação medida, com falhas de extração e métricas adequadas ao dataset.
+stories:
+- STORY-060
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

@@ -1,0 +1,55 @@
+id: STORY-004
+title: Revisar descoberta e liberar a primeira implementação
+epic: EPIC-000
+description: Consolidar evidências e validação humana para encerrar a Etapa 0.
+objective: Consolidar evidências e validação humana para encerrar a Etapa 0.
+context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: false
+dependencies:
+- STORY-003
+scope:
+  included:
+  - Revisão de produto, incidentes e requisitos
+  - Checagem de ADR-0001
+  - Gate humano e handoff para setup
+  excluded:
+  - Implementação Python
+  - Alterar ADR aceito silenciosamente
+  - Aceite humano presumido
+acceptance_criteria:
+- id: AC-01
+  criterion: Outro desenvolvedor/agente explica o fluxo e reproduz os três cenários usando somente arquivos
+    do repositório; procedimento e resultado são registrados.
+- id: AC-02
+  criterion: Produto, requisitos e cenários não têm conflitos ou perguntas bloqueadoras abertas para a
+    primeira vertical.
+- id: AC-03
+  criterion: ADR-0001 foi revisado como decisão existente; qualquer proposta incompatível permanece proposta
+    até decisão do PO.
+- id: AC-04
+  criterion: A validação do PO sobre escopo, critérios e cenários está registrada com referência e data;
+    sem ela a história permanece in_review ou blocked.
+- id: AC-05
+  criterion: Handoff indica STORY-010 e as decisões de setup ainda necessárias; Etapa 0 só então pode
+    ser marcada done.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/decisions/discovery-review.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Realizar revisão independente de contexto e registrar seu autor/papel.
+  - Obter aceite explícito do PO; não inferir pela passagem do tempo.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

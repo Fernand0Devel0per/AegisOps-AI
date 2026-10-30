@@ -1,0 +1,23 @@
+id: EPIC-009
+title: Golden path e Platform Engineering
+source_phase: 9
+objective: Consolidar desenvolvimento e deploy reproduzíveis após solução local estável.
+status: backlog
+priority: low
+dependencies:
+- EPIC-008
+scope:
+- Containers e CI ampliada
+- Deploy local Kubernetes e rollback
+exit_criteria:
+- Novo ambiente de demonstração reproduzível pelo README.
+- CI detecta teste quebrado; deploy tem probes, recursos e rollback.
+- GitOps e HPA/KEDA só após seus próprios gates de evidência.
+stories:
+- STORY-090
+- STORY-091
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

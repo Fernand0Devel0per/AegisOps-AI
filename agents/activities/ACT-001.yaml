@@ -1,0 +1,55 @@
+id: ACT-001
+story_id: STORY-001
+spec_id: SPEC-001
+title: Redigir a proposta de produto e limites
+objective: Produzir uma descrição verificável do problema e da decisão humana apoiada pelo produto.
+status: pending
+agent:
+  role: Agente de análise de produto e requisitos
+  responsibility: Converter a visão existente em proposta curta, rastreável e revisável; registrar dúvidas
+    e transferir contexto para dados/requisitos.
+inputs:
+- AGENTS.md
+- AegisOps_AI_Plano_do_Zero.md
+- roadmap/stories/STORY-001.yaml
+- agents/specs/SPEC-001.yaml
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+- agents/handoffs/HANDOFF-000.yaml
+expected_outputs:
+- doc/PRODUCT.md
+- agents/handoffs/HANDOFF-001.yaml
+constraints:
+- Código Python e API
+- Incidentes numéricos e limiares definitivos
+- Escolha de LLM, banco, fila ou framework
+- Declarar validação humana ainda não recebida
+- Preservar integralmente o plano original.
+- Não marcar a Etapa 0 concluída.
+execution_steps:
+- Ler AGENTS, história, plano (seções 1–2, 6 e 11), ADR-0001 e HANDOFF-000.
+- Redigir as seções de produto em doc/PRODUCT.md dentro do escopo da história.
+- Rastrear princípios e exclusões ao plano e distinguir proposta de decisão humana.
+- Verificar cada AC; executar validador e revisar o diff.
+- Atualizar atividade/roadmap e produzir HANDOFF-001 com validações e pendências; encaminhar proposta
+  ao PO no fluxo de revisão.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  manual_checks:
+  - Contar as linhas não vazias da seção Problema.
+  - Ler seções Usuário e decisão e Jornada; verificar usuário, decisão e fluxo.
+  - Conferir entrada/saída da vertical e exclusões na seção Limites.
+  - Revisar premissas, estado planejado, fontes e questões Q-001/Q-015.
+  expected_results:
+  - Validador e whitespace sem erro.
+  - Quatro ACs mapeados e verificados; problema com até dez linhas.
+  - Documento não afirma produto disponível ou aceite humano inexistente; handoff informa questões pendentes.
+dependencies:
+- ACT-000
+handoff_required: true
+references:
+- doc/standards/workflow.md
+- doc/standards/conventions.md

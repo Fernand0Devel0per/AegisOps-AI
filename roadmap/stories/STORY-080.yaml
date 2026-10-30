@@ -1,0 +1,46 @@
+id: STORY-080
+title: Persistir investigações e garantir idempotência
+epic: EPIC-008
+description: Preservar estado após reinício e evitar duplicação indevida de trabalho.
+objective: Preservar estado após reinício e evitar duplicação indevida de trabalho.
+context: Derivada da Etapa 8 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-070
+scope:
+  included:
+  - Decisão de persistência
+  - Idempotência e recuperação
+  - Testes de reinício
+  excluded:
+  - Broker obrigatório
+  - Multi-tenancy
+acceptance_criteria:
+- id: AC-01
+  criterion: Reinício não perde investigações persistidas conforme contrato.
+- id: AC-02
+  criterion: Repetição de requisição não duplica trabalho indevido.
+- id: AC-03
+  criterion: Banco e migrações têm ADR e testes de recuperação.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/integration/
+- doc/RELIABILITY.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Reproduzir reinício durante investigação.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

@@ -1,0 +1,54 @@
+id: STORY-003
+title: Definir contratos e critérios observáveis da triagem
+epic: EPIC-000
+description: Especificar entradas, saídas, severidade e comportamento de falha da primeira vertical.
+objective: Especificar entradas, saídas, severidade e comportamento de falha da primeira vertical.
+context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: false
+dependencies:
+- STORY-002
+scope:
+  included:
+  - Entradas/saídas mínimas e restrições
+  - Regras explícitas de severidade com unidades e janelas
+  - Cinco critérios observáveis e ao menos três falhas
+  - Insuficiência de evidência e incerteza
+  excluded:
+  - Modelos Python prontos
+  - Contratos de todas as fases
+  - Métricas de sucesso inventadas
+  - Dependências de LLM
+acceptance_criteria:
+- id: AC-01
+  criterion: doc/REQUIREMENTS.md define entrada, saída, restrições e vínculo aos três cenários da STORY-002.
+- id: AC-02
+  criterion: Há pelo menos cinco critérios observáveis numerados e pelo menos três casos de falha com
+    comportamento esperado, incluindo dados insuficientes e entrada inconsistente.
+- id: AC-03
+  criterion: Severidade, limiares sintéticos, unidades, períodos e política de dados faltantes permitem
+    derivar testes sem adivinhar regras.
+- id: AC-04
+  criterion: A saída separa observação e hipótese, exige evidência resolvível e não afirma causa raiz;
+    conflitos dos resultados esperados foram resolvidos ou bloqueiam o gate explicitamente.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/REQUIREMENTS.md
+validation:
+  automated_tests:
+  - Na spec, definir checagem de vínculos entre requisitos e fixtures quando for pertinente.
+  manual_checks:
+  - Percorrer manualmente cada cenário contra as regras sem escrever motor.
+  - Verificar casos de falha e registrar Q-002/Q-003 como resolvidas ou bloqueadoras.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

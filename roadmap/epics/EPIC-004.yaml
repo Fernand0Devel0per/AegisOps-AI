@@ -1,0 +1,23 @@
+id: EPIC-004
+title: Primeiro analista com LLM e avaliação
+source_phase: 4
+objective: Introduzir análise opcional mantendo evidência e fallback determinísticos.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-003
+scope:
+- Dataset e metas antes do LLM
+- Adaptador, análise estruturada e verificador
+exit_criteria:
+- Mock funciona offline sem credenciais.
+- Referências inexistentes são rejeitadas e indisponibilidade tem comportamento controlado.
+- Qualidade, latência e custo registrados sem resultados inventados.
+stories:
+- STORY-040
+- STORY-041
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

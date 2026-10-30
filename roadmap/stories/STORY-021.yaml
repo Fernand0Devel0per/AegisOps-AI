@@ -1,0 +1,48 @@
+id: STORY-021
+title: Integrar triagem à API e verificar candidata v0.1.0
+epic: EPIC-002
+description: Demonstrar envio de incidente sintético e retorno de severidade/evidências pela API.
+objective: Demonstrar envio de incidente sintético e retorno de severidade/evidências pela API.
+context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-020
+scope:
+  included:
+  - Contrato mínimo de iniciar/consultar investigação conforme duração definida
+  - Integração do motor
+  - Demo local e testes end-to-end
+  excluded:
+  - Release publicada automaticamente
+  - LLM e remediação
+  - Persistência durável não justificada
+acceptance_criteria:
+- id: AC-01
+  criterion: Um comando documentado envia incidente sintético e obtém triagem e evidências consistentes.
+- id: AC-02
+  criterion: Testes end-to-end verificam sucesso, erro de entrada e insuficiência de dados.
+- id: AC-03
+  criterion: README distingue a vertical demonstrada do MVP ampliado; evidências permitem avaliar uma
+    futura tag v0.1.0.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/integration/
+- doc/DEMO.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Reproduzir a vertical em ambiente local limpo.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

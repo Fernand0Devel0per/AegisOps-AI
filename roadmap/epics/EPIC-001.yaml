@@ -1,0 +1,24 @@
+id: EPIC-001
+title: Fundamentos de qualidade e primeira API
+source_phase: 1
+objective: Preparar Python e consulta mínima de incidentes sem banco, filas ou LLM.
+status: backlog
+priority: high
+dependencies:
+- EPIC-000
+scope:
+- Setup Python e qualidade
+- Contratos mínimos
+- API de consulta, health e CI
+exit_criteria:
+- Execução local documentada e reproduzível.
+- CI executa testes e rejeita entrada inválida com erro claro.
+stories:
+- STORY-010
+- STORY-011
+- STORY-012
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

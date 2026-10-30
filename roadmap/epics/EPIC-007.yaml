@@ -1,0 +1,21 @@
+id: EPIC-007
+title: Observabilidade da plataforma e métricas reais
+source_phase: 7
+objective: Observar o AegisOps e uma demonstração instrumentada controlada.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-006
+scope:
+- Correlação por investigação e spans
+- Demo e dashboards com sinais separados
+exit_criteria:
+- Uma execução pode ser explicada pelo trace.
+- Incidente controlado demonstrado; métricas da plataforma e do serviço distinguíveis.
+stories:
+- STORY-070
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

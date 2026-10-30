@@ -1,0 +1,47 @@
+id: STORY-011
+title: Modelar contratos mínimos de incidente, sinal e evidência
+epic: EPIC-001
+description: Transformar os requisitos aceitos em contratos de entrada e erro validados.
+objective: Transformar os requisitos aceitos em contratos de entrada e erro validados.
+context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-010
+scope:
+  included:
+  - Contratos mínimos para incidentes sintéticos
+  - Validação de unidades, intervalo e IDs
+  - Erros claros e testes
+  excluded:
+  - Esquema completo de todas as entidades
+  - Persistência
+  - Motor de severidade
+acceptance_criteria:
+- id: AC-01
+  criterion: Fixtures da descoberta são aceitas ou eventuais mudanças são explicitamente migradas.
+- id: AC-02
+  criterion: Entradas inválidas, IDs inconsistentes e unidades/períodos incompatíveis produzem erro determinístico
+    testado.
+- id: AC-03
+  criterion: Contratos e testes não exigem rede ou credenciais.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/unit/
+validation:
+  automated_tests: []
+  manual_checks:
+  - Comparar contratos com REQUIREMENTS e fixtures.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

@@ -1,0 +1,44 @@
+id: STORY-030
+title: Especificar runbooks e baseline rotulado de recuperação
+epic: EPIC-003
+description: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
+objective: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
+context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-021
+scope:
+  included:
+  - Formato de runbook
+  - IDs, origem e versão
+  - Dataset rotulado
+  excluded:
+  - Embeddings
+  - LLM
+  - Documentos não autorizados
+acceptance_criteria:
+- id: AC-01
+  criterion: Runbooks versionados têm identificador, origem e versão.
+- id: AC-02
+  criterion: Dataset inclui consultas relevantes, ausência de documento aplicável e documento irrelevante.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- datasets/runbooks/
+- datasets/evaluation/
+validation:
+  automated_tests: []
+  manual_checks:
+  - Revisar rótulos e autorização do corpus.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

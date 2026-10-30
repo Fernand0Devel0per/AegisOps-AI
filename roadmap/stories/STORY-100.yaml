@@ -1,0 +1,50 @@
+id: STORY-100
+title: Consolidar segurança e portfólio com evidências
+epic: EPIC-010
+description: Executar avaliação adversarial e preparar publicação fiel às capacidades demonstradas.
+objective: Executar avaliação adversarial e preparar publicação fiel às capacidades demonstradas.
+context: Derivada da Etapa 10 do plano original; não há implementação desta capacidade no bootstrap.
+priority: low
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-091
+scope:
+  included:
+  - Threat model e testes adversariais
+  - Minimização de dados e limites por ferramenta
+  - Demo, resultados e README público
+  excluded:
+  - Remediação autônoma
+  - Métricas inventadas
+  - Publicação sem autorização
+acceptance_criteria:
+- id: AC-01
+  criterion: Prompt injection e exfiltração simuladas não autorizam operações indevidas; resultados e
+    limites são registrados.
+- id: AC-02
+  criterion: Saídas distinguem hipótese, evidência e incerteza; documentação não apresenta plano como
+    implementado.
+- id: AC-03
+  criterion: Demo e métricas são reproduzíveis; licença e publicação têm decisão do proprietário.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/SECURITY.md
+- doc/EVALUATION.md
+- README.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Dividir threat model, testes e publicação no refinamento.
+  - Obter autorização concreta para distribuição/publicação.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

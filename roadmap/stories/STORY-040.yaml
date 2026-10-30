@@ -1,0 +1,44 @@
+id: STORY-040
+title: Definir avaliação e políticas do analista antes de integrar LLM
+epic: EPIC-004
+description: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.
+objective: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.
+context: Derivada da Etapa 4 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-031
+scope:
+  included:
+  - Dataset e rubrica de hipóteses
+  - Políticas de contexto e evidência
+  - Metas prévias ao teste
+  excluded:
+  - Métricas fabricadas
+  - Escolha de modelo sem comparação
+acceptance_criteria:
+- id: AC-01
+  criterion: Dataset e rubrica incluem citação inexistente, hipótese sem apoio, dado insuficiente e falha
+    do provedor.
+- id: AC-02
+  criterion: Métricas/metas e procedimento de custo/latência estão definidos antes dos testes reais.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- datasets/evaluation/
+- doc/EVALUATION.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - PO revisa adequação das métricas e limites de custo.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

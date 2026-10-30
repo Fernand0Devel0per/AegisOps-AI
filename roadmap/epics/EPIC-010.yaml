@@ -1,0 +1,21 @@
+id: EPIC-010
+title: Segurança, avaliação operacional e publicação
+source_phase: 10
+objective: Consolidar avaliação adversarial e portfólio defensável.
+status: backlog
+priority: low
+dependencies:
+- EPIC-009
+scope:
+- Threat model e ataques simulados
+- Demo e documentação pública verificável
+exit_criteria:
+- Ataques simulados não levam a operações indevidas e incerteza fica explícita.
+- README, demo e resultados descrevem somente capacidades demonstradas.
+stories:
+- STORY-100
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

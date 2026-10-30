@@ -1,0 +1,27 @@
+# Ambiente e arquivos locais de configuração
+.venv/
+.env
+.env.*
+!.env.example
+
+# Bytecode e caches de qualidade
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Cobertura gerada
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Empacotamento
+build/
+dist/
+*.egg-info/
+
+# Material pessoal preservado apenas no ambiente local
+/AegisOps_AI_Plano_do_Zero.md
+/.local/

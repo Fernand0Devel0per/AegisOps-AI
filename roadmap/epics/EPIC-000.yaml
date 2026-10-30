@@ -1,0 +1,25 @@
+id: EPIC-000
+title: Descoberta e requisitos
+source_phase: 0
+objective: Definir a primeira vertical sintética, determinística e verificável.
+status: ready
+priority: high
+dependencies: []
+scope:
+- Produto e limites
+- Três incidentes sintéticos
+- Requisitos e falhas
+- Revisão humana da descoberta
+exit_criteria:
+- Outro desenvolvedor explica o fluxo e reproduz os três cenários.
+- PO valida escopo, critérios e resultados esperados antes da implementação.
+stories:
+- STORY-000
+- STORY-001
+- STORY-002
+- STORY-003
+- STORY-004
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Histórias da Etapa 0 detalhadas; bootstrap não conclui descoberta.

@@ -1,0 +1,21 @@
+id: SPEC-000
+story_id: STORY-000
+title: ""
+status: draft
+problem_statement: ""
+proposed_solution: ""
+architecture:
+  components: []
+  interactions: []
+  data_flow: []
+interfaces: []
+data_contracts: []
+dependencies: []
+security_considerations: []
+observability: []
+error_handling: []
+implementation_steps: []
+test_strategy: []
+acceptance_mapping: []
+open_questions: []
+related_adrs: []

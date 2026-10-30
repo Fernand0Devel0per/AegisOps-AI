@@ -1,0 +1,55 @@
+id: STORY-001
+title: Definir produto, usuário e limites da primeira vertical
+epic: EPIC-000
+description: Produzir uma descrição verificável do problema e da decisão humana apoiada pelo produto.
+objective: Produzir uma descrição verificável do problema e da decisão humana apoiada pelo produto.
+context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
+priority: high
+status: ready
+refinement_required: false
+dependencies:
+- STORY-000
+scope:
+  included:
+  - Problema em até dez linhas
+  - Usuário e decisão operacional
+  - Jornada sintética e primeira vertical
+  - Limites, premissas e questões para o PO
+  excluded:
+  - Código Python e API
+  - Incidentes numéricos e limiares definitivos
+  - Escolha de LLM, banco, fila ou framework
+  - Declarar validação humana ainda não recebida
+acceptance_criteria:
+- id: AC-01
+  criterion: doc/PRODUCT.md contém seção de problema com no máximo dez linhas não vazias.
+- id: AC-02
+  criterion: O documento identifica usuário, decisão a apoiar e jornada de uma investigação sintética.
+- id: AC-03
+  criterion: A primeira vertical explicita entrada de incidente sintético, saída severidade/evidências
+    e exclusão de LLM, remediação e acesso a terceiros.
+- id: AC-04
+  criterion: Propostas de persona e decisões ainda sem validação estão identificadas; fontes, capacidades
+    planejadas e questões Q-001/Q-015 estão rastreáveis.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/PRODUCT.md
+- agents/handoffs/HANDOFF-001.yaml
+validation:
+  automated_tests:
+  - python3 scripts/validate_repository.py
+  manual_checks:
+  - Contar linhas da seção Problema e revisar presença dos campos exigidos.
+  - Conferir rastreabilidade ao plano e ausência de funcionalidades apresentadas como prontas.
+  - Registrar proposta para o PO; aceite da fase só ocorre na STORY-004.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

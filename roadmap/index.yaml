@@ -1,0 +1,271 @@
+schema_version: 1
+updated_at: '2026-10-30'
+source: AegisOps_AI_Plano_do_Zero.md
+current_phase: 0
+next_story: STORY-001
+next_activity: ACT-001
+epics:
+- id: EPIC-000
+  title: Descoberta e requisitos
+  path: roadmap/epics/EPIC-000.yaml
+  priority: high
+  status: ready
+  dependencies: []
+- id: EPIC-001
+  title: Fundamentos de qualidade e primeira API
+  path: roadmap/epics/EPIC-001.yaml
+  priority: high
+  status: backlog
+  dependencies:
+  - EPIC-000
+- id: EPIC-002
+  title: Motor de triagem baseado em evidências
+  path: roadmap/epics/EPIC-002.yaml
+  priority: high
+  status: backlog
+  dependencies:
+  - EPIC-001
+- id: EPIC-003
+  title: Documentação operacional e recuperação básica
+  path: roadmap/epics/EPIC-003.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-002
+- id: EPIC-004
+  title: Primeiro analista com LLM e avaliação
+  path: roadmap/epics/EPIC-004.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-003
+- id: EPIC-005
+  title: Orquestração de agentes e controle de estado
+  path: roadmap/epics/EPIC-005.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-004
+- id: EPIC-006
+  title: RAG com documentos ricos
+  path: roadmap/epics/EPIC-006.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-005
+- id: EPIC-007
+  title: Observabilidade da plataforma e métricas reais
+  path: roadmap/epics/EPIC-007.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-006
+- id: EPIC-008
+  title: Confiabilidade de sistemas distribuídos
+  path: roadmap/epics/EPIC-008.yaml
+  priority: medium
+  status: backlog
+  dependencies:
+  - EPIC-007
+- id: EPIC-009
+  title: Golden path e Platform Engineering
+  path: roadmap/epics/EPIC-009.yaml
+  priority: low
+  status: backlog
+  dependencies:
+  - EPIC-008
+- id: EPIC-010
+  title: Segurança, avaliação operacional e publicação
+  path: roadmap/epics/EPIC-010.yaml
+  priority: low
+  status: backlog
+  dependencies:
+  - EPIC-009
+stories:
+- id: STORY-000
+  title: Preparar a fundação documental e operacional
+  path: roadmap/stories/STORY-000.yaml
+  epic: EPIC-000
+  priority: high
+  status: done
+  dependencies: []
+- id: STORY-001
+  title: Definir produto, usuário e limites da primeira vertical
+  path: roadmap/stories/STORY-001.yaml
+  epic: EPIC-000
+  priority: high
+  status: ready
+  dependencies:
+  - STORY-000
+- id: STORY-002
+  title: Especificar três incidentes sintéticos reproduzíveis
+  path: roadmap/stories/STORY-002.yaml
+  epic: EPIC-000
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-001
+- id: STORY-003
+  title: Definir contratos e critérios observáveis da triagem
+  path: roadmap/stories/STORY-003.yaml
+  epic: EPIC-000
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-002
+- id: STORY-004
+  title: Revisar descoberta e liberar a primeira implementação
+  path: roadmap/stories/STORY-004.yaml
+  epic: EPIC-000
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-003
+- id: STORY-010
+  title: Inicializar Python e qualidade mínima
+  path: roadmap/stories/STORY-010.yaml
+  epic: EPIC-001
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-004
+- id: STORY-011
+  title: Modelar contratos mínimos de incidente, sinal e evidência
+  path: roadmap/stories/STORY-011.yaml
+  epic: EPIC-001
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-010
+- id: STORY-012
+  title: Expor consulta de incidentes e saúde pela primeira API
+  path: roadmap/stories/STORY-012.yaml
+  epic: EPIC-001
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-011
+- id: STORY-020
+  title: Implementar triagem determinística e evidências
+  path: roadmap/stories/STORY-020.yaml
+  epic: EPIC-002
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-012
+- id: STORY-021
+  title: Integrar triagem à API e verificar candidata v0.1.0
+  path: roadmap/stories/STORY-021.yaml
+  epic: EPIC-002
+  priority: high
+  status: backlog
+  dependencies:
+  - STORY-020
+- id: STORY-030
+  title: Especificar runbooks e baseline rotulado de recuperação
+  path: roadmap/stories/STORY-030.yaml
+  epic: EPIC-003
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-021
+- id: STORY-031
+  title: Implementar e avaliar recuperação lexical de runbooks
+  path: roadmap/stories/STORY-031.yaml
+  epic: EPIC-003
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-030
+- id: STORY-040
+  title: Definir avaliação e políticas do analista antes de integrar LLM
+  path: roadmap/stories/STORY-040.yaml
+  epic: EPIC-004
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-031
+- id: STORY-041
+  title: Introduzir analista opcional com gateway e verificador determinístico
+  path: roadmap/stories/STORY-041.yaml
+  epic: EPIC-004
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-040
+- id: STORY-050
+  title: Avaliar workflow explícito e controle de estado
+  path: roadmap/stories/STORY-050.yaml
+  epic: EPIC-005
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-041
+- id: STORY-060
+  title: Avaliar ingestão estruturada e RAG em documentos ricos
+  path: roadmap/stories/STORY-060.yaml
+  epic: EPIC-006
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-050
+- id: STORY-070
+  title: Instrumentar investigações e demonstrar incidente controlado
+  path: roadmap/stories/STORY-070.yaml
+  epic: EPIC-007
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-060
+- id: STORY-080
+  title: Persistir investigações e garantir idempotência
+  path: roadmap/stories/STORY-080.yaml
+  epic: EPIC-008
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-070
+- id: STORY-081
+  title: Avaliar resiliência e necessidade de workers ou filas
+  path: roadmap/stories/STORY-081.yaml
+  epic: EPIC-008
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-080
+- id: STORY-090
+  title: Consolidar containers e CI do golden path
+  path: roadmap/stories/STORY-090.yaml
+  epic: EPIC-009
+  priority: low
+  status: backlog
+  dependencies:
+  - STORY-081
+- id: STORY-091
+  title: Demonstrar deploy Kubernetes local e rollback
+  path: roadmap/stories/STORY-091.yaml
+  epic: EPIC-009
+  priority: low
+  status: backlog
+  dependencies:
+  - STORY-090
+- id: STORY-100
+  title: Consolidar segurança e portfólio com evidências
+  path: roadmap/stories/STORY-100.yaml
+  epic: EPIC-010
+  priority: low
+  status: backlog
+  dependencies:
+  - STORY-091
+milestones:
+- id: v0.1.0
+  status: planned
+  description: API recebe incidente sintético e retorna triagem e evidências consistentes, com testes
+    reproduzíveis, sem LLM.
+  required_stories:
+  - STORY-004
+  - STORY-010
+  - STORY-011
+  - STORY-012
+  - STORY-020
+  - STORY-021

@@ -1,0 +1,48 @@
+id: STORY-041
+title: Introduzir analista opcional com gateway e verificador determinístico
+epic: EPIC-004
+description: Adicionar hipóteses com saída tipada, limites, mock offline e tratamento de falhas.
+objective: Adicionar hipóteses com saída tipada, limites, mock offline e tratamento de falhas.
+context: Derivada da Etapa 4 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-040
+scope:
+  included:
+  - Adaptador de provedor
+  - Prompt versionado
+  - Timeout/tokens/fallback
+  - Verificação independente de referências
+  excluded:
+  - Ações de alteração
+  - LLM como autoridade de evidência
+acceptance_criteria:
+- id: AC-01
+  criterion: Modo mock funciona sem internet ou credenciais; chamadas reais são opcionais.
+- id: AC-02
+  criterion: Referências inexistentes são rejeitadas por regras fora do LLM.
+- id: AC-03
+  criterion: Timeout e indisponibilidade têm resultado controlado e testes; avaliação usa dataset/metas
+    prévias.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/evaluation/
+- doc/EVALUATION.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Registrar custo/latência medidos e limitações do provedor.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

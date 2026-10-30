@@ -1,0 +1,47 @@
+id: STORY-031
+title: Implementar e avaliar recuperação lexical de runbooks
+epic: EPIC-003
+description: Recuperar trechos por tags/palavras-chave com proveniência verificável.
+objective: Recuperar trechos por tags/palavras-chave com proveniência verificável.
+context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-030
+scope:
+  included:
+  - Ranking simples
+  - Proveniência por trecho
+  - Medição no dataset
+  excluded:
+  - Vetores
+  - Docling
+  - Alegar superioridade sem medir
+acceptance_criteria:
+- id: AC-01
+  criterion: Cada trecho retornado contém ID e arquivo/versão resolvíveis.
+- id: AC-02
+  criterion: Ausência de documento aplicável tem saída explícita testada.
+- id: AC-03
+  criterion: Resultados e falhas no dataset são registrados como baseline lexical.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- src/aegisops/
+- tests/evaluation/
+- doc/EVALUATION.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Conferir exemplos de acerto, erro e ausência.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

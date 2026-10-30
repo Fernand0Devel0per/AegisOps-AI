@@ -1,0 +1,22 @@
+id: EPIC-008
+title: Confiabilidade de sistemas distribuídos
+source_phase: 8
+objective: Adicionar durabilidade e mecanismos de resiliência quando necessários.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-007
+scope:
+- Persistência e idempotência
+- Falhas, capacidade e decisão sobre workers/filas
+exit_criteria:
+- Reinício preserva investigações persistidas e repetição não duplica trabalho indevido.
+- Recuperação e backpressure medidos; necessidade de broker justificada ou rejeitada.
+stories:
+- STORY-080
+- STORY-081
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

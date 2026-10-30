@@ -1,0 +1,45 @@
+id: STORY-070
+title: Instrumentar investigações e demonstrar incidente controlado
+epic: EPIC-007
+description: Observar AegisOps e serviço de demonstração com correlação e separação de sinais.
+objective: Observar AegisOps e serviço de demonstração com correlação e separação de sinais.
+context: Derivada da Etapa 7 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-060
+scope:
+  included:
+  - Traces e spans por etapa
+  - Métricas de erro/latência/custo pertinentes
+  - Demo e dashboard
+  excluded:
+  - Dados corporativos
+  - Serviço .NET obrigatório
+acceptance_criteria:
+- id: AC-01
+  criterion: Uma investigação é explicável por trace correlacionado por investigation_id.
+- id: AC-02
+  criterion: Dashboard distingue métricas do AegisOps dos sinais do serviço investigado.
+- id: AC-03
+  criterion: Incidente controlado e procedimento de reprodução têm evidência real.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/OBSERVABILITY.md
+- deploy/
+validation:
+  automated_tests: []
+  manual_checks:
+  - Dividir instrumentação e demo no refinamento; serviço .NET é opcional.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

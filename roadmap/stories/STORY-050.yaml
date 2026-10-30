@@ -1,0 +1,46 @@
+id: STORY-050
+title: Avaliar workflow explícito e controle de estado
+epic: EPIC-005
+description: Comparar pipeline com alternativa orquestrada e manter a opção mais justificável.
+objective: Comparar pipeline com alternativa orquestrada e manter a opção mais justificável.
+context: Derivada da Etapa 5 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-041
+scope:
+  included:
+  - Experimento de estado/retomada/branches
+  - ADR da comparação
+  - Limites e falhas se adotado
+  excluded:
+  - Adotar LangGraph por obrigação
+  - Loops ilimitados
+  - Ferramentas privilegiadas
+acceptance_criteria:
+- id: AC-01
+  criterion: Comparação registra simplicidade, retomada, observabilidade e qualidade; decisão pode manter
+    pipeline.
+- id: AC-02
+  criterion: Se adotado, estado é inspecionável, iterações limitadas e falhas de etapa testadas.
+- id: AC-03
+  criterion: Nenhuma ferramenta recebe privilégio de alteração.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/architecture/workflow-evaluation.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Revisar evidência e decisão antes de incorporar dependência.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

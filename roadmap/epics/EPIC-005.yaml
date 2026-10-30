@@ -1,0 +1,21 @@
+id: EPIC-005
+title: Orquestração de agentes e controle de estado
+source_phase: 5
+objective: Avaliar necessidade de workflow explícito e adotar somente com ganho demonstrado.
+status: backlog
+priority: medium
+dependencies:
+- EPIC-004
+scope:
+- Comparação pipeline/grafo
+- Estado e falhas verificáveis se adotado
+exit_criteria:
+- Decisão de adotar ou manter pipeline tem comparação documentada.
+- 'Se adotado: sem loops ilimitados, estado inspecionável e falhas de etapa testadas.'
+stories:
+- STORY-050
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.

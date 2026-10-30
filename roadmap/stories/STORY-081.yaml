@@ -1,0 +1,45 @@
+id: STORY-081
+title: Avaliar resiliência e necessidade de workers ou filas
+epic: EPIC-008
+description: Medir falhas e capacidade antes de escolher processamento adicional.
+objective: Medir falhas e capacidade antes de escolher processamento adicional.
+context: Derivada da Etapa 8 do plano original; não há implementação desta capacidade no bootstrap.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-080
+scope:
+  included:
+  - Timeout/cancelamento
+  - Retry backoff/jitter
+  - Carga/backpressure e decisão de broker
+  excluded:
+  - Fila sem comparação
+  - DLQ sem broker
+acceptance_criteria:
+- id: AC-01
+  criterion: Falha transitória do provedor tem recuperação demonstrada com política limitada.
+- id: AC-02
+  criterion: Throughput/backpressure são medidos e sustentam adoção ou rejeição de worker/fila.
+- id: AC-03
+  criterion: Se houver broker, contratos de falha e DLQ são especificados e testados.
+technical_constraints:
+- Respeitar ADR-0001 e os limites local-first/read-only.
+- Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+deliverables:
+- doc/RELIABILITY.md
+- tests/integration/
+validation:
+  automated_tests: []
+  manual_checks:
+  - Apresentar alternativas locais/Redis/RabbitMQ/fila no banco antes da decisão.
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/decisions/open-questions.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações do escopo resolvidas.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

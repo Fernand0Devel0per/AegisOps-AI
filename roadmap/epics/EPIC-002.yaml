@@ -1,0 +1,22 @@
+id: EPIC-002
+title: Motor de triagem baseado em evidências
+source_phase: 2
+objective: Entregar a vertical determinística e integrar sua saída à API.
+status: backlog
+priority: high
+dependencies:
+- EPIC-001
+scope:
+- Regras de severidade e evidências
+- Triagem pela API e candidata v0.1.0
+exit_criteria:
+- Três cenários classificados de forma reproduzível com evidências válidas.
+- Testes de limiares, unidades, inconsistências e insuficiência; sem alegação de causa raiz.
+stories:
+- STORY-020
+- STORY-021
+references:
+- AegisOps_AI_Plano_do_Zero.md
+- doc/architecture/overview.md
+refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
+  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.
