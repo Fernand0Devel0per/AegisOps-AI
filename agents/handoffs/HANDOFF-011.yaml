@@ -4,13 +4,19 @@ story_id: STORY-011
 spec_id: SPEC-011
 source_agent: Codex — implementação de contratos
 target_agent: Product Owner e próximo agente
-status: partial
-summary: Contratos implementados e refatorados após observação do PO; entrega permanece em revisão, sem aceite final presumido.
+status: completed
+summary: Contratos locais implementados, refatorados e autorrevisados; critérios da STORY-011 validados e direções
+  da API aprovadas pelo PO registradas no ADR-0004.
 completed_work:
 - Dependência STORY-010 confirmada done; SPEC-011 e ACT-011 criadas antes da implementação e estados sincronizados.
-- Modelos imutáveis, validação local e erros estruturados implementados com biblioteca padrão; fixtures aceitas sem migração.
+- Modelos imutáveis, validação local e erros estruturados implementados com biblioteca padrão; fixtures aceitas
+  sem migração.
 - Testes cobrem entradas válidas, inconsistências, limites, referências e ausência de rede ou credenciais após setup.
 - Autorrevisão do diff e critérios realizada; revisão da entrega solicitada ao PO.
+- O PO aceitou as recomendações discutidas para a API e solicitou o registro e o encerramento da STORY-011; a observação
+  de estilo havia sido tratada na refatoração.
+- Autorrevisão final comparou o contrato, os três critérios e resultados das validações; evidências por critério
+  registradas neste handoff.
 changed_files:
 - path: agents/specs/SPEC-011.yaml
   reason: Especificar entradas, erros, limites e mapeamento de todos os ACs.
@@ -30,11 +36,26 @@ changed_files:
   reason: Sincronizar estado e ponteiros para a revisão da atividade.
 - path: agents/handoffs/HANDOFF-011.yaml
   reason: Registrar evidências, limitações e continuidade.
+- path: AGENTS.md
+  reason: Registrar a diretriz de legibilidade solicitada pelo PO.
+- path: doc/adr/0004-api-local-contratos-http.md
+  reason: Registrar escolhas aprovadas para a futura API, alternativas e verificações pendentes.
+- path: doc/adr/README.md
+  reason: Catalogar o ADR-0004.
+- path: doc/decisions/open-questions.md
+  reason: Registrar resolução da direção de Q-005 e pendências técnicas futuras.
+- path: doc/architecture/overview.md
+  reason: Atualizar a direção de framework aprovada.
 decisions_made:
-- Biblioteca padrão Python, dataclasses imutáveis e função interna de validação; nenhuma dependência estrutural nova ou decisão de transporte.
-- Aritmética racional exata para tolerância de 5xx; metadados adicionais das fixtures são ignorados e textos não têm suporte semântico verificado.
+- Biblioteca padrão Python, dataclasses imutáveis e função interna de validação; nenhuma dependência estrutural
+  nova ou decisão de transporte.
+- Aritmética racional exata para tolerância de 5xx; metadados adicionais das fixtures são ignorados e textos não
+  têm suporte semântico verificado.
 - Listas de sinais e evidências simultaneamente vazias são aceitas; resultado insuficiente pertence ao motor futuro.
-- Plano original local disponível e consultado nas seções de entidades e Etapas 0 a 2; ADR-0002 prevalece para o LLM e Pydantic é candidato não adotado. Nenhuma lacuna material identificada para esta história.
+- Plano original local disponível e consultado nas seções de entidades e Etapas 0 a 2; ADR-0002 prevalece para o
+  LLM e Pydantic é candidato não adotado. Nenhuma lacuna material identificada para esta história.
+- PO aprovou as recomendações para a API em 2026-10-31; ADR-0004 registra decisões e mantém a verificação de compatibilidade
+  e versões como trabalho futuro.
 validation:
   executed:
   - uv sync --locked --no-editable
@@ -43,17 +64,21 @@ validation:
   - uv run --offline --locked --no-sync ruff check src tests
   - uv run --offline --locked --no-sync ruff format --check src tests
   - uv run --offline --locked --no-sync mypy src tests
-  - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect, connect_ex e create_connection bloqueados.'
+  - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect,
+    connect_ex e create_connection bloqueados.'
   - python3 scripts/validate_repository.py
   - python3 scripts/validate_incidents.py
   - git diff --check
   - git diff --cached --check
   passed:
-  - check: 50 testes passaram com uv offline; repetição com ambiente limpo sem credenciais e conexões de socket bloqueadas também passou.
+  - check: 50 testes passaram com uv offline; repetição com ambiente limpo sem credenciais e conexões de socket
+      bloqueadas também passou.
     evidence: tests/unit/test_contracts.py
-  - check: Ruff check e format e mypy strict passaram; instalação normal e reinstalação offline do pacote passaram com Python 3.14.8.
+  - check: Ruff check e format e mypy strict passaram; instalação normal e reinstalação offline do pacote passaram
+      com Python 3.14.8.
     evidence: doc/DEVELOPMENT.md
-  - check: Fixtures existentes aceitas; validador documental, validador de incidentes e verificações de whitespace passaram.
+  - check: Fixtures existentes aceitas; validador documental, validador de incidentes e verificações de whitespace
+      passaram.
     evidence: agents/specs/SPEC-011.yaml
   failed: []
   not_executed:
@@ -61,28 +86,42 @@ validation:
   - 'Self-test do validador documental: não alterado nesta história.'
   - 'Motor, API, persistência e LLM: fora do escopo, não implementados.'
 review:
-  type: O PO revisou a abordagem e solicitou refatoração de legibilidade; alterações autorrevisadas pelo executor e aguardando nova revisão do PO.
-  evidence: agents/specs/SPEC-011.yaml
+  type: PO solicitou refatoração de estilo e depois aceitou as recomendações de API e pediu o fechamento; executor
+    autorrevisou código, critérios e validações. Não se atribui ao PO execução de testes ou revisão independente
+    de cada linha.
+  evidence: agents/handoffs/HANDOFF-011.yaml
 known_issues:
-- 'A sincronização não editável simples reteve uma instalação antiga durante desenvolvimento; uma execução intermediária falhou por isso. Reinstalação forçada corrigiu e a suíte final passou.'
-- 'Uma tentativa de preparar HOME temporário foi rejeitada pelo executor por incluir rm -rf; repetida com env -i e HOME=/tmp, sem remoção.'
+- A sincronização não editável simples reteve uma instalação antiga durante desenvolvimento; uma execução intermediária
+  falhou por isso. Reinstalação forçada corrigiu e a suíte final passou.
+- Uma tentativa de preparar HOME temporário foi rejeitada pelo executor por incluir rm -rf; repetida com env -i
+  e HOME=/tmp, sem remoção.
 - O uv emitiu aviso ao procurar symlink do Python base; instalação e testes concluíram com sucesso.
-- Agregação, origem e resumo são textos não vazios, sem verificação semântica; referências existentes não provam causalidade ou verdade.
-- A função recebe objeto já decodificado; o tratamento de JSON malformado ou chaves repetidas no texto é responsabilidade da fronteira futura.
+- Agregação, origem e resumo são textos não vazios, sem verificação semântica; referências existentes não provam
+  causalidade ou verdade.
+- A função recebe objeto já decodificado; o tratamento de JSON malformado ou chaves repetidas no texto é responsabilidade
+  da fronteira futura.
 pending_work:
-- Nova revisão da entrega refatorada pelo PO; tratar observações antes de concluir atividade e história.
-- Q-005 mantém decisões de rota e formato de erro de transporte para história posterior.
+- STORY-012 permanece em backlog e exige refinamento, especificação e atividade próprias antes da execução.
+- Antes de adotar a stack HTTP, verificar versões e compatibilidade com Python 3.14.8 e registrar evidência e lockfile
+  conforme ADR-0004.
+- Detalhar na STORY-012 limites e forma de transporte, servidor ASGI e comportamento de saúde; CLI permanece decisão
+  futura.
 next_steps:
-- Revisar SPEC-011, código, testes e evidências; registrar resultado e concluir somente após revisão e observações resolvidas.
-- Só então preparar a STORY-012, sem iniciá-la nesta atividade.
+- Quando a STORY-012 for autorizada, criar ou retomar feat/story-012, refinar história e preparar SPEC e ACT antes
+  de implementar.
+- Preservar os ponteiros atuais até existirem os novos contratos; ler ADR-0004 e distinguir decisões aceitas de
+  detalhes ainda não verificados.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
 maintenance_updates:
 - date: '2026-10-31'
-  authorization: O PO solicitou métodos pequenos, predicados para condições complexas e laços encapsulados, inspirados nas refatorações de Martin Fowler, além de registrar o padrão nas instruções dos agentes.
-  summary: Contratos reorganizados em etapas, laços e predicados nomeados, preservando interface, resultados e ordem de erros; diretriz adicionada a AGENTS.md.
+  authorization: O PO solicitou métodos pequenos, predicados para condições complexas e laços encapsulados, inspirados
+    nas refatorações de Martin Fowler, além de registrar o padrão nas instruções dos agentes.
+  summary: Contratos reorganizados em etapas, laços e predicados nomeados, preservando interface, resultados e ordem
+    de erros; diretriz adicionada a AGENTS.md.
   changed_files:
   - path: AGENTS.md
     reason: Registrar a preferência de legibilidade e refatoração para futuras atividades.
@@ -99,19 +138,60 @@ maintenance_updates:
     - uv run --offline --locked --no-sync ruff check src tests
     - uv run --offline --locked --no-sync ruff format --check src tests
     - uv run --offline --locked --no-sync mypy src tests
-    - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect, connect_ex e create_connection bloqueados.'
+    - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect,
+      connect_ex e create_connection bloqueados.'
     - python3 scripts/validate_repository.py
     - python3 scripts/validate_incidents.py
     - git diff --check
     - git diff --cached --check
-    - 'Comparação local por script temporário em memória: implementação no commit 761b987 versus arquivo refatorado em 2005 entradas, com mutações determinísticas e resultados/ordem dos erros comparados.'
+    - 'Comparação local por script temporário em memória: implementação no commit 761b987 versus arquivo refatorado
+      em 2005 entradas, com mutações determinísticas e resultados/ordem dos erros comparados.'
     passed:
-    - '51 testes passaram, inclusive com ambiente limpo e conexões de socket bloqueadas; Ruff e mypy passaram.'
-    - '2005 entradas comparadas sem divergência; a comparação é amostral, não prova equivalência para todas as entradas.'
-    - 'Validador documental, validador das três fixtures e verificações de whitespace passaram.'
+    - 51 testes passaram, inclusive com ambiente limpo e conexões de socket bloqueadas; Ruff e mypy passaram.
+    - 2005 entradas comparadas sem divergência; a comparação é amostral, não prova equivalência para todas as entradas.
+    - Validador documental, validador das três fixtures e verificações de whitespace passaram.
     failed: []
     not_executed:
     - 'CI remota da refatoração: sem push autorizado.'
     - 'Self-test do validador documental: não alterado.'
   pending_work:
   - Nova revisão do PO antes de concluir ACT-011 e STORY-011.
+- date: '2026-10-31'
+  authorization: PO examinou e aceitou as recomendações de API e solicitou registrar decisões e tratar o fechamento
+    da STORY-011.
+  summary: Registrado ADR-0004 aceito; Q-005 atualizada, observação de estilo considerada resolvida após refatoração,
+    autorrevisão realizada e história e atividade concluídas.
+  validation:
+    executed:
+    - uv run --offline --locked --no-sync pytest -q
+    - uv run --offline --locked --no-sync ruff check src tests
+    - uv run --offline --locked --no-sync ruff format --check src tests
+    - uv run --offline --locked --no-sync mypy src tests
+    - env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python com pytest -q e métodos
+      de conexão de socket bloqueados
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - git diff --check
+    - git diff --cached --check
+    - Autorrevisão do contrato, dos critérios e da documentação pelo executor.
+    passed:
+    - 51 testes passaram offline e no ambiente sem credenciais com métodos de conexão de socket bloqueados; Ruff
+      e mypy passaram.
+    - Validador de três fixtures, validador documental e checks de whitespace passaram.
+    - Autorrevisão constatou evidências para os três ACs, sem atribuir execução de testes ao PO.
+    failed: []
+    not_executed:
+    - 'CI remota destas mudanças: sem push autorizado.'
+    - 'Self-test do validador documental: o script não foi alterado.'
+    - 'Compatibilidade, instalação ou testes da futura stack HTTP: não executados nesta atividade; pendentes antes
+      da adoção.'
+acceptance_evidence:
+- criterion_id: AC-01
+  result: Três fixtures originais aceitas sem migração; testes parametrizados passaram.
+  evidence: tests/unit/test_contracts.py
+- criterion_id: AC-02
+  result: Casos de unidades, valores, períodos, contagens, IDs, referências e ordenação de erros passaram.
+  evidence: tests/unit/test_contracts.py
+- criterion_id: AC-03
+  result: 51 testes passaram offline após setup e em ambiente sem credenciais com métodos de conexão de socket bloqueados.
+  evidence: agents/handoffs/HANDOFF-011.yaml

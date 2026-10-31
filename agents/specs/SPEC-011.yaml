@@ -53,11 +53,12 @@ acceptance_mapping:
   validation: Instalar e executar testes e ferramentas com uv offline após setup, sem credenciais.
   evidence: agents/handoffs/HANDOFF-011.yaml
 open_questions:
-- Q-005 mantém rota e formato de transporte para a história da API; erros internos são limitados a esta interface Python.
+- Q-005: direção da API aceita no ADR-0004; versões, compatibilidade e detalhes HTTP permanecem para a STORY-012.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
 references:
 - AGENTS.md
 - roadmap/stories/STORY-011.yaml

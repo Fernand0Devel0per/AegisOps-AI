@@ -33,7 +33,7 @@ O primeiro comando usa PyYAML e funciona sem o plano original local ignorado pel
 
 ## Contratos de entrada locais
 
-`aegisops.contracts.validate_incident` recebe um objeto Python já decodificado de JSON e devolve um `Incident` imutável com sinais, evidências e períodos, ou lança `InvalidIncident`. A exceção tem `state == "entrada_invalida"` e `errors` com caminhos e códigos estáveis, sem os valores recebidos; nenhum incidente parcial é devolvido. O chamador deve usar essa função como fronteira de validação: construir dataclasses diretamente não valida dados. O formato de transporte e as respostas da API permanecem para histórias futuras (Q-005).
+`aegisops.contracts.validate_incident` recebe um objeto Python já decodificado de JSON e devolve um `Incident` imutável com sinais, evidências e períodos, ou lança `InvalidIncident`. A exceção tem `state == "entrada_invalida"` e `errors` com caminhos e códigos estáveis, sem os valores recebidos; nenhum incidente parcial é devolvido. O chamador deve usar essa função como fronteira de validação: construir dataclasses diretamente não valida dados. A direção das rotas, dos erros HTTP e do framework foi aceita no [ADR-0004](adr/0004-api-local-contratos-http.md); implementação, versões e detalhes de transporte permanecem para a STORY-012.
 
 ```python
 import json

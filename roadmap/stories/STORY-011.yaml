@@ -5,7 +5,7 @@ description: Transformar os requisitos aceitos em contratos de entrada e erro va
 objective: Transformar os requisitos aceitos em contratos de entrada e erro validados.
 context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-010
@@ -55,6 +55,7 @@ references:
 - doc/REQUIREMENTS.md
 - doc/adr/0003-ambiente-python-qualidade.md
 - agents/handoffs/HANDOFF-011.yaml
+- doc/adr/0004-api-local-contratos-http.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.

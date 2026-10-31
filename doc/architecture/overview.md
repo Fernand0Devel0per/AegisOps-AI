@@ -30,7 +30,7 @@ Esses são papéis lógicos, não serviços separados. A primeira implementaçã
 
 | Necessidade | Direção do plano | Gate |
 |---|---|---|
-| Linguagem e API | Python; FastAPI/Pydantic preferenciais | Etapa 1; ADR antes de dependências estruturais |
+| Linguagem e API | Python aprovado; FastAPI escolhido para a API futura | [ADR-0004](../adr/0004-api-local-contratos-http.md); verificar versões e compatibilidade antes da adoção |
 | Qualidade | Pytest, Ruff, type checker; `uv` ou equivalente | Setup mínimo, sem banco/fila |
 | Conhecimento | Markdown e busca lexical | Baseline e dataset rotulado antes de embeddings |
 | Explicação probabilística | Colibri e modelo local; modelo definitivo a avaliar | Núcleo determinístico, fallback e avaliação antes da adoção |
