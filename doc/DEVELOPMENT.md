@@ -29,4 +29,4 @@ python3 scripts/validate_repository.py
 python3 scripts/validate_incidents.py
 ```
 
-O primeiro comando usa PyYAML e depende do plano original local ignorado pelo Git. Um clone público sem esse arquivo não consegue executá-lo até a migração das referências, conforme Q-014. O segundo usa a biblioteca padrão e valida as fixtures sem implementar triagem. Detalhes estão no [guia de validação](standards/validation.md) e em [INCIDENTS](INCIDENTS.md).
+O primeiro comando usa PyYAML e funciona sem o plano original local ignorado pelo Git. Referências históricas a esse arquivo não são verificadas e seus links podem não abrir em clones; Q-014 acompanha a migração dessas referências. O segundo usa a biblioteca padrão e valida as fixtures sem implementar triagem. Detalhes estão no [guia de validação](standards/validation.md) e em [INCIDENTS](INCIDENTS.md).

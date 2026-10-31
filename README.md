@@ -103,7 +103,7 @@ Para validar esta documentação, use Python 3 com PyYAML. Se precisar de ambien
 python3 scripts/validate_repository.py
 ```
 
-O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`; suas referências e a dependência do validador precisam ser migradas para documentos públicos antes da publicação. A validação de documentos não substitui testes da futura aplicação.
+O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`. O validador não exige esse arquivo; links históricos para ele podem não abrir em clones e sua migração continua em Q-014. A validação de documentos não substitui testes da futura aplicação.
 
 ## Decisões e limites
 
