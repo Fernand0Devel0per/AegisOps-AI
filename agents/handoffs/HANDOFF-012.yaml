@@ -4,8 +4,8 @@ story_id: STORY-012
 spec_id: SPEC-012
 source_agent: Codex — implementação da primeira API
 target_agent: Product Owner e próximo agente
-status: partial
-summary: Consulta local e health implementados; CI remota passou no commit 0df38a3; revisão da entrega permanece pendente.
+status: completed
+summary: Consulta local e health concluídos, CI remota observada e fechamento autorizado pelo PO.
 completed_work:
 - Fetch de origin realizado; origin/main em 4704852, com STORY-011 done, já era ancestral da branch; três commits próprios preservados.
 - Plano local, decisões, contratos, fixtures e workflow consultados; SPEC-012 e ACT-012 criadas antes da implementação e critérios mapeados.
@@ -72,11 +72,11 @@ validation:
     evidence: agents/handoffs/HANDOFF-012.yaml
   failed: []
   not_executed:
-  - CI remota desta alteração não executada ou observada; não houve push autorizado. AC-03 permanece parcialmente demonstrado.
+  - Na entrega inicial, CI remota não havia sido executada nem observada; execução posterior registrada em maintenance_updates.
   - Self-test do validador documental não executado porque seu código não mudou.
   - Triagem, LLM, persistência e operação distribuída estão fora do escopo.
 review:
-  type: Autorrevisão pelo executor, sem revisão independente ou aprovação humana presumida.
+  type: Autorrevisão pelo executor; PO informou ter finalizado o PR e autorizou concluir STORY-012 e EPIC-001. Não se presume revisão independente de cada linha ou execução de testes pelo PO.
   evidence: agents/handoffs/HANDOFF-012.yaml
 known_issues:
 - A primeira execução de Ruff e mypy identificou formatação, captura ampla e tipo de cabeçalho; corrigidos e verificações repetidas com sucesso.
@@ -85,11 +85,10 @@ known_issues:
 - Contrato de domínio não limita IDs; clientes e servidores podem impor limites de URL e normalizar caminhos.
 - Respostas apresentam dados sintéticos validados estruturalmente; referências não comprovam causalidade nem conteúdo semântico.
 pending_work:
-- PO revisar a entrega e registrar/resolver observações; não há revisão humana presumida.
-- Conferir os checks do head mais recente do PR e concluir a revisão antes de avaliar o DoD e fechamento.
+- STORY-020 permanece em backlog e requer refinamento, SPEC e ACT antes de execução.
 next_steps:
-- Ler SPEC-012, ACT-012, este handoff e o diff; solicitar ou realizar revisão da entrega.
-- Não avançar STORY-020 nem marcar STORY-012 done enquanto critérios e DoD estiverem pendentes.
+- Após integrar este fechamento à base escolhida, refinar STORY-020 na branch apropriada, se autorizada.
+- Manter os ponteiros atuais até existirem os novos contratos, conforme o índice.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -185,3 +184,53 @@ maintenance_updates:
   pending_work:
   - Revisar PR 3, confirmar checks do head mais recente, registrar conclusão dos critérios e resolver pendências antes de marcar STORY-012 done.
   - Antes de iniciar STORY-020, verificar conclusão da STORY-012 e o gate do EPIC-001 na base escolhida.
+- date: '2026-10-31'
+  authorization: PO informou que finalizou o PR e autorizou registrar STORY-012 e EPIC-001 como done e integrar o fechamento.
+  summary: Critérios da história e do épico conferidos contra documentação, testes, CI remota e decisão do PO; estados e referências sincronizados.
+  changed_files:
+  - path: agents/handoffs/HANDOFF-012.yaml
+    reason: Registrar decisão, evidências e continuidade, mantendo histórico das pendências anteriores.
+  - path: agents/activities/ACT-012.yaml
+    reason: Concluir atividade após validação e decisão do PO.
+  - path: roadmap/stories/STORY-012.yaml
+    reason: Concluir história e atualizar evidência de CI.
+  - path: roadmap/epics/EPIC-001.yaml
+    reason: Registrar cumprimento dos critérios de saída e fechar o épico.
+  - path: roadmap/index.yaml
+    reason: Sincronizar estados e fase, preservando ponteiros até existirem contratos da STORY-020.
+  - path: README.md
+    reason: Apresentar a API como entrega concluída.
+  - path: doc/DEVELOPMENT.md
+    reason: Atualizar estado da STORY-012.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar Q-005 com a API concluída, sem presumir decisão de CLI.
+  acceptance_evidence:
+  - criterion: AC-01
+    result: Uvicorn em loopback respondeu health e INC-001 com 200; comandos reproduzíveis e catálogo instalado documentados.
+    evidence: doc/DEVELOPMENT.md
+  - criterion: AC-02
+    result: Testes HTTP cobrem ID inválido e incidente inexistente com Problem Details; testes passaram na CI.
+    evidence: tests/integration/test_api.py
+  - criterion: AC-03
+    result: Quality do PR 3 no head 3b5ffe8 passou com 67 testes, sem configuração de credenciais de produto; execução e logs disponíveis em https://github.com/Fernand0Devel0per/AegisOps-AI/actions/runs/41241104395.
+    evidence: .github/workflows/quality.yml
+  - criterion: EPIC-001
+    result: Execução local documentada e testes de API, inclusive entrada inválida, passaram no workflow remoto; PO autorizou fechamento.
+    evidence: roadmap/epics/EPIC-001.yaml
+  validation:
+    executed:
+    - gh pr view 3 e gh pr checks 3, repositório Fernand0Devel0per/AegisOps-AI.
+    - gh run view 41241104395 com headSha, evento, estado e conclusão.
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - git diff --check
+    - git diff --cached --check
+    passed:
+    - PR 3 mesclado em 3b9d48d; Quality do head 3b5ffe8 concluído com sucesso, incluindo testes da API e Pyright.
+    - Autorrevisão documental pelo executor comparou critérios, resultados e estados; PO autorizou os fechamentos sem declaração de revisão de cada linha.
+    - Validador documental, validador das fixtures e verificações de whitespace passaram no fechamento.
+    not_executed:
+    - Testes de aplicação não foram repetidos no fechamento exclusivamente documental; a execução remota citada testou o código entregue.
+    - Self-test do validador documental não foi executado porque seu código não mudou.
+  pending_work:
+  - Integrar este fechamento à base e refinar STORY-020 quando autorizada; não antecipar os contratos ainda inexistentes.

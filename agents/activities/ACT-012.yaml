@@ -3,7 +3,7 @@ story_id: STORY-012
 spec_id: SPEC-012
 title: Implementar consulta local e saúde por HTTP
 objective: Entregar consulta read-only das fixtures e health pela primeira API com erros estruturados.
-status: in_review
+status: completed
 agent:
   role: Agente de implementação Python
   responsibility: Implementar exclusivamente a API e validações da STORY-012 conforme SPEC-012.
