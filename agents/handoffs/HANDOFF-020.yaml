@@ -1,0 +1,104 @@
+id: HANDOFF-020
+activity_id: ACT-020
+story_id: STORY-020
+spec_id: SPEC-020
+source_agent: Codex — implementação e autorrevisão
+target_agent: Product Owner ou revisor da STORY-020
+status: partial
+summary: Núcleo determinístico implementado e validado localmente; entrega em revisão, sem declarar a história concluída.
+completed_work:
+- Atualizado origin por fetch e verificado PR 3 merged, ancestral de origin/main em 5d459e9; PR 4 integrou o fechamento dos estados.
+- Conferidos STORY-012 e EPIC-001 done, evidências e autorização do PO em HANDOFF-012; base incorporada à branch existente sem reescrever seu histórico.
+- Lidos requisitos, incidentes, três fixtures, contratos existentes, ADRs, padrões e trechos pertinentes do plano original local; nenhuma lacuna material identificada.
+- SPEC-020 e ACT-020 preparadas antes do código; critérios de aceite, interface e testes mapeados.
+- Triagem valida toda entrada pelo contrato STORY-011, calcula nível por sinal e máximo, seleciona evidência e sinaliza métricas ausentes ou insuficiência.
+- Testes confrontam as três fixtures, fronteiras, unidades, janelas, seleção, inconsistências, ausência de dados e resultados sem alegações causais.
+- Autorrevisão identificada do executor comparou a tabela aceita, o código, testes e diff; solicitada revisão ao PO na entrega desta atividade.
+changed_files:
+- path: agents/specs/SPEC-020.yaml
+  reason: Registrar contratos e mapeamento dos três critérios antes da execução.
+- path: agents/activities/ACT-020.yaml
+  reason: Delimitar atividade, validação e estado de revisão.
+- path: src/aegisops/triage.py
+  reason: Implementar núcleo determinístico separado do transporte.
+- path: tests/unit/test_triage.py
+  reason: Verificar classificação, referências, fronteiras e falhas.
+- path: README.md
+  reason: Distinguir núcleo em revisão e integração futura.
+- path: doc/DEVELOPMENT.md
+  reason: Documentar interface, limitações e reprodução.
+- path: doc/REQUIREMENTS.md
+  reason: Atualizar somente o estado de implementação, preservando regras aceitas.
+- path: doc/decisions/open-questions.md
+  reason: Registrar resolução de Q-017 com evidência do fechamento na base.
+- path: roadmap/epics/EPIC-002.yaml
+  reason: Marcar épico em andamento após início da primeira história.
+- path: roadmap/stories/STORY-020.yaml
+  reason: Registrar refinamento, validações e estado em revisão.
+- path: roadmap/index.yaml
+  reason: Sincronizar estados e ponteiros com a atividade.
+- path: agents/handoffs/HANDOFF-020.yaml
+  reason: Registrar resultados, limites e continuidade.
+decisions_made:
+- Interface pública aceita objeto decodificado, valida antes de calcular e propaga InvalidIncident sem saída parcial; não aceita dataclasses construídas diretamente.
+- Observações preservam ordem dos sinais e escolhem menor ID de evidência; limitações seguem ordem fixa das métricas e avisam sobre classificação parcial.
+- Resultado imutável informa explicação nao_solicitada; frases canônicas, LLM e integração à API pertencem à STORY-021.
+- O aviso anterior de bloqueio pertence ao histórico da branch; o PO já registrou conclusão do gate em HANDOFF-012.
+acceptance_evidence:
+- criterion: AC-01
+  result: As três fixtures reproduzem media, alta e alta, níveis por sinal e todas as referências esperadas; execução repetida produz resultado igual.
+  evidence: tests/unit/test_triage.py
+- criterion: AC-02
+  result: Testes cobrem cada fronteira, unidades, janela, sobreposição, ausências, contagens 5xx, integridade e precedência de invalidez.
+  evidence: tests/unit/test_triage.py
+- criterion: AC-03
+  result: Entrada vazia válida produz insuficiente; inválida propaga erros sem resultado; observações estruturadas não incluem hipóteses ou afirmações causais.
+  evidence: tests/unit/test_triage.py
+validation:
+  executed:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: 98 testes passaram offline após reinstalação não editável do pacote alterado; fixtures e testes anteriores incluídos.
+    evidence: tests/unit/test_triage.py
+  - check: Ruff check e format, mypy e Pyright passaram; Pyright apresentou aviso conhecido sobre resolução de yaml, sem erros.
+    evidence: pyproject.toml
+  - check: Validadores documental e das três fixtures passaram; scripts de incidentes validam estrutura e não substituem os testes de severidade.
+    evidence: scripts/validate_incidents.py
+  - check: Autorrevisão do executor comparou regras de REQUIREMENTS, observações e referências com os três cenários; sem revisão independente presumida.
+    evidence: agents/specs/SPEC-020.yaml
+  failed: []
+  not_executed:
+  - CI remota da STORY-020 não executada; push e PR não autorizados.
+  - Revisão independente e aceite do PO ainda não ocorreram; solicitar revisão da entrega concreta.
+  - Self-test do validador documental não executado pois seu código não foi alterado.
+  - Integração de triagem à API, explicação e fallback não testados pois pertencem à STORY-021.
+review:
+  type: Autorrevisão pelo executor; revisão independente e decisão do PO pendentes.
+  evidence: agents/handoffs/HANDOFF-020.yaml
+known_issues:
+- Na primeira rodada, Ruff format e mypy apontaram formatação e inferência de tipo; ambas corrigidas e verificações passaram na rodada final.
+- Instalação uv concluiu com aviso sobre leitura de symlink do Python base; Pyright relatou aviso conhecido de yaml no script documental.
+- Referências resolvíveis não comprovam verdade ou suporte semântico; limiares são sintéticos, não parâmetros de produção.
+- Exclusão preexistente de agents/handoffs/STORY-020-blocked.md permanece não preparada; exclusão preexistente específica da branch feat/story-021 preservada em stash identificado para reaplicação nessa branch.
+pending_work:
+- Revisar a implementação, contratos, testes e evidências; resolver observações antes de avaliar fechamento da STORY-020.
+- Após revisão, atualizar handoff, atividade e estados sem presumir autorização para push ou PR.
+next_steps:
+- Revisor examina SPEC-020, ACT-020, triage.py, testes e diff da branch.
+- Manter STORY-021 em backlog até cumprir DoD da STORY-020.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0005-verificacao-deprecacao-tipos.md

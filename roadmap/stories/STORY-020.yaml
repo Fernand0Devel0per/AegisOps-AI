@@ -5,8 +5,8 @@ description: Classificar os cenários por regras determinísticas e evidências 
 objective: Classificar os cenários por regras determinísticas e evidências rastreáveis, sem usar LLM para definir severidade.
 context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-012
 scope:
@@ -33,10 +33,23 @@ deliverables:
 - src/aegisops/
 - tests/unit/
 validation:
-  automated_tests: []
+  automated_tests:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
   manual_checks:
   - Conferir evidências e resultado contra os cenários aceitos.
 references:
+- agents/specs/SPEC-020.yaml
+- agents/activities/ACT-020.yaml
+- agents/handoffs/HANDOFF-012.yaml
+- agents/handoffs/HANDOFF-020.yaml
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

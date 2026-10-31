@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu a consulta HTTP local e saúde; ainda não há motor ou integração com LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
+A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu a consulta HTTP local e saúde; a STORY-020 implementa o núcleo de triagem em revisão, sem integração à API ou ao LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
 
 ## Pré-requisitos
 
@@ -50,7 +50,7 @@ else:
     print(incident.id, len(incident.signals))
 ```
 
-O contrato aplica as métricas, unidades, intervalos UTC, períodos, domínios, tolerância absoluta de 0,000001 ponto percentual para 5xx e referências definidos em [requisitos](REQUIREMENTS.md). IDs são textos não vazios e únicos entre incidente, sinais e evidências dentro da entrada. Uma lista vazia de sinais e outra de evidências é aceita; a decisão futura de retornar `insuficiente` não é implementada aqui. Campos textuais de agregação, origem e resumo são exigidos, mas sua veracidade e semântica não são verificadas. Campos adicionais, inclusive `expected` e `limitations` das fixtures, são ignorados e não fazem parte do modelo. A referência resolvível não comprova causalidade nem o suporte semântico do resumo.
+O contrato aplica as métricas, unidades, intervalos UTC, períodos, domínios, tolerância absoluta de 0,000001 ponto percentual para 5xx e referências definidos em [requisitos](REQUIREMENTS.md). IDs são textos não vazios e únicos entre incidente, sinais e evidências dentro da entrada. Uma lista vazia de sinais e outra de evidências é aceita; o núcleo de triagem retorna `insuficiente` para essa entrada. Campos textuais de agregação, origem e resumo são exigidos, mas sua veracidade e semântica não são verificadas. Campos adicionais, inclusive `expected` e `limitations` das fixtures, são ignorados e não fazem parte do modelo. A referência resolvível não comprova causalidade nem o suporte semântico do resumo.
 
 Depois do setup e com artefatos de build em cache, a reinstalação e os testes podem rodar sem rede:
 
@@ -62,6 +62,27 @@ uv run --offline --locked --no-sync ruff format --check src tests
 uv run --offline --locked --no-sync mypy src tests
 uv run --offline --locked --no-sync pyright
 ```
+
+## Núcleo local de triagem
+
+`aegisops.triage.triage_incident(data)` recebe o objeto Python decodificado e chama `validate_incident` antes de classificar. Não aceite dataclasses construídas manualmente como dados validados: a interface recebe o objeto de entrada e rejeita instâncias em desacordo com o contrato. `InvalidIncident` é propagada com `state` e `errors` originais, sem resultado parcial nem valores recebidos.
+
+```python
+import json
+from pathlib import Path
+from aegisops.triage import triage_incident
+
+data = json.loads(Path("datasets/incidents/inc-001-latencia.json").read_text())
+result = triage_incident(data)
+print(result.state, result.severity)  # classificado media
+for item in result.observations:
+    print(item.signal_id, item.value, item.unit, item.level, item.evidence_id)
+print(result.limitations)
+```
+
+O resultado imutável contém `incident_id`, `state`, `severity`, `observations`, `limitations` e `explanation_state`. Cada observação contém o sinal, métrica, valor, unidade, período, nível e a evidência associada com menor ID lexicográfico; a ordem segue os sinais da entrada. A severidade é o máximo dos níveis, sem combinar períodos nem calcular médias de percentis. Os limiares e unidades são os exemplos sintéticos de [requisitos](REQUIREMENTS.md), não política operacional.
+
+Sem sinais e evidências, o resultado é `insuficiente`, sem severidade e com limitação explícita. Para uma entrada classificável, cada métrica ausente aparece nas limitações; classificação parcial não demonstra ausência de degradação. `explanation_state` é `nao_solicitada`: frases canônicas, verificação e explicação com LLM pertencem à STORY-021. Observações não são hipóteses, não estabelecem causalidade nem recomendam remediação; uma referência válida não prova a veracidade do dado ou do resumo. Este núcleo não está conectado à API.
 
 ## Depreciação de tipos de geradores assíncronos
 
