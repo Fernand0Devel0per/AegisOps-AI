@@ -4,7 +4,7 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 1
 next_story: STORY-012
 next_activity: ACT-012
-next_step_note: STORY-012 em revisão; execução remota de CI e revisão da entrega pendentes.
+next_step_note: STORY-012 em revisão; CI remota passou em 0df38a3, revisão e checks do head mais recente pendentes.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos

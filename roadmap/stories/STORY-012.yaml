@@ -45,7 +45,7 @@ refinement_notes:
 - Health e validação do catálogo no startup estão especificados em SPEC-012 e testados.
 - O workflow inclui a suíte de API; execução remota ainda precisa ser observada para AC-03.
 - SPEC-012 e ACT-012 preparadas; seleção de versões e teste isolado registrados no HANDOFF-012.
-- Revisão da entrega e execução remota de CI desta alteração permanecem pendentes.
+- Quality remoto passou no commit 0df38a3; revisão da entrega e checks do head mais recente permanecem pendentes.
 deliverables:
 - src/aegisops/
 - tests/integration/

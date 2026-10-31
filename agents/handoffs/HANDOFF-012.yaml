@@ -5,7 +5,7 @@ spec_id: SPEC-012
 source_agent: Codex — implementação da primeira API
 target_agent: Product Owner e próximo agente
 status: partial
-summary: Consulta local e health implementados e validados localmente; revisão e execução remota da CI desta alteração pendentes.
+summary: Consulta local e health implementados; CI remota passou no commit 0df38a3; revisão da entrega permanece pendente.
 completed_work:
 - Fetch de origin realizado; origin/main em 4704852, com STORY-011 done, já era ancestral da branch; três commits próprios preservados.
 - Plano local, decisões, contratos, fixtures e workflow consultados; SPEC-012 e ACT-012 criadas antes da implementação e critérios mapeados.
@@ -86,7 +86,7 @@ known_issues:
 - Respostas apresentam dados sintéticos validados estruturalmente; referências não comprovam causalidade nem conteúdo semântico.
 pending_work:
 - PO revisar a entrega e registrar/resolver observações; não há revisão humana presumida.
-- Após autorização específica para publicação, executar e observar Quality remotamente para o commit da entrega, registrar evidência de AC-03 e só então avaliar DoD e fechamento.
+- Conferir os checks do head mais recente do PR e concluir a revisão antes de avaliar o DoD e fechamento.
 next_steps:
 - Ler SPEC-012, ACT-012, este handoff e o diff; solicitar ou realizar revisão da entrega.
 - Não avançar STORY-020 nem marcar STORY-012 done enquanto critérios e DoD estiverem pendentes.
@@ -160,4 +160,28 @@ maintenance_updates:
   - A primeira execução de Ruff indicou UP043; uma exceção pontual de estilo foi documentada para a anotação explícita, sem suprimir reportDeprecated.
   review: Autorrevisão do executor; revisão independente e validação remota não presumidas.
   pending_work:
-  - Solicitar revisão da manutenção e da entrega STORY-012; manter in_review até observação da CI e cumprimento do DoD.
+  - Solicitar revisão da manutenção e da entrega STORY-012; a execução remota posterior está registrada na atualização seguinte.
+- date: '2026-10-31'
+  authorization: PO autorizou push e abertura do PR; não foi autorizado merge nem registrada aprovação da revisão.
+  summary: Branch publicada e PR 3 aberto; Quality do evento pull_request passou para o commit 0df38a3.
+  changed_files:
+  - path: agents/handoffs/HANDOFF-012.yaml
+    reason: Registrar a publicação e a evidência remota, preservando os relatos anteriores de que CI ainda não havia ocorrido.
+  - path: roadmap/stories/STORY-012.yaml
+    reason: Atualizar pendências sem antecipar a conclusão da história.
+  - path: roadmap/index.yaml
+    reason: Sincronizar nota de continuidade com a história em revisão.
+  validation:
+    executed:
+    - gh run watch 41241045293 --repo Fernand0Devel0per/AegisOps-AI --exit-status
+    - python3 scripts/validate_repository.py
+    - git diff --check
+    - git diff --cached --check
+    passed:
+    - Quality no PR 3 passou no commit 0df38a355393a16108724ad2f78f17427e5202f7, incluindo instalação travada, 67 testes, Ruff, mypy e Pyright. Execução https://github.com/Fernand0Devel0per/AegisOps-AI/actions/runs/41241045293.
+    not_executed:
+    - O commit documental que registra esta evidência é posterior à execução citada; verificar checks do head mais recente no PR.
+    - Revisão humana e merge não foram realizados nem presumidos.
+  pending_work:
+  - Revisar PR 3, confirmar checks do head mais recente, registrar conclusão dos critérios e resolver pendências antes de marcar STORY-012 done.
+  - Antes de iniciar STORY-020, verificar conclusão da STORY-012 e o gate do EPIC-001 na base escolhida.
