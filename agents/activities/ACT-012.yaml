@@ -1,0 +1,50 @@
+id: ACT-012
+story_id: STORY-012
+spec_id: SPEC-012
+title: Implementar consulta local e saúde por HTTP
+objective: Entregar consulta read-only das fixtures e health pela primeira API com erros estruturados.
+status: in_review
+agent:
+  role: Agente de implementação Python
+  responsibility: Implementar exclusivamente a API e validações da STORY-012 conforme SPEC-012.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-012.yaml
+- agents/specs/SPEC-012.yaml
+- agents/handoffs/HANDOFF-011.yaml
+- doc/adr/0004-api-local-contratos-http.md
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+expected_outputs:
+- src/aegisops/api.py
+- tests/integration/test_api.py
+- doc/DEVELOPMENT.md
+- agents/handoffs/HANDOFF-012.yaml
+constraints:
+- Preservar o núcleo determinístico, IDs de domínio, fixtures, histórico Git e limites read-only/local-first.
+- Sem triagem, LLM, escrita, autenticação empresarial, banco, filas, jobs ou publicação.
+- Validar dependências em Python 3.14.8 antes de adotá-las; registrar versões e lockfile.
+execution_steps:
+- Preparar especificação e atividade e sincronizar estados antes da implementação.
+- Implementar catálogo instalado, startup, rotas, erros, testes e documentação.
+- Executar validações, autorrevisar, solicitar revisão e produzir handoff com pendências.
+validation:
+  commands:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Instalação e verificações passam; API e testes não exigem rede ou credenciais após setup.
+dependencies:
+- ACT-011
+handoff_required: true
+references:
+- doc/standards/validation.md

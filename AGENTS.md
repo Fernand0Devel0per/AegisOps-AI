@@ -59,6 +59,7 @@ Use `doc/` como caminho canônico, inclusive para os futuros `doc/PRODUCT.md` e 
 - **Segurança por padrão:** nenhuma credencial em código, fixtures ou logs. Restringir ferramentas, entradas, tempo, volume e ciclos; sanear telemetria. Evidência inválida não pode virar afirmação confiável.
 - **Erros:** distinguir entrada inválida, falta de evidência, falha de provedor e falha interna. Documentar contratos e comportamento de fallback; não engolir erros nem depender só de LLM para políticas críticas.
 - **Observabilidade:** planejar correlação por investigação e registros estruturados desde os contratos. Introduzir instrumentação progressivamente, sem implantar a stack completa antes da necessidade.
+- **Tipagem de geradores assíncronos:** funções decoradas com `@asynccontextmanager` devem declarar `collections.abc.AsyncGenerator[T, None]`, não `AsyncIterator[T]`. Execute `uv run --offline --locked --no-sync pyright` após o setup para verificar deprecações como erro em `src/`, `tests/` e `scripts/`.
 - **Testabilidade:** lógica determinística isolável de I/O, relógio e provedor probabilístico quando esses elementos existirem; fixtures controladas e cenários de falha verificáveis.
 - **Documentação:** atualizar comportamento público e artefatos junto da entrega. Registrar fontes e distinguir decisão aceita de candidata.
 - **Dependências:** justificar nova ferramenta, verificar compatibilidade e registrar versões/lockfile quando a stack for estabelecida. Não instalar toda a lista candidata do plano. Dependência estrutural exige ADR.

@@ -3,10 +3,14 @@ title: Expor consulta de incidentes e saúde pela primeira API
 epic: EPIC-001
 description: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
 objective: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
-context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
+context: >-
+  Derivada da Etapa 1 do plano original. A STORY-011 concluiu contratos locais
+  independentes de transporte; a primeira API ainda não foi implementada. O PO
+  aceitou a direção da API no ADR-0004; versões e compatibilidade da stack
+  HTTP foram verificadas em ambiente isolado conforme HANDOFF-012.
 priority: high
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-011
 scope:
@@ -22,7 +26,7 @@ acceptance_criteria:
 - id: AC-01
   criterion: Comandos documentados iniciam a API e consultam um incidente sintético e health.
 - id: AC-02
-  criterion: Entrada inválida e incidente inexistente retornam erros estruturados e testados.
+  criterion: Entrada inválida, como ID composto somente por espaços, e incidente inexistente retornam erros estruturados e testados.
 - id: AC-03
   criterion: Testes da API executam em CI sem credenciais; configurações sensíveis não aparecem em repositório/logs.
 technical_constraints:
@@ -30,19 +34,47 @@ technical_constraints:
   pelo ADR-0002; manter os limites local-first/read-only.
 - O ADR-0002 prevê explicação por LLM local e fallback na primeira vertical; esta história trata da
   consulta e saúde da API, sem integrar a triagem ou o LLM.
+- Seguir o ADR-0004 para FastAPI, rotas de consulta e saúde, Problem Details e resposta
+  na mesma requisição; manter os contratos da STORY-011 independentes do transporte.
+- Verificar versões e compatibilidade da stack HTTP com Python 3.14.8 antes da adoção;
+  registrar evidência e lockfile conforme ADR-0004.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+refinement_notes:
+- ID composto somente de espaços exercita AC-02; representação de IDs e catálogo instalado
+  estão definidos em SPEC-012, sem endpoint de envio ou restrição arbitrária de formato.
+- Health e validação do catálogo no startup estão especificados em SPEC-012 e testados.
+- O workflow inclui a suíte de API; execução remota ainda precisa ser observada para AC-03.
+- SPEC-012 e ACT-012 preparadas; seleção de versões e teste isolado registrados no HANDOFF-012.
+- Quality remoto passou no commit 0df38a3; revisão da entrega e checks do head mais recente permanecem pendentes.
 deliverables:
 - src/aegisops/
 - tests/integration/
 - doc/DEVELOPMENT.md
 validation:
-  automated_tests: []
+  automated_tests:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
   manual_checks:
   - Reproduzir consultas e falhas por comandos documentados.
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0005-verificacao-deprecacao-tipos.md
+- agents/handoffs/HANDOFF-011.yaml
+- agents/specs/SPEC-012.yaml
+- agents/activities/ACT-012.yaml
+- agents/handoffs/HANDOFF-012.yaml
+- doc/decisions/story-012-atualizacao-contexto.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
