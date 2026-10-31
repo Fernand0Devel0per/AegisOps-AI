@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 implementa consulta HTTP local e saúde, em revisão; ainda não há motor ou integração com LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
+A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu a consulta HTTP local e saúde; ainda não há motor ou integração com LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
 
 ## Pré-requisitos
 
