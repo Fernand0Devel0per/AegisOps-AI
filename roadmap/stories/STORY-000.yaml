@@ -31,7 +31,8 @@ acceptance_criteria:
   criterion: Sintaxe, vínculos, estados, dependências e links validados; evidências e limitações registradas
     no handoff.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- O bootstrap seguiu o ADR-0001 e os limites local-first/read-only; o ADR-0002, aceito
+  posteriormente, substituiu a exclusão de LLM na primeira vertical.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - README.md
@@ -51,6 +52,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
