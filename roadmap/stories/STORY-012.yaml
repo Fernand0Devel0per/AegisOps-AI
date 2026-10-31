@@ -3,7 +3,11 @@ title: Expor consulta de incidentes e saúde pela primeira API
 epic: EPIC-001
 description: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
 objective: Disponibilizar uma API local mínima com consulta sintética, health e erros estruturados.
-context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
+context: >-
+  Derivada da Etapa 1 do plano original. A STORY-011 concluiu contratos locais
+  independentes de transporte; a primeira API ainda não foi implementada. O PO
+  aceitou a direção da API no ADR-0004, com versões e compatibilidade da stack
+  HTTP ainda pendentes de verificação.
 priority: high
 status: backlog
 refinement_required: true
@@ -30,7 +34,22 @@ technical_constraints:
   pelo ADR-0002; manter os limites local-first/read-only.
 - O ADR-0002 prevê explicação por LLM local e fallback na primeira vertical; esta história trata da
   consulta e saúde da API, sem integrar a triagem ou o LLM.
+- Seguir o ADR-0004 para FastAPI, rotas de consulta e saúde, Problem Details e resposta
+  na mesma requisição; manter os contratos da STORY-011 independentes do transporte.
+- Verificar versões e compatibilidade da stack HTTP com Python 3.14.8 antes da adoção;
+  registrar evidência e lockfile conforme ADR-0004.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+refinement_notes:
+- Especificar um caso de entrada inválida observável nas rotas de consulta para AC-02,
+  sem introduzir endpoint de envio ou formato arbitrário de ID apenas para o teste.
+- Detalhar a representação e os limites dos IDs no transporte, preservando os requisitos
+  do domínio e o tratamento seguro de referências ao catálogo local.
+- Definir como disponibilizar e validar as fixtures, incluindo inicialização e significado
+  de health, conforme ADR-0004.
+- Definir testes da API no workflow e como registrar execução de CI efetivamente observada
+  para AC-03, distinguindo-a de validação local.
+- Preparar SPEC e ACT e mapear todos os critérios antes de implementar; a história permanece
+  em backlog e a escolha de versões e servidor ASGI ainda não foi comprovada.
 deliverables:
 - src/aegisops/
 - tests/integration/
@@ -43,6 +62,10 @@ references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+- agents/handoffs/HANDOFF-011.yaml
+- doc/decisions/story-012-atualizacao-contexto.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
