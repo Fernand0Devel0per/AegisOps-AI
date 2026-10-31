@@ -53,7 +53,7 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 | Concluído | Pacote Python mínimo, instalação, teste de setup e workflow de qualidade; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Planejado | API, motor de triagem, integração LLM e evolução por etapas |
 
-O pacote ainda não oferece funcionalidade de produto. O workflow de CI foi executado localmente com `act`, incluindo falha deliberada; sua execução remota não foi comprovada nesta atividade.
+O pacote ainda não oferece funcionalidade de produto. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
 
 ## Roadmap
 
@@ -103,7 +103,7 @@ Para validar esta documentação, use Python 3 com PyYAML. Se precisar de ambien
 python3 scripts/validate_repository.py
 ```
 
-O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. Publicação e distribuição dependem de autorização e das decisões pendentes. O plano original foi preservado localmente e incluído no `.gitignore`; suas referências e a dependência do validador precisam ser migradas para documentos públicos antes da publicação. A validação de documentos não substitui testes da futura aplicação.
+O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`; suas referências e a dependência do validador precisam ser migradas para documentos públicos antes da publicação. A validação de documentos não substitui testes da futura aplicação.
 
 ## Decisões e limites
 
