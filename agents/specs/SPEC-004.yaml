@@ -1,0 +1,61 @@
+id: SPEC-004
+story_id: STORY-004
+title: Revisão e gate da descoberta
+status: ready
+problem_statement: Os requisitos propostos e os cenários precisam de revisão independente e aceite explícito antes da primeira implementação.
+proposed_solution: Consolidar evidências, pontos de decisão e procedimentos de reprodução para o PO, sem presumir validações.
+architecture:
+  components:
+  - doc/decisions/discovery-review.md consolida produto, cenários, requisitos, riscos e decisões.
+  interactions:
+  - Revisão independente e validação do PO precedem a liberação da primeira implementação.
+  data_flow:
+  - Produto e cenários aprovados + requisitos propostos + ADRs → revisão humana → decisão e handoff para setup.
+interfaces:
+- Documento de revisão local; não implementa API nem aplicação.
+data_contracts:
+- Registrar separadamente evidências existentes, revisão independente e aceite do PO; qualquer item pendente bloqueia o gate.
+- Identificar Q-002, Q-003 e Q-015 e o trabalho posterior de setup da STORY-010.
+dependencies:
+- roadmap/stories/STORY-003.yaml
+- agents/handoffs/HANDOFF-003.yaml
+security_considerations:
+- Não divulgar conteúdo pessoal do plano, credenciais ou dados reais; não realizar ações de infraestrutura.
+observability:
+- Registrar procedimento, autor, resultado e evidência sem atribuir revisão inexistente.
+error_handling:
+- Não concluir nem liberar implementação enquanto houver decisão ou revisão independente bloqueadora.
+implementation_steps:
+- Consolidar artefatos e opções, verificar ADRs e reprodução local.
+- Solicitar revisão independente e aceite explícito do PO sobre escopo, critérios e cenários.
+- Quando houver evidências, registrar decisões, concluir o gate e encaminhar STORY-010.
+test_strategy:
+- Validador de fixtures e documentos, whitespace e leitura manual das dependências e das limitações.
+- Registrar reprodução pelo executor sem confundir com revisão independente exigida pela história.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Outro desenvolvedor ou agente reproduz e explica o fluxo; registrar autoria e resultado.
+  evidence: doc/decisions/discovery-review.md
+- criterion_id: AC-02
+  validation: Conferir ausência de conflitos e decisões bloqueadoras antes da liberação.
+  evidence: doc/decisions/discovery-review.md
+- criterion_id: AC-03
+  validation: Revisar ADR-0001 e substituição parcial pelo ADR-0002.
+  evidence: doc/decisions/discovery-review.md
+- criterion_id: AC-04
+  validation: Registrar aprovação explícita do PO e data, somente quando ocorrer.
+  evidence: doc/decisions/discovery-review.md
+- criterion_id: AC-05
+  validation: Registrar STORY-010 e decisões de setup necessárias; concluir gate somente após condições satisfeitas.
+  evidence: agents/handoffs/HANDOFF-004.yaml
+open_questions:
+- Q-002 e Q-003 dependem da validação do PO; Q-015 depende do gate completo e revisão independente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- roadmap/stories/STORY-004.yaml
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- doc/decisions/open-questions.md

@@ -1,0 +1,50 @@
+id: ACT-003
+story_id: STORY-003
+spec_id: SPEC-003
+title: Propor critérios de triagem reproduzíveis
+objective: Documentar entradas, regras sintéticas, saída e casos de falha verificáveis antes da implementação.
+status: completed
+agent:
+  role: Agente de requisitos
+  responsibility: Propor contrato observável coerente com os cenários aprovados e sinalizar decisões humanas pendentes.
+inputs:
+- AGENTS.md
+- AegisOps_AI_Plano_do_Zero.md
+- roadmap/stories/STORY-003.yaml
+- agents/specs/SPEC-003.yaml
+- agents/handoffs/HANDOFF-002.yaml
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/decisions/open-questions.md
+- datasets/incidents/
+expected_outputs:
+- doc/REQUIREMENTS.md
+- agents/handoffs/HANDOFF-003.yaml
+constraints:
+- Não implementar motor, API, banco ou integração de LLM nesta atividade.
+- Não apresentar regras propostas como aprovação humana ou medição real.
+- Não concluir descoberta sem gate e revisão humana específicos.
+execution_steps:
+- Preparar contratos e sincronizar estado com o índice.
+- Redigir requisitos e conferir resultados dos cenários e fronteiras de forma manual.
+- Validar documentação e produzir handoff com ressalvas e revisão pendente.
+validation:
+  commands:
+  - python3 scripts/validate_incidents.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  manual_checks:
+  - Comparar cada resultado esperado e evidência com a política proposta; percorrer fronteiras e falhas.
+  - Conferir separação entre observação, hipótese, explicação e fallback.
+  expected_results:
+  - Requisitos testáveis, ao menos cinco critérios e três falhas, referências resolvidas e ausência de implementação.
+  - Validações estruturais sem erro e aprovação da descoberta não presumida.
+dependencies:
+- ACT-002
+handoff_required: true
+references:
+- doc/standards/workflow.md
+- doc/standards/validation.md

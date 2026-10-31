@@ -1,0 +1,97 @@
+id: HANDOFF-010
+activity_id: ACT-010
+story_id: STORY-010
+spec_id: SPEC-010
+source_agent: Codex — setup Python
+target_agent: Product Owner e próximo agente
+status: completed
+summary: Setup Python 3.14 e workflow concluídos e autorrevisados; clone limpo e job controlado local passaram, e teste deliberadamente falho fez o job falhar. CI remota não executada.
+completed_work:
+- Gate de descoberta concluído após revisão e aceite relatados pelo PO; ajuste do AC-01 registrado sem atribuir explicação não fornecida.
+- SPEC-010 e ACT-010 preparadas antes da implementação e estados da história e índice sincronizados.
+- Pacote mínimo, instalação não editável, teste de instalação, lint, tipos e workflow com ações fixadas por commit.
+- Instalação travada e comandos de qualidade reproduzidos em clone isolado; ausência do pacote e falha proposital detectadas.
+- Workflow executado localmente com act 0.2.92 em contêiner isolado: sucesso com testes válidos e falha no passo de pytest com teste deliberado.
+changed_files:
+- path: agents/specs/SPEC-010.yaml
+  reason: Especificar setup, validações e mapeamento dos quatro ACs.
+- path: agents/activities/ACT-010.yaml
+  reason: Contrato de execução e validação do setup.
+- path: roadmap/epics/EPIC-001.yaml
+  reason: Registrar a etapa de fundamentos em andamento.
+- path: roadmap/stories/STORY-010.yaml
+  reason: Refinamento e estado da história.
+- path: roadmap/index.yaml
+  reason: Estado e ponteiros sincronizados.
+- path: pyproject.toml
+  reason: Metadados do pacote, dependências, restrições de build e ferramentas.
+- path: .python-version
+  reason: Fixar Python 3.14.8 aprovado.
+- path: uv.lock
+  reason: Fixar resolução de dependências de desenvolvimento.
+- path: src/aegisops/__init__.py
+  reason: Pacote mínimo instalável, sem regras de produto.
+- path: tests/test_installation.py
+  reason: Verificar instalação não editável no ambiente ativo.
+- path: .github/workflows/quality.yml
+  reason: Job de qualidade com comandos reproduzíveis e ações fixadas por commit.
+- path: doc/DEVELOPMENT.md
+  reason: Documentar instalação, testes, restrições e limites.
+- path: doc/standards/validation.md
+  reason: Atualizar estado de testes de setup e CI.
+- path: doc/decisions/bootstrap-scope.md
+  reason: Registrar continuidade autorizada e término histórico do bloqueio do bootstrap.
+- path: README.md
+  reason: Atualizar estado público da descoberta e do setup.
+- path: agents/handoffs/HANDOFF-010.yaml
+  reason: Registrar evidências e pendências da entrega.
+decisions_made:
+- Python 3.14.8 e ferramentas conforme ADR-0003 aceito; instalação não editável evita importação acidental do diretório src no teste.
+- Ações são fixadas por commit de checkout v6 e setup-uv v7; versão de uv também é fixada.
+- Hatchling e suas dependências de build têm versões fixas; hashes dos artefatos de build não são exigidos, limitação documentada.
+validation:
+  executed:
+  - uv sync --locked --no-editable
+  - uv run --locked --no-sync pytest -q
+  - uv run --locked --no-sync ruff check src tests
+  - uv run --locked --no-sync ruff format --check src tests
+  - uv run --locked --no-sync mypy src tests
+  - 'Clone limpo temporário a partir de snapshot local versionado isolado: repetição dos comandos de setup e qualidade.'
+  - 'No clone temporário: uv pip uninstall --python .venv/bin/python aegisops-ai, pytest com falha esperada, reinstalação e falha deliberada na cadeia local.'
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  - 'act workflow_dispatch --job quality -P ubuntu-latest=node:24-bookworm-slim --container-architecture linux/amd64 --pull=false --local-repository astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78=DIRETORIO_TEMPORARIO: uma execução com falha deliberada e outra com teste válido.'
+  passed:
+  - check: Python 3.14.8, instalação travada, pytest (1 passed), Ruff e mypy passaram na raiz e em clone limpo temporário.
+    evidence: doc/DEVELOPMENT.md
+  - check: Após remoção do pacote no clone, pytest falhou com ModuleNotFoundError; teste deliberadamente falho fez a cadeia local retornar erro.
+    evidence: tests/test_installation.py
+  - check: Job local no act concluiu com sucesso; com teste deliberadamente falho retornou código 1 na etapa pytest. Checkout foi simulado pelo act e setup-uv correspondeu ao commit fixado. Logs temporários em /tmp/aegisops-story010-act-success.log e /tmp/aegisops-story010-act-final.log, não versionados.
+    evidence: .github/workflows/quality.yml
+  - check: Validação documental, integridade das fixtures e verificações de whitespace passaram na execução registrada.
+    evidence: scripts/validate_repository.py
+  failed: []
+  not_executed:
+  - 'Execução remota do GitHub Actions: não realizada; não houve push.'
+  - 'Testes de motor, API e LLM: capacidades ainda não implementadas nesta história.'
+review:
+  type: Autorrevisão de código, documentação e critérios pelo executor; sem revisão humana específica da STORY-010.
+  evidence: doc/DEVELOPMENT.md
+known_issues:
+- Os hashes das dependências transitivas de build não são exigidos; versões fixadas e limitação documentada no guia.
+- Tentativas iniciais do act tiveram uma opção inválida e download de imagem/cópia de ação interrompidos; execução final corrigida comprovou sucesso e falha esperada.
+- O plano original é local e ignorado; um clone sem ele não executa o validador documental até migração de Q-014.
+pending_work:
+- Avaliar migração de referências ao plano local ignorado antes de qualquer publicação, conforme Q-014.
+- Validar CI remota somente quando houver autorização de publicação e execução efetiva.
+next_steps:
+- Para continuar a primeira vertical, refinar STORY-011, conferir dependências e preparar seus contratos antes de modelar os dados.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+references:
+- doc/DEVELOPMENT.md
+- agents/handoffs/HANDOFF-004.yaml

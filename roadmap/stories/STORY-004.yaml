@@ -5,7 +5,7 @@ description: Consolidar evidências e validação humana para encerrar a Etapa 0
 objective: Consolidar evidências e validação humana para encerrar a Etapa 0.
 context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
+status: done
 refinement_required: false
 dependencies:
 - STORY-003
@@ -20,8 +20,8 @@ scope:
   - Aceite humano presumido
 acceptance_criteria:
 - id: AC-01
-  criterion: Outro desenvolvedor/agente explica o fluxo e reproduz os três cenários usando somente arquivos
-    do repositório; procedimento e resultado são registrados.
+  criterion: Outro desenvolvedor/agente revisa e valida o fluxo documentado e reproduz as entradas dos três
+    cenários usando somente arquivos do repositório; procedimento e resultado relatado são registrados.
 - id: AC-02
   criterion: Produto, requisitos e cenários não têm conflitos ou perguntas bloqueadoras abertas para a
     primeira vertical.
@@ -54,3 +54,5 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+
+refinement_note: PO revisou arquivos e executou scripts como desenvolvedor e confirmou que a proposta atende ao início; aceitou o fluxo documentado sem reexplicá-lo. AC-01 ajustado para registrar essa forma de revisão, sem presumir saída de comando não fornecida.

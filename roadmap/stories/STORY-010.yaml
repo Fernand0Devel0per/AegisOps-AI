@@ -5,8 +5,8 @@ description: Preparar ambiente, teste de instalação, lint, typing e CI reprodu
 objective: Preparar ambiente, teste de instalação, lint, typing e CI reproduzíveis após descoberta.
 context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
 - STORY-004
 scope:
@@ -48,6 +48,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0003-ambiente-python-qualidade.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

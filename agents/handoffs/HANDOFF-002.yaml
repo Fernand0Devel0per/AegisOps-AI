@@ -1,0 +1,84 @@
+id: HANDOFF-002
+activity_id: ACT-002
+story_id: STORY-002
+spec_id: SPEC-002
+source_agent: Codex — requisitos e dados sintéticos
+target_agent: Product Owner — revisão da STORY-002
+status: completed
+summary: PO aprovou a entrega da STORY-002 em 2026-10-30; fixtures e atividade concluídas, sem aprovar regras futuras ou concluir a descoberta.
+completed_work:
+- Contratos preparados antes das fixtures; dependência STORY-001 verificada como done e ADR-0002 respeitado.
+- Três cenários de latência, 5xx e saturação documentados com sinais, referências, classificações propostas e limites.
+- Autorrevisão semântica e validações locais executadas; PO aprovou a entrega e autorizou continuidade em 2026-10-30.
+changed_files:
+- path: agents/specs/SPEC-002.yaml
+  reason: Contrato de dados, estratégia de validação e mapeamento dos quatro critérios de aceite.
+- path: agents/activities/ACT-002.yaml
+  reason: Atividade concluída após aprovação da entrega pelo PO.
+- path: roadmap/stories/STORY-002.yaml
+  reason: História concluída após aprovação pelo PO.
+- path: roadmap/index.yaml
+  reason: Estado sincronizado e ponteiros para STORY-002 e ACT-002.
+- path: datasets/incidents/inc-001-latencia.json
+  reason: Sinais e expectativa sintéticos de latência.
+- path: datasets/incidents/inc-002-erros-5xx.json
+  reason: Sinais e expectativa sintéticos de 5xx e CPU.
+- path: datasets/incidents/inc-003-saturacao.json
+  reason: Sinais e expectativa sintéticos de utilização de recursos.
+- path: doc/INCIDENTS.md
+  reason: Reprodução, semântica dos dados, limites e ambiguidades para STORY-003.
+- path: scripts/validate_incidents.py
+  reason: Verificar integridade das fixtures localmente sem implementar triagem.
+- path: agents/handoffs/HANDOFF-002.yaml
+  reason: Registrar evidências, limites e continuidade.
+decisions_made:
+- JSON e validador Python padrão são escolhas locais para dados documentais, não contratos finais da aplicação nem dependências estruturais.
+- Rótulos media e alta são resultados propostos de exemplos, sem limiares aprovados ou política de produção.
+- Q-002 continua aberta; ambiguidades observadas foram documentadas em doc/INCIDENTS.md sem decidir regras futuras.
+validation:
+  executed:
+  - python3 scripts/validate_incidents.py
+  - python3 -m json.tool para cada um dos três arquivos em datasets/incidents/ com saída redirecionada para /dev/null.
+  - "python3 - (programa inline): mutações em diretório temporário para referências ausentes, ID duplicado, janela inválida e aritmética 5xx incoerente."
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - git diff --no-index --check /dev/null para cada arquivo novo desta entrega.
+  - sha256sum AegisOps_AI_Plano_do_Zero.md
+  - Autorrevisão dos quatro ACs, rastreabilidade de cada justificativa, origem sintética, períodos, unidades e limitações.
+  passed:
+  - check: Três fixtures JSON lidas localmente; três categorias distintas, 21 IDs únicos e referências resolvidas; contagens 5xx e períodos coerentes.
+    evidence: scripts/validate_incidents.py
+  - check: Verificador rejeitou referências ausentes, ID duplicado, janela inválida e taxa 5xx incompatível em cópias temporárias.
+    evidence: scripts/validate_incidents.py
+  - check: 'AC-01 a AC-04: cenários, campos, evidências, documentação de reprodução e ambiguidades revisados pelo próprio executor.'
+    evidence: doc/INCIDENTS.md
+  - check: Validador documental passou para 47 YAML e 18 Markdown; verificações de whitespace passaram após correção da interpretação de saída no-index; arquivos novos verificados separadamente pois não estão no índice Git.
+    evidence: agents/handoffs/HANDOFF-002.yaml
+  - check: Plano original mantém SHA-256 9a22c8fff517e28556e7b32cb1bd35ffe5b7306f48ad90f1f74644d22c5cc078.
+    evidence: doc/standards/validation.md
+  failed: []
+  not_executed:
+  - 'Testes de aplicação, motor, API, LLM ou CI: não há implementação nesta atividade e execução não foi autorizada.'
+  - 'Gate da descoberta: pendente na STORY-004; não executado.'
+review:
+  type: Autorrevisão documental e semântica pelo executor; aprovação explícita da entrega pelo PO em 2026-10-30.
+  evidence: doc/INCIDENTS.md
+  po_feedback: PO afirmou que aprova a entrega da STORY-002 e autorizou continuidade da implementação; isso não é aceite dos requisitos futuros nem da descoberta completa.
+known_issues:
+- A primeira rotina auxiliar interpretou incorretamente o código 1 do git diff --no-index como erro; a repetição corrigida passou nos oito arquivos, sem falha residual.
+- O verificador confirma referências e coerência estrutural, mas não prova suporte semântico, causalidade ou correção dos rótulos de severidade.
+- Os três exemplos não são uma suíte exaustiva nem estabelecem limites, regras de fronteira, dados faltantes ou política de produção.
+- O diff comum não inclui arquivos não rastreados; inspeção no-index cobre whitespace dos arquivos novos.
+pending_work:
+- Na STORY-003, tratar Q-002 e critérios sem presumir aprovação de regras a propor.
+- Aceite da descoberta completa permanece no gate STORY-004.
+next_steps:
+- Preparar e executar STORY-003 com seus contratos para propor requisitos testáveis; manter o gate de aprovação da descoberta na STORY-004.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- roadmap/index.yaml
+- doc/decisions/open-questions.md
+- doc/PRODUCT.md

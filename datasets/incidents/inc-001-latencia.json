@@ -1,0 +1,100 @@
+{
+  "id": "INC-001",
+  "synthetic": true,
+  "service": "catalogo-ficticio",
+  "environment": "simulado local",
+  "window": {
+    "start": "2026-10-01T10:00:00Z",
+    "end": "2026-10-01T10:10:00Z"
+  },
+  "signals": [
+    {
+      "id": "SIG-001-01",
+      "metric": "http_request_duration_p95",
+      "value": 120,
+      "unit": "ms",
+      "aggregation": "p95 das requisições",
+      "period": {
+        "start": "2026-10-01T10:00:00Z",
+        "end": "2026-10-01T10:05:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    },
+    {
+      "id": "SIG-001-02",
+      "metric": "http_request_duration_p95",
+      "value": 900,
+      "unit": "ms",
+      "aggregation": "p95 das requisições",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    },
+    {
+      "id": "SIG-001-03",
+      "metric": "http_5xx_rate",
+      "value": 0.5,
+      "unit": "percent",
+      "aggregation": "5xx / total de requisições × 100",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia",
+      "numerator": 5,
+      "denominator": 1000
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-001-01",
+      "signal_id": "SIG-001-01",
+      "summary": "p95 de referência de 120 ms nos primeiros cinco minutos."
+    },
+    {
+      "id": "EVD-001-02",
+      "signal_id": "SIG-001-02",
+      "summary": "p95 de 900 ms nos cinco minutos seguintes."
+    },
+    {
+      "id": "EVD-001-03",
+      "signal_id": "SIG-001-03",
+      "summary": "5 de 1000 respostas foram 5xx no segundo intervalo."
+    }
+  ],
+  "expected": {
+    "category": "latencia_elevada",
+    "severity": "media",
+    "status": "proposta para teste; não é regra de produção",
+    "evidence_ids": [
+      "EVD-001-01",
+      "EVD-001-02",
+      "EVD-001-03"
+    ],
+    "justifications": [
+      {
+        "text": "O p95 aumenta de 120 para 900 ms entre períodos sucessivos; propõe-se severidade média para este exemplo.",
+        "evidence_ids": [
+          "EVD-001-01",
+          "EVD-001-02"
+        ]
+      },
+      {
+        "text": "A taxa de 5xx observada é 0,5% no segundo intervalo, sem comparação com limite aprovado.",
+        "evidence_ids": [
+          "EVD-001-03"
+        ]
+      }
+    ]
+  },
+  "limitations": {
+    "observable": [
+      "A latência p95 aumentou entre os períodos e a taxa de 5xx do segundo intervalo é conhecida."
+    ],
+    "cannot_conclude": [
+      "Não identifica causa, distribuição completa, impacto em usuários ou se 0,5% é aceitável em produção."
+    ]
+  }
+}

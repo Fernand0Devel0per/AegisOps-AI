@@ -1,0 +1,53 @@
+id: ACT-010
+story_id: STORY-010
+spec_id: SPEC-010
+title: Inicializar Python 3.14 e verificações de qualidade
+objective: Entregar pacote mínimo instalável, qualidade reprodutível e workflow para as próximas histórias.
+status: completed
+agent:
+  role: Agente de setup Python
+  responsibility: Implementar e validar exclusivamente fundamentos de instalação, teste, lint, tipos e CI.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-010.yaml
+- agents/specs/SPEC-010.yaml
+- agents/handoffs/HANDOFF-004.yaml
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/standards/workflow.md
+- doc/standards/validation.md
+expected_outputs:
+- pyproject.toml
+- .python-version
+- uv.lock
+- src/aegisops/
+- tests/
+- .github/workflows/quality.yml
+- doc/DEVELOPMENT.md
+- agents/handoffs/HANDOFF-010.yaml
+constraints:
+- Não implementar motor, API, banco, LLM, infraestrutura ou dependências de negócio.
+- Preservar alterações existentes, não fazer push e não afirmar execução remota inexistente.
+- Concluir somente com evidências de todos os critérios, inclusive teste de falha do job; caso contrário registrar parcial.
+execution_steps:
+- Refinar história, preparar contratos e atualizar estados sincronizados.
+- Criar pacote, dependências travadas, teste de instalação, workflow e guia.
+- Validar projeto e clone limpo; verificar teste negativo e comportamento do job; registrar revisão e handoff.
+validation:
+  commands:
+  - uv sync --locked --no-editable
+  - uv run --locked --no-sync pytest
+  - uv run --locked --no-sync ruff check src tests
+  - uv run --locked --no-sync mypy src tests
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  manual_checks:
+  - Reproduzir comandos em clone limpo e testar detecção de pacote ausente e falha de job.
+  expected_results:
+  - Instalação reprodutível e teste de importação instalados passam; teste negativo identifica erro.
+  - CI configurada com ações fixadas e falha deliberada demonstrada ou limitação claramente documentada.
+dependencies:
+- ACT-004
+handoff_required: true
+references:
+- doc/standards/validation.md

@@ -5,7 +5,7 @@ description: Versionar dados e resultados esperados de latência, 5xx e saturaç
 objective: Versionar dados e resultados esperados de latência, 5xx e saturação para orientar a triagem.
 context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
+status: done
 refinement_required: false
 dependencies:
 - STORY-001

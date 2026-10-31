@@ -11,3 +11,7 @@ Data: 2026-10-30. Origem: pedido atual de bootstrap e [plano original](../../Aeg
 7. **Histórico:** documentos recebem versionamento em um commit local do bootstrap. Licença, remoto e publicação continuam pendentes. O commit pode ser consultado por `git log -1`; sua criação não indica aceite humano de produto.
 
 Estas são adaptações operacionais autorizadas pelo pedido, não novas decisões de arquitetura da aplicação. Por isso não geram ADR adicional. O ADR arquitetural aceito registra somente o ponto de partida já explícito no plano.
+
+## Continuidade após a descoberta
+
+Em 2026-10-30, o PO aceitou produto, cenários e requisitos, relatou revisão dos arquivos e execução dos scripts e autorizou o início da implementação. O [gate de descoberta](discovery-review.md) registra o ajuste do AC-01 e o alcance da revisão; a [STORY-010](../../roadmap/stories/STORY-010.yaml) segue o [ADR-0003](../adr/0003-ambiente-python-qualidade.md). O limite do bootstrap acima permanece como registro histórico, não como proibição atual do setup autorizado.
