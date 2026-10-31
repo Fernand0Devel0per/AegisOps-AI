@@ -270,3 +270,26 @@ def test_rate_validation_does_not_depend_on_decimal_context() -> None:
         context.prec = 2
         context.traps[Inexact] = True
         validate_incident(data)
+
+
+def test_multiple_errors_preserve_field_and_reference_order() -> None:
+    data = fixture()
+    data["id"] = " "
+    data["synthetic"] = False
+    data["signals"][0]["metric"] = "unknown"
+    data["signals"][0]["value"] = -1
+    data["signals"][0]["period"]["end"] = "2026-10-01T10:04:00Z"
+    data["evidence"][0]["signal_id"] = "missing"
+
+    with pytest.raises(InvalidIncident) as exc:
+        validate_incident(data)
+
+    assert [(error.path, error.code) for error in exc.value.errors] == [
+        ("id", "texto_obrigatorio"),
+        ("synthetic", "sintetico_obrigatorio"),
+        ("signals[0].metric", "metrica_desconhecida"),
+        ("signals[0].value", "valor_fora_intervalo"),
+        ("signals[0].period", "duracao_invalida"),
+        ("evidence[0].signal_id", "sinal_inexistente"),
+        ("signals[0].id", "sinal_sem_evidencia"),
+    ]

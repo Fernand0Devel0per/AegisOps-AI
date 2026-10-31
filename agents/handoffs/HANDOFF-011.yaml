@@ -5,7 +5,7 @@ spec_id: SPEC-011
 source_agent: Codex — implementação de contratos
 target_agent: Product Owner e próximo agente
 status: partial
-summary: Contratos e testes implementados e autorrevisados; entrega em revisão, sem aceite externo presumido.
+summary: Contratos implementados e refatorados após observação do PO; entrega permanece em revisão, sem aceite final presumido.
 completed_work:
 - Dependência STORY-010 confirmada done; SPEC-011 e ACT-011 criadas antes da implementação e estados sincronizados.
 - Modelos imutáveis, validação local e erros estruturados implementados com biblioteca padrão; fixtures aceitas sem migração.
@@ -61,7 +61,7 @@ validation:
   - 'Self-test do validador documental: não alterado nesta história.'
   - 'Motor, API, persistência e LLM: fora do escopo, não implementados.'
 review:
-  type: Autorrevisão do executor dos critérios, diff, compatibilidade e testes; revisão externa solicitada, ainda não realizada.
+  type: O PO revisou a abordagem e solicitou refatoração de legibilidade; alterações autorrevisadas pelo executor e aguardando nova revisão do PO.
   evidence: agents/specs/SPEC-011.yaml
 known_issues:
 - 'A sincronização não editável simples reteve uma instalação antiga durante desenvolvimento; uma execução intermediária falhou por isso. Reinstalação forçada corrigiu e a suíte final passou.'
@@ -70,7 +70,7 @@ known_issues:
 - Agregação, origem e resumo são textos não vazios, sem verificação semântica; referências existentes não provam causalidade ou verdade.
 - A função recebe objeto já decodificado; o tratamento de JSON malformado ou chaves repetidas no texto é responsabilidade da fronteira futura.
 pending_work:
-- Revisão externa da entrega pelo PO; tratar observações antes de concluir atividade e história.
+- Nova revisão da entrega refatorada pelo PO; tratar observações antes de concluir atividade e história.
 - Q-005 mantém decisões de rota e formato de erro de transporte para história posterior.
 next_steps:
 - Revisar SPEC-011, código, testes e evidências; registrar resultado e concluir somente após revisão e observações resolvidas.
@@ -79,3 +79,39 @@ related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
+maintenance_updates:
+- date: '2026-10-31'
+  authorization: O PO solicitou métodos pequenos, predicados para condições complexas e laços encapsulados, inspirados nas refatorações de Martin Fowler, além de registrar o padrão nas instruções dos agentes.
+  summary: Contratos reorganizados em etapas, laços e predicados nomeados, preservando interface, resultados e ordem de erros; diretriz adicionada a AGENTS.md.
+  changed_files:
+  - path: AGENTS.md
+    reason: Registrar a preferência de legibilidade e refatoração para futuras atividades.
+  - path: src/aegisops/contracts.py
+    reason: Extrair etapas e predicados com nomes que descrevem as regras de validação.
+  - path: tests/unit/test_contracts.py
+    reason: Proteger explicitamente a ordem determinística de múltiplos erros.
+  - path: agents/handoffs/HANDOFF-011.yaml
+    reason: Registrar observação do PO, correção e evidências sem declarar aprovação final.
+  validation:
+    executed:
+    - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+    - uv run --offline --locked --no-sync pytest -q
+    - uv run --offline --locked --no-sync ruff check src tests
+    - uv run --offline --locked --no-sync ruff format --check src tests
+    - uv run --offline --locked --no-sync mypy src tests
+    - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect, connect_ex e create_connection bloqueados.'
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - git diff --check
+    - git diff --cached --check
+    - 'Comparação local por script temporário em memória: implementação no commit 761b987 versus arquivo refatorado em 2005 entradas, com mutações determinísticas e resultados/ordem dos erros comparados.'
+    passed:
+    - '51 testes passaram, inclusive com ambiente limpo e conexões de socket bloqueadas; Ruff e mypy passaram.'
+    - '2005 entradas comparadas sem divergência; a comparação é amostral, não prova equivalência para todas as entradas.'
+    - 'Validador documental, validador das três fixtures e verificações de whitespace passaram.'
+    failed: []
+    not_executed:
+    - 'CI remota da refatoração: sem push autorizado.'
+    - 'Self-test do validador documental: não alterado.'
+  pending_work:
+  - Nova revisão do PO antes de concluir ACT-011 e STORY-011.
