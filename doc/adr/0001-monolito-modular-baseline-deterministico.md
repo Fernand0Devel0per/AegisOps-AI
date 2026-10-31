@@ -2,7 +2,7 @@
 
 ## Status
 
-`accepted`. Autoridade: decisão explícita do autor no plano original, seções 2.3, 4.1, 6 (Etapa 0), 10 e 14. Este registro formaliza a decisão preexistente, sem nova aprovação presumida. Não substitui outro ADR.
+`accepted`; a exclusão de LLM na primeira vertical foi substituída pelo [ADR-0002](0002-llm-local-primeira-vertical.md), aceito pelo PO. A decisão de monolito modular e triagem determinística permanece vigente. Autoridade: decisão explícita do autor no plano original, seções 2.3, 4.1, 6 (Etapa 0), 10 e 14. Este registro formaliza a decisão preexistente, sem nova aprovação presumida. Não substitui outro ADR.
 
 ## Data
 

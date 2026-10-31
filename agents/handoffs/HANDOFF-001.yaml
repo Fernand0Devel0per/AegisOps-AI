@@ -1,0 +1,118 @@
+id: HANDOFF-001
+activity_id: ACT-001
+story_id: STORY-001
+spec_id: SPEC-001
+source_agent: Codex — análise de produto
+target_agent: Product Owner — continuidade da descoberta
+status: completed
+summary: Proposta de produto e ACT-001 aceitas pelo PO; STORY-001 concluída e descoberta completa ainda pendente.
+completed_work:
+- Proposta documental de problema, persona, decisão, jornada e primeira vertical produzida.
+- Limites, capacidades planejadas, fontes e questões pendentes registrados sem presumir aceite.
+- STORY-001 e ACT-001 concluídas após aceite explícito do PO; entrada no índice sincronizada.
+- ADR-0002 e contratos relacionados atualizados para registrar decisão do PO; roadmap futuro ajustado sem execução de outras histórias.
+changed_files:
+- path: doc/PRODUCT.md
+  reason: Apresentar proposta rastreável para revisão do PO.
+- path: roadmap/stories/STORY-001.yaml
+  reason: Registrar aceite e estado done da história.
+- path: roadmap/index.yaml
+  reason: Manter o estado catalogado coerente com a história.
+- path: agents/activities/ACT-001.yaml
+  reason: Registrar conclusão da atividade após aceite do PO.
+- path: doc/decisions/open-questions.md
+  reason: Registrar resposta do PO sobre Q-001 e manter histórico das pendências.
+- path: doc/adr/0002-llm-local-primeira-vertical.md
+  reason: Registrar decisão aceita, substituição parcial de ADR-0001, alternativas e viabilidade preliminar.
+- path: AGENTS.md
+  reason: Alinhar o princípio local-first à explicação por LLM local e ao núcleo determinístico aprovados.
+- path: README.md
+  reason: Atualizar estado, arquitetura planejada e trajetória da primeira vertical.
+- path: agents/specs/SPEC-001.yaml
+  reason: Alinhar especificação e mapeamento de aceite à decisão do PO.
+- path: doc/adr/0001-monolito-modular-baseline-deterministico.md
+  reason: Indicar substituição parcial sem alterar a decisão histórica.
+- path: doc/adr/README.md
+  reason: Referenciar ADR-0002 aceito e seu vínculo com ADR-0001.
+- path: doc/architecture/overview.md
+  reason: Atualizar visão prevista, limites e avaliação da explicação local.
+- path: roadmap/epics/EPIC-002.yaml
+  reason: Alinhar a vertical e o marco futuro à explicação e fallback aprovados.
+- path: roadmap/epics/EPIC-004.yaml
+  reason: Identificar análise posterior como evolução ampliada.
+- path: roadmap/stories/STORY-003.yaml
+  reason: Incluir requisitos futuros de explicação, verificação e fallback; história segue backlog.
+- path: roadmap/stories/STORY-004.yaml
+  reason: Incluir revisão do ADR-0002 no gate de descoberta.
+- path: roadmap/stories/STORY-021.yaml
+  reason: Planejar explicação local, avaliação e fallback no marco futuro; história segue backlog.
+- path: roadmap/stories/STORY-040.yaml
+  reason: Identificar avaliação posterior como relativa à análise ampliada; história segue backlog.
+- path: agents/handoffs/HANDOFF-001.yaml
+  reason: Registrar evidências, limitações e continuidade da atividade.
+decisions_made:
+- PO indicou desenvolvedores, profissionais de DevOps e outros responsáveis pela checagem; concordou com a decisão de priorizar o incidente e escolher os sinais a examinar (Q-001).
+- PO aprovou severidade e verificação determinísticas, explicação por LLM local via Colibri e fallback básico; ADR-0002 aceito substitui parcialmente ADR-0001.
+validation:
+  executed:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - git diff --no-index --check /dev/null doc/PRODUCT.md
+  - git diff --no-index --check /dev/null agents/handoffs/HANDOFF-001.yaml
+  - Consulta de recursos locais com free, lscpu, lspci, lsblk e df; consulta à documentação pública do Colibri.
+  - Conversão do OLMoE e inferência exploratória local em CPU com timeout, /usr/bin/time e limites de recursos; registros no experimento local abaixo.
+  - git diff --no-index --check /dev/null doc/adr/0002-llm-local-primeira-vertical.md
+  - Contagem em Python das linhas não vazias da seção Problema e verificação das nove seções da SPEC-001.
+  - Autorrevisão documental dos quatro critérios e comparação com plano, ADR e questões abertas.
+  passed:
+  - check: Validador documental passou, incluindo sintaxe, vínculos, estados, links e hash do plano.
+    evidence: scripts/validate_repository.py
+  - check: 'AC-01: seção Problema tem três linhas não vazias, dentro do limite de dez.'
+    evidence: doc/PRODUCT.md
+  - check: 'AC-02: usuário e decisão propostos e jornada sintética estão descritos.'
+    evidence: doc/PRODUCT.md
+  - check: 'AC-03: entrada sintética, severidade e evidências determinísticas, explicação local e fallback constam com exclusão de remediação e acesso a terceiros.'
+    evidence: doc/PRODUCT.md
+  - check: 'AC-04: decisões do PO, capacidades planejadas, fontes e Q-001/Q-015 estão identificadas.'
+    evidence: doc/PRODUCT.md
+  - check: Consulta de hardware e inferência exploratória registradas no ADR-0002; não constituem avaliação representativa nem garantem qualidade.
+    evidence: doc/adr/0002-llm-local-primeira-vertical.md
+  - check: Verificações de whitespace sem mensagens de erro nos arquivos alterados e novos.
+    evidence: agents/handoffs/HANDOFF-001.yaml
+  failed: []
+  not_executed:
+  - 'Avaliação representativa da qualidade do modelo: não executada; houve apenas uma inferência exploratória curta.'
+  - 'Testes de aplicação e CI: não há implementação ou CI nesta atividade documental.'
+  - 'Aceite humano da descoberta completa: pendente na STORY-004; aceite da ACT-001 não libera a etapa.'
+review:
+  type: Autorrevisão documental pelo agente executor e aceite explícito da proposta pelo PO em 2026-10-30.
+  evidence: doc/PRODUCT.md
+  po_feedback: Em 2026-10-30, PO indicou desenvolvedores, DevOps e outros responsáveis pela checagem e concordou com a decisão de priorização e investigação. PO concordou com incidente sintético, severidade e evidências, solicitou LLM local com Colibri e aprovou regras determinísticas para severidade e verificação, explicação pelo LLM e fallback básico. PO aceitou a proposta atualizada para conclusão da ACT-001; isso não constitui aceite da descoberta completa.
+known_issues:
+- Modelo definitivo, política precisa de verificação e limites de recursos ainda precisam de avaliação; não há integração implementada.
+- O diff Git comum não inclui arquivos ainda não rastreados; verificações no-index cobrem os arquivos novos.
+- Em comparação no-index, código de saída 1 indica arquivos diferentes; não houve saída de erro de whitespace.
+pending_work:
+- Avaliar modelo, evidências e limites de memória antes de integrar a ferramenta; uma inferência exploratória já foi executada.
+- Aceite da descoberta completa e Q-015 dependem da STORY-004 e não foram antecipados.
+next_steps:
+- Não iniciar outra história sem autorização do PO.
+- Quando autorizado, preparar contratos de STORY-002 e verificar dependências e estado antes da execução.
+- Os ponteiros next_story e next_activity do índice permanecem em ACT-001 como marcadores históricos porque não há contrato de próxima atividade; a nota do índice explicita que não devem ser executados novamente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- doc/PRODUCT.md
+- doc/decisions/open-questions.md
+- roadmap/index.yaml
+local_experiment:
+  requested_by: PO em 2026-10-30; instalação e teste local do Colibri com modelo candidato.
+  status: completed_with_limitations
+  setup: Colibri compilado localmente a partir do commit e0db083cdc9e563e0766cc6fc661ef23c32298e0; ambiente e pesos fora do repositório.
+  model: allenai/OLMoE-1B-7B-0125-Instruct, convertido localmente para int8; diretório ocupa aproximadamente 7 GiB.
+  evidence: 'Máquina local: ~/.local/share/aegisops-models/colibri-test.log e olmoe-conversion.log; caminhos são locais e não constituem arquivos versionados.'
+  resource_limits: Serviço systemd temporário aegisops-colibri-test, MemoryMax 7G, MemorySwapMax 1G e CPUQuota 400%; teste de inferência limitado a 300 segundos e orçamento de 5 GB do modelo.
+  observations: Após reinicialização, memória disponível observada aproximadamente 10 GiB; Xet não progrediu e download foi retomado por HTTPS. Conversão concluída e uma inferência em CPU terminou em 34,49 segundos, com pico RSS de 3516808 KiB e saída zero; resultado foi truncado no limite de 64 tokens e citou logs não fornecidos. Isso não demonstra qualidade suficiente nem valida o produto.
+  next_step: Avaliar respostas completas e referências com cenários controlados antes da integração; detalhar políticas de evidência e limites de recursos.

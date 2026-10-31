@@ -15,11 +15,12 @@ scope:
   - Regras explícitas de severidade com unidades e janelas
   - Cinco critérios observáveis e ao menos três falhas
   - Insuficiência de evidência e incerteza
+  - Contratos da explicação local, verificação e fallback
   excluded:
   - Modelos Python prontos
   - Contratos de todas as fases
   - Métricas de sucesso inventadas
-  - Dependências de LLM
+  - Instalação ou integração de dependências de LLM
 acceptance_criteria:
 - id: AC-01
   criterion: doc/REQUIREMENTS.md define entrada, saída, restrições e vínculo aos três cenários da STORY-002.
@@ -32,8 +33,10 @@ acceptance_criteria:
 - id: AC-04
   criterion: A saída separa observação e hipótese, exige evidência resolvível e não afirma causa raiz;
     conflitos dos resultados esperados foram resolvidos ou bloqueiam o gate explicitamente.
+- id: AC-05
+  criterion: A explicação local, verificação independente e fallback em falha ou saída rejeitada têm comportamento observável definido.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- Respeitar ADR-0001 e ADR-0002 e os limites local-first/read-only.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - doc/REQUIREMENTS.md
@@ -46,6 +49,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

@@ -5,7 +5,7 @@ description: Produzir uma descrição verificável do problema e da decisão hum
 objective: Produzir uma descrição verificável do problema e da decisão humana apoiada pelo produto.
 context: Derivada da Etapa 0 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: ready
+status: done
 refinement_required: false
 dependencies:
 - STORY-000
@@ -18,7 +18,7 @@ scope:
   excluded:
   - Código Python e API
   - Incidentes numéricos e limiares definitivos
-  - Escolha de LLM, banco, fila ou framework
+  - Escolha definitiva de modelo, banco, fila ou framework
   - Declarar validação humana ainda não recebida
 acceptance_criteria:
 - id: AC-01
@@ -27,12 +27,13 @@ acceptance_criteria:
   criterion: O documento identifica usuário, decisão a apoiar e jornada de uma investigação sintética.
 - id: AC-03
   criterion: A primeira vertical explicita entrada de incidente sintético, saída severidade/evidências
-    e exclusão de LLM, remediação e acesso a terceiros.
+    com classificação e verificação determinísticas, explicação por LLM local e fallback; exclui
+    remediação e acesso a terceiros.
 - id: AC-04
   criterion: Propostas de persona e decisões ainda sem validação estão identificadas; fontes, capacidades
     planejadas e questões Q-001/Q-015 estão rastreáveis.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- Respeitar ADR-0001 com a alteração aprovada em ADR-0002 e os limites local-first/read-only.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - doc/PRODUCT.md
@@ -47,6 +48,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

@@ -12,7 +12,7 @@ dependencies:
 scope:
   included:
   - Revisão de produto, incidentes e requisitos
-  - Checagem de ADR-0001
+  - Checagem de ADR-0001 e ADR-0002
   - Gate humano e handoff para setup
   excluded:
   - Implementação Python
@@ -26,8 +26,8 @@ acceptance_criteria:
   criterion: Produto, requisitos e cenários não têm conflitos ou perguntas bloqueadoras abertas para a
     primeira vertical.
 - id: AC-03
-  criterion: ADR-0001 foi revisado como decisão existente; qualquer proposta incompatível permanece proposta
-    até decisão do PO.
+  criterion: ADR-0001 e sua substituição parcial por ADR-0002 foram revisados; novas propostas incompatíveis
+    permanecem propostas até decisão do PO.
 - id: AC-04
   criterion: A validação do PO sobre escopo, critérios e cenários está registrada com referência e data;
     sem ela a história permanece in_review ou blocked.
@@ -47,6 +47,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

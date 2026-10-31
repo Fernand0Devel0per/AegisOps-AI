@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 30/10/2026:** fundação documental e operacional preparada. A descoberta da Etapa 0 está pendente; não há aplicação, API, testes de produto, integrações ou resultados de desempenho implementados.
+**Estado em 30/10/2026:** fundação documental preparada e proposta de produto aceita na STORY-001. Colibri e OLMoE foram testados localmente de forma exploratória; não há aplicação, API, testes de produto ou integração implementados.
 
 ## Problema e capacidades previstas
 
@@ -25,32 +25,32 @@ Remediação automática, acesso a ambientes de terceiros e operação empresari
 Usuário → API/CLI → workflow simples de investigação
                     ├─ triagem determinística ← sinais sintéticos
                     ├─ recuperação ← runbooks versionados
-                    ├─ análise ← gateway de LLM opcional, em etapa posterior
+                    ├─ explicação ← LLM local, com fallback determinístico
                     └─ verificação de evidências → relatório para revisão humana
 ```
 
-A primeira vertical será: **incidente sintético → severidade + evidências, sem LLM**. O ponto de partida aprovado é monolito modular; fronteiras internas serão desenhadas conforme as necessidades. Telemetria do AegisOps e dados do incidente investigado devem permanecer distinguíveis.
+A primeira vertical será: **incidente sintético → severidade e evidências determinísticas + explicação por LLM local**, com fallback sem explicação. O ponto de partida aprovado é monolito modular; fronteiras internas serão desenhadas conforme as necessidades. Telemetria do AegisOps e dados do incidente investigado devem permanecer distinguíveis.
 
-Consulte a [arquitetura e análise do plano](doc/architecture/overview.md) e o [ADR-0001](doc/adr/0001-monolito-modular-baseline-deterministico.md).
+Consulte a [arquitetura e análise do plano](doc/architecture/overview.md), o [ADR-0001](doc/adr/0001-monolito-modular-baseline-deterministico.md) e o [ADR-0002](doc/adr/0002-llm-local-primeira-vertical.md).
 
 ## Stack identificada no plano
 
 | Momento | Tecnologias candidatas ou direcionamento |
 |---|---|
-| Primeira implementação | Python; FastAPI e Pydantic para API/contratos; Pytest, Ruff, verificador de tipos; `uv` ou equivalente |
-| Após baseline | Busca lexical em Markdown; LLM local com Ollama ou provedor configurável; Docker/Compose após API inicial |
+| Primeira implementação | Colibri e LLM local para explicação; Python, FastAPI, Pydantic e ferramentas de qualidade como candidatas |
+| Após primeira vertical | Busca lexical em Markdown; análise ampliada; Docker/Compose após API inicial |
 | Mediante avaliação | LangGraph; Docling; embeddings; FAISS/pgvector; PostgreSQL; workers e Redis/RabbitMQ |
 | Evolução da plataforma | OpenTelemetry, Collector, Prometheus, Grafana; Kubernetes, Helm/Kustomize; Argo CD; HPA/KEDA condicionados a medições |
 | Antes de conectores remotos reais | Autenticação/autorização, OIDC/JWT e permissões por ferramenta, a especificar |
 
-Não foram instaladas dependências da aplicação. A tabela do plano contém escolhas preferenciais e candidatas; não significa adoção de todas as ferramentas. Versões, gerenciador e verificador de tipos ainda precisam de decisão registrada.
+O Colibri foi compilado e um modelo foi testado fora do repositório; não há dependências de aplicação instaladas no projeto. A tabela do plano contém escolhas preferenciais e candidatas; não significa adoção de todas as ferramentas. Versões, gerenciador e verificador de tipos ainda precisam de decisão registrada.
 
 ## Implementado e planejado
 
 | Situação | Entrega |
 |---|---|
 | Preparado | Contrato dos agentes, templates YAML, catálogo de planejamento, ADR inicial, especificação/atividade de descoberta e handoff do bootstrap |
-| Próximo | [STORY-001 — produto, usuário e limites](roadmap/stories/STORY-001.yaml) |
+| Concluído | [STORY-001 — produto, usuário e limites](roadmap/stories/STORY-001.yaml); aceite da descoberta completa permanece pendente |
 | Pendente na Etapa 0 | Três cenários sintéticos, requisitos observáveis e revisão de descoberta |
 | Planejado | Ambiente Python, primeira API, motor de triagem e evolução por etapas |
 
@@ -60,10 +60,10 @@ Não há comando de inicialização ou teste da aplicação neste momento. O val
 
 | Etapa | Entrega prevista |
 |---|---|
-| 0 | Descoberta, incidentes sintéticos e requisitos da vertical determinística |
+| 0 | Descoberta, incidentes sintéticos e requisitos da vertical com núcleo determinístico e explicação local |
 | 1 | Fundamentos Python, qualidade, CI e primeira API |
-| 2 | Triagem determinística com evidências; integração para a candidata `v0.1.0` |
-| 3–4 | Runbooks e busca lexical; depois analista LLM com avaliação e validação |
+| 2 | Triagem determinística, explicação local avaliada e fallback para a candidata `v0.1.0` |
+| 3–4 | Runbooks e busca lexical; depois análise ampliada com avaliação e validação |
 | 5–6 | Avaliar orquestração explícita; RAG com documentos ricos e comparações medidas |
 | 7–8 | Observabilidade e demo instrumentada; durabilidade e resiliência |
 | 9–10 | Golden path de plataforma; avaliação de segurança e publicação demonstrável |

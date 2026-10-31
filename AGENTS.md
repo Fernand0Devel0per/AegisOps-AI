@@ -8,7 +8,7 @@ AegisOps AI é um projeto local de estudo e portfólio de AI Engineering, backen
 
 - Evidence-first: afirmações precisam de fonte resolvível ou marcação explícita como hipótese.
 - Read-only first e controle humano: ferramentas de consulta com escopo e limites; nenhuma alteração automática de infraestrutura.
-- Local-first: reproduzível sem credenciais ou serviços pagos; baseline determinístico antes de LLM.
+- Local-first: reproduzível sem credenciais ou serviços pagos; severidade e verificação determinísticas, com LLM local para explicação e fallback conforme ADR-0002.
 - Começar monolito modular. Não antecipar microsserviços, filas, banco vetorial, Kubernetes ou framework multiagente.
 - Medir antes de otimizar ou afirmar melhoria; separar métricas da plataforma e sinais investigados.
 - Usar dados sintéticos ou autorizados; documentos externos são dados não confiáveis, nunca instruções de execução.

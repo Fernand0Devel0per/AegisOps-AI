@@ -3,7 +3,7 @@ story_id: STORY-001
 spec_id: SPEC-001
 title: Redigir a proposta de produto e limites
 objective: Produzir uma descrição verificável do problema e da decisão humana apoiada pelo produto.
-status: pending
+status: completed
 agent:
   role: Agente de análise de produto e requisitos
   responsibility: Converter a visão existente em proposta curta, rastreável e revisável; registrar dúvidas
@@ -14,6 +14,7 @@ inputs:
 - roadmap/stories/STORY-001.yaml
 - agents/specs/SPEC-001.yaml
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 - agents/handoffs/HANDOFF-000.yaml
 expected_outputs:
@@ -22,7 +23,7 @@ expected_outputs:
 constraints:
 - Código Python e API
 - Incidentes numéricos e limiares definitivos
-- Escolha de LLM, banco, fila ou framework
+- Escolha definitiva de modelo, banco, fila ou framework
 - Declarar validação humana ainda não recebida
 - Preservar integralmente o plano original.
 - Não marcar a Etapa 0 concluída.
@@ -41,7 +42,7 @@ validation:
   manual_checks:
   - Contar as linhas não vazias da seção Problema.
   - Ler seções Usuário e decisão e Jornada; verificar usuário, decisão e fluxo.
-  - Conferir entrada/saída da vertical e exclusões na seção Limites.
+  - Conferir entrada/saída, papel do LLM, fallback e exclusões na seção Limites.
   - Revisar premissas, estado planejado, fontes e questões Q-001/Q-015.
   expected_results:
   - Validador e whitespace sem erro.

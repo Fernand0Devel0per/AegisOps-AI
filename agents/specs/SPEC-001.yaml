@@ -14,7 +14,7 @@ architecture:
   interactions:
   - História → spec → atividade → validação/revisão → handoff → atualização de estado
   data_flow:
-  - Plano + ADR-0001 + questões Q-001/Q-015 → proposta de produto → revisão → handoff para STORY-002
+  - Plano + ADR-0001/0002 + questões Q-001/Q-015/Q-016 → proposta de produto → revisão → handoff para STORY-002
 interfaces:
 - Documentos e contratos em arquivos UTF-8; sem endpoint ou interface de runtime.
 data_contracts:
@@ -22,8 +22,8 @@ data_contracts:
   previstas, Limites, Premissas e questões, Referências.'
 - 'Problema: até dez linhas não vazias entre seu título e o próximo título.'
 - 'Usuário/persona: distinguir hipótese proposta de escolha validada pelo PO.'
-- 'Primeira vertical: incidente sintético → severidade e evidências; sem LLM; não especificar schemas
-  completos.'
+- 'Primeira vertical: incidente sintético → severidade e evidências determinísticas, explicação por LLM
+  local e fallback; não especificar schemas completos.'
 - Referências Markdown relativas ao documento; atualizar Q-001/Q-015 apenas com evidência real.
 dependencies:
 - roadmap/stories/STORY-000.yaml
@@ -45,7 +45,7 @@ implementation_steps:
   ao PO no fluxo de revisão.
 test_strategy:
 - Revisão documental por AC; contagem da seção Problema; validador de contratos/links.
-- Sem testes de aplicação, fixtures ou chamadas externas nesta atividade.
+- Sem testes de aplicação ou fixtures nesta atividade documental; experimento local e consulta externa autorizados pelo PO registrados no handoff.
 acceptance_mapping:
 - criterion_id: AC-01
   validation: Contar as linhas não vazias da seção Problema.
@@ -54,16 +54,18 @@ acceptance_mapping:
   validation: Ler seções Usuário e decisão e Jornada; verificar usuário, decisão e fluxo.
   evidence: agents/handoffs/HANDOFF-001.yaml
 - criterion_id: AC-03
-  validation: Conferir entrada/saída da vertical e exclusões na seção Limites.
+  validation: Conferir entrada/saída, papel do LLM, fallback e exclusões na seção Limites.
   evidence: agents/handoffs/HANDOFF-001.yaml
 - criterion_id: AC-04
   validation: Revisar premissas, estado planejado, fontes e questões Q-001/Q-015.
   evidence: agents/handoffs/HANDOFF-001.yaml
 open_questions:
-- 'Q-001: persona/decisão propostas para validação do PO.'
+- 'Q-001: usuários e decisão indicados pelo PO.'
+- 'Q-016: papel e fallback aprovados; detalhes de modelo e avaliação ainda pendentes.'
 - 'Q-015: validação final da descoberta na STORY-004; não bloqueia redigir a proposta.'
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - AGENTS.md

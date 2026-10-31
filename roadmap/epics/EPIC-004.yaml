@@ -1,13 +1,13 @@
 id: EPIC-004
-title: Primeiro analista com LLM e avaliação
+title: Analista ampliado com LLM e avaliação
 source_phase: 4
-objective: Introduzir análise opcional mantendo evidência e fallback determinísticos.
+objective: Ampliar análise opcional mantendo evidência e fallback determinísticos.
 status: backlog
 priority: medium
 dependencies:
 - EPIC-003
 scope:
-- Dataset e metas antes do LLM
+- Dataset e metas antes da análise ampliada
 - Adaptador, análise estruturada e verificador
 exit_criteria:
 - Mock funciona offline sem credenciais.

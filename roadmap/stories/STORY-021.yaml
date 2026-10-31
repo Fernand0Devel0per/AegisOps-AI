@@ -1,8 +1,8 @@
 id: STORY-021
 title: Integrar triagem à API e verificar candidata v0.1.0
 epic: EPIC-002
-description: Demonstrar envio de incidente sintético e retorno de severidade/evidências pela API.
-objective: Demonstrar envio de incidente sintético e retorno de severidade/evidências pela API.
+description: Demonstrar envio de incidente sintético, triagem determinística e explicação local pela API.
+objective: Demonstrar envio de incidente sintético, triagem determinística e explicação local pela API.
 context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
 status: backlog
@@ -13,21 +13,25 @@ scope:
   included:
   - Contrato mínimo de iniciar/consultar investigação conforme duração definida
   - Integração do motor
+  - Explicação por LLM local, verificação independente e fallback básico
+  - Avaliação da explicação antes da integração
   - Demo local e testes end-to-end
   excluded:
   - Release publicada automaticamente
-  - LLM e remediação
+  - Remediação e LLM como autoridade de severidade ou evidências
   - Persistência durável não justificada
 acceptance_criteria:
 - id: AC-01
-  criterion: Um comando documentado envia incidente sintético e obtém triagem e evidências consistentes.
+  criterion: Um comando documentado envia incidente sintético e obtém triagem, evidências e explicação local verificada.
 - id: AC-02
-  criterion: Testes end-to-end verificam sucesso, erro de entrada e insuficiência de dados.
+  criterion: Testes end-to-end verificam sucesso, entrada inválida, dados insuficientes, falha do LLM e fallback básico.
 - id: AC-03
   criterion: README distingue a vertical demonstrada do MVP ampliado; evidências permitem avaliar uma
     futura tag v0.1.0.
+- id: AC-04
+  criterion: Avaliação da explicação inclui citações inexistentes e afirmações sem apoio antes da integração.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- Respeitar ADR-0001 e ADR-0002 e os limites local-first/read-only.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - src/aegisops/
@@ -40,6 +44,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

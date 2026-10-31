@@ -1,17 +1,17 @@
 id: EPIC-002
 title: Motor de triagem baseado em evidências
 source_phase: 2
-objective: Entregar a vertical determinística e integrar sua saída à API.
+objective: Entregar triagem determinística, explicação por LLM local e fallback pela API.
 status: backlog
 priority: high
 dependencies:
 - EPIC-001
 scope:
 - Regras de severidade e evidências
-- Triagem pela API e candidata v0.1.0
+- Triagem, explicação local avaliada e fallback pela API; candidata v0.1.0
 exit_criteria:
 - Três cenários classificados de forma reproduzível com evidências válidas.
-- Testes de limiares, unidades, inconsistências e insuficiência; sem alegação de causa raiz.
+- Testes de limiares, unidades, inconsistências, insuficiência e fallback; sem alegação de causa raiz.
 stories:
 - STORY-020
 - STORY-021

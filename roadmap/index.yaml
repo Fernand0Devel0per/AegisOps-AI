@@ -4,6 +4,7 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 0
 next_story: STORY-001
 next_activity: ACT-001
+next_step_note: ACT-001 concluída; ponteiros mantidos apenas até existir novo contrato de atividade autorizado. Não executar outra história sem autorização do PO.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -33,7 +34,7 @@ epics:
   dependencies:
   - EPIC-002
 - id: EPIC-004
-  title: Primeiro analista com LLM e avaliação
+  title: Analista ampliado com LLM e avaliação
   path: roadmap/epics/EPIC-004.yaml
   priority: medium
   status: backlog
@@ -94,7 +95,7 @@ stories:
   path: roadmap/stories/STORY-001.yaml
   epic: EPIC-000
   priority: high
-  status: ready
+  status: done
   dependencies:
   - STORY-000
 - id: STORY-002
@@ -178,7 +179,7 @@ stories:
   dependencies:
   - STORY-030
 - id: STORY-040
-  title: Definir avaliação e políticas do analista antes de integrar LLM
+  title: Definir avaliação e políticas para análise ampliada com LLM
   path: roadmap/stories/STORY-040.yaml
   epic: EPIC-004
   priority: medium
@@ -260,8 +261,8 @@ stories:
 milestones:
 - id: v0.1.0
   status: planned
-  description: API recebe incidente sintético e retorna triagem e evidências consistentes, com testes
-    reproduzíveis, sem LLM.
+  description: API recebe incidente sintético e retorna severidade e evidências determinísticas, com explicação
+    por LLM local e fallback, sujeita a avaliação e testes reproduzíveis.
   required_stories:
   - STORY-004
   - STORY-010

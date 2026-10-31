@@ -1,5 +1,5 @@
 id: STORY-040
-title: Definir avaliação e políticas do analista antes de integrar LLM
+title: Definir avaliação e políticas para análise ampliada com LLM
 epic: EPIC-004
 description: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.
 objective: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.

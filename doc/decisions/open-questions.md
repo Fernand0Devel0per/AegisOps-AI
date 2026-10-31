@@ -4,13 +4,13 @@ Estado em 2026-10-30. Itens futuros não bloqueiam a preparação documental nem
 
 | ID | Lacuna / decisão | Responsável e momento | Impacto / próximo passo |
 |---|---|---|---|
-| Q-001 | Quem usa a primeira vertical e qual decisão toma? | PO valida proposta do agente; STORY-001 | Redigir persona e jornada com premissas identificadas; validação antes de encerrar descoberta |
+| Q-001 | Quem usa a primeira vertical e qual decisão toma? | PO respondeu na revisão da STORY-001, em 2026-10-30 | Desenvolvedores, profissionais de DevOps e outros responsáveis pela checagem; PO concordou com a decisão de priorizar o incidente e escolher os sinais a examinar. Proposta da STORY-001 aceita pelo PO em 2026-10-30; evidência em [HANDOFF-001](../../agents/handoffs/HANDOFF-001.yaml) |
 | Q-002 | Sinais, unidades, intervalos, limiares e semântica de severidade | Agente de requisitos + PO; STORY-002/003 | Não inventar números operacionais; criar cenários sintéticos explícitos e resultados esperados |
 | Q-003 | Cinco critérios observáveis, três falhas e insuficiência de evidência | Agente + PO; STORY-003 | Gate para os contratos e testes da primeira implementação |
 | Q-004 | Python, versões compatíveis, gerenciador e type checker | Agente de setup propõe; PO decide ADR estrutural antes da STORY-010 | Preferências do plano não equivalem a versões aprovadas; comparar custo e reprodução |
 | Q-005 | Rota/CLI mínima e contratos de erros; fluxo síncrono inicial | Agente prepara SPEC da STORY-011; PO decide mudanças relevantes | Não decidir todo o modelo de investigação; sem jobs antes de necessidade |
 | Q-006 | Política e medidas de sucesso para hipóteses e retrieval | PO + agente de avaliação; Etapas 3–4 | Definir dataset e metas antes dos testes; medir sem fabricar resultados |
-| Q-007 | Ollama ou provedor externo; custo e hardware | PO aprova recursos/custo; Etapa 4 | Comparar qualidade/latência/custo; manter mock sem credenciais |
+| Q-007 | Modelo local, recursos e avaliação | PO aprovou Colibri para explicação na primeira vertical; modelo definitivo pendente | Avaliar qualidade, latência, memória e licença; manter resultado básico sem credenciais ou LLM |
 | Q-008 | LangGraph versus pipeline simples | Agente apresenta experimento; PO aprova adoção; Etapa 5 | Só adotar se houver ganho demonstrável; resultado válido pode manter baseline |
 | Q-009 | Docling, FAISS/pgvector e busca lexical/vetorial/híbrida | Agente propõe comparação; PO decide; Etapa 6 | Documentos autorizados, métricas e análise de falhas antes de escolha |
 | Q-010 | Durabilidade PostgreSQL e necessidade de worker/broker | Agente de resiliência + PO; Etapa 8 | Banco é preferencial quando necessário; Redis/RabbitMQ/fila no banco são alternativas, não adoções |
@@ -19,6 +19,7 @@ Estado em 2026-10-30. Itens futuros não bloqueiam a preparação documental nem
 | Q-013 | AuthN/AuthZ e conectores remotos | PO + agente de segurança antes de acesso real | Fora do MVP local; nenhum acesso remoto real sem escopo, permissões e ADR |
 | Q-014 | Licença, nova inicialização Git, nome do remoto e publicação pública | PO antes de distribuir | Histórico Git removido por solicitação do PO; plano original local e ignorado. Migrar referências e dependência do validador para documentação pública antes de publicar |
 | Q-015 | Validação da descoberta e continuação por agentes | PO; STORY-004 | Aceitar produto, cenários e requisitos; não assumir aprovação pela passagem de tempo |
+| Q-016 | Papel do LLM, fallback e limites de recursos na primeira vertical | Papel e fallback aprovados pelo PO em 2026-10-30; detalhes técnicos pendentes | Regras calculam severidade e verificam evidências; Colibri explica; falha mantém saída básica. Modelo definitivo, avaliação e limites seguem abertos; ver [ADR-0002](../adr/0002-llm-local-primeira-vertical.md) e [HANDOFF-001](../../agents/handoffs/HANDOFF-001.yaml) |
 
 ## Riscos de execução
 

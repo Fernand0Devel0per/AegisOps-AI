@@ -6,7 +6,7 @@ Fonte: [plano original](../../AegisOps_AI_Plano_do_Zero.md), seções 1–12. Da
 
 O produto proposto ajuda uma pessoa a investigar degradação correlacionando sinais operacionais e runbooks. A saída separa observações, hipóteses, evidências, recomendações e limitações. Inicialmente tudo é local, sintético e somente de leitura. O portfólio deve demonstrar engenharia e aprendizado com resultados medidos.
 
-Há dois recortes distintos: a primeira vertical determinística (Etapas 0–2, candidata a `v0.1.0`) e o MVP ampliado (runbooks e análise opcional com LLM, testes, CI e telemetria progressiva). Não é preciso incluir o MVP ampliado na primeira release.
+Há dois recortes distintos: a primeira vertical (Etapas 0–2, candidata a `v0.1.0`) combina núcleo determinístico com explicação por LLM local e fallback; o MVP ampliado acrescenta runbooks e análise mais ampla, testes, CI e telemetria progressiva. Não é preciso incluir o MVP ampliado na primeira release.
 
 ## Visão alvo e incremento inicial
 
@@ -14,7 +14,7 @@ Há dois recortes distintos: a primeira vertical determinística (Etapas 0–2, 
 Entrada autorizada → API/CLI → workflow simples
     → triagem de sinais
     → consulta de runbooks
-    → análise / hipóteses (LLM opcional, posteriormente)
+    → explicação por LLM local; análise e hipóteses ampliadas posteriormente
     → validador determinístico de evidências e políticas
     → relatório humano + histórico/status quando necessário
 
@@ -22,7 +22,7 @@ Telemetria do workflow → OpenTelemetry → stack de observabilidade posterior
 Sinais investigados → fonte sintética inicialmente, demo instrumentada depois
 ```
 
-Esses são papéis lógicos, não serviços separados. A primeira implementação deve conter apenas os componentes necessários para consultar incidentes e depois classificá-los. Não se exige um framework de agentes para um pipeline simples. O [ADR-0001](../adr/0001-monolito-modular-baseline-deterministico.md) registra o ponto de partida explícito do plano.
+Esses são papéis lógicos, não serviços separados. A primeira implementação deve conter apenas os componentes necessários para consultar incidentes e depois classificá-los. Não se exige um framework de agentes para um pipeline simples. O [ADR-0001](../adr/0001-monolito-modular-baseline-deterministico.md) registra o ponto de partida; o [ADR-0002](../adr/0002-llm-local-primeira-vertical.md) registra a mudança aceita para a explicação local.
 
 `Incident`, `Signal`, `Evidence`, `Hypothesis`, `Investigation` e `Recommendation` são entidades conceituais candidatas. Esquemas e fronteiras definitivos não foram aprovados. A Etapa 0 deve definir entradas/saídas mínimas, unidades, períodos e resultados esperados, antes da modelagem Python.
 
@@ -33,18 +33,18 @@ Esses são papéis lógicos, não serviços separados. A primeira implementaçã
 | Linguagem e API | Python; FastAPI/Pydantic preferenciais | Etapa 1; ADR antes de dependências estruturais |
 | Qualidade | Pytest, Ruff, type checker; `uv` ou equivalente | Setup mínimo, sem banco/fila |
 | Conhecimento | Markdown e busca lexical | Baseline e dataset rotulado antes de embeddings |
-| Análise probabilística | Ollama ou provedor com chave por ambiente | Baseline determinístico, mock offline e critérios de avaliação |
+| Explicação probabilística | Colibri e modelo local; modelo definitivo a avaliar | Núcleo determinístico, fallback e avaliação antes da adoção |
 | Estado orquestrado | LangGraph ou implementação simples | Demonstrar necessidade de branches/checkpoints/retomada |
 | RAG rico | Docling, embeddings, FAISS/pgvector | Documentos autorizados; comparar com baseline, medir Recall@k/MRR quando adequados |
 | Durabilidade/concorrência | PostgreSQL; workers/broker somente se necessários | Contratos de idempotência e recuperação; carga e falhas medidas |
 | Operação | OTel e stack de observabilidade; Compose; depois Kubernetes/GitOps | API local estável antes de containers; deploy reproduzível antes de GitOps; capacidade medida antes de HPA/KEDA |
 | Conectores remotos | OIDC/JWT, permissões por ferramenta | Antes de qualquer conexão real; fora do MVP inicial |
 
-Não foram pesquisadas versões atuais nem testada a compatibilidade dessas candidatas nesta entrega documental. A decisão de instalação deve validar versões na etapa correspondente.
+O experimento local com Colibri está no HANDOFF-001; as demais candidatas não tiveram compatibilidade verificada nesta entrega. A decisão de instalação deve validar versões na etapa correspondente.
 
 ## Viabilidade, dependências e tensões
 
-O recorte inicial é viável sem serviço pago: incidentes sintéticos, regras determinísticas e execução local permitem testes reproduzíveis. A visão completa tem custo de estudo e operação considerável; manter etapas e gates evita transformar a lista de ferramentas em escopo obrigatório.
+O recorte inicial pretende funcionar sem serviço pago: incidentes sintéticos e regras determinísticas são a base reproduzível; a explicação local requer avaliação e fallback. A visão completa tem custo de estudo e operação considerável; manter etapas e gates evita transformar a lista de ferramentas em escopo obrigatório.
 
 | Observação no plano | Tratamento no roadmap |
 |---|---|
