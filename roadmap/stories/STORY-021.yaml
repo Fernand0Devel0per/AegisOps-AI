@@ -31,7 +31,8 @@ acceptance_criteria:
 - id: AC-04
   criterion: Avaliação da explicação inclui citações inexistentes e afirmações sem apoio antes da integração.
 technical_constraints:
-- Respeitar ADR-0001 e ADR-0002 e os limites local-first/read-only.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
+  os limites local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - src/aegisops/

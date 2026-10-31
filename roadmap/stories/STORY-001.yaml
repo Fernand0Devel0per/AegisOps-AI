@@ -33,7 +33,8 @@ acceptance_criteria:
   criterion: Propostas de persona e decisões ainda sem validação estão identificadas; fontes, capacidades
     planejadas e questões Q-001/Q-015 estão rastreáveis.
 technical_constraints:
-- Respeitar ADR-0001 com a alteração aprovada em ADR-0002 e os limites local-first/read-only.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
+  os limites local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - doc/PRODUCT.md

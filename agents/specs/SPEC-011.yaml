@@ -1,0 +1,65 @@
+id: SPEC-011
+story_id: STORY-011
+title: Contratos mínimos locais de incidente, sinal e evidência
+status: ready
+problem_statement: Os requisitos aceitos e as fixtures ainda não têm contrato de entrada executável para consumo pelo núcleo.
+proposed_solution: Validar um objeto Python proveniente de JSON com biblioteca padrão e produzir modelos imutáveis ou erros determinísticos com caminho e código, sem transporte ou dependência de runtime.
+architecture:
+  components:
+  - src/aegisops/contracts.py contém modelos, validação e erros de entrada.
+  - tests/unit verifica fixtures, limites, tipos e integridade referencial offline.
+  interactions:
+  - O chamador decodifica JSON e entrega o objeto à função de validação; ela devolve incidente ou levanta erro estruturado.
+  data_flow:
+  - Objeto não confiável → validação local de campos e relações → modelo imutável ou entrada_invalida.
+interfaces:
+- validate_incident(data) retorna Incident ou lança InvalidIncident com errors ordenados por percurso e contendo path e code; sem severidade, observações ou explicação.
+data_contracts:
+- Objeto com id, service, environment não vazios, synthetic verdadeiro, window, signals e evidence; metadados adicionais da fixture são ignorados, não validados nem incorporados.
+- Janela UTC válida de dez minutos e períodos UTC de cinco minutos contidos na janela, início inclusivo e fim exclusivo; períodos podem sobrepor-se.
+- Sinal exige id, metric, value numérico finito sem booleano, unit, aggregation e source textuais não vazios e period; métricas e unidades conforme REQUIREMENTS; latência não negativa e percentuais entre zero e cem inclusivos.
+- Taxa 5xx exige contagens inteiras não booleanas, denominador positivo e numerador entre zero e denominador; valor igual a 100 vezes quociente com tolerância absoluta de 0,000001 ponto percentual.
+- Evidência exige id, signal_id e summary textuais não vazios; IDs de incidente, sinais e evidências são únicos entre si; toda evidência resolve para sinal e todo sinal tem evidência.
+- Listas vazias de sinais e evidências são válidas; uma delas vazia com a outra não é válida. O consumidor futuro decidirá insuficiência; este contrato não classifica.
+- Timestamps ISO 8601 com timezone UTC explícito; erros de tipo, campos ausentes ou relações inválidas geram detalhes estáveis sem incluir dados recebidos.
+dependencies:
+- roadmap/stories/STORY-010.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+- agents/handoffs/HANDOFF-010.yaml
+security_considerations:
+- Sem rede, credenciais ou execução de dados; textos são dados não confiáveis e referências não demonstram suporte semântico.
+observability:
+- Erros indicam caminho e código sem ecoar valores; instrumentação fica para trabalho futuro.
+error_handling:
+- InvalidIncident contém estado entrada_invalida e lista de erros de campos; não produz resultado parcial utilizável.
+- Não confundir ausência válida de sinais com entrada inválida; qualquer violação prevalece sobre ausência.
+implementation_steps:
+- Preparar SPEC e ACT antes de atualizar ponteiros e começar a implementação.
+- Implementar modelos e validações determinísticas com biblioteca padrão e documentar interface.
+- Testar fixtures e fronteiras, erros e operação sem rede após instalação; registrar revisão e handoff.
+test_strategy:
+- Testar as três fixtures originais, vazio válido e múltiplas evidências, sem migração.
+- Testar valores e tipos, limites e tolerância, timestamps e janelas, IDs e referências, inclusive erros simultâneos.
+- Executar setup travado, pytest offline, Ruff, mypy, validadores documentais e verificações de diff.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Testar carregamento das três fixtures sem mudança ou migração.
+  evidence: tests/unit/test_contracts.py
+- criterion_id: AC-02
+  validation: Exercitar casos inválidos, fronteiras, integridade e caminhos/códigos estáveis em testes unitários.
+  evidence: tests/unit/test_contracts.py
+- criterion_id: AC-03
+  validation: Instalar e executar testes e ferramentas com uv offline após setup, sem credenciais.
+  evidence: agents/handoffs/HANDOFF-011.yaml
+open_questions:
+- Q-005: direção da API aceita no ADR-0004; versões, compatibilidade e detalhes HTTP permanecem para a STORY-012.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-011.yaml
+- doc/standards/workflow.md

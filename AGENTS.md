@@ -55,6 +55,7 @@ Use `doc/` como caminho canônico, inclusive para os futuros `doc/PRODUCT.md` e 
 ## Engenharia
 
 - **Simplicidade, coesão e baixo acoplamento:** implementar a menor solução para o contrato atual; separar responsabilidades quando houver necessidade concreta, sem criar camadas vazias.
+- **Legibilidade e refatoração:** escrever funções e métodos pequenos, com nomes que expressem a intenção e componham uma sequência legível do comportamento. Extrair condições complexas em predicados nomeados e encapsular laços em métodos que descrevam sua finalidade, conforme as técnicas de refatoração de Martin Fowler. Preservar comportamento e evitar extrações ou abstrações que não melhorem a compreensão.
 - **Segurança por padrão:** nenhuma credencial em código, fixtures ou logs. Restringir ferramentas, entradas, tempo, volume e ciclos; sanear telemetria. Evidência inválida não pode virar afirmação confiável.
 - **Erros:** distinguir entrada inválida, falta de evidência, falha de provedor e falha interna. Documentar contratos e comportamento de fallback; não engolir erros nem depender só de LLM para políticas críticas.
 - **Observabilidade:** planejar correlação por investigação e registros estruturados desde os contratos. Introduzir instrumentação progressivamente, sem implantar a stack completa antes da necessidade.
@@ -72,6 +73,10 @@ Use os estados `proposed`, `accepted`, `superseded`, `deprecated` do [modelo](do
 Mudança relevante de arquitetura, requisito, dependência estrutural ou custo operacional significativo deve ser sinalizada ao PO para aprovação humana **antes de implementar a mudança**. Prepare alternativas e evidências para revisão. Isso não exige nova aprovação para uma decisão já autorizada no plano ou na sessão. Não bloqueie tarefas independentes por dúvida futura.
 
 Se houver conflito ou falta de informação, registre em [open-questions.md](doc/decisions/open-questions.md), mantenha o estado real e peça a decisão necessária. Não crie requisitos ou aceite em nome do PO. Segurança básica é transversal, mesmo que a avaliação completa esteja na Etapa 10.
+
+## Git e branches
+
+Não trabalhe diretamente na `main`. Antes de alterar arquivos para uma história, crie ou retome uma branch no formato `feat/story-NNN`, preservando o número da história: por exemplo, `STORY-011` usa `feat/story-011`. Confira a base e o estado do Git antes da troca e preserve alterações preexistentes. Trabalhos sem história também devem usar uma branch separada, sem inventar um ID de história.
 
 ## Validação e continuidade
 
