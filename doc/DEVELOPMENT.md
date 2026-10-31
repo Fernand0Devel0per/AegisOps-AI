@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. Ainda não há motor, API ou integração com LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
+A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 implementa consulta HTTP local e saúde, em revisão; ainda não há motor ou integração com LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
 
 ## Pré-requisitos
 
@@ -33,7 +33,7 @@ O primeiro comando usa PyYAML e funciona sem o plano original local ignorado pel
 
 ## Contratos de entrada locais
 
-`aegisops.contracts.validate_incident` recebe um objeto Python já decodificado de JSON e devolve um `Incident` imutável com sinais, evidências e períodos, ou lança `InvalidIncident`. A exceção tem `state == "entrada_invalida"` e `errors` com caminhos e códigos estáveis, sem os valores recebidos; nenhum incidente parcial é devolvido. O chamador deve usar essa função como fronteira de validação: construir dataclasses diretamente não valida dados. A direção das rotas, dos erros HTTP e do framework foi aceita no [ADR-0004](adr/0004-api-local-contratos-http.md); implementação, versões e detalhes de transporte permanecem para a STORY-012.
+`aegisops.contracts.validate_incident` recebe um objeto Python já decodificado de JSON e devolve um `Incident` imutável com sinais, evidências e períodos, ou lança `InvalidIncident`. A exceção tem `state == "entrada_invalida"` e `errors` com caminhos e códigos estáveis, sem os valores recebidos; nenhum incidente parcial é devolvido. O chamador deve usar essa função como fronteira de validação: construir dataclasses diretamente não valida dados. A direção das rotas, dos erros HTTP e do framework foi aceita no [ADR-0004](adr/0004-api-local-contratos-http.md).
 
 ```python
 import json
@@ -60,3 +60,28 @@ uv run --offline --locked --no-sync ruff check src tests
 uv run --offline --locked --no-sync ruff format --check src tests
 uv run --offline --locked --no-sync mypy src tests
 ```
+
+## API local de consulta
+
+Após a instalação, inicie em um terminal e mantenha o processo em execução:
+
+```sh
+uv run --offline --locked --no-sync uvicorn aegisops.api:app --host 127.0.0.1 --port 18765 --no-access-log
+```
+
+Em outro terminal, consulte os dados sintéticos ou exercite os erros:
+
+```sh
+curl -i http://127.0.0.1:18765/health
+curl -i http://127.0.0.1:18765/v1/incidents/INC-001
+curl -i http://127.0.0.1:18765/v1/incidents/%20%20
+curl -i http://127.0.0.1:18765/v1/incidents/ausente
+```
+
+`GET /health` retorna `200 {"status":"ok"}` somente após inicialização concluída. As três fixtures em `datasets/incidents/` são incluídas no wheel em `aegisops/data/incidents/` por Hatchling, sem uma segunda cópia versionada; alterações nas fontes exigem reconstrução e reinstalação. A inicialização carrega os três recursos fixos do pacote, rejeita JSON malformado ou chaves repetidas, valida cada incidente pelo núcleo e verifica IDs únicos no catálogo. Arquivo ausente, ilegível ou inválido impede o servidor de iniciar. O health indica prontidão para o catálogo em memória validado no início, não verifica arquivos continuamente.
+
+`GET /v1/incidents/{id}` retorna o modelo de domínio validado: `id`, `service`, `environment`, `synthetic`, `window`, `signals` e `evidence`; datas são ISO 8601 em UTC e campos `expected` e `limitations` das fixtures não são devolvidos. Comparação de ID é exata e sensível a maiúsculas, sem normalização nem limite adicional ao contrato de domínio; codifique caracteres reservados para transmissão. O cliente ou servidor pode normalizar segmentos `.` e `..`, decodificar barras ou impor limites de tamanho de URI, portanto nem toda representação do ID é necessariamente transmissível por todas as ferramentas HTTP. O ID jamais é usado como caminho para abrir arquivos e não há parâmetro de caminho de catálogo.
+
+Erros retornam `application/problem+json`, com `type`, `title`, `status`, `detail` e `code`: espaços ou ID vazio geram `400 entrada_invalida`, ID inexistente gera `404 incidente_nao_encontrado`, falhas internas geram `500 erro_interno`; outras rotas e métodos também usam erros estruturados. Valores de entrada e detalhes internos não são refletidos. O log de acesso está desativado no comando acima; erros internos registram apenas mensagem genérica. A API não aceita incidentes novos. Não há documentação interativa nem OpenAPI habilitada nesta etapa, evitando dependência de ativos externos. O servidor escuta apenas em loopback; escolha outra interface somente quando seu ambiente e sua política de acesso permitirem.
+
+FastAPI 0.162.0 e Uvicorn 0.54.0 são dependências de runtime; HTTPX2 2.15.1 é usado somente nos testes de integração. Foram escolhidos após teste isolado com Python 3.14.8; as transitivas estão travadas em `uv.lock`, e resultados e limitações constam do [handoff](../agents/handoffs/HANDOFF-012.yaml). A [documentação do Starlette](https://starlette.dev/testclient/) indica HTTPX2 para TestClient; FastAPI e Uvicorn são descritos em suas páginas oficiais no [PyPI](https://pypi.org/project/fastapi/0.162.0/) e [PyPI](https://pypi.org/project/uvicorn/0.54.0/). O workflow executa toda a suíte, incluindo `tests/integration`; execução remota desta alteração depende de publicação autorizada e não é presumida.

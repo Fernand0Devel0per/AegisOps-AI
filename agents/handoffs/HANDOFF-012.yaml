@@ -1,0 +1,97 @@
+id: HANDOFF-012
+activity_id: ACT-012
+story_id: STORY-012
+spec_id: SPEC-012
+source_agent: Codex — implementação da primeira API
+target_agent: Product Owner e próximo agente
+status: partial
+summary: Consulta local e health implementados e validados localmente; revisão e execução remota da CI desta alteração pendentes.
+completed_work:
+- Fetch de origin realizado; origin/main em 4704852, com STORY-011 done, já era ancestral da branch; três commits próprios preservados.
+- Plano local, decisões, contratos, fixtures e workflow consultados; SPEC-012 e ACT-012 criadas antes da implementação e critérios mapeados.
+- Catálogo do pacote instalado validado no startup pelo núcleo da STORY-011; consulta, health e erros estruturados implementados.
+- Autorrevisão do diff, limites de IDs, falhas de startup e critérios realizada pelo executor; revisão da entrega solicitada ao PO.
+changed_files:
+- path: agents/specs/SPEC-012.yaml
+  reason: Especificar contratos, limites e mapeamento de todos os critérios.
+- path: agents/activities/ACT-012.yaml
+  reason: Registrar escopo, entradas e verificações da atividade.
+- path: agents/handoffs/HANDOFF-012.yaml
+  reason: Registrar evidências e continuidade sem presumir revisão ou CI remota.
+- path: roadmap/stories/STORY-012.yaml
+  reason: Refinar AC-02 e registrar estado e comandos de validação.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e ponteiros com os contratos existentes.
+- path: pyproject.toml
+  reason: Fixar dependências HTTP verificadas e empacotar as fixtures originais.
+- path: uv.lock
+  reason: Travar dependências transitivas e artefatos.
+- path: src/aegisops/catalog.py
+  reason: Carregar recursos fixos e validar todo o catálogo no início.
+- path: src/aegisops/api.py
+  reason: Expor leitura, saúde e erros Problem Details sanitizados.
+- path: tests/integration/test_api.py
+  reason: Exercitar HTTP, catálogo instalado, limites e falhas.
+- path: .github/workflows/quality.yml
+  reason: Identificar explicitamente o passo pytest que já inclui testes de integração.
+- path: doc/DEVELOPMENT.md
+  reason: Documentar setup, API, catálogo, erros e limitações.
+- path: README.md
+  reason: Apresentar estado real da implementação em revisão.
+decisions_made:
+- Teste em ambiente isolado /tmp com Python 3.14.8 instalou FastAPI 0.162.0, Uvicorn 0.54.0 e HTTPX 0.28.1; importações, TestClient GET 200 e uvicorn --version passaram, mas Starlette alertou depreciação do HTTPX.
+- No mesmo ambiente, HTTPX removido e HTTPX2 2.15.1 instalado; TestClient GET 200 passou com warnings tratados como erros. Starlette 1.10.0 e Pydantic 2.14.2 foram resolvidos. FastAPI e Uvicorn são runtime; HTTPX2 apenas teste. Lockfile registra todas as transitivas; fontes oficiais estão no ADR-0004 e no guia de desenvolvimento.
+- Uvicorn é servidor ASGI para a direção já aceita no ADR-0004; TestClient utiliza HTTPX2, recomendado pela documentação do Starlette. Não foram incluídos extras de servidor ou cliente.
+- Fixtures originais são incluídas no wheel por force-include sem duplicação versionada; somente recursos fixos são lidos no startup, nunca caminhos fornecidos pelo cliente.
+- ID vazio ou com apenas espaços é entrada inválida do contrato existente; comparação exata sem restringir formato nem impor limite de domínio. Barras e pontos dependem do transporte e da normalização de intermediários.
+- OpenAPI e interfaces interativas desabilitadas; health confirma catálogo validado em memória após inicialização, não monitora arquivos continuamente.
+validation:
+  executed:
+  - uv venv --python /usr/bin/python3.14 e uv pip install em ambiente temporário isolado; TestClient GET 200 e uvicorn --version.
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - pytest com env -i, HOME=/tmp, sem credenciais e socket.connect, connect_ex e create_connection bloqueados.
+  - TestClient do pacote instalado iniciado com diretório de trabalho /tmp; health e INC-003 consultados.
+  - Uvicorn em 127.0.0.1 com curl para health, INC-001, ID de espaços e ID ausente; servidor encerrado em seguida.
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: 65 testes passaram offline e no ambiente limpo com conexões bloqueadas; Ruff e mypy passaram.
+    evidence: tests/integration/test_api.py
+  - check: Startup e consultas das três fixtures instaladas, ausência, espaços, IDs longos e especiais, tentativa de caminho, erros 500 e cinco falhas de startup foram testados.
+    evidence: tests/integration/test_api.py
+  - check: Servidor local retornou health e INC-001 com 200, espaços com 400 e ausente com 404; TestClient em /tmp usou pacote em site-packages e consultou INC-003 com 200.
+    evidence: doc/DEVELOPMENT.md
+  - check: Validador documental, três fixtures e checks de whitespace passaram.
+    evidence: agents/handoffs/HANDOFF-012.yaml
+  failed: []
+  not_executed:
+  - CI remota desta alteração não executada ou observada; não houve push autorizado. AC-03 permanece parcialmente demonstrado.
+  - Self-test do validador documental não executado porque seu código não mudou.
+  - Triagem, LLM, persistência e operação distribuída estão fora do escopo.
+review:
+  type: Autorrevisão pelo executor, sem revisão independente ou aprovação humana presumida.
+  evidence: agents/handoffs/HANDOFF-012.yaml
+known_issues:
+- A primeira execução de Ruff e mypy identificou formatação, captura ampla e tipo de cabeçalho; corrigidos e verificações repetidas com sucesso.
+- A primeira experiência isolada com HTTPX 0.28.1 gerou aviso de depreciação do Starlette; substituído por HTTPX2 antes da adição ao projeto.
+- uv avisou sobre leitura de symlink do Python base e fallback de hardlink no teste isolado; instalação e testes passaram.
+- Contrato de domínio não limita IDs; clientes e servidores podem impor limites de URL e normalizar caminhos.
+- Respostas apresentam dados sintéticos validados estruturalmente; referências não comprovam causalidade nem conteúdo semântico.
+pending_work:
+- PO revisar a entrega e registrar/resolver observações; não há revisão humana presumida.
+- Após autorização específica para publicação, executar e observar Quality remotamente para o commit da entrega, registrar evidência de AC-03 e só então avaliar DoD e fechamento.
+next_steps:
+- Ler SPEC-012, ACT-012, este handoff e o diff; solicitar ou realizar revisão da entrega.
+- Não avançar STORY-020 nem marcar STORY-012 done enquanto critérios e DoD estiverem pendentes.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md

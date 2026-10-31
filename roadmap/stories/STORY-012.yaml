@@ -6,11 +6,11 @@ objective: Disponibilizar uma API local mínima com consulta sintética, health 
 context: >-
   Derivada da Etapa 1 do plano original. A STORY-011 concluiu contratos locais
   independentes de transporte; a primeira API ainda não foi implementada. O PO
-  aceitou a direção da API no ADR-0004, com versões e compatibilidade da stack
-  HTTP ainda pendentes de verificação.
+  aceitou a direção da API no ADR-0004; versões e compatibilidade da stack
+  HTTP foram verificadas em ambiente isolado conforme HANDOFF-012.
 priority: high
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-011
 scope:
@@ -26,7 +26,7 @@ acceptance_criteria:
 - id: AC-01
   criterion: Comandos documentados iniciam a API e consultam um incidente sintético e health.
 - id: AC-02
-  criterion: Entrada inválida e incidente inexistente retornam erros estruturados e testados.
+  criterion: Entrada inválida, como ID composto somente por espaços, e incidente inexistente retornam erros estruturados e testados.
 - id: AC-03
   criterion: Testes da API executam em CI sem credenciais; configurações sensíveis não aparecem em repositório/logs.
 technical_constraints:
@@ -40,22 +40,26 @@ technical_constraints:
   registrar evidência e lockfile conforme ADR-0004.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 refinement_notes:
-- Especificar um caso de entrada inválida observável nas rotas de consulta para AC-02,
-  sem introduzir endpoint de envio ou formato arbitrário de ID apenas para o teste.
-- Detalhar a representação e os limites dos IDs no transporte, preservando os requisitos
-  do domínio e o tratamento seguro de referências ao catálogo local.
-- Definir como disponibilizar e validar as fixtures, incluindo inicialização e significado
-  de health, conforme ADR-0004.
-- Definir testes da API no workflow e como registrar execução de CI efetivamente observada
-  para AC-03, distinguindo-a de validação local.
-- Preparar SPEC e ACT e mapear todos os critérios antes de implementar; a história permanece
-  em backlog e a escolha de versões e servidor ASGI ainda não foi comprovada.
+- ID composto somente de espaços exercita AC-02; representação de IDs e catálogo instalado
+  estão definidos em SPEC-012, sem endpoint de envio ou restrição arbitrária de formato.
+- Health e validação do catálogo no startup estão especificados em SPEC-012 e testados.
+- O workflow inclui a suíte de API; execução remota ainda precisa ser observada para AC-03.
+- SPEC-012 e ACT-012 preparadas; seleção de versões e teste isolado registrados no HANDOFF-012.
+- Revisão da entrega e execução remota de CI desta alteração permanecem pendentes.
 deliverables:
 - src/aegisops/
 - tests/integration/
 - doc/DEVELOPMENT.md
 validation:
-  automated_tests: []
+  automated_tests:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
   manual_checks:
   - Reproduzir consultas e falhas por comandos documentados.
 references:
@@ -65,6 +69,9 @@ references:
 - doc/adr/0003-ambiente-python-qualidade.md
 - doc/adr/0004-api-local-contratos-http.md
 - agents/handoffs/HANDOFF-011.yaml
+- agents/specs/SPEC-012.yaml
+- agents/activities/ACT-012.yaml
+- agents/handoffs/HANDOFF-012.yaml
 - doc/decisions/story-012-atualizacao-contexto.md
 - doc/decisions/open-questions.md
 definition_of_done:

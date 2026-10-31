@@ -21,7 +21,7 @@ jobs:
           version: 0.12.24
       - name: Install locked dependencies
         run: uv sync --locked --no-editable
-      - name: Test installed package
+      - name: Test installed package and API
         run: uv run --locked --no-sync pytest -q
       - name: Lint
         run: uv run --locked --no-sync ruff check src tests

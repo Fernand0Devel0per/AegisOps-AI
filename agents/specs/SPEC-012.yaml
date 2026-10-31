@@ -1,0 +1,66 @@
+id: SPEC-012
+story_id: STORY-012
+title: Consulta HTTP local e saúde
+status: ready
+problem_statement: Os incidentes sintéticos validados ainda não são consultáveis por HTTP.
+proposed_solution: Carregar e validar o catálogo distribuído no pacote durante a inicialização e servir consultas locais em FastAPI.
+architecture:
+  components:
+  - Catálogo empacotado a partir das três fixtures versionadas, carregado por importlib.resources e validado pelo núcleo.
+  - Camada HTTP FastAPI com lifespan, consulta em memória e tradução de erros Problem Details.
+  interactions:
+  - A inicialização falha se um arquivo estiver ausente, ilegível, malformado, inválido ou tiver ID duplicado no catálogo.
+  data_flow:
+  - Recursos fixos do pacote → JSON → validate_incident → mapa por ID → resposta HTTP serializada do modelo validado.
+interfaces:
+- GET /v1/incidents/{id} retorna 200 com campos do Incident validado; GET /health retorna 200 com status ok após inicialização.
+- O ID decodificado é comparado exatamente, incluindo caracteres Unicode e barras; IDs vazios ou compostos somente de espaços são inválidos.
+- Segmentos como ponto e barra são sujeitos à normalização do cliente ou servidor HTTP; um ID nunca é interpretado como caminho no sistema de arquivos.
+data_contracts:
+- A consulta retorna somente campos do modelo de domínio, sem expected ou limitations das fixtures; timestamps são ISO 8601 UTC.
+- IDs seguem o contrato de texto não vazio da STORY-011 sem limite adicional de domínio; limites de URI dependem do cliente e servidor.
+- Erros usam application/problem+json com type, title, status, detail e code estáveis, sem refletir entrada ou rastros.
+- Health só responde após carga validada completa; não é monitoramento contínuo dos arquivos depois do startup.
+dependencies:
+- roadmap/stories/STORY-011.yaml
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- agents/handoffs/HANDOFF-011.yaml
+security_considerations:
+- Apenas arquivos fixos distribuídos no pacote são lidos; não há caminhos ou configuração de catálogo provenientes do cliente.
+- Sem credenciais, serviços externos, escrita ou remediação; acesso local por padrão e sem log de acesso no comando documentado.
+observability:
+- Erros HTTP genéricos e códigos estáveis sem dados recebidos; sem infraestrutura de observabilidade nova.
+error_handling:
+- ID vazio ou somente espaços retorna 400 entrada_invalida; ID não encontrado retorna 404 incidente_nao_encontrado.
+- Falha interna durante consulta retorna 500 erro_interno sem detalhes; fixture inválida ou ausente impede a inicialização, nunca é erro do cliente.
+- Rotas e métodos não encontrados retornam Problem Details e preservam cabeçalhos HTTP pertinentes.
+implementation_steps:
+- Verificar stack em ambiente isolado Python 3.14.8 antes de adicionar dependências e registrar versões.
+- Empacotar fixtures sem cópias divergentes e implementar inicialização, consulta, saúde e erros.
+- Validar instalação travada, execução offline, qualidade e contratos; documentar e solicitar revisão.
+test_strategy:
+- Exercitar startup, três fixtures instaladas, sucesso, ausência, ID inválido, caracteres, caminhos e saúde por HTTP.
+- Injetar falhas de recurso, JSON, domínio e IDs duplicados e verificar que startup falha; testar 500 estruturado sem dados internos.
+- Executar testes pelo workflow existente, demonstrar offline sem credenciais e registrar CI remoto somente quando observado.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Comandos documentados e testes HTTP verificam health e consulta das três fixtures instaladas.
+  evidence: tests/integration/test_api.py
+- criterion_id: AC-02
+  validation: Consultar ID composto por espaços retorna 400; ID ausente retorna 404; ambos com Problem Details.
+  evidence: tests/integration/test_api.py
+- criterion_id: AC-03
+  validation: Workflow executa pytest completo sem credenciais; execução remota fica pendente até observada.
+  evidence: .github/workflows/quality.yml
+open_questions:
+- Q-005: CI remota desta alteração requer publicação autorizada e execução observada.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-012.yaml
+- doc/standards/workflow.md

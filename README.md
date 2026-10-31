@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão concluídos; três incidentes sintéticos e requisitos estão documentados. Ainda não há motor, API ou integração de LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
+**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão concluídos; três incidentes sintéticos e requisitos estão documentados. A consulta local de incidentes e saúde está implementada na STORY-012, em revisão; ainda não há motor ou integração de LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
 
 ## Problema e capacidades previstas
 
@@ -37,13 +37,13 @@ Consulte a [arquitetura e análise do plano](doc/architecture/overview.md), o [A
 
 | Momento | Tecnologias candidatas ou direcionamento |
 |---|---|
-| Primeira implementação | Python e ferramentas de qualidade aprovados; FastAPI escolhido para a futura API; Colibri e LLM local para explicação |
+| Primeira implementação | Python e ferramentas de qualidade aprovados; FastAPI na API local de consulta; Colibri e LLM local para explicação |
 | Após primeira vertical | Busca lexical em Markdown; análise ampliada; Docker/Compose após API inicial |
 | Mediante avaliação | LangGraph; Docling; embeddings; FAISS/pgvector; PostgreSQL; workers e Redis/RabbitMQ |
 | Evolução da plataforma | OpenTelemetry, Collector, Prometheus, Grafana; Kubernetes, Helm/Kustomize; Argo CD; HPA/KEDA condicionados a medições |
 | Antes de conectores remotos reais | Autenticação/autorização, OIDC/JWT e permissões por ferramenta, a especificar |
 
-O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/0003-ambiente-python-qualidade.md) registra Python e ferramentas de qualidade; o [ADR-0004](doc/adr/0004-api-local-contratos-http.md) registra FastAPI e a direção da API futura. Versões e compatibilidade da stack HTTP ainda precisam ser verificadas antes da adoção; as demais tecnologias da tabela permanecem candidatas.
+O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/0003-ambiente-python-qualidade.md) registra Python e ferramentas de qualidade; o [ADR-0004](doc/adr/0004-api-local-contratos-http.md) registra FastAPI e a direção da API; versões e evidências de compatibilidade estão no [handoff da STORY-012](agents/handoffs/HANDOFF-012.yaml). As demais tecnologias da tabela permanecem candidatas.
 
 ## Implementado e planejado
 
@@ -52,7 +52,8 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 | Concluído | Produto, [três cenários sintéticos](doc/INCIDENTS.md), requisitos e revisão humana da descoberta |
 | Concluído | Pacote Python mínimo, instalação, teste de setup e workflow de qualidade; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
-| Planejado | API, motor de triagem, integração LLM e evolução por etapas |
+| Em revisão | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
+| Planejado | Motor de triagem, integração LLM e evolução por etapas |
 
 Os contratos ainda não fazem triagem. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
 
@@ -104,7 +105,7 @@ Para validar esta documentação, use Python 3 com PyYAML. Se precisar de ambien
 python3 scripts/validate_repository.py
 ```
 
-O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`. O validador não exige esse arquivo; links históricos para ele podem não abrir em clones e sua migração continua em Q-014. A validação de documentos não substitui testes da futura aplicação.
+O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`. O validador não exige esse arquivo; links históricos para ele podem não abrir em clones e sua migração continua em Q-014. A validação de documentos não substitui testes da aplicação.
 
 ## Decisões e limites
 
