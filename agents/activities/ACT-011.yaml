@@ -1,0 +1,48 @@
+id: ACT-011
+story_id: STORY-011
+spec_id: SPEC-011
+title: Implementar contratos mínimos e validação determinística
+objective: Aceitar fixtures e validar entradas sintéticas e relações conforme requisitos aceitos, offline.
+status: in_review
+agent:
+  role: Agente de implementação Python
+  responsibility: Implementar apenas modelos e erros internos, testes e documentação pertinentes à STORY-011.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-011.yaml
+- agents/specs/SPEC-011.yaml
+- agents/handoffs/HANDOFF-010.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+- doc/adr/0003-ambiente-python-qualidade.md
+expected_outputs:
+- src/aegisops/contracts.py
+- tests/unit/test_contracts.py
+- doc/DEVELOPMENT.md
+- agents/handoffs/HANDOFF-011.yaml
+constraints:
+- Nenhuma API, motor de severidade, persistência, LLM ou dependência estrutural nova.
+- Preservar fixtures e ausência de inferência causal; formato de transporte permanece aberto em Q-005.
+- Preservar alterações existentes e não publicar, fazer push ou merge.
+execution_steps:
+- Refinar história, preparar contratos e sincronizar estados antes da implementação.
+- Implementar entrada e erros, testes e documentação conforme SPEC-011.
+- Executar instalação, testes offline e validações; revisar diff e registrar handoff.
+validation:
+  commands:
+  - uv sync --locked --no-editable
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Fixtures aceitas, erros determinísticos cobertos e comandos passam sem rede após setup.
+dependencies:
+- ACT-010
+handoff_required: true
+references:
+- doc/standards/validation.md

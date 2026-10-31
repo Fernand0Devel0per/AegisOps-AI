@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 30/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Três incidentes sintéticos e requisitos estão documentados; o pacote instalado é apenas a fundação, sem motor, API ou integração de LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
+**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão implementados e aguardam revisão; três incidentes sintéticos e requisitos estão documentados. Ainda não há motor, API ou integração de LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
 
 ## Problema e capacidades previstas
 
@@ -51,9 +51,10 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 |---|---|
 | Concluído | Produto, [três cenários sintéticos](doc/INCIDENTS.md), requisitos e revisão humana da descoberta |
 | Concluído | Pacote Python mínimo, instalação, teste de setup e workflow de qualidade; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
+| Implementado, em revisão | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Planejado | API, motor de triagem, integração LLM e evolução por etapas |
 
-O pacote ainda não oferece funcionalidade de produto. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
+Os contratos ainda não fazem triagem. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
 
 ## Roadmap
 

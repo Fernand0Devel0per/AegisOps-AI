@@ -5,8 +5,8 @@ description: Transformar os requisitos aceitos em contratos de entrada e erro va
 objective: Transformar os requisitos aceitos em contratos de entrada e erro validados.
 context: Derivada da Etapa 1 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-010
 scope:
@@ -29,14 +29,20 @@ acceptance_criteria:
 technical_constraints:
 - Respeitar o monolito modular e o núcleo determinístico do ADR-0001, conforme a substituição parcial
   pelo ADR-0002; manter os limites local-first/read-only.
-- O ADR-0002 prevê explicação por LLM local e fallback na primeira vertical; sua integração não faz
-  parte dos contratos mínimos desta história.
+- O ADR-0002 prevê explicação por LLM local e fallback na primeira vertical; sua integração não faz parte
+  dos contratos mínimos desta história.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - src/aegisops/
 - tests/unit/
 validation:
-  automated_tests: []
+  automated_tests:
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
   manual_checks:
   - Comparar contratos com REQUIREMENTS e fixtures.
 references:
@@ -44,6 +50,11 @@ references:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
+- agents/specs/SPEC-011.yaml
+- agents/activities/ACT-011.yaml
+- doc/REQUIREMENTS.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- agents/handoffs/HANDOFF-011.yaml
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.

@@ -1,0 +1,81 @@
+id: HANDOFF-011
+activity_id: ACT-011
+story_id: STORY-011
+spec_id: SPEC-011
+source_agent: Codex — implementação de contratos
+target_agent: Product Owner e próximo agente
+status: partial
+summary: Contratos e testes implementados e autorrevisados; entrega em revisão, sem aceite externo presumido.
+completed_work:
+- Dependência STORY-010 confirmada done; SPEC-011 e ACT-011 criadas antes da implementação e estados sincronizados.
+- Modelos imutáveis, validação local e erros estruturados implementados com biblioteca padrão; fixtures aceitas sem migração.
+- Testes cobrem entradas válidas, inconsistências, limites, referências e ausência de rede ou credenciais após setup.
+- Autorrevisão do diff e critérios realizada; revisão da entrega solicitada ao PO.
+changed_files:
+- path: agents/specs/SPEC-011.yaml
+  reason: Especificar entradas, erros, limites e mapeamento de todos os ACs.
+- path: agents/activities/ACT-011.yaml
+  reason: Delimitar atividade e validação.
+- path: src/aegisops/contracts.py
+  reason: Implementar modelos e validação determinística sem dependências adicionais.
+- path: tests/unit/test_contracts.py
+  reason: Exercitar fixtures, limites, entrada inválida e integridade.
+- path: doc/DEVELOPMENT.md
+  reason: Documentar contrato, limitações e reinstalação não editável.
+- path: README.md
+  reason: Informar implementação em revisão e distinguir capacidades futuras.
+- path: roadmap/stories/STORY-011.yaml
+  reason: Refinamento, estado de revisão e evidências da história.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e ponteiros para a revisão da atividade.
+- path: agents/handoffs/HANDOFF-011.yaml
+  reason: Registrar evidências, limitações e continuidade.
+decisions_made:
+- Biblioteca padrão Python, dataclasses imutáveis e função interna de validação; nenhuma dependência estrutural nova ou decisão de transporte.
+- Aritmética racional exata para tolerância de 5xx; metadados adicionais das fixtures são ignorados e textos não têm suporte semântico verificado.
+- Listas de sinais e evidências simultaneamente vazias são aceitas; resultado insuficiente pertence ao motor futuro.
+- Plano original local disponível e consultado nas seções de entidades e Etapas 0 a 2; ADR-0002 prevalece para o LLM e Pydantic é candidato não adotado. Nenhuma lacuna material identificada para esta história.
+validation:
+  executed:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - 'env -i HOME=/tmp PATH=/usr/bin:/bin PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 .venv/bin/python: pytest -q com socket.connect, connect_ex e create_connection bloqueados.'
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: 50 testes passaram com uv offline; repetição com ambiente limpo sem credenciais e conexões de socket bloqueadas também passou.
+    evidence: tests/unit/test_contracts.py
+  - check: Ruff check e format e mypy strict passaram; instalação normal e reinstalação offline do pacote passaram com Python 3.14.8.
+    evidence: doc/DEVELOPMENT.md
+  - check: Fixtures existentes aceitas; validador documental, validador de incidentes e verificações de whitespace passaram.
+    evidence: agents/specs/SPEC-011.yaml
+  failed: []
+  not_executed:
+  - 'CI remota desta alteração: sem push autorizado; CI de STORY-010 não valida este commit.'
+  - 'Self-test do validador documental: não alterado nesta história.'
+  - 'Motor, API, persistência e LLM: fora do escopo, não implementados.'
+review:
+  type: Autorrevisão do executor dos critérios, diff, compatibilidade e testes; revisão externa solicitada, ainda não realizada.
+  evidence: agents/specs/SPEC-011.yaml
+known_issues:
+- 'A sincronização não editável simples reteve uma instalação antiga durante desenvolvimento; uma execução intermediária falhou por isso. Reinstalação forçada corrigiu e a suíte final passou.'
+- 'Uma tentativa de preparar HOME temporário foi rejeitada pelo executor por incluir rm -rf; repetida com env -i e HOME=/tmp, sem remoção.'
+- O uv emitiu aviso ao procurar symlink do Python base; instalação e testes concluíram com sucesso.
+- Agregação, origem e resumo são textos não vazios, sem verificação semântica; referências existentes não provam causalidade ou verdade.
+- A função recebe objeto já decodificado; o tratamento de JSON malformado ou chaves repetidas no texto é responsabilidade da fronteira futura.
+pending_work:
+- Revisão externa da entrega pelo PO; tratar observações antes de concluir atividade e história.
+- Q-005 mantém decisões de rota e formato de erro de transporte para história posterior.
+next_steps:
+- Revisar SPEC-011, código, testes e evidências; registrar resultado e concluir somente após revisão e observações resolvidas.
+- Só então preparar a STORY-012, sem iniciá-la nesta atividade.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
