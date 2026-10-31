@@ -1,0 +1,66 @@
+id: SPEC-003
+story_id: STORY-003
+title: Requisitos observáveis da primeira triagem
+status: ready
+problem_statement: Os cenários aprovados não estabelecem critérios de severidade, dados insuficientes ou verificação da explicação.
+proposed_solution: Documentar um contrato mínimo proposto e testável, derivar os três resultados e identificar os pontos sujeitos à validação do PO.
+architecture:
+  components:
+  - Requisitos propostos em doc/REQUIREMENTS.md.
+  - Fixtures aprovadas na STORY-002 e ADR-0002.
+  interactions:
+  - Sinais e evidências locais → regras de triagem propostas → referências verificadas → explicação opcional verificada → saída básica preservada.
+  data_flow:
+  - Os três exemplos servem para revisar a política proposta, sem execução do motor ou LLM.
+interfaces:
+- Contrato documental de entrada e saída; sem formato de API ou modelo Python definitivo.
+data_contracts:
+- Definir unidades, janelas, comparadores inclusivos, prioridade de sinais, dados faltantes e inválidos para reproduzir os exemplos.
+- Especificar referências, observações, hipóteses, explicação e falhas de forma verificável, sem presumir causa raiz.
+- Enquadrar todas as regras numéricas e rótulos como proposta sintética sujeita ao PO, nunca política de produção.
+dependencies:
+- roadmap/stories/STORY-002.yaml
+- agents/handoffs/HANDOFF-002.yaml
+security_considerations:
+- Sem dados reais, credenciais, acesso externo ou ações de remediação.
+- Limitar explicação a informações autorizadas e referências resolvíveis; citar evidência não comprova suporte semântico.
+observability:
+- Registrar evidências de revisão e comandos no handoff; não prometer instrumentação implementada.
+error_handling:
+- Distinguir entrada inconsistente, informação insuficiente, referência inválida e indisponibilidade ou rejeição da explicação.
+implementation_steps:
+- Ler requisitos da história, produto, ADRs, fixtures e questões; preparar spec e atividade antes da execução.
+- Propor regras completas de teste e percurso manual para cada fixture com evidências.
+- Definir pelo menos cinco critérios e três falhas, explicar opções e limites e registrar pendências.
+- Validar coerência e referências, revisar e produzir handoff; gate da descoberta requer PO.
+test_strategy:
+- Percorrer manualmente cada fixture, os valores de fronteira e casos de falha contra a proposta documental.
+- Validar a existência dos IDs citados e os valores das fixtures usando Python local em modo leitura; sem implementar motor.
+- Executar validadores, git diff --check e git diff --cached --check; verificar whitespace de arquivos novos.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir entrada, saída, restrições e vínculos aos três incidentes.
+  evidence: doc/REQUIREMENTS.md
+- criterion_id: AC-02
+  validation: Contar critérios numerados e casos de falha, incluindo insuficiência e entrada inconsistente.
+  evidence: doc/REQUIREMENTS.md
+- criterion_id: AC-03
+  validation: Percorrer regras, unidades, períodos, fronteiras e dados faltantes em todos os exemplos.
+  evidence: doc/REQUIREMENTS.md
+- criterion_id: AC-04
+  validation: Conferir separação observação/hipótese, referências e resultados esperados; documentar conflitos.
+  evidence: doc/REQUIREMENTS.md
+- criterion_id: AC-05
+  validation: Conferir verificações independentes, evidências, rejeição e saída básica preservada.
+  evidence: doc/REQUIREMENTS.md
+open_questions:
+- Q-002 e Q-003 requerem aprovação do PO no gate; critérios numéricos são propostas para dados sintéticos.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-003.yaml
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/decisions/open-questions.md

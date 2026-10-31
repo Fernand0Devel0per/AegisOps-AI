@@ -1,22 +1,22 @@
 schema_version: 1
 updated_at: '2026-10-30'
 source: AegisOps_AI_Plano_do_Zero.md
-current_phase: 0
-next_story: STORY-001
-next_activity: ACT-001
-next_step_note: ACT-001 concluída; ponteiros mantidos apenas até existir novo contrato de atividade autorizado. Não executar outra história sem autorização do PO.
+current_phase: 1
+next_story: STORY-010
+next_activity: ACT-010
+next_step_note: STORY-010 concluída; ponteiros mantidos até preparar contrato da STORY-011, próxima dependência da primeira vertical.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
   path: roadmap/epics/EPIC-000.yaml
   priority: high
-  status: ready
+  status: done
   dependencies: []
 - id: EPIC-001
   title: Fundamentos de qualidade e primeira API
   path: roadmap/epics/EPIC-001.yaml
   priority: high
-  status: backlog
+  status: in_progress
   dependencies:
   - EPIC-000
 - id: EPIC-002
@@ -103,7 +103,7 @@ stories:
   path: roadmap/stories/STORY-002.yaml
   epic: EPIC-000
   priority: high
-  status: backlog
+  status: done
   dependencies:
   - STORY-001
 - id: STORY-003
@@ -111,7 +111,7 @@ stories:
   path: roadmap/stories/STORY-003.yaml
   epic: EPIC-000
   priority: high
-  status: backlog
+  status: done
   dependencies:
   - STORY-002
 - id: STORY-004
@@ -119,7 +119,7 @@ stories:
   path: roadmap/stories/STORY-004.yaml
   epic: EPIC-000
   priority: high
-  status: backlog
+  status: done
   dependencies:
   - STORY-003
 - id: STORY-010
@@ -127,7 +127,7 @@ stories:
   path: roadmap/stories/STORY-010.yaml
   epic: EPIC-001
   priority: high
-  status: backlog
+  status: done
   dependencies:
   - STORY-004
 - id: STORY-011

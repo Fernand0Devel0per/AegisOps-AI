@@ -1,0 +1,103 @@
+{
+  "id": "INC-002",
+  "synthetic": true,
+  "service": "pedidos-ficticio",
+  "environment": "simulado local",
+  "window": {
+    "start": "2026-10-01T10:00:00Z",
+    "end": "2026-10-01T10:10:00Z"
+  },
+  "signals": [
+    {
+      "id": "SIG-002-01",
+      "metric": "http_5xx_rate",
+      "value": 1.0,
+      "unit": "percent",
+      "aggregation": "5xx / total de requisições × 100",
+      "period": {
+        "start": "2026-10-01T10:00:00Z",
+        "end": "2026-10-01T10:05:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia",
+      "numerator": 10,
+      "denominator": 1000
+    },
+    {
+      "id": "SIG-002-02",
+      "metric": "http_5xx_rate",
+      "value": 20.0,
+      "unit": "percent",
+      "aggregation": "5xx / total de requisições × 100",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia",
+      "numerator": 200,
+      "denominator": 1000
+    },
+    {
+      "id": "SIG-002-03",
+      "metric": "cpu_utilization",
+      "value": 92,
+      "unit": "percent",
+      "aggregation": "média da capacidade de CPU alocada",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-002-01",
+      "signal_id": "SIG-002-01",
+      "summary": "10 de 1000 respostas foram 5xx no primeiro intervalo."
+    },
+    {
+      "id": "EVD-002-02",
+      "signal_id": "SIG-002-02",
+      "summary": "200 de 1000 respostas foram 5xx no segundo intervalo."
+    },
+    {
+      "id": "EVD-002-03",
+      "signal_id": "SIG-002-03",
+      "summary": "CPU média de 92% no segundo intervalo."
+    }
+  ],
+  "expected": {
+    "category": "alta_taxa_5xx",
+    "severity": "alta",
+    "status": "proposta para teste; não é regra de produção",
+    "evidence_ids": [
+      "EVD-002-01",
+      "EVD-002-02",
+      "EVD-002-03"
+    ],
+    "justifications": [
+      {
+        "text": "A taxa de 5xx aumenta de 1% para 20%; propõe-se severidade alta para este exemplo.",
+        "evidence_ids": [
+          "EVD-002-01",
+          "EVD-002-02"
+        ]
+      },
+      {
+        "text": "A CPU média foi 92% no mesmo intervalo da taxa de 20%; coexistência não comprova causa.",
+        "evidence_ids": [
+          "EVD-002-02",
+          "EVD-002-03"
+        ]
+      }
+    ]
+  },
+  "limitations": {
+    "observable": [
+      "A taxa de 5xx aumentou e a CPU ficou elevada no mesmo intervalo agregado."
+    ],
+    "cannot_conclude": [
+      "Não estabelece que CPU causou erros nem revela endpoints, causas das respostas ou impacto real."
+    ]
+  }
+}

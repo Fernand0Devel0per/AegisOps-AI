@@ -1,0 +1,86 @@
+id: HANDOFF-004
+activity_id: ACT-004
+story_id: STORY-004
+spec_id: SPEC-004
+source_agent: Codex — revisão documental
+target_agent: Product Owner e revisor independente
+status: completed
+summary: PO, como desenvolvedor, confirmou revisão e aceitou cenários e proposta para iniciar; ADR-0003 aceito após teste Python 3.14; descoberta concluída com ajuste transparente do AC-01.
+completed_work:
+- Contratos SPEC-004 e ACT-004 preparados antes da revisão, com todos os critérios mapeados.
+- Produto, cenários, requisitos propostos, ADRs, alternativas e decisões consolidados em doc/decisions/discovery-review.md.
+- Reprodução e conferência pelo próprio executor registradas; não se trata de revisão independente.
+- PO relatou executar os scripts e revisar os arquivos como desenvolvedor, sem observações além da mudança para Python 3.14; não forneceu as saídas nem explicou o fluxo.
+- PO aceitou as ferramentas condicionando Python 3.14 ao teste; teste isolado passou e ADR-0003 foi aceito.
+- Após solicitação de descrição do fluxo, PO declarou que a proposta e cenários atendem ao esperado para iniciar; AC-01 foi ajustado para validação do fluxo documentado, sem atribuir ao PO uma descrição que não forneceu.
+changed_files:
+- path: agents/specs/SPEC-004.yaml
+  reason: Contrato e mapeamento do gate.
+- path: agents/activities/ACT-004.yaml
+  reason: Atividade concluída após revisão relatada e validação pelo PO.
+- path: roadmap/epics/EPIC-000.yaml
+  reason: Registrar conclusão da descoberta e alinhar critério ao aceite do PO.
+- path: roadmap/stories/STORY-004.yaml
+  reason: Registrar conclusão da revisão e ajuste transparente do AC-01.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e apontar para a revisão ativa.
+- path: doc/decisions/discovery-review.md
+  reason: Pacote concreto de evidências, pendências e alternativas ao PO.
+- path: doc/adr/0003-ambiente-python-qualidade.md
+  reason: Registrar decisão aceita de ferramentas e evidências do teste isolado em Python 3.14.
+- path: doc/adr/README.md
+  reason: Catalogar ADR-0003 aceito pelo PO.
+- path: doc/decisions/open-questions.md
+  reason: Registrar aprovação dos requisitos e proposta de setup sem presumir conclusão do gate.
+- path: doc/REQUIREMENTS.md
+  reason: Registrar aprovação explícita do PO e pendência do gate.
+- path: agents/handoffs/HANDOFF-004.yaml
+  reason: Preservar estado parcial e condições do gate.
+decisions_made:
+- PO aceitou em 2026-10-30 os requisitos sintéticos e o conjunto apresentado de produto, cenários e critérios.
+- PO relatou revisão e execução de scripts como desenvolvedor e aprovou a proposta para iniciar; fluxo foi documentado pelo executor e aceito pelo PO, sem reexplicação própria.
+- PO autorizou continuidade após revisão; gate concluído conforme ajuste transparente em STORY-004.
+validation:
+  executed:
+  - python3 scripts/validate_incidents.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - git diff --no-index --check /dev/null para cada arquivo novo da entrega.
+  - Autorrevisão dos vínculos de produto, cenários, requisitos e ADRs; sem revisão independente.
+  - uv python list --only-installed; consulta de metadados PyPI e uv pip compile em diretório temporário para a proposta do ADR-0003.
+  - uv venv e uv pip install em ambiente temporário isolado; pytest --version, ruff --version, mypy --version e importação de hatchling no Python 3.12.
+  - uv venv --python /usr/bin/python3.14 e uv pip install pytest==9.2.0 ruff==0.17.3 mypy==2.4.1 hatchling==1.33.0 em ambiente temporário; pytest -q, ruff check, mypy em arquivo de prova e importação de hatchling.
+  passed:
+  - check: Três fixtures reproduzidas pelo executor com IDs e referências válidos.
+    evidence: scripts/validate_incidents.py
+  - check: Critérios da STORY-004 e pendências de revisão e aceite mapeados no pacote.
+    evidence: doc/decisions/discovery-review.md
+  - check: Python 3.12.14 e uv 0.12.24 presentes; resolução de quatro dependências diretas encontrou 15 pacotes; instalação exploratória e verificações de versão/importação passaram em ambiente temporário, sem instalação no projeto.
+    evidence: doc/adr/0003-ambiente-python-qualidade.md
+  - check: Python 3.14.8 instalou as quatro ferramentas no ambiente isolado; pytest 1 passed, Ruff e mypy passaram e Hatchling 1.33.0 importou.
+    evidence: doc/adr/0003-ambiente-python-qualidade.md
+  - check: Validação documental e whitespace concluídos sem erro; arquivos não rastreados verificados separadamente.
+    evidence: scripts/validate_repository.py
+  failed: []
+  not_executed:
+  - 'Implementação, testes de aplicação, execução de LLM e CI: não executados nesta atividade documental.'
+review:
+  type: Autorrevisão pelo executor e revisão independente relatada pelo PO desenvolvedor em 2026-10-30; PO validou a proposta e os cenários.
+  po_feedback: PO relatou executar scripts e revisar arquivos; aprovou cenários e proposta para iniciar e pediu Python 3.14 condicionado ao teste, que passou. Não forneceu saídas dos comandos nem reexplicou o fluxo.
+  evidence: doc/decisions/discovery-review.md
+known_issues:
+- Q-002 e Q-003 foram aceitas pelo PO; este relatou não ter outras observações além de Python 3.14.
+- STORY-010 exige refinamento e gate concluído; ADR-0003 foi aceito, mas smoke test isolado não prova instalação do projeto ou CI.
+pending_work:
+- Preparar e executar STORY-010 conforme ADR-0003, sem antecipar motor ou LLM.
+next_steps:
+- Ler STORY-010 e ADR-0003; preparar SPEC e ACT antes do setup.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- doc/decisions/open-questions.md

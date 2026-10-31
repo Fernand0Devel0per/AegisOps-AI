@@ -1,0 +1,69 @@
+id: HANDOFF-003
+activity_id: ACT-003
+story_id: STORY-003
+spec_id: SPEC-003
+source_agent: Codex — requisitos
+target_agent: Product Owner — gate da descoberta
+status: completed
+summary: Requisitos sintéticos e casos de falha propostos e autorrevisados; no fechamento da atividade ainda não havia aceite do PO. Aceite posterior está registrado em HANDOFF-004; gate ainda pendente.
+completed_work:
+- SPEC-003 e ACT-003 preparados antes dos requisitos, com cinco ACs mapeados.
+- Contrato proposto, nove critérios observáveis, cinco casos de falha e comparação com os três incidentes documentados.
+- Q-002 e Q-003 registradas como bloqueadoras do gate até validação do PO; nenhuma regra apresentada como política de produção.
+changed_files:
+- path: agents/specs/SPEC-003.yaml
+  reason: Delimitar contrato, proposta e mapeamento dos critérios.
+- path: agents/activities/ACT-003.yaml
+  reason: Registrar escopo, validações e conclusão documental.
+- path: doc/REQUIREMENTS.md
+  reason: Documentar entrada, classificação proposta, saída, explicação e falhas.
+- path: doc/decisions/open-questions.md
+  reason: Registrar evidência das propostas e validação humana pendente para Q-002 e Q-003.
+- path: roadmap/stories/STORY-003.yaml
+  reason: Registrar conclusão da atividade documental após autorrevisão.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e continuidade do gate.
+- path: agents/handoffs/HANDOFF-003.yaml
+  reason: Registrar evidências e ressalvas.
+decisions_made:
+- Tabela de limiares, períodos e agregação é proposta para fixtures sintéticas, não regra de produção nem decisão já aceita pelo PO.
+- Explicação proposta por seleção de frases canônicas limita alegações introduzidas pelo LLM; utilidade e escolha precisam da revisão do PO.
+- As três severidades reproduzem as expectativas aprovadas na STORY-002, sem presumir aceite das regras novas.
+validation:
+  executed:
+  - python3 scripts/validate_incidents.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - 'python3 -: leitura das três fixtures, comparação dos nove valores e IDs de evidência com a tabela documental e contagem dos critérios CT.'
+  - Autorrevisão manual dos três cálculos, comparadores inclusivos, intervalos, evidência, informação parcial, casos de falha e fallback contra ADR-0002.
+  passed:
+  - check: Três fixtures e 21 IDs validados; nove valores e respectivas referências conferidos contra a tabela.
+    evidence: doc/REQUIREMENTS.md
+  - check: Nove critérios observáveis e cinco casos de falha documentados; três resultados coincidem com as expectativas aprovadas.
+    evidence: doc/REQUIREMENTS.md
+  - check: Validador documental e verificações git diff sem erros na execução registrada.
+    evidence: scripts/validate_repository.py
+  failed: []
+  not_executed:
+  - 'Teste de motor, API ou LLM: nenhum foi implementado ou executado nesta história documental.'
+  - 'Aceite dos limiares, falhas, explicação restrita e descoberta: pendente do PO na STORY-004.'
+  - 'Revisão independente da descoberta: exigida na STORY-004, ainda não realizada.'
+review:
+  type: Autorrevisão documental pelo agente executor; workflow permite revisão própria para esta história; gate exige validação do PO.
+  evidence: doc/REQUIREMENTS.md
+known_issues:
+- Referência existente não garante suporte semântico; conteúdo das frases canônicas precisa de testes e avaliação na implementação futura.
+- Sem valores reais ou calibração operacional, limiares são arbitrários e restritos aos exemplos sintéticos.
+pending_work:
+- Revisar Q-002 e Q-003 com o PO no gate da STORY-004; aprovação da STORY-002 não cobre requisitos posteriores.
+- Completar revisão independente da descoberta e obter validação explícita do PO antes de iniciar implementação.
+next_steps:
+- Preparar a revisão de descoberta da STORY-004, com riscos e decisões concretas para o PO.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/decisions/open-questions.md

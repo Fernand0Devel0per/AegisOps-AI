@@ -1,0 +1,48 @@
+id: ACT-004
+story_id: STORY-004
+spec_id: SPEC-004
+title: Preparar revisão da descoberta e gate humano
+objective: Consolidar evidências e decisões para revisão independente e aceite explícito antes do setup.
+status: completed
+agent:
+  role: Agente de revisão documental
+  responsibility: Preparar a revisão do PO, sinalizar pendências e registrar evidências sem presumir aprovação.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-004.yaml
+- agents/specs/SPEC-004.yaml
+- agents/handoffs/HANDOFF-003.yaml
+- doc/PRODUCT.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- doc/decisions/open-questions.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+expected_outputs:
+- doc/decisions/discovery-review.md
+- agents/handoffs/HANDOFF-004.yaml
+constraints:
+- Não implementar código da aplicação nem presumir aceite do PO ou revisão independente.
+- Manter STORY-004 em revisão até cumprir seu gate e preservar ADRs aceitos.
+execution_steps:
+- Consolidar documentação e registrar lacunas e decisões concretas.
+- Validar reprodução local e referências, identificando autor e limites da verificação.
+- Solicitar revisão independente e aceite explícito do PO antes de concluir.
+validation:
+  commands:
+  - python3 scripts/validate_incidents.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  manual_checks:
+  - Revisar os ADRs, o fluxo e a correspondência dos cenários com requisitos.
+  - Registrar separadamente revisão independente e validação do PO quando ocorrerem.
+  expected_results:
+  - Entrega revisável com condições de gate e evidências identificadas.
+  - Validações locais sem erro; nenhum aceite humano ou revisão independente presumidos.
+dependencies:
+- ACT-003
+handoff_required: true
+references:
+- doc/standards/workflow.md
+- doc/standards/validation.md

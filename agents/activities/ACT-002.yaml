@@ -1,0 +1,55 @@
+id: ACT-002
+story_id: STORY-002
+spec_id: SPEC-002
+title: Preparar três incidentes sintéticos reproduzíveis
+objective: Criar fixtures autocontidas com resultados propostos e suporte verificável para revisão humana.
+status: completed
+agent:
+  role: Agente de requisitos e dados sintéticos
+  responsibility: Produzir e validar dados, limites e documentação; registrar evidências e pendências ao PO.
+inputs:
+- AGENTS.md
+- AegisOps_AI_Plano_do_Zero.md
+- roadmap/index.yaml
+- roadmap/stories/STORY-002.yaml
+- agents/specs/SPEC-002.yaml
+- agents/handoffs/HANDOFF-001.yaml
+- doc/PRODUCT.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/decisions/open-questions.md
+- doc/standards/workflow.md
+- doc/standards/validation.md
+expected_outputs:
+- datasets/incidents/
+- doc/INCIDENTS.md
+- scripts/validate_incidents.py
+- agents/handoffs/HANDOFF-002.yaml
+constraints:
+- Não implementar motor, API, banco, integração ou execução de LLM.
+- Não estabelecer limiares ou classificações de produção; não atribuir causalidade aos sinais.
+- Preservar plano, alterações preexistentes e escopo da STORY-002; não concluir descoberta nem iniciar outra história.
+- Entregar história, índice e atividade em in_review e handoff partial até revisão do PO; sem commit ou push.
+execution_steps:
+- Conferir dependência, fontes, templates e handoffs; preparar contratos antes dos dados.
+- Criar três fixtures locais e documentação segundo SPEC-002.
+- Validar dados e referências; revisar semântica e registrar resultados e pendências.
+- Atualizar estados sincronizados e encaminhar entrega concreta para revisão humana.
+validation:
+  commands:
+  - python3 scripts/validate_incidents.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - git diff --no-index --check /dev/null ARQUIVO_NOVO
+  manual_checks:
+  - Conferir suporte de cada justificativa pelos sinais citados, limitações, reprodução e origem sintética.
+  expected_results:
+  - Três categorias, campos, períodos, valores e referências coerentes; saída local sem erro.
+  - Validador de contratos e whitespace sem erro; revisão do PO pendente.
+dependencies:
+- ACT-001
+handoff_required: true
+references:
+- doc/standards/workflow.md
+- doc/standards/conventions.md

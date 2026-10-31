@@ -1,0 +1,63 @@
+id: SPEC-002
+story_id: STORY-002
+title: Cenários sintéticos e evidências reproduzíveis
+status: ready
+problem_statement: A triagem futura precisa de exemplos locais com sinais, resultados propostos e evidências rastreáveis, sem regras de produção presumidas.
+proposed_solution: Versionar três fixtures JSON autocontidas, documentação de leitura e um verificador documental local, sem implementar triagem.
+architecture:
+  components:
+  - Três arquivos JSON em datasets/incidents e doc/INCIDENTS.md.
+  - scripts/validate_incidents.py verifica integridade das fixtures, não classifica incidentes.
+  interactions:
+  - Cada resultado proposto cita evidências locais que apontam a sinais locais.
+  data_flow:
+  - Valores sintéticos fixos e metadados → evidências → justificativas e classificação esperada proposta.
+interfaces:
+- JSON UTF-8 local; sem API, provedor, credenciais ou rede.
+data_contracts:
+- Cada arquivo contém id, synthetic=true, service, environment, window UTC, signals, evidence, expected e limitations.
+- Cada sinal tem ID, métrica, valor numérico, unidade, agregação, período UTC e origem sintética; evidência aponta para um sinal por ID.
+- Expected contém categoria, severidade proposta, justificativas com IDs de evidência e IDs citados; limitações distinguem observação e conclusões não permitidas.
+- IDs de incidente, sinal e evidência são globalmente únicos; todos os períodos de sinal pertencem à janela do incidente.
+- Percentuais são de 0 a 100 e latência em ms é não negativa; sinais HTTP incluem contagens coerentes quando usados como taxa.
+- Formato é restrito a estas fixtures de estudo e não fixa esquema de produto, limiares ou semântica final de severidade.
+dependencies:
+- roadmap/stories/STORY-001.yaml
+- agents/handoffs/HANDOFF-001.yaml
+security_considerations:
+- Dados, serviços e origens são fictícios; sem dados pessoais, credenciais ou consulta a infraestrutura.
+observability:
+- Registrar comandos e resultados no handoff; sinais são dados de incidentes e não métricas da plataforma.
+error_handling:
+- Rejeitar estrutura, unidades, períodos e referências inválidos; a validação não comprova correção de classificação ou causalidade.
+implementation_steps:
+- Preparar spec e atividade e sincronizar estados da história e índice.
+- Criar três fixtures e documentação com interpretações, rastreabilidade e ambiguidades para STORY-003.
+- Validar estrutura, referências, coerência numérica e temporal, reprodução local e revisão semântica; registrar handoff parcial.
+test_strategy:
+- python3 scripts/validate_incidents.py valida três fixtures, sintaxe JSON, unicidade, tipos, unidades, períodos, integridade e cobertura de referências e aritmética 5xx.
+- Ler justificativas e limitações manualmente contra sinais para avaliar suporte semântico e dados sintéticos; o verificador não prova suporte semântico.
+- Executar validador do repositório, verificações de whitespace e verificar arquivos novos com git diff --no-index --check.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir categorias distintas e exatamente três arquivos no verificador e na documentação.
+  evidence: doc/INCIDENTS.md
+- criterion_id: AC-02
+  validation: Verificar campos obrigatórios, IDs, ambiente, origem, unidade e intervalos no verificador.
+  evidence: datasets/incidents/
+- criterion_id: AC-03
+  validation: Resolver IDs esperados até evidências e sinais; revisar suporte das justificativas e natureza proposta dos valores.
+  evidence: datasets/incidents/
+- criterion_id: AC-04
+  validation: Executar leitura e verificação local e inspecionar instruções e questões de limiar.
+  evidence: doc/INCIDENTS.md
+open_questions:
+- Q-002 permanece aberta; STORY-003 deve avaliar semântica de severidade, limiares, janelas e casos de fronteira.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-002.yaml
+- doc/PRODUCT.md
+- doc/decisions/open-questions.md

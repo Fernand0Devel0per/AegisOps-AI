@@ -38,4 +38,4 @@ Na adição inicial, a checagem de whitespace usa `--cached` e exclui o plano or
 
 O validador não prova semântica do produto, aprovação humana, execução de comandos citados em YAML ou funcionamento de aplicação. Não acessa links externos. Entregáveis futuros em `deliverables`/`expected_outputs` não precisam existir; referências de entrada, arquivos catalogados, links e evidências de trabalhos concluídos precisam. A revisão manual deve comparar o conteúdo com o plano, verificar que não há requisitos inventados e confirmar o escopo de cada atividade.
 
-Ainda não há suíte de testes da aplicação nem CI configurada. Sua ausência nesta entrega é intencional e deve constar no handoff.
+A STORY-010 introduz um teste de instalação e um workflow de qualidade; instruções estão em [desenvolvimento local](../DEVELOPMENT.md). Esse teste não valida ainda funcionalidades de produto. Execução remota de CI depende de publicação autorizada e deve ser registrada apenas quando observada.

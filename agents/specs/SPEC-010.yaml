@@ -1,0 +1,65 @@
+id: SPEC-010
+story_id: STORY-010
+title: Setup Python 3.14 e qualidade mínima
+status: ready
+problem_statement: O repositório não possui pacote Python reproduzível, testes de instalação ou workflow de qualidade para as próximas histórias.
+proposed_solution: Criar pacote mínimo instalável com uv e Hatchling, teste que verifica instalação não editável, lint, tipos e GitHub Actions com versões fixadas pelo ADR-0003.
+architecture:
+  components:
+  - pyproject.toml, .python-version e uv.lock definem ambiente e dependências.
+  - src/aegisops e tests verificam instalação do pacote mínimo.
+  - .github/workflows/quality.yml executa instalação travada, testes, lint e tipos.
+  interactions:
+  - uv sincroniza projeto não editável; pytest verifica distribuição instalada; Ruff e mypy validam pacote e teste.
+  data_flow:
+  - Clone limpo → ambiente isolado → pacote instalado e comandos de qualidade → resultado verificável.
+interfaces:
+- Comandos locais e workflow CI; nenhum endpoint ou funcionalidade de triagem.
+data_contracts:
+- Python 3.14.8 e versões exatas de uv, pytest, Ruff, mypy e Hatchling conforme ADR-0003; fixar transitivas em uv.lock.
+- Pacote mínimo deve ser importável da instalação no ambiente virtual, não por inserção do diretório src no caminho de testes.
+- Workflow usa ações referenciadas por hash, permissões mínimas e as mesmas verificações do guia local.
+dependencies:
+- roadmap/stories/STORY-004.yaml
+- agents/handoffs/HANDOFF-004.yaml
+- doc/adr/0003-ambiente-python-qualidade.md
+security_considerations:
+- Sem credenciais nem segredos; CI read-only e ações fixadas por commit.
+- Nenhuma dependência de negócio, LLM, banco ou rede de infraestrutura é introduzida.
+observability:
+- Resultados de comandos locais e limite de validação CI registrados no handoff; sem telemetria da aplicação.
+error_handling:
+- Dependências ausentes, falha do teste ou lock desatualizado retornam código diferente de zero.
+implementation_steps:
+- Preparar contratos e sincronizar história, índice e atividade antes do setup.
+- Criar pacote mínimo, pinning, teste de instalação, comandos documentados e workflow.
+- Validar instalação em clone limpo temporário, detectar instalação ausente e testar falha deliberada; registrar resultados.
+- Registrar se o job GitHub foi executado ou apenas seus comandos locais e manter revisão conforme evidências.
+test_strategy:
+- uv sync --locked --no-editable e uv run --locked --no-sync pytest, ruff e mypy.
+- Em cópia limpa clonada, repetir instalação e validações; desinstalar pacote em ambiente temporário para confirmar teste negativo.
+- Validar falha deliberada do comando de testes e seu efeito no job em ambiente controlado quando executável; sem afirmar CI remota não executada.
+- Executar validadores documentais, diff checks e verificação separada dos arquivos novos.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Clonar snapshot local temporário e executar instalação travada e comandos documentados.
+  evidence: doc/DEVELOPMENT.md
+- criterion_id: AC-02
+  validation: Teste de instalação não editável passa e falha ao remover pacote; Ruff e mypy passam.
+  evidence: tests/test_installation.py
+- criterion_id: AC-03
+  validation: Inspecionar workflow e verificar execução controlada do job com teste deliberadamente falho; registrar eventual limitação.
+  evidence: .github/workflows/quality.yml
+- criterion_id: AC-04
+  validation: Conferir ADR-0003 aceito, versões, lockfile e ausência de credenciais.
+  evidence: doc/adr/0003-ambiente-python-qualidade.md
+open_questions:
+- Execução remota da CI depende de push autorizado; teste local não representa execução em GitHub.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-010.yaml
+- doc/standards/workflow.md

@@ -1,0 +1,93 @@
+{
+  "id": "INC-003",
+  "synthetic": true,
+  "service": "estoque-ficticio",
+  "environment": "simulado local",
+  "window": {
+    "start": "2026-10-01T10:00:00Z",
+    "end": "2026-10-01T10:10:00Z"
+  },
+  "signals": [
+    {
+      "id": "SIG-003-01",
+      "metric": "memory_utilization",
+      "value": 60,
+      "unit": "percent",
+      "aggregation": "média de memória usada / limite de memória do serviço × 100",
+      "period": {
+        "start": "2026-10-01T10:00:00Z",
+        "end": "2026-10-01T10:05:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    },
+    {
+      "id": "SIG-003-02",
+      "metric": "memory_utilization",
+      "value": 97,
+      "unit": "percent",
+      "aggregation": "média de memória usada / limite de memória do serviço × 100",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    },
+    {
+      "id": "SIG-003-03",
+      "metric": "cpu_utilization",
+      "value": 95,
+      "unit": "percent",
+      "aggregation": "média da capacidade de CPU alocada",
+      "period": {
+        "start": "2026-10-01T10:05:00Z",
+        "end": "2026-10-01T10:10:00Z"
+      },
+      "source": "fixture sintética: série agregada fictícia"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-003-01",
+      "signal_id": "SIG-003-01",
+      "summary": "Memória média de 60% no primeiro intervalo."
+    },
+    {
+      "id": "EVD-003-02",
+      "signal_id": "SIG-003-02",
+      "summary": "Memória média de 97% no segundo intervalo."
+    },
+    {
+      "id": "EVD-003-03",
+      "signal_id": "SIG-003-03",
+      "summary": "CPU média de 95% no segundo intervalo."
+    }
+  ],
+  "expected": {
+    "category": "saturacao_recursos",
+    "severity": "alta",
+    "status": "proposta para teste; não é regra de produção",
+    "evidence_ids": [
+      "EVD-003-01",
+      "EVD-003-02",
+      "EVD-003-03"
+    ],
+    "justifications": [
+      {
+        "text": "A memória média cresce de 60% para 97%, enquanto CPU média chega a 95% no segundo intervalo; propõe-se severidade alta para este exemplo.",
+        "evidence_ids": [
+          "EVD-003-01",
+          "EVD-003-02",
+          "EVD-003-03"
+        ]
+      }
+    ]
+  },
+  "limitations": {
+    "observable": [
+      "Memória e CPU apresentam utilização alta na mesma janela agregada; memória aumentou em relação ao primeiro período."
+    ],
+    "cannot_conclude": [
+      "Não confirma exaustão, throttling, falta de memória, degradação ao usuário ou causa da utilização."
+    ]
+  }
+}

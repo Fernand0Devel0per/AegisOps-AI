@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 30/10/2026:** fundação documental preparada e proposta de produto aceita na STORY-001. Colibri e OLMoE foram testados localmente de forma exploratória; não há aplicação, API, testes de produto ou integração implementados.
+**Estado em 30/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Três incidentes sintéticos e requisitos estão documentados; o pacote instalado é apenas a fundação, sem motor, API ou integração de LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
 
 ## Problema e capacidades previstas
 
@@ -43,18 +43,17 @@ Consulte a [arquitetura e análise do plano](doc/architecture/overview.md), o [A
 | Evolução da plataforma | OpenTelemetry, Collector, Prometheus, Grafana; Kubernetes, Helm/Kustomize; Argo CD; HPA/KEDA condicionados a medições |
 | Antes de conectores remotos reais | Autenticação/autorização, OIDC/JWT e permissões por ferramenta, a especificar |
 
-O Colibri foi compilado e um modelo foi testado fora do repositório; não há dependências de aplicação instaladas no projeto. A tabela do plano contém escolhas preferenciais e candidatas; não significa adoção de todas as ferramentas. Versões, gerenciador e verificador de tipos ainda precisam de decisão registrada.
+O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/0003-ambiente-python-qualidade.md) registra Python, gerenciador e ferramentas de qualidade aprovados; as demais tecnologias da tabela permanecem candidatas.
 
 ## Implementado e planejado
 
 | Situação | Entrega |
 |---|---|
-| Preparado | Contrato dos agentes, templates YAML, catálogo de planejamento, ADR inicial, especificação/atividade de descoberta e handoff do bootstrap |
-| Concluído | [STORY-001 — produto, usuário e limites](roadmap/stories/STORY-001.yaml); aceite da descoberta completa permanece pendente |
-| Pendente na Etapa 0 | Três cenários sintéticos, requisitos observáveis e revisão de descoberta |
-| Planejado | Ambiente Python, primeira API, motor de triagem e evolução por etapas |
+| Concluído | Produto, [três cenários sintéticos](doc/INCIDENTS.md), requisitos e revisão humana da descoberta |
+| Concluído | Pacote Python mínimo, instalação, teste de setup e workflow de qualidade; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
+| Planejado | API, motor de triagem, integração LLM e evolução por etapas |
 
-Não há comando de inicialização ou teste da aplicação neste momento. O validador da documentação está disponível conforme as instruções abaixo. Não existem badges de CI, demo ou métricas de qualidade de produto.
+O pacote ainda não oferece funcionalidade de produto. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
 
 ## Roadmap
 
@@ -84,16 +83,18 @@ O [catálogo YAML](roadmap/index.yaml) é a fonte oficial de estados e dependên
 │   └── standards/               # workflow, convenções e validação
 ├── agents/                      # atividades, specs, handoffs e templates
 ├── scripts/                     # validação dos contratos documentais
-└── src/                         # reservado, sem implementação
+├── datasets/                    # incidentes sintéticos locais
+├── tests/                       # testes de setup
+└── src/                         # pacote Python mínimo
 ```
 
-`doc/` é o caminho canônico nesta execução, conforme o pedido de bootstrap. Os caminhos `docs/` mencionados no plano correspondem a `doc/`; veja o [registro de adaptações](doc/decisions/bootstrap-scope.md). Testes, datasets e deploy só receberão diretórios quando houver entregas que os utilizem.
+`doc/` é o caminho canônico nesta execução, conforme o pedido de bootstrap. Os caminhos `docs/` mencionados no plano correspondem a `doc/`; veja o [registro de adaptações](doc/decisions/bootstrap-scope.md). Os datasets são sintéticos; testes e pacote correspondem ao setup atual. Deploy permanece futuro.
 
 ## Contribuir com agentes
 
 1. Leia [AGENTS.md](AGENTS.md), o [plano original](AegisOps_AI_Plano_do_Zero.md) e o [workflow](doc/standards/workflow.md).
 2. Selecione uma história autorizada e confira dependências, critérios de aceite, ADRs e handoff anterior.
-3. Prepare a especificação e a atividade antes de implementar. A primeira dupla já está em [SPEC-001](agents/specs/SPEC-001.yaml) e [ACT-001](agents/activities/ACT-001.yaml).
+3. Prepare a especificação e a atividade antes de implementar. A história ativa e seus contratos estão indicados no índice e no handoff correspondente.
 4. Valide os entregáveis, registre evidências, submeta à revisão e deixe um handoff com o estado real. Atualize a história e o índice em conjunto.
 
 Para validar esta documentação, use Python 3 com PyYAML. Se precisar de ambiente isolado, os comandos estão no [guia de validação](doc/standards/validation.md):
@@ -102,7 +103,7 @@ Para validar esta documentação, use Python 3 com PyYAML. Se precisar de ambien
 python3 scripts/validate_repository.py
 ```
 
-O histórico Git inicial foi removido por solicitação do proprietário. A pasta está sem repositório Git; uma nova inicialização e publicação permanecem pendentes. O plano original foi preservado localmente e incluído no `.gitignore`; suas referências e a dependência do validador precisam ser migradas para documentos públicos antes da publicação. A validação de documentos não substitui testes da futura aplicação.
+O histórico Git anterior foi removido por solicitação do proprietário e há um repositório Git local. A branch de trabalho foi enviada ao repositório público com autorização do proprietário; decisões de licença e reprodução documental ainda estão pendentes. O plano original foi preservado localmente e incluído no `.gitignore`; suas referências e a dependência do validador precisam ser migradas para documentos públicos antes da publicação. A validação de documentos não substitui testes da futura aplicação.
 
 ## Decisões e limites
 

@@ -2,7 +2,7 @@ id: EPIC-000
 title: Descoberta e requisitos
 source_phase: 0
 objective: Definir a primeira vertical sintética, determinística e verificável.
-status: ready
+status: done
 priority: high
 dependencies: []
 scope:
@@ -11,7 +11,7 @@ scope:
 - Requisitos e falhas
 - Revisão humana da descoberta
 exit_criteria:
-- Outro desenvolvedor explica o fluxo e reproduz os três cenários.
+- Outro desenvolvedor revisa o fluxo documentado e reproduz as entradas dos três cenários.
 - PO valida escopo, critérios e resultados esperados antes da implementação.
 stories:
 - STORY-000

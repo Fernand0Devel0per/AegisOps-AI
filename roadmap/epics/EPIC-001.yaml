@@ -2,7 +2,7 @@ id: EPIC-001
 title: Fundamentos de qualidade e primeira API
 source_phase: 1
 objective: Preparar Python e consulta mínima de incidentes sem banco, filas ou LLM.
-status: backlog
+status: in_progress
 priority: high
 dependencies:
 - EPIC-000
