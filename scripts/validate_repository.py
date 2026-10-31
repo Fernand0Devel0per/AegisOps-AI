@@ -4,9 +4,9 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import re
 import sys
+import tempfile
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -16,7 +16,7 @@ except ImportError:
     sys.exit("PyYAML ausente; consulte doc/standards/validation.md.")
 
 ROOT = Path(__file__).resolve().parents[1]
-PLAN_HASH = "9a22c8fff517e28556e7b32cb1bd35ffe5b7306f48ad90f1f74644d22c5cc078"
+LOCAL_PLAN = "AegisOps_AI_Plano_do_Zero.md"
 STATES = {
     "story": {"backlog", "ready", "in_progress", "blocked", "in_review", "done"},
     "epic": {"backlog", "ready", "in_progress", "blocked", "in_review", "done"},
@@ -160,11 +160,38 @@ def acyclic(entities):
         visit(identifier)
 
 
-def existing(path, label):
+def is_local_plan_reference(base, path):
+    target = Path(path)
+    # Resolve somente o diretório: nunca acessar o arquivo local em si.
+    return target.name == LOCAL_PLAN and (base / target.parent).resolve() == ROOT
+
+
+def existing(path, label, *, optional_local_plan=False):
     require(isinstance(path, str) and path, f"{label}: caminho inválido.")
+    # A fonte histórica é local e ignorada no Git; não verificar sua presença.
+    if optional_local_plan and is_local_plan_reference(ROOT, path):
+        return
     target = (ROOT / path).resolve()
     require(target.is_relative_to(ROOT), f"{label}: caminho fora do repositório.")
     require(target.exists(), f"{label}: referência inexistente {path}")
+
+
+def check_markdown_link(path, link):
+    if re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", link):
+        return
+    target = unquote(link.strip("<> ").split("#", 1)[0])
+    if target:
+        if is_local_plan_reference(path.parent, target):
+            return
+        resolved = (path.parent / target).resolve()
+        require(resolved.is_relative_to(ROOT) and resolved.exists(), f"{path.relative_to(ROOT)}: link quebrado {link}")
+
+
+def markdown_files():
+    return sorted(
+        path for path in ROOT.rglob("*.md")
+        if path != ROOT / LOCAL_PLAN and not {".git", ".venv", ".local"}.intersection(path.relative_to(ROOT).parts)
+    )
 
 
 def self_test():
@@ -181,7 +208,34 @@ def self_test():
             continue
         raise Invalid("Self-test aceitou entrada inválida.")
     require(parse_yaml("id: A\nitems: []\n") == {"id": "A", "items": []}, "Self-test rejeitou entrada válida.")
-    print("PASS self-test: 4 entradas inválidas rejeitadas e 1 válida aceita.")
+    global ROOT
+    original_root = ROOT
+    with tempfile.TemporaryDirectory() as temp_dir:
+        ROOT = Path(temp_dir).resolve()
+        try:
+            existing(LOCAL_PLAN, "referência histórica", optional_local_plan=True)
+            check_markdown_link(ROOT / "README.md", LOCAL_PLAN)
+            for case in (
+                lambda: existing(LOCAL_PLAN, "entregável"),
+                lambda: existing("outro-arquivo.md", "referência", optional_local_plan=True),
+                lambda: check_markdown_link(ROOT / "README.md", "outro-arquivo.md"),
+                lambda: existing("../fora.md", "referência", optional_local_plan=True),
+            ):
+                try:
+                    case()
+                except Invalid:
+                    continue
+                raise Invalid("Self-test aceitou caminho inválido.")
+            (ROOT / LOCAL_PLAN).write_bytes(b"\xff")
+            (ROOT / "README.md").write_text("ok", encoding="utf-8")
+            (ROOT / ".venv").mkdir()
+            (ROOT / ".venv" / "terceiro.md").write_text("ok", encoding="utf-8")
+            (ROOT / ".local").mkdir()
+            (ROOT / ".local" / "registro.md").write_bytes(b"\xff")
+            require(markdown_files() == [ROOT / "README.md"], "Self-test incluiu arquivo fora da validação.")
+        finally:
+            ROOT = original_root
+    print("PASS self-test: contratos inválidos e caminhos indevidos rejeitados; plano local opcional em referências e links.")
 
 
 def validate():
@@ -210,7 +264,7 @@ def validate():
         contract(kind, documents[path], path, template=True)
     index = documents["roadmap/index.yaml"]
     fields_at(index, "schema_version updated_at source current_phase next_story next_activity epics stories milestones", "index")
-    existing(index["source"], "index.source")
+    existing(index["source"], "index.source", optional_local_plan=True)
     for kind, catalog in (("story", "stories"), ("epic", "epics")):
         ids = [item["id"] for item in index[catalog]]
         require(len(ids) == len(set(ids)) and set(ids) == set(entities[kind]), f"index: catálogo {catalog} incompleto ou repetido.")
@@ -223,7 +277,7 @@ def validate():
         for identifier, data in entities[kind].items():
             for field in ("references", "related_adrs", "inputs"):
                 for path in data.get(field, []):
-                    existing(path, f"{identifier}.{field}")
+                    existing(path, f"{identifier}.{field}", optional_local_plan=field in {"references", "inputs"})
     for epic in entities["epic"].values():
         expected = {s["id"] for s in entities["story"].values() if s["epic"] == epic["id"]}
         require(set(epic["stories"]) == expected, f"{epic['id']}: lista de histórias divergente.")
@@ -244,7 +298,7 @@ def validate():
         if spec["status"] == "ready":
             ac_mapping(entities["story"][spec["story_id"]], spec)
         for path in spec["dependencies"]:
-            existing(path, spec["id"])
+            existing(path, spec["id"], optional_local_plan=True)
     for activity in entities["activity"].values():
         require(activity["story_id"] in entities["story"] and activity["spec_id"] in entities["spec"], f"{activity['id']}: vínculo inexistente.")
         require(entities["spec"][activity["spec_id"]]["story_id"] == activity["story_id"], f"{activity['id']}: spec de outra história.")
@@ -267,21 +321,13 @@ def validate():
     require(entities["activity"][index["next_activity"]]["story_id"] == index["next_story"], "index: próxima atividade de outra história.")
     for milestone in index["milestones"]:
         require(all(s in entities["story"] for s in milestone["required_stories"]), "Marco com história inexistente.")
-    md_files = sorted(ROOT.rglob("*.md"))
+    md_files = markdown_files()
     for path in md_files:
-        if ".git" in path.relative_to(ROOT).parts:
-            continue
         text = path.read_text(encoding="utf-8")
         for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)", text):
-            if re.match(r"^[a-zA-Z][a-zA-Z0-9+.-]*:", link):
-                continue
-            target = unquote(link.strip("<> ").split("#", 1)[0])
-            if target:
-                resolved = (path.parent / target).resolve()
-                require(resolved.is_relative_to(ROOT) and resolved.exists(), f"{path.relative_to(ROOT)}: link quebrado {link}")
-    require(hashlib.sha256((ROOT / "AegisOps_AI_Plano_do_Zero.md").read_bytes()).hexdigest() == PLAN_HASH, "Plano original foi alterado.")
+            check_markdown_link(path, link)
     print(f"PASS: {len(documents)} YAML, {len(entities['epic'])} épicos, {len(entities['story'])} histórias, {len(md_files)} Markdown.")
-    print("PASS: templates, campos, estados, catálogo, dependências, vínculos, ACs, evidências, links locais e hash do plano.")
+    print("PASS: templates, campos, estados, catálogo, dependências, vínculos, ACs, evidências e links locais; plano local não verificado.")
 
 
 if __name__ == "__main__":

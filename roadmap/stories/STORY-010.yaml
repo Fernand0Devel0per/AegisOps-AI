@@ -16,7 +16,7 @@ scope:
   - Teste significativo de importação/configuração
   - Lint, typing e CI mínimos
   excluded:
-  - LLM, banco, broker, Kubernetes
+  - Integração de LLM, banco, broker e Kubernetes neste setup
   - API completa
   - Camadas vazias
 acceptance_criteria:
@@ -32,7 +32,8 @@ acceptance_criteria:
   criterion: Escolhas estruturais e versões compatíveis estão justificadas em ADR antes da adoção; nenhum
     segredo é versionado.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
+  os limites local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - pyproject.toml
@@ -48,6 +49,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
 - doc/decisions/open-questions.md
 definition_of_done:

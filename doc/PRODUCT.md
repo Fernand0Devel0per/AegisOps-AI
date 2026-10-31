@@ -2,7 +2,7 @@
 
 ## Estado
 
-Proposta documental da [STORY-001](../roadmap/stories/STORY-001.yaml), aceita pelo Product Owner (PO) em 2026-10-30 para concluir a ACT-001. O PO aprovou severidade e verificação determinísticas, explicação por LLM local e resultado básico em caso de falha do LLM, conforme o [ADR-0002](adr/0002-llm-local-primeira-vertical.md). A aplicação e as capacidades descritas abaixo ainda não estão implementadas. O aceite da descoberta completa depende do gate da [STORY-004](../roadmap/stories/STORY-004.yaml).
+Proposta documental da [STORY-001](../roadmap/stories/STORY-001.yaml), aceita pelo Product Owner (PO) em 2026-10-30. O PO aprovou severidade e verificação determinísticas, explicação por LLM local e resultado básico em caso de falha do LLM, conforme o [ADR-0002](adr/0002-llm-local-primeira-vertical.md). A descoberta foi aceita na [STORY-004](../roadmap/stories/STORY-004.yaml); o pacote básico de setup existe, mas as capacidades de produto descritas abaixo ainda não estão implementadas.
 
 ## Problema
 
@@ -21,14 +21,14 @@ A resposta do PO e a continuidade da revisão estão registradas em [Q-001](deci
 Fluxo proposto para uma investigação sintética, ainda não implementado:
 
 1. A pessoa seleciona ou fornece um incidente sintético com os sinais disponíveis no cenário local.
-2. A futura triagem determinística examina os sinais segundo critérios explícitos a definir e identifica eventual insuficiência de informação.
+2. A futura triagem determinística examina os sinais segundo os critérios sintéticos aceitos e identifica eventual insuficiência de informação.
 3. Regras verificam as referências às evidências; o LLM local explica o resultado sem determinar a severidade. A explicação e suas referências precisam passar pelas verificações definidas antes da apresentação.
 4. O resultado previsto apresenta severidade, evidências verificadas, explicação disponível e limitações. Se o LLM falhar, apresenta o resultado básico e sinaliza a indisponibilidade.
 5. A pessoa examina o resultado e decide a prioridade e as próximas verificações. Uma associação entre sinais não comprova causa; eventual hipótese deve ser identificada como tal.
 
 ## Primeira vertical
 
-**Entrada prevista:** incidente sintético e seus sinais disponíveis. **Saída prevista:** classificação determinística de severidade, evidências rastreáveis e explicação por LLM local, sujeita à verificação, com indicação de informação insuficiente quando aplicável. Se a explicação falhar ou não passar na verificação, a saída básica de severidade e evidências continua disponível e sinaliza a limitação. O significado de severidade, os sinais necessários e o comportamento preciso para dados faltantes ainda serão definidos; não há limiares ou esquema completo aprovados nesta proposta.
+**Entrada prevista:** incidente sintético e seus sinais disponíveis. **Saída prevista:** classificação determinística de severidade, evidências rastreáveis e explicação por LLM local, sujeita à verificação, com indicação de informação insuficiente quando aplicável. Se a explicação falhar ou não passar na verificação, a saída básica de severidade e evidências continua disponível e sinaliza a limitação. Sinais, limiares sintéticos e comportamento para dados faltantes foram aceitos em [requisitos](REQUIREMENTS.md); não são regras de produção nem um esquema completo aprovado.
 
 A vertical será local, com Colibri para a explicação, sem remediação e sem acesso a sistemas de terceiros durante a investigação. O download inicial do modelo requer internet; a reprodução do resultado básico não exige credenciais nem serviço pago. A integração é planejada, não implementada; o papel do modelo e o fallback foram aprovados no [ADR-0002](adr/0002-llm-local-primeira-vertical.md).
 
@@ -47,9 +47,9 @@ Após a primeira vertical, o plano prevê evoluções graduais: recuperação de
 ## Premissas e questões
 
 - **Usuários e decisão:** o PO indicou desenvolvedores, profissionais de DevOps e outros responsáveis pela checagem, e concordou com a decisão de priorizar o incidente e escolher os sinais a examinar. Ver [Q-001](decisions/open-questions.md).
-- **Em aberto:** sinais, unidades, períodos, regras de severidade e limiares ([Q-002](decisions/open-questions.md)); critérios observáveis e comportamento em falhas ou ausência de evidência ([Q-003](decisions/open-questions.md)). Os cenários e contratos serão tratados nas histórias próprias, sem antecipar sua aprovação.
+- **Critérios sintéticos aceitos:** sinais, unidades, períodos, limiares, dados faltantes e casos de falha estão em [requisitos](REQUIREMENTS.md), com decisões em [Q-002 e Q-003](decisions/open-questions.md). São dados e regras para a primeira vertical sintética, sem adoção como política operacional.
 - **LLM local:** o PO aprovou seu uso para explicação e o fallback; versão, modelo definitivo, avaliação e critérios precisos de verificação permanecem em aberto em [Q-016](decisions/open-questions.md). Uma inferência exploratória não comprova qualidade.
-- **Gate humano pendente:** o PO avaliará produto, cenários e requisitos na [STORY-004](../roadmap/stories/STORY-004.yaml), conforme [Q-015](decisions/open-questions.md). A revisão desta proposta não constitui aceite da descoberta completa.
+- **Gate humano concluído:** o PO aceitou produto, cenários e requisitos na [STORY-004](../roadmap/stories/STORY-004.yaml), conforme [Q-015](decisions/open-questions.md) e o [registro da revisão](decisions/discovery-review.md).
 
 ## Referências
 

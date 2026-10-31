@@ -19,7 +19,7 @@ Novos IDs são alocados verificando o índice e a pasta, sem reutilizar um ID hi
 
 ## Referências
 
-- Em YAML, `references`, `inputs`, `expected_outputs`, `deliverables`, `related_adrs` e campos `path` usam **caminhos relativos à raiz do repositório**. Saídas futuras são caminhos previstos, não evidência de arquivo existente. Referências de entrada devem existir quando a atividade estiver pronta.
+- Em YAML, `references`, `inputs`, `expected_outputs`, `deliverables`, `related_adrs` e campos `path` usam **caminhos relativos à raiz do repositório**. Saídas futuras são caminhos previstos, não evidência de arquivo existente. Referências de entrada devem existir quando a atividade estiver pronta, exceto a referência histórica ao plano local ignorado, conforme o [guia de validação](validation.md).
 - Em Markdown, links são relativos ao arquivo que os contém. Caminhos de entregáveis futuros aparecem como código, sem links quebrados.
 - Dependências e vínculos como `story_id`, `spec_id`, `activity_id`, `epic` usam IDs estáveis. Resolver pelo diretório/catálogo correspondente.
 - Nomes de comandos e critérios não são referências de arquivo. Critérios usam `{id: AC-01, criterion: ...}`; `acceptance_mapping` relaciona `criterion_id`, validação e evidência.

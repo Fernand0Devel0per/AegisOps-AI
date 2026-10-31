@@ -25,7 +25,8 @@ acceptance_criteria:
 - id: AC-03
   criterion: Novo serviço de exemplo recebe contrato, testes e instrumentação pelo processo documentado.
 technical_constraints:
-- Respeitar ADR-0001 e os limites local-first/read-only.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
+  os limites local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - deploy/compose/
@@ -38,6 +39,7 @@ validation:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
