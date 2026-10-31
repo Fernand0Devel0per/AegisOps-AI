@@ -73,6 +73,10 @@ Mudança relevante de arquitetura, requisito, dependência estrutural ou custo o
 
 Se houver conflito ou falta de informação, registre em [open-questions.md](doc/decisions/open-questions.md), mantenha o estado real e peça a decisão necessária. Não crie requisitos ou aceite em nome do PO. Segurança básica é transversal, mesmo que a avaliação completa esteja na Etapa 10.
 
+## Git e branches
+
+Não trabalhe diretamente na `main`. Antes de alterar arquivos para uma história, crie ou retome uma branch no formato `feat/story-NNN`, preservando o número da história: por exemplo, `STORY-011` usa `feat/story-011`. Confira a base e o estado do Git antes da troca e preserve alterações preexistentes. Trabalhos sem história também devem usar uma branch separada, sem inventar um ID de história.
+
 ## Validação e continuidade
 
 Execute `python3 scripts/validate_repository.py` para alterações nos contratos; consulte [o guia](doc/standards/validation.md) para ambiente e limitações. Não declare validação humana, execução de testes, CI ou publicação que não ocorreram. Toda atividade precisa de evidência de validação para ser concluída. Um resultado parcial gera handoff `partial` ou `blocked`, não `completed`.
