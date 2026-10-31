@@ -95,3 +95,69 @@ related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
 - doc/adr/0004-api-local-contratos-http.md
+maintenance_updates:
+- date: '2026-10-31'
+  authorization: PO solicitou impedir recorrência da anotação deprecada e autorizou dependência de desenvolvimento se necessária.
+  summary: Pyright complementar configurado como erro para deprecações; lifespan corrigido e controle coberto por exemplos temporários.
+  changed_files:
+  - path: src/aegisops/api.py
+    reason: Trocar AsyncIterator por AsyncGenerator explícito preservando o comportamento.
+  - path: pyproject.toml
+    reason: Fixar Pyright com Node e configurar reportDeprecated como erro em src, tests e scripts.
+  - path: uv.lock
+    reason: Travar pacote e transitivas, incluindo Node para execução offline após setup.
+  - path: tests/test_typecheck.py
+    reason: Exercitar exemplos inválido e válido com a configuração do projeto.
+  - path: .github/workflows/quality.yml
+    reason: Acrescentar verificação sem remover mypy ou demais passos.
+  - path: AGENTS.md
+    reason: Registrar regra e comando obrigatório para agentes.
+  - path: doc/DEVELOPMENT.md
+    reason: Documentar comando, versões, cobertura, setup e limitações.
+  - path: doc/adr/0005-verificacao-deprecacao-tipos.md
+    reason: Registrar escolha autorizada, alternativas e consequências da dependência de desenvolvimento.
+  - path: doc/adr/README.md
+    reason: Catalogar ADR-0005.
+  - path: agents/specs/SPEC-012.yaml
+    reason: Acrescentar estratégia de regressão e referência ao ADR.
+  - path: agents/activities/ACT-012.yaml
+    reason: Acrescentar verificação à atividade em revisão.
+  - path: roadmap/stories/STORY-012.yaml
+    reason: Acrescentar verificação e referência ao ADR, preservando estado in_review.
+  - path: agents/handoffs/HANDOFF-012.yaml
+    reason: Preservar histórico e evidências desta manutenção.
+  decisions:
+  - Mypy 2.4.1 inclui contextlib.pyi sem sobrecarga deprecada; com --enable-error-code deprecated o exemplo inválido retornou 0.
+  - Com --custom-typeshed-dir apontando para clone typeshed 2e4d4dcf657f82305709bbe3e86bca4d27d4dd46, mypy --enable-error-code deprecated retornou 1 com erro deprecated no inválido e 0 no válido. Manter o clone completo e sua atualização seria custo adicional.
+  - Teste isolado Python 3.14.8 com pyright[nodejs] 1.1.414 e nodejs-wheel-binaries 24.19.0 retornou erro reportDeprecated no inválido e sucesso no válido; escolhidos e travados. Node e ferramentas são apenas desenvolvimento.
+  - O projeto aplica reportDeprecated como erro em src, tests e scripts; a regra Ruff UP043 de concisão tem exceção apenas em lifespan para preservar AsyncGenerator[None, None] exigido pelo PO. Não há supressão do diagnóstico de deprecação.
+  validation:
+    executed:
+    - uv sync --locked --no-editable --reinstall-package aegisops-ai
+    - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+    - uv run --offline --locked --no-sync pyright --project pyproject.toml em exemplo temporário AsyncIterator e depois AsyncGenerator.
+    - uv run --offline --locked --no-sync pyright
+    - uv run --offline --locked --no-sync pytest -q
+    - uv run --offline --locked --no-sync ruff check src tests
+    - uv run --offline --locked --no-sync ruff format --check src tests
+    - uv run --offline --locked --no-sync mypy src tests
+    - pytest em env -i e sem credenciais com socket.connect, connect_ex e create_connection bloqueados no processo pytest; subprocessos do Pyright não herdam o monkeypatch.
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - git diff --check
+    - git diff --cached --check
+    passed:
+    - Exemplo AsyncIterator gerou reportDeprecated e saída 1; AsyncGenerator gerou zero erros e saída 0; análise do projeto gerou zero erros e saída 0.
+    - 67 testes passaram, também em ambiente limpo; Ruff, mypy, validador documental, três fixtures e verificações de whitespace passaram.
+    failed: []
+    not_executed:
+    - CI remota desta manutenção não executada nem observada; não houve push autorizado.
+    - Self-test do validador documental não executado; seu código não foi alterado.
+  limitations:
+  - Pyright emitiu um aviso reportMissingModuleSource para yaml no validador documental, cuja dependência é instalada separadamente; não houve erro.
+  - Versões futuras do typeshed podem alterar diagnósticos; testes de regressão e lockfile fixam a evidência atual. Arquivos fora de src, tests e scripts não são analisados.
+  - Pyright e Node foram testados localmente em Linux com Python 3.14.8; disponibilidade de wheels e execução em outras plataformas não foram verificadas.
+  - A primeira execução de Ruff indicou UP043; uma exceção pontual de estilo foi documentada para a anotação explícita, sem suprimir reportDeprecated.
+  review: Autorrevisão do executor; revisão independente e validação remota não presumidas.
+  pending_work:
+  - Solicitar revisão da manutenção e da entrega STORY-012; manter in_review até observação da CI e cumprimento do DoD.

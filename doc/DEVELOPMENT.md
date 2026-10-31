@@ -16,6 +16,7 @@ uv run --locked --no-sync pytest -q
 uv run --locked --no-sync ruff check src tests
 uv run --locked --no-sync ruff format --check src tests
 uv run --locked --no-sync mypy src tests
+uv run --locked --no-sync pyright
 ```
 
 `uv.lock` fixa as dependências de desenvolvimento e seus artefatos; `--locked` rejeita lock desatualizado. O backend Hatchling e suas dependências de build têm versões fixadas em `pyproject.toml`, mas os hashes dos artefatos de build não são exigidos nesta configuração; essa é uma limitação da reprodução do build. A instalação não editável copia o pacote para o ambiente virtual `.venv`. O teste verifica que o pacote importado pertence ao ambiente ativo e que a distribuição está instalada, detectando instalação ausente ou importação acidental do código-fonte. Após alterar `src/`, force a reinstalação com `uv sync --locked --no-editable --reinstall-package aegisops-ai` antes de testar: a sincronização não editável simples pode manter uma cópia anterior do pacote. O arquivo `.venv` é local e ignorado pelo Git.
@@ -59,7 +60,14 @@ uv run --offline --locked --no-sync pytest -q
 uv run --offline --locked --no-sync ruff check src tests
 uv run --offline --locked --no-sync ruff format --check src tests
 uv run --offline --locked --no-sync mypy src tests
+uv run --offline --locked --no-sync pyright
 ```
+
+## Depreciação de tipos de geradores assíncronos
+
+Funções decoradas com `@asynccontextmanager` devem anotar o retorno como `collections.abc.AsyncGenerator[T, None]`. A anotação `AsyncIterator[T]` nesse decorador é deprecada nas definições de tipos atuais. O Pyright 1.1.414 verifica `src/`, `tests/` e `scripts/` com `reportDeprecated = "error"`; o comando acima falha com código não zero quando encontra uma ocorrência. Ele complementa o mypy 2.4.1, que continua obrigatório: o typeshed incluído nessa versão não contém a sobrecarga deprecada e não detectou o caso mesmo com `deprecated` habilitado. Os testes em `tests/test_typecheck.py` exercitam exemplos temporários inválido e válido usando a configuração do projeto. A anotação explícita de `lifespan` usa uma exceção pontual de Ruff UP043, regra de concisão que prefere omitir o `None` padrão; `reportDeprecated` permanece ativo como erro e não é suprimido.
+
+O extra `pyright[nodejs]` instala Node.js através de `nodejs-wheel-binaries`, travado no `uv.lock` para evitar download durante a verificação após o setup. A instalação inicial requer obter esse binário, de tamanho relevante. Plataformas sem wheel compatível podem exigir preparação diferente. O Pyright pode emitir um aviso para `yaml` em `scripts/validate_repository.py`, pois PyYAML é dependência separada da validação documental; isso não altera a regra de deprecação. O controle depende das definições de tipos empacotadas pela ferramenta e não cobre arquivos fora dos diretórios configurados nem código ignorado pelo analisador; exceções explícitas podem contorná-lo e devem ser revistas. Ver [ADR-0005](adr/0005-verificacao-deprecacao-tipos.md) e [HANDOFF-012](../agents/handoffs/HANDOFF-012.yaml).
 
 ## API local de consulta
 

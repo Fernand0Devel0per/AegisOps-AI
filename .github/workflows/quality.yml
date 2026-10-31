@@ -29,3 +29,5 @@ jobs:
         run: uv run --locked --no-sync ruff format --check src tests
       - name: Check types
         run: uv run --locked --no-sync mypy src tests
+      - name: Check deprecated typing
+        run: uv run --locked --no-sync pyright

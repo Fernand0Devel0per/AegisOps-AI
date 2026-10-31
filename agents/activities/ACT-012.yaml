@@ -36,6 +36,7 @@ validation:
   - uv run --offline --locked --no-sync ruff check src tests
   - uv run --offline --locked --no-sync ruff format --check src tests
   - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
   - python3 scripts/validate_repository.py
   - python3 scripts/validate_incidents.py
   - git diff --check

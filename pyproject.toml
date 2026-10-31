@@ -16,6 +16,7 @@ dependencies = [
 dev = [
     "httpx2==2.15.1",
     "mypy==2.4.1",
+    "pyright[nodejs]==1.1.414",
     "pytest==9.2.0",
     "ruff==0.17.3",
 ]
@@ -36,6 +37,11 @@ target-version = "py314"
 [tool.mypy]
 python_version = "3.14"
 strict = true
+
+[tool.pyright]
+include = ["src", "tests", "scripts"]
+pythonVersion = "3.14"
+reportDeprecated = "error"
 
 [tool.uv]
 build-constraint-dependencies = [

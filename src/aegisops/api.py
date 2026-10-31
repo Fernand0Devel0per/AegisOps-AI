@@ -1,7 +1,7 @@
 """Consulta local de incidentes sintéticos, sem operações de escrita."""
 
 import logging
-from collections.abc import AsyncIterator, Awaitable, Callable, Mapping
+from collections.abc import AsyncGenerator, Awaitable, Callable, Mapping
 from contextlib import asynccontextmanager
 from typing import Any
 
@@ -16,7 +16,7 @@ from aegisops.catalog import load_catalog
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:  # noqa: UP043
     app.state.catalog = load_catalog()
     yield
     app.state.catalog = None

@@ -43,6 +43,7 @@ test_strategy:
 - Exercitar startup, três fixtures instaladas, sucesso, ausência, ID inválido, caracteres, caminhos e saúde por HTTP.
 - Injetar falhas de recurso, JSON, domínio e IDs duplicados e verificar que startup falha; testar 500 estruturado sem dados internos.
 - Executar testes pelo workflow existente, demonstrar offline sem credenciais e registrar CI remoto somente quando observado.
+- Verificar deprecação de tipos com Pyright e exemplos temporários inválido e válido conforme ADR-0005.
 acceptance_mapping:
 - criterion_id: AC-01
   validation: Comandos documentados e testes HTTP verificam health e consulta das três fixtures instaladas.
@@ -60,6 +61,7 @@ related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0003-ambiente-python-qualidade.md
 - doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0005-verificacao-deprecacao-tipos.md
 references:
 - AGENTS.md
 - roadmap/stories/STORY-012.yaml
