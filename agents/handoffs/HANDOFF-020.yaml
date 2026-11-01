@@ -5,7 +5,7 @@ spec_id: SPEC-020
 source_agent: Codex — implementação e autorrevisão
 target_agent: Product Owner ou revisor da STORY-020
 status: partial
-summary: Núcleo determinístico implementado e validado localmente; entrega em revisão, sem declarar a história concluída.
+summary: Núcleo implementado e validado localmente; PO informou que verificou a entrega e está de acordo; revisão do PR e merge pelo PO pendentes.
 completed_work:
 - Atualizado origin por fetch e verificado PR 3 merged, ancestral de origin/main em 5d459e9; PR 4 integrou o fechamento dos estados.
 - Conferidos STORY-012 e EPIC-001 done, evidências e autorização do PO em HANDOFF-012; base incorporada à branch existente sem reescrever seu histórico.
@@ -13,7 +13,8 @@ completed_work:
 - SPEC-020 e ACT-020 preparadas antes do código; critérios de aceite, interface e testes mapeados.
 - Triagem valida toda entrada pelo contrato STORY-011, calcula nível por sinal e máximo, seleciona evidência e sinaliza métricas ausentes ou insuficiência.
 - Testes confrontam as três fixtures, fronteiras, unidades, janelas, seleção, inconsistências, ausência de dados e resultados sem alegações causais.
-- Autorrevisão identificada do executor comparou a tabela aceita, o código, testes e diff; solicitada revisão ao PO na entrega desta atividade.
+- Autorrevisão identificada do executor comparou a tabela aceita, o código, testes e diff.
+- Em 2026-11-01, o PO informou ter feito a checagem da entrega e estar de acordo; não foram informados detalhes sobre testes executados pelo PO.
 changed_files:
 - path: agents/specs/SPEC-020.yaml
   reason: Registrar contratos e mapeamento dos três critérios antes da execução.
@@ -78,23 +79,23 @@ validation:
     evidence: agents/specs/SPEC-020.yaml
   failed: []
   not_executed:
-  - CI remota da STORY-020 não executada; push e PR não autorizados.
-  - Revisão independente e aceite do PO ainda não ocorreram; solicitar revisão da entrega concreta.
+  - Na validação local anterior, CI remota da STORY-020 ainda não havia sido executada; conferir os checks do PR após publicação.
+  - O PO informou sua checagem da entrega; a checagem do PR e a decisão de merge permanecem pendentes.
   - Self-test do validador documental não executado pois seu código não foi alterado.
   - Integração de triagem à API, explicação e fallback não testados pois pertencem à STORY-021.
 review:
-  type: Autorrevisão pelo executor; revisão independente e decisão do PO pendentes.
+  type: Autorrevisão pelo executor e checagem da entrega informada pelo PO em 2026-11-01; revisão do PR pelo PO pendente.
   evidence: agents/handoffs/HANDOFF-020.yaml
 known_issues:
 - Na primeira rodada, Ruff format e mypy apontaram formatação e inferência de tipo; ambas corrigidas e verificações passaram na rodada final.
 - Instalação uv concluiu com aviso sobre leitura de symlink do Python base; Pyright relatou aviso conhecido de yaml no script documental.
 - Referências resolvíveis não comprovam verdade ou suporte semântico; limiares são sintéticos, não parâmetros de produção.
-- Exclusão preexistente de agents/handoffs/STORY-020-blocked.md permanece não preparada; exclusão preexistente específica da branch feat/story-021 preservada em stash identificado para reaplicação nessa branch.
+- Exclusões locais preexistentes de agents/handoffs/STORY-020-blocked.md e doc/decisions/story-012-atualizacao-contexto.md permanecem fora da entrega; exclusão da branch feat/story-021 preservada em stash identificado para reaplicação nessa branch.
 pending_work:
-- Revisar a implementação, contratos, testes e evidências; resolver observações antes de avaliar fechamento da STORY-020.
-- Após revisão, atualizar handoff, atividade e estados sem presumir autorização para push ou PR.
+- PO revisará o PR e decidirá sobre o merge; resolver eventuais observações.
+- Após a revisão do PR, avaliar o DoD e atualizar handoff, atividade e estados conforme a decisão do PO.
 next_steps:
-- Revisor examina SPEC-020, ACT-020, triage.py, testes e diff da branch.
+- PO examina o PR da STORY-020 e efetua o merge quando decidir.
 - Manter STORY-021 em backlog até cumprir DoD da STORY-020.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
@@ -102,3 +103,19 @@ related_adrs:
 - doc/adr/0003-ambiente-python-qualidade.md
 - doc/adr/0004-api-local-contratos-http.md
 - doc/adr/0005-verificacao-deprecacao-tipos.md
+maintenance_updates:
+- date: '2026-11-01'
+  authorization: PO informou ter checado e aceitado a entrega e autorizou push e abertura de PR; solicitou aguardar sua revisão e merge.
+  summary: Registro da checagem do PO; história e atividade permanecem em revisão até a checagem do PR.
+  validation:
+    executed:
+    - python3 scripts/validate_repository.py no workspace e numa árvore temporária de git archive HEAD com o handoff atualizado.
+    - git diff --check e git diff --cached --check.
+    passed:
+    - Validador documental na árvore versionada temporária com handoff atualizado passou; 65 YAML, 11 épicos, 22 histórias e 25 Markdown.
+    not_executed:
+    - Testes de aplicação não repetidos; apenas o registro documental da revisão foi alterado.
+    failed:
+    - No workspace, validador encontrou referência da STORY-012 ao arquivo localmente excluído doc/decisions/story-012-atualizacao-contexto.md; exclusão preexistente preservada e arquivo presente na árvore versionada.
+  pending_work:
+  - PO revisará o PR e decidirá sobre o merge; não presumir aprovação do PR ou conclusão da história.
