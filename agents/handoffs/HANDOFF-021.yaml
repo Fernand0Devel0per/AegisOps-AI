@@ -129,3 +129,30 @@ maintenance_updates:
     - Testes de aplicação, Ruff e verificadores de tipos não repetidos nesta manutenção documental; código não alterado.
   pending_work:
   - Avaliar opções para obter saída estruturada confiável e demais cenários antes de aprovar integração; manter STORY-021 e ACT-021 blocked.
+- date: '2026-11-01'
+  authorization: PO autorizou baixar e testar o candidato Qwen3-Coder-30B-A3B int4 com os limites de saída previamente discutidos.
+  summary: Download retomável em andamento; motor Qwen compilado em cópia isolada e serviço transitório preparado para executar e registrar os dois testes após o download.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar candidato, revisão, configuração experimental e onde consultar o estado real.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar autorização, progresso parcial e continuidade.
+  - path: doc/decisions/open-questions.md
+    reason: Indicar que o PO autorizou avaliação do candidato, sem presumir decisão de integração.
+  validation:
+    executed:
+    - make qwen36 em cópia isolada do Colibri no commit fixado; verificação das fontes e licença declarada do candidato.
+    - Conferência de espaço livre e inicialização do serviço transitório de download e avaliação; sintaxe dos scripts locais checada com py_compile.
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor do estado parcial, parâmetros e ausência de alegação de resultado; revisão independente pendente.
+    passed:
+    - Motor qwen36 compilou; catálogo remoto fixado identifica 49 arquivos de pesos e metadado necessário.
+    - Validador documental passou em árvore isolada; verificações de diff passaram.
+    failed:
+    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    not_executed:
+    - Inferência e verificação Qwen ainda não executadas no momento deste registro; dependem do download dos pesos.
+    - A comparação de qualidade, latência e pico RSS ainda não existe; conferir status e arquivos de resultado, e documentar o que ocorreu.
+  pending_work:
+  - Consultar systemctl --user status aegisops-story021-qwen-eval.service e .local/story021-qwen-experiment/status.json; registrar resultados efetivos dos dois testes.
+  - Manter STORY-021 e ACT-021 blocked; avaliação experimental não autoriza integração arquitetural nem conclui critérios.
