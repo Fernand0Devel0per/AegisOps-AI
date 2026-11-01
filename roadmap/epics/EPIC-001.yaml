@@ -2,7 +2,7 @@ id: EPIC-001
 title: Fundamentos de qualidade e primeira API
 source_phase: 1
 objective: Preparar Python e consulta mínima de incidentes sem banco, filas ou LLM.
-status: in_progress
+status: done
 priority: high
 dependencies:
 - EPIC-000
@@ -13,6 +13,10 @@ scope:
 exit_criteria:
 - Execução local documentada e reproduzível.
 - CI executa testes e rejeita entrada inválida com erro claro.
+completion_evidence:
+- Execução local documentada em doc/DEVELOPMENT.md e validada em agents/handoffs/HANDOFF-012.yaml.
+- Quality remoto do PR 3 executou testes da API, inclusive entrada inválida; evidência em agents/handoffs/HANDOFF-012.yaml.
+- PO autorizou o fechamento em 2026-10-31; registro em agents/handoffs/HANDOFF-012.yaml.
 stories:
 - STORY-010
 - STORY-011
