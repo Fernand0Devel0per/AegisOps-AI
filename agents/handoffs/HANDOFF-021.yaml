@@ -100,3 +100,32 @@ related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0004-api-local-contratos-http.md
 - doc/adr/0006-proposta-integracao-colibri.md
+
+maintenance_updates:
+- date: '2026-11-01'
+  authorization: PO solicitou avaliar limites de saída de 256 e 512 tokens, com timeout de até cinco minutos por execução.
+  summary: Experimento local em CLI com INC-001 e prompt único; ambos processos concluíram, mas as duas respostas iguais foram rejeitadas pela política de saída.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar prompt completo, configuração, respostas, tempos e limites dos dois experimentos.
+  - path: doc/adr/0006-proposta-integracao-colibri.md
+    reason: Distinguir a proposta original dos parâmetros experimentais solicitados pelo PO.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar decisão de experimento, resultados e continuidade sem presumir aprovação da integração.
+  validation:
+    executed:
+    - Duas inferências locais isoladas, uma por teto; timeout 300 segundos e limites de recursos registrados na avaliação.
+    - Parsing estrito da resposta e verificação diagnóstica do objeto interno com o verificador existente.
+    - python3 scripts/validate_repository.py no workspace e em árvore temporária do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor das respostas, parâmetros, medições e interpretação; revisão independente não realizada.
+    passed:
+    - Cada processo saiu com código 0 dentro de 300 segundos; parâmetros e medições estão na avaliação.
+    - Validador documental passou na árvore isolada; verificações de diff passaram.
+    failed:
+    - Resposta de ambos os tetos não é JSON puro, inclui campo extra e omite S-MAX; ambas rejeitadas.
+    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    not_executed:
+    - Integração HTTP, teste real de fallback, avaliação das outras fixtures, licença e concorrência; não fazem parte desta comparação.
+    - Testes de aplicação, Ruff e verificadores de tipos não repetidos nesta manutenção documental; código não alterado.
+  pending_work:
+  - Avaliar opções para obter saída estruturada confiável e demais cenários antes de aprovar integração; manter STORY-021 e ACT-021 blocked.
