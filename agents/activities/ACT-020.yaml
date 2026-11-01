@@ -1,0 +1,48 @@
+id: ACT-020
+story_id: STORY-020
+spec_id: SPEC-020
+title: Implementar triagem determinística local
+objective: Classificar sinais sintéticos e produzir observações rastreáveis com limitações explícitas.
+status: in_review
+agent:
+  role: Agente de implementação Python
+  responsibility: Implementar exclusivamente o núcleo, testes e documentação da STORY-020 conforme SPEC-020.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-020.yaml
+- agents/specs/SPEC-020.yaml
+- agents/handoffs/HANDOFF-012.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+expected_outputs:
+- src/aegisops/triage.py
+- tests/unit/test_triage.py
+- doc/DEVELOPMENT.md
+- agents/handoffs/HANDOFF-020.yaml
+constraints:
+- Preservar validação STORY-011, fixtures, limites sintéticos e histórico Git.
+- Sem integração à API, LLM, persistência, serviços externos, remediação ou afirmações de causa raiz.
+execution_steps:
+- Preparar contratos e sincronizar estados antes da implementação.
+- Implementar núcleo, testes e documentação segundo SPEC-020.
+- Validar instalação e qualidade, autorrevisar, solicitar revisão e produzir handoff.
+validation:
+  commands:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Testes das fixtures, limiares, integridade e insuficiência passam; validações registradas no handoff.
+dependencies:
+- ACT-012
+handoff_required: true
+references:
+- doc/standards/validation.md

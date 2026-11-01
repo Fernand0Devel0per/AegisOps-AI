@@ -2,7 +2,7 @@ id: EPIC-002
 title: Motor de triagem baseado em evidências
 source_phase: 2
 objective: Entregar triagem determinística, explicação por LLM local e fallback pela API.
-status: backlog
+status: in_progress
 priority: high
 dependencies:
 - EPIC-001

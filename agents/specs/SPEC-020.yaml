@@ -1,0 +1,70 @@
+id: SPEC-020
+story_id: STORY-020
+title: Triagem determinística com evidências rastreáveis
+status: ready
+problem_statement: A entrada validada ainda não produz classificação reproduzível nem limitações para sinais ausentes.
+proposed_solution: Validar o objeto de entrada existente e produzir resultado imutável independente de transporte, com uma observação por sinal e severidade máxima.
+architecture:
+  components:
+  - src/aegisops/contracts.py valida a entrada conforme STORY-011 sem alterações.
+  - src/aegisops/triage.py calcula níveis, referências e limitações com biblioteca padrão.
+  interactions:
+  - A interface pública recebe objeto decodificado e chama validate_incident antes de qualquer cálculo.
+  data_flow:
+  - Objeto não confiável → validação existente → classificação por sinal → resultado imutável ou InvalidIncident.
+interfaces:
+- triage_incident(data) retorna TriageResult para entrada válida ou propaga InvalidIncident com state e errors de caminho e código, sem resultado parcial.
+data_contracts:
+- O objeto de entrada obedece integralmente SPEC-011 e REQUIREMENTS; instâncias de dataclasses construídas diretamente não são aceitas como alternativa à validação.
+- Resultado classificado contém incident_id, state classificado, severity normal/media/alta, observations ordenadas como os sinais de entrada e limitations para cada métrica ausente em ordem fixa, mais aviso de que classificação parcial não demonstra ausência de degradação.
+- Cada observação contém signal_id, metric, value, unit, period, level e evidence_id lexicograficamente menor dentre as evidências ligadas ao sinal; a referência resolve na entrada.
+- Limiares inclusivos media/alta são respectivamente 500/1500 ms para p95, 5/10 percent para 5xx, 95/99 percent para CPU e 90/95 percent para memória; severidade é máximo entre os níveis.
+- Sem sinais e evidências, resultado insuficiente contém severity null, observations vazias e limitação de ausência de sinais; nenhuma métrica é imputada.
+- Resultado válido indica explanation_state nao_solicitada; observações descrevem valores e níveis, não geram hipóteses ou afirmações causais.
+- Entrada inválida propaga InvalidIncident da STORY-011 com state entrada_invalida e detalhes sem valores recebidos; não devolve severidade, observações ou explicação.
+- Frases canônicas, seleção por LLM, verificação e fallback são escopo da STORY-021; esta história não estabelece contrato de transporte ou persistência.
+dependencies:
+- roadmap/stories/STORY-012.yaml
+- roadmap/epics/EPIC-001.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+- agents/handoffs/HANDOFF-012.yaml
+security_considerations:
+- Dados e textos de entrada não são instruções; nenhuma rede, remediação ou leitura externa é feita pela triagem.
+- Referência existente não comprova veracidade nem suporte semântico do resumo.
+observability:
+- Erros preservam caminho e código do validador sem valores recebidos; nenhuma instrumentação adicional.
+error_handling:
+- Qualquer violação estrutural prevalece sobre insuficiência; propagar InvalidIncident sem produzir resultado parcial.
+- Erros internos não são ocultados nem convertidos em dados insuficientes.
+implementation_steps:
+- Preparar SPEC e ACT e sincronizar história e índice antes da implementação.
+- Implementar classificação e modelos de saída sem alterar contratos de entrada ou integrar API.
+- Testar fixtures e fronteiras, documentar, autorrevisar, solicitar revisão e produzir handoff.
+test_strategy:
+- Exercitar as três fixtures e níveis individuais, máximo e resolução exata das referências.
+- Cobrir os dois limiares e valores imediatamente anteriores e posteriores para cada métrica, unidades, períodos sucessivos e sobrepostos e limites da janela.
+- Testar entradas inconsistentes, contagens 5xx, IDs e referências, evidências múltiplas e reordenação, ausência de métricas, insuficiência e precedência de invalidez.
+- Executar instalação travada, reinstalação não editável, pytest, Ruff, mypy, Pyright, validadores e diff.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Verificar saídas, níveis e referências reproduzíveis das três fixtures.
+  evidence: tests/unit/test_triage.py
+- criterion_id: AC-02
+  validation: Exercitar fronteiras de todas as métricas, unidades, janelas, ausências e inconsistências.
+  evidence: tests/unit/test_triage.py
+- criterion_id: AC-03
+  validation: Verificar insuficiência explícita, precedência de erro e ausência de hipóteses ou afirmação de causa.
+  evidence: tests/unit/test_triage.py
+open_questions: []
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0005-verificacao-deprecacao-tipos.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-020.yaml
+- agents/specs/SPEC-011.yaml
+- doc/standards/workflow.md
