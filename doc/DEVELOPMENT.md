@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu a consulta HTTP local e saúde; a STORY-020 implementa o núcleo de triagem em revisão, sem integração à API ou ao LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
+A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu a consulta HTTP local e saúde; a STORY-020 concluiu o núcleo de triagem, sem integração à API ou ao LLM. As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
 
 ## Pré-requisitos
 

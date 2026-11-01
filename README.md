@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão concluídos; três incidentes sintéticos e requisitos estão documentados. A consulta local de incidentes e saúde foi concluída na STORY-012; o núcleo de triagem da STORY-020 está implementado e em revisão, sem integração à API ou ao LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
+**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão concluídos; três incidentes sintéticos e requisitos estão documentados. A consulta local de incidentes e saúde foi concluída na STORY-012; o núcleo de triagem da STORY-020 está concluído, sem integração à API ou ao LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
 
 ## Problema e capacidades previstas
 
@@ -53,7 +53,7 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 | Concluído | Pacote Python mínimo, instalação, teste de setup e workflow de qualidade; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
-| Em revisão | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
+| Concluído | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Planejado | Integração da triagem à API, explicação por LLM e evolução por etapas |
 
 A triagem ainda não está exposta pela API. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.

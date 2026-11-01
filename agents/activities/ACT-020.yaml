@@ -3,7 +3,7 @@ story_id: STORY-020
 spec_id: SPEC-020
 title: Implementar triagem determinística local
 objective: Classificar sinais sintéticos e produzir observações rastreáveis com limitações explícitas.
-status: in_review
+status: completed
 agent:
   role: Agente de implementação Python
   responsibility: Implementar exclusivamente o núcleo, testes e documentação da STORY-020 conforme SPEC-020.

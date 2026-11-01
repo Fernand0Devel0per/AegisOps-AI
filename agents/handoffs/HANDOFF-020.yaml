@@ -4,8 +4,8 @@ story_id: STORY-020
 spec_id: SPEC-020
 source_agent: Codex — implementação e autorrevisão
 target_agent: Product Owner ou revisor da STORY-020
-status: partial
-summary: Núcleo implementado e validado localmente; PO informou que verificou a entrega e está de acordo; revisão do PR e merge pelo PO pendentes.
+status: completed
+summary: Núcleo determinístico concluído; PO informou revisão do PR e o PR 5 foi integrado à main; registro de fechamento e continuidade para STORY-021.
 completed_work:
 - Atualizado origin por fetch e verificado PR 3 merged, ancestral de origin/main em 5d459e9; PR 4 integrou o fechamento dos estados.
 - Conferidos STORY-012 e EPIC-001 done, evidências e autorização do PO em HANDOFF-012; base incorporada à branch existente sem reescrever seu histórico.
@@ -80,11 +80,11 @@ validation:
   failed: []
   not_executed:
   - Na validação local anterior, CI remota da STORY-020 ainda não havia sido executada; conferir os checks do PR após publicação.
-  - O PO informou sua checagem da entrega; a checagem do PR e a decisão de merge permanecem pendentes.
+  - Na atualização anterior, revisão do PR e decisão de merge ainda não estavam registradas; conclusão posterior descrita em maintenance_updates.
   - Self-test do validador documental não executado pois seu código não foi alterado.
   - Integração de triagem à API, explicação e fallback não testados pois pertencem à STORY-021.
 review:
-  type: Autorrevisão pelo executor e checagem da entrega informada pelo PO em 2026-11-01; revisão do PR pelo PO pendente.
+  type: Autorrevisão pelo executor; PO informou em 2026-11-01 ter revisado a entrega e o PR. Nenhuma revisão formal foi registrada no GitHub; não se atribui execução de testes ao PO.
   evidence: agents/handoffs/HANDOFF-020.yaml
 known_issues:
 - Na primeira rodada, Ruff format e mypy apontaram formatação e inferência de tipo; ambas corrigidas e verificações passaram na rodada final.
@@ -92,11 +92,10 @@ known_issues:
 - Referências resolvíveis não comprovam verdade ou suporte semântico; limiares são sintéticos, não parâmetros de produção.
 - Exclusões locais preexistentes de agents/handoffs/STORY-020-blocked.md e doc/decisions/story-012-atualizacao-contexto.md permanecem fora da entrega; exclusão da branch feat/story-021 preservada em stash identificado para reaplicação nessa branch.
 pending_work:
-- PO revisará o PR e decidirá sobre o merge; resolver eventuais observações.
-- Após a revisão do PR, avaliar o DoD e atualizar handoff, atividade e estados conforme a decisão do PO.
+- STORY-021 permanece em backlog e requer refinamento, especificação e atividade antes da implementação.
 next_steps:
-- PO examina o PR da STORY-020 e efetua o merge quando decidir.
-- Manter STORY-021 em backlog até cumprir DoD da STORY-020.
+- Confirmar fechamento da STORY-020 integrado à base e preparar STORY-021 quando autorizada.
+- Avaliar modelo, integração local e explicação restrita conforme requisitos e ADR-0002, sem antecipar decisões estruturais.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -119,3 +118,34 @@ maintenance_updates:
     - No workspace, validador encontrou referência da STORY-012 ao arquivo localmente excluído doc/decisions/story-012-atualizacao-contexto.md; exclusão preexistente preservada e arquivo presente na árvore versionada.
   pending_work:
   - PO revisará o PR e decidirá sobre o merge; não presumir aprovação do PR ou conclusão da história.
+- date: '2026-11-01'
+  authorization: PO informou ter revisado o PR e solicitou merge na main e atualização do handoff.
+  summary: PR 5 já integrado à main em d1fb833626a752c23dd999f6cd1a03a158da5a2e; critérios e DoD conferidos, estados da STORY-020 e ACT-020 concluídos.
+  changed_files:
+  - path: agents/handoffs/HANDOFF-020.yaml
+    reason: Registrar revisão informada pelo PO, integração do PR e evidências de fechamento.
+  - path: agents/activities/ACT-020.yaml
+    reason: Concluir atividade depois de revisão e validações.
+  - path: roadmap/stories/STORY-020.yaml
+    reason: Concluir história após critérios, validações e revisão.
+  - path: roadmap/index.yaml
+    reason: Sincronizar estado da história e orientar a próxima atividade sem antecipar SPEC ou ACT da STORY-021.
+  - path: README.md
+    reason: Registrar o núcleo determinístico concluído e preservar o escopo futuro.
+  - path: doc/DEVELOPMENT.md
+    reason: Atualizar o estado da STORY-020.
+  - path: doc/REQUIREMENTS.md
+    reason: Atualizar o estado de implementação sem mudar os requisitos.
+  validation:
+    executed:
+    - gh pr view 5 e gh pr checks 5; git fetch origin --prune e conferência da base origin/main.
+    - python3 scripts/validate_repository.py em árvore temporária versionada com alterações de fechamento.
+    - git diff --check e git diff --cached --check.
+    passed:
+    - PR 5 integrado à main; Quality passou no head 742857a, com testes do pacote e API, Ruff, mypy e Pyright. Evidências https://github.com/Fernand0Devel0per/AegisOps-AI/actions/runs/41356731778 e https://github.com/Fernand0Devel0per/AegisOps-AI/actions/runs/41356720587.
+    - Validador documental passou em árvore temporária versionada; exclusões locais preexistentes preservadas fora da entrega.
+    - Autorrevisão documental do fechamento comparou critérios e DoD com testes, CI e revisão informada pelo PO.
+    not_executed:
+    - Testes de aplicação não repetidos neste fechamento documental; o código foi testado pela CI do PR 5.
+  pending_work:
+  - Integrar este fechamento à main e, quando autorizada, refinar STORY-021 sem presumir aprovação de decisões estruturais pendentes.
