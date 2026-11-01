@@ -5,7 +5,7 @@ description: Demonstrar envio de incidente sintético, triagem determinística e
 objective: Demonstrar envio de incidente sintético, triagem determinística e explicação local pela API.
 context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: backlog
+status: blocked
 refinement_required: true
 dependencies:
 - STORY-020
@@ -39,10 +39,26 @@ deliverables:
 - tests/integration/
 - doc/DEMO.md
 validation:
-  automated_tests: []
+  automated_tests:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
   manual_checks:
   - Reproduzir a vertical em ambiente local limpo.
 references:
+- agents/specs/SPEC-021.yaml
+- agents/activities/ACT-021.yaml
+- agents/handoffs/HANDOFF-021.yaml
+- doc/decisions/story-021-avaliacao.md
+- doc/adr/0006-proposta-integracao-colibri.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

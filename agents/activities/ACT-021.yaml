@@ -1,0 +1,48 @@
+id: ACT-021
+story_id: STORY-021
+spec_id: SPEC-021
+title: Avaliar e integrar triagem com explicação local
+objective: Preparar e avaliar a explicação restrita antes de integrar a vertical à API.
+status: blocked
+agent:
+  role: Agente de implementação e avaliação
+  responsibility: Executar somente partes autorizadas e independentes; aguardar decisão do PO para integração relevante.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-021.yaml
+- agents/specs/SPEC-021.yaml
+- agents/handoffs/HANDOFF-020.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+- doc/adr/0006-proposta-integracao-colibri.md
+expected_outputs:
+- src/aegisops/
+- tests/integration/
+- doc/DEMO.md
+- agents/handoffs/HANDOFF-021.yaml
+constraints:
+- Preservar resultados e validação STORY-020; frases canônicas e verificador determinísticos; sem causa raiz ou remediação.
+- Avaliar explicação antes da integração; sem implementar integração ou dependência estrutural não aprovada.
+execution_steps:
+- Refinar e avaliar trabalho independente, obter decisão explícita sobre candidato, protocolo e limites.
+- Após decisão e avaliação, completar especificação, implementação, testes, demonstração, revisão e handoff.
+validation:
+  commands:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Resultados reais e pendências registrados em handoff; testes adversariais anteriores à integração.
+dependencies:
+- ACT-020
+handoff_required: true
+references:
+- doc/standards/validation.md

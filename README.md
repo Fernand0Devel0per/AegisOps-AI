@@ -54,6 +54,7 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 | Concluído | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
+| Em avaliação | Frases canônicas e verificação determinística isoladas para a STORY-021; sem integração à API ou avaliação de modelo real. Veja [avaliação](doc/decisions/story-021-avaliacao.md) |
 | Planejado | Integração da triagem à API, explicação por LLM e evolução por etapas |
 
 A triagem ainda não está exposta pela API. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.

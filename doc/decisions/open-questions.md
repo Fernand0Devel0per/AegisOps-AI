@@ -23,6 +23,8 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-017 | Fechamento da STORY-012 e gate do EPIC-001 antes da STORY-020 | PO autorizou o fechamento em 2026-10-31 | Concluídos e integrados à base; evidências e autorização em [HANDOFF-012](../../agents/handoffs/HANDOFF-012.yaml). O bloqueio anterior consta do histórico Git da branch. |
 | Q-018 | Dependências da STORY-021 na base | Concluídas na base origin/main atualizada | STORY-020 está `done` e ACT-020 `completed`; o bloqueio anterior permanece no histórico da branch. Ver [HANDOFF-020](../../agents/handoffs/HANDOFF-020.yaml). |
 
+| Q-019 | Integração da explicação local na STORY-021 | PO decide candidato, protocolo e limites após examinar a proposta e avaliação | [ADR-0006 proposto](../adr/0006-proposta-integracao-colibri.md) apresenta alternativas; aprovação e avaliação real prévia são necessárias antes da integração. |
+
 ## Riscos de execução
 
 - **Escopo excessivo:** stack alvo mistura aprendizado e operação. Mitigação: etapas, entregas pequenas e decisões condicionais; adiar adoção sem benefício medido.
