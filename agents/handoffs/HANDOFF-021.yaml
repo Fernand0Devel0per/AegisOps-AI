@@ -143,6 +143,7 @@ maintenance_updates:
     executed:
     - make qwen36 em cópia isolada do Colibri no commit fixado; verificação das fontes e licença declarada do candidato.
     - Conferência de espaço livre e inicialização do serviço transitório de download e avaliação; sintaxe dos scripts locais checada com py_compile.
+    - Coletor experimental exercitado com servidor HTTP simulado: aceitou seleção válida e rejeitou S-MAX ausente e saída truncada. Não é inferência de modelo.
     - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
     - Autorrevisão pelo executor do estado parcial, parâmetros e ausência de alegação de resultado; revisão independente pendente.
     passed:
