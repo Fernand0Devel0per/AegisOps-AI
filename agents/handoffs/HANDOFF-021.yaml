@@ -187,3 +187,34 @@ maintenance_updates:
   pending_work:
   - Avaliar demais cenários e confiabilidade; decidir com o PO modelo, limites e protocolo de integração antes de implementá-la.
   - STORY-021 e ACT-021 continuam blocked; verificar todos os ACs, demo, revisão e DoD antes de concluir.
+
+- date: '2026-11-01'
+  authorization: Continuidade da avaliação local do Qwen nas três fixtures dentro da STORY-021; PO solicitou atualizações periódicas.
+  summary: Quatro inferências adicionais nas fixtures INC-002 e INC-003 produziram seleções aceitas para ambos os limites; integração continua bloqueada.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar prompts, respostas, evidências, tempo, recursos e limitações das duas fixtures adicionais.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar evidência de Q-019 sem declarar decisão de integração.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar validação e continuidade da atividade.
+  validation:
+    executed:
+    - Quatro inferências reais Qwen em CPU para INC-002 e INC-003, cada qual com tetos 256 e 512, timeout 300 s e os limites da avaliação anterior.
+    - Releitura de cada resposta bruta e verificação independente dos IDs e evidências com os contratos existentes.
+    - uv run --offline --locked --no-sync pytest -q tests/unit/test_explanation.py
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor de respostas brutas, referências e limites da avaliação; revisão independente pendente.
+    passed:
+    - As quatro respostas foram aceitas e terminaram com stop; limites de 256 e 512 produziram respostas idênticas por fixture.
+    - Os 18 testes controlados de explicação passaram em 0,03 s; dados insuficientes e seleções adversariais são testados no componente isolado.
+    - Os tempos totais foram de 102,15, 102,40, 102,53 e 101,33 s, respectivamente; picos RSS e tokens registrados na avaliação.
+    - Validador documental passou em árvore isolada e verificações de diff passaram.
+    failed:
+    - Validador documental do workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    not_executed:
+    - Teste adversarial do modelo real, integração à API, fallback fim a fim e confirmação de que a API não invoca LLM para entrada inválida ou insuficiente; ainda não implementados.
+    - Testes gerais e analisadores não repetidos porque src e dependências não mudaram; registros anteriores permanecem aplicáveis.
+  pending_work:
+  - Avaliar casos adversariais do modelo, limites e confiabilidade; obter decisão do PO para protocolo e integração antes de implementá-los.
+  - Manter história e atividade blocked até conclusão dos critérios, documentação, revisão e DoD.

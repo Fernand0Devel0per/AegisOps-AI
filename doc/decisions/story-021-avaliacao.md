@@ -85,4 +85,34 @@ O verificador aceitou estrutura, IDs, frase máxima e referências. As frases pr
 
 Uma única execução por teto e uma fixture não demonstram confiabilidade ou utilidade geral. Como ambos terminaram após 26 tokens com `stop`, aumentar o teto não alterou a resposta observada; os tempos não são uma comparação estatística. O tempo inclui inicialização e encerramento do processo local; o pico RSS é reportado por `/usr/bin/time` e não constitui soma simultânea de todos os processos. A comparação com OLMoE é indicativa: Qwen usou gateway HTTP local, motor diferente e estado de cache possivelmente diferente. O swap global observado na máquina era aproximadamente zero antes da preparação e 1,5 GiB após os testes; não foi medido quanto dessa mudança se deve ao modelo. Os logs e JSON completos ficam localmente em `.local/story021-qwen-experiment/` e são ignorados pelo Git; os resultados essenciais estão reproduzidos acima.
 
-A seleção do modelo e sua integração permanecem pendentes. Faltam avaliação das demais fixtures e dos casos adversariais com o modelo, confiabilidade, limites operacionais, protocolo e decisão do PO. Não transformar os dois resultados em aprovação de arquitetura ou evidência de fim a fim.
+A seleção do modelo e sua integração permanecem pendentes. A avaliação das outras duas fixtures foi executada posteriormente e consta abaixo. Permanecem pendentes avaliação adversarial com o modelo, confiabilidade, limites operacionais, protocolo e decisão do PO. Não transformar os dois resultados em aprovação de arquitetura ou evidência de fim a fim.
+
+
+## Avaliação Qwen nas outras duas fixtures — 2026-11-01
+
+Após o teste de INC-001, executaram-se quatro inferências locais reais com o mesmo Qwen, configuração, controles, timeout e verificador da comparação anterior. Os catálogos mudam conforme a fixture; cada limite foi executado uma vez por incidente. Os processos terminaram com código 0 e motivo `stop`. Tempo inclui inicialização e encerramento, e pico RSS não é soma simultânea dos processos.
+
+| Incidente | Teto | Tempo | Pico RSS | Tokens de entrada / saída | Seleção | Resultado |
+|---|---:|---:|---:|---:|---|---|
+| INC-002 | 256 | 102,15 s | 6.553.728 KiB | 336 / 26 | S-001, S-002, S-MAX | Aceita |
+| INC-002 | 512 | 102,40 s | 6.555.376 KiB | 336 / 26 | S-001, S-002, S-MAX | Aceita |
+| INC-003 | 256 | 102,53 s | 6.552.724 KiB | 329 / 33 | S-001, S-002, S-003, S-MAX | Aceita |
+| INC-003 | 512 | 101,33 s | 6.555.272 KiB | 329 / 33 | S-001, S-002, S-003, S-MAX | Aceita |
+
+Em INC-002, S-MAX e S-002 citam EVD-002-02, sinal 5xx de 20%, e S-001 cita EVD-002-01. A observação de CPU S-003 não foi selecionada. Em INC-003, S-001, S-002 e S-003 citam EVD-003-01, EVD-003-02 e EVD-003-03, respectivamente; S-MAX cita EVD-003-02. As respostas de 256 e 512 foram idênticas dentro de cada fixture. No conjunto das três fixtures houve seis respostas aceitas em seis execuções controladas; não extrapolar essa proporção para confiabilidade em outros incidentes.
+
+Os prompts seguintes foram enviados cada um em uma única mensagem, em ambas as execuções da fixture correspondente:
+
+**INC-002**
+
+```text
+Selecione e ordene IDs das frases abaixo para explicar o incidente. Inclua obrigatoriamente S-MAX. Retorne somente um objeto JSON com a chave sentence_ids e uma lista de IDs, sem texto extra e sem IDs repetidos. S-MAX: Severidade máxima alta, determinada pelo sinal 2. S-001: Sinal 1: http_5xx_rate = 1.0 percent, de 2026-10-01T10:00:00+00:00 até 2026-10-01T10:05:00+00:00 (fim exclusivo); nível normal. S-002: Sinal 2: http_5xx_rate = 20.0 percent, de 2026-10-01T10:05:00+00:00 até 2026-10-01T10:10:00+00:00 (fim exclusivo); nível alta. S-003: Sinal 3: cpu_utilization = 92 percent, de 2026-10-01T10:05:00+00:00 até 2026-10-01T10:10:00+00:00 (fim exclusivo); nível normal.
+```
+
+**INC-003**
+
+```text
+Selecione e ordene IDs das frases abaixo para explicar o incidente. Inclua obrigatoriamente S-MAX. Retorne somente um objeto JSON com a chave sentence_ids e uma lista de IDs, sem texto extra e sem IDs repetidos. S-MAX: Severidade máxima alta, determinada pelo sinal 2. S-001: Sinal 1: memory_utilization = 60 percent, de 2026-10-01T10:00:00+00:00 até 2026-10-01T10:05:00+00:00 (fim exclusivo); nível normal. S-002: Sinal 2: memory_utilization = 97 percent, de 2026-10-01T10:05:00+00:00 até 2026-10-01T10:10:00+00:00 (fim exclusivo); nível alta. S-003: Sinal 3: cpu_utilization = 95 percent, de 2026-10-01T10:05:00+00:00 até 2026-10-01T10:10:00+00:00 (fim exclusivo); nível media.
+```
+
+Os casos de citação inexistente, afirmação livre sem apoio, duplicação e ausência de severidade foram novamente avaliados nos 18 testes controlados do verificador; insuficiência impede a criação de frases canônicas nesses testes. Isso não demonstra que um LLM foi efetivamente ignorado pela API, que ainda não possui triagem integrada, nem constitui ensaio adversarial do próprio modelo real. Logs e respostas completos ficam em `.local/story021-qwen-followup/`, fora do Git; os dados essenciais e prompts estão registrados aqui. Revisar esses limites e avaliar protocolo, timeout, concorrência e falhas antes de propor a integração.
