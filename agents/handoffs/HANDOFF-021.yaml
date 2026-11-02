@@ -157,3 +157,33 @@ maintenance_updates:
   pending_work:
   - Consultar systemctl --user status aegisops-story021-qwen-eval.service e .local/story021-qwen-experiment/status.json; registrar resultados efetivos dos dois testes.
   - Manter STORY-021 e ACT-021 blocked; avaliação experimental não autoriza integração arquitetural nem conclui critérios.
+
+- date: '2026-11-01'
+  authorization: Continuação da avaliação do Qwen int4 solicitada pelo PO, com tetos de 256 e 512 tokens e timeout de até cinco minutos por tentativa.
+  summary: Download concluído; duas inferências reais na fixture INC-001 produziram seleção idêntica aceita pelo verificador; avaliação de confiabilidade e integração continuam pendentes.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar configuração, resposta bruta, tokens, tempo, memória, limitações e diferenças em relação ao teste anterior.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar Q-019 com o resultado parcial sem presumir decisão de integração.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar evidências e continuidade da avaliação autorizada.
+  validation:
+    executed:
+    - Download retomável da revisão d839110a17d31b4e6fa9f3d973b751f779b6b9c6; 49 arquivos de pesos presentes e comando do cliente concluído com código 0.
+    - Duas inferências reais Qwen em CPU, com 256 e 512 tokens, timeout 300 s, cap 32, contexto 2048 e limites de processo documentados.
+    - Parsing da resposta bruta, verificação de IDs e vínculos com o verificador existente e coleta de uso informado pelo gateway.
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor dos JSONs brutos, IDs, medições, limitações e estado da história; revisão independente pendente.
+    passed:
+    - Ambos retornaram a mesma seleção aceita, 26 tokens de saída e término stop; 106,73 s e 103,44 s, pico RSS de 6.554.164 e 6.555.636 KiB respectivamente.
+    - Após os testes, serviço transitório e processos Qwen não estavam ativos; artefatos locais não integram Git.
+    - Validador documental passou na árvore isolada e verificações de diff passaram.
+    failed:
+    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md; exclusão preservada.
+    not_executed:
+    - Avaliação com as outras fixtures, entradas adversariais reais, testes fim a fim da API e comparação estatística; permanecem pendentes.
+    - Nenhuma alteração de src, instalação nova de dependência de projeto ou integração de LLM foi realizada; suíte de aplicação e análise de tipos não foram repetidas nesta manutenção documental e experimental.
+  pending_work:
+  - Avaliar demais cenários e confiabilidade; decidir com o PO modelo, limites e protocolo de integração antes de implementá-la.
+  - STORY-021 e ACT-021 continuam blocked; verificar todos os ACs, demo, revisão e DoD antes de concluir.
