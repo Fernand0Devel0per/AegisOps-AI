@@ -5,8 +5,8 @@ description: Demonstrar envio de incidente sintético, triagem determinística e
 objective: Demonstrar envio de incidente sintético, triagem determinística e explicação local pela API.
 context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: blocked
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-020
 scope:
@@ -22,17 +22,19 @@ scope:
   - Persistência durável não justificada
 acceptance_criteria:
 - id: AC-01
-  criterion: Um comando documentado envia incidente sintético e obtém triagem, evidências e explicação local verificada.
+  criterion: Um comando documentado envia incidente sintético e obtém triagem, evidências e explicação
+    local verificada.
 - id: AC-02
-  criterion: Testes end-to-end verificam sucesso, entrada inválida, dados insuficientes, falha do LLM e fallback básico.
+  criterion: Testes end-to-end verificam sucesso, entrada inválida, dados insuficientes, falha do LLM
+    e fallback básico.
 - id: AC-03
   criterion: README distingue a vertical demonstrada do MVP ampliado; evidências permitem avaliar uma
     futura tag v0.1.0.
 - id: AC-04
   criterion: Avaliação da explicação inclui citações inexistentes e afirmações sem apoio antes da integração.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites
+  local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - src/aegisops/

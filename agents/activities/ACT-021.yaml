@@ -3,10 +3,11 @@ story_id: STORY-021
 spec_id: SPEC-021
 title: Avaliar e integrar triagem com explicação local
 objective: Preparar e avaliar a explicação restrita antes de integrar a vertical à API.
-status: blocked
+status: in_review
 agent:
   role: Agente de implementação e avaliação
-  responsibility: Executar somente partes autorizadas e independentes; aguardar decisão do PO para integração relevante.
+  responsibility: Implementar e avaliar a vertical STORY-021 conforme SPEC-021 e decisão registrada no
+    ADR-0006.
 inputs:
 - AGENTS.md
 - roadmap/stories/STORY-021.yaml
@@ -21,11 +22,13 @@ expected_outputs:
 - doc/DEMO.md
 - agents/handoffs/HANDOFF-021.yaml
 constraints:
-- Preservar resultados e validação STORY-020; frases canônicas e verificador determinísticos; sem causa raiz ou remediação.
+- Preservar resultados e validação STORY-020; frases canônicas e verificador determinísticos; sem causa
+  raiz ou remediação.
 - Avaliar explicação antes da integração; sem implementar integração ou dependência estrutural não aprovada.
 execution_steps:
-- Refinar e avaliar trabalho independente, obter decisão explícita sobre candidato, protocolo e limites.
-- Após decisão e avaliação, completar especificação, implementação, testes, demonstração, revisão e handoff.
+- Registrar avaliação adversarial anterior à integração.
+- Implementar rota, adaptador local e fallback; testar e demonstrar com modelo real.
+- Executar verificações, autorrevisar, solicitar revisão e produzir handoff.
 validation:
   commands:
   - uv sync --locked --no-editable

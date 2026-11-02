@@ -4,8 +4,8 @@ story_id: STORY-021
 spec_id: SPEC-021
 source_agent: Codex — execução e autorrevisão
 target_agent: Product Owner e próximo executor da STORY-021
-status: blocked
-summary: Dependência confirmada; contratos em rascunho e verificação independente avaliados, mas integração e candidata permanecem bloqueadas por decisão arquitetural e avaliação real do modelo.
+status: partial
+summary: Vertical de triagem e explicação local implementada e demonstrada; validações concluídas, revisão da entrega pelo PO pendente.
 completed_work:
 - Atualizado origin; nos arquivos de origin/main ad2d017, STORY-020 e índice estão done e ACT-020 completed; EPIC-001 está done.
 - Retomada feat/story-021 com merge da base, preservando histórico; conflito de Q-017/Q-018 resolvido com evidência atual, sem reescrever os bloqueios históricos.
@@ -13,11 +13,16 @@ completed_work:
 - Preparadas SPEC-021 draft e ACT-021 blocked, mapeados critérios, limitações e trabalho independente; IDs estavam disponíveis.
 - Criado gerador de frases canônicas e verificador isolado, sem integração à API ou ao LLM; avaliados casos controlados antes da integração.
 - Proposta ADR-0006 apresenta alternativas e limites candidatos; não se presume aprovação do PO nem qualidade do modelo.
+- PO autorizou concluir a vertical com o Qwen avaliado e limite de 512 tokens; timeout de até 300 s já havia sido solicitado.
+- Ensaios adversariais reais concluídos antes da integração; modelo atendeu à instrução causal indevida, resposta foi rejeitada pelo verificador.
+- Implementadas rota síncrona, conexão restrita a loopback, seleção, verificação independente e fallback que preserva triagem.
+- Realizadas demonstração real na API do workspace e repetição com instalação travada em árvore isolada; fallback real conferido em ambas.
+- Executada autorrevisão pelo executor; entrega concreta aguardando revisão do PO.
 changed_files:
 - path: agents/specs/SPEC-021.yaml
-  reason: Registrar contrato parcial, fatia independente e mapeamento dos quatro critérios.
+  reason: Registrar contrato, limites e mapeamento dos quatro critérios.
 - path: agents/activities/ACT-021.yaml
-  reason: Registrar atividade e decisão bloqueadora.
+  reason: Registrar execução e estado em revisão.
 - path: src/aegisops/explanation.py
   reason: Gerar frases de observações e verificar seleção, integridade e referências sem LLM.
 - path: tests/unit/test_explanation.py
@@ -25,77 +30,97 @@ changed_files:
 - path: doc/decisions/story-021-avaliacao.md
   reason: Registrar metodologia, evidência, resultados e limites da avaliação prévia.
 - path: doc/adr/0006-proposta-integracao-colibri.md
-  reason: Apresentar opções, evidência prévia e decisão pendente para revisão do PO.
+  reason: Registrar alternativas, decisão autorizada e limites da integração local.
 - path: doc/adr/README.md
-  reason: Indexar ADR proposto sem declará-lo aceito.
+  reason: Indexar ADR-0006 e seu estado.
 - path: doc/decisions/open-questions.md
-  reason: Registrar Q-019 e resolução da dependência Q-018 na incorporação da base.
+  reason: Registrar Q-019, decisão da primeira vertical e pendências.
 - path: README.md
-  reason: Diferenciar fatia isolada em avaliação e vertical ainda planejada.
+  reason: Distinguir vertical implementada em revisão das capacidades futuras.
 - path: roadmap/stories/STORY-021.yaml
-  reason: Registrar bloqueio, referências e comandos; critérios permanecem abertos.
+  reason: Registrar refinamento, referências e estado em revisão.
 - path: roadmap/index.yaml
-  reason: Sincronizar estado bloqueado e ponteiros.
+  reason: Sincronizar estado e ponteiros.
 - path: agents/handoffs/HANDOFF-021.yaml
   reason: Registrar continuidade e resultados reais.
+- path: src/aegisops/colibri.py
+  reason: Conectar ao Colibri local com limites, timeout total e análise estrita da resposta.
+- path: src/aegisops/api.py
+  reason: Expor envio síncrono, validação, explicação verificada e fallback.
+- path: tests/integration/test_investigations.py
+  reason: Cobrir a fronteira HTTP, as três fixtures e casos de sucesso e falha.
+- path: doc/DEMO.md
+  reason: Documentar preparação, execução real, contratos e limites.
+- path: doc/DEVELOPMENT.md
+  reason: Atualizar acesso à investigação e apontar demonstração.
+- path: doc/REQUIREMENTS.md
+  reason: Atualizar o estado de integração sem alterar requisitos aceitos.
 decisions_made:
 - Seleção controlada é objeto contendo apenas sentence_ids; texto livre ou chave adicional é rejeitado; IDs canônicos são S-MAX e posição S-NNN.
 - Frase máxima cita primeiro sinal no nível máximo; frases não interpolam textos livres de entrada. Verificador compara catálogo, seleção, fonte e vínculos.
-- Os limites e protocolo do ADR-0006 são propostas não aceitas e não configuram integração implementada.
+- Na preparação inicial, os limites e protocolo do ADR-0006 eram propostas; após autorização posterior do PO, a decisão para a primeira vertical foi registrada no ADR.
+- POST /v1/investigations responde na própria requisição, sem persistência; triage contém resultado imutável STORY-020 e explanation é envelope separado.
+- Colibri opera manualmente em loopback; teto de 512 tokens, timeout de 300 s e fila zero; limites e ressalva de cancelamento em ADR-0006.
+- JSON inválido retorna 400, corpo excessivo 413, contrato de domínio inválido 422; falha/rejeição preserva triagem e não exibe conteúdo do modelo.
+- Entrega fica in_review até revisão solicitada e verificação do DoD; nenhuma tag ou release foi criada.
 acceptance_evidence:
 - criterion: AC-01
-  result: Pendente; não há envio de triagem à API nem explicação de modelo real.
-  evidence: agents/specs/SPEC-021.yaml
+  result: Demo real em workspace e árvore isolada retornou triagem idêntica, severidade media e frases com evidências resolvidas; comando documentado.
+  evidence: doc/DEMO.md
 - criterion: AC-02
-  result: Pendente; testes do componente isolado não são testes fim a fim da vertical.
-  evidence: tests/unit/test_explanation.py
+  result: Testes HTTP cobrem sucesso, inválido, insuficiente, falha, expiração e rejeição; fallback real após encerrar Colibri preservou triagem.
+  evidence: tests/integration/test_investigations.py
 - criterion: AC-03
-  result: Parcial; README distingue estado atual, mas demonstração e evidências para candidata ainda faltam.
+  result: README distingue vertical em revisão das capacidades futuras; resultados de avaliação e demo permitem revisão de candidata, sem publicação.
   evidence: README.md
 - criterion: AC-04
-  result: Parcial; avaliação controlada de referências e afirmações não apoiadas foi executada antes da integração, mas avaliação do modelo real ainda falta.
+  result: Avaliação anterior à integração cobriu IDs inexistentes e alegação causal sem apoio; modelo produziu a alegação e o verificador rejeitou integralmente.
   evidence: doc/decisions/story-021-avaliacao.md
 validation:
   executed:
   - uv sync --locked --no-editable
-  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai após alteração de src
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai após mudanças em src
   - uv run --offline --locked --no-sync pytest -q
   - uv run --offline --locked --no-sync ruff check src tests
   - uv run --offline --locked --no-sync ruff format --check src tests
   - uv run --offline --locked --no-sync mypy src tests
   - uv run --offline --locked --no-sync pyright
-  - python3 scripts/validate_repository.py no workspace e em árvore temporária isolada do índice Git
+  - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice
   - python3 scripts/validate_incidents.py
   - git diff --check e git diff --cached --check
+  - Duas inferências adversariais reais antes da integração; demo API e Qwen reais no workspace e em árvore isolada com fallback por servidor desligado.
   passed:
-  - check: 116 testes passaram em 1,94 s; 18 casos novos controlados, inclusive insuficiência e referências.
-    evidence: tests/unit/test_explanation.py
-  - check: Ruff, mypy e Pyright passaram; Pyright relatou aviso conhecido sobre yaml.
+  - check: 134 testes de aplicação passaram, incluindo 18 testes HTTP da nova vertical; limitação de volume, entrada inválida, insuficiência e falhas exercitados.
+    evidence: tests/integration/test_investigations.py
+  - check: Ruff check e format, mypy e Pyright passaram; Pyright emitiu aviso conhecido de resolução de yaml.
     evidence: pyproject.toml
-  - check: Validador documental passou na árvore isolada do índice, com 68 YAML, 11 épicos, 22 histórias e 28 Markdown; plano local não foi verificado pelo script.
+  - check: Validador documental passou em árvore isolada; validador das três fixtures e verificações de diff passaram.
     evidence: scripts/validate_repository.py
-  - check: As três fixtures passaram na validação estrutural; script não verifica severidade ou suporte semântico.
-    evidence: scripts/validate_incidents.py
+  - check: Demo real HTTP 200 com explicação verificada em 97,274 s; em árvore isolada, inferência em 98,53 s e fallback preservando triagem em 0,002 s.
+    evidence: doc/decisions/story-021-avaliacao.md
+  - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; revisão independente não presumida.
+    evidence: agents/specs/SPEC-021.yaml
   failed:
-  - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md; exclusão preservada.
+  - Validador documental no workspace encontrou referência STORY-012 ao arquivo localmente excluído doc/decisions/story-012-atualizacao-contexto.md; exclusão preexistente preservada.
   not_executed:
-  - Inferência real, avaliação do candidato, teste fim a fim da vertical e demo local não foram realizados; integração e limites aguardam decisão e avaliação prévia.
-  - CI remota, publicação, tag, PR e revisão humana não executados nem presumidos.
+  - Revisão da entrega pelo PO e aceitação final ainda pendentes; não atribuir validação humana inexistente.
+  - CI remota, push, PR, merge, tag e publicação não executados nem autorizados.
+  - Self-test do validador documental não executado porque seu código não foi alterado.
 review:
-  type: Autorrevisão pelo executor; identificada e corrigida checagem insuficiente de correspondência da observação com sinal, coberta por teste; revisão independente e decisão do PO solicitadas.
-  evidence: tests/unit/test_explanation.py
+  type: Autorrevisão do executor; revisão do PO solicitada e pendente.
+  evidence: agents/handoffs/HANDOFF-021.yaml
 known_issues:
-- Resultados controlados não demonstram utilidade, qualidade em português, licença ou estabilidade do modelo; referência válida não prova verdade.
-- A SPEC permanece draft e a história com refinement_required true; não está pronta para execução da integração.
-- Duas exclusões locais preexistentes preservadas no workspace; exclusão de agents/handoffs/STORY-021-blocked.md permanece em stash identificado e não integra entrega.
-- O pacote não editável foi reinstalado; uv relatou aviso de leitura do symlink do Python base, sem falha da instalação.
+- O modelo seguiu uma instrução adversarial de criar alegação causal sem apoio; o verificador rejeitou a resposta, mas os testes não provam robustez geral.
+- Timeout encerra espera e conexão da API, mas não garante cancelamento da inferência no servidor; fila zero e operador responsável conforme ADR-0006.
+- As medições são pontuais e sintéticas; 512 tokens não demonstraram ser mais rápidos que 256. Explicações podem omitir frases não obrigatórias.
+- As exclusões locais de agents/handoffs/STORY-020-blocked.md e doc/decisions/story-012-atualizacao-contexto.md permanecem fora da entrega; terceira exclusão está preservada no stash identificado.
+- uv avisou sobre leitura de symlink do Python base e fallback de hardlink na instalação isolada; Pyright avisou sobre resolução de yaml, sem erros.
 pending_work:
-- PO avaliar ADR-0006 e decidir candidato, protocolo, limites e condições para experimento e integração.
-- Após decisão, avaliar modelo real antes da integração, registrar licença e resultados; completar SPEC e ACT e resolver limites quantitativos e HTTP.
-- Implementar rota, fallback, testes fim a fim, doc/DEMO.md e concluir ACs, revisão e DoD antes de considerar done.
+- PO revisar a entrega concreta e registrar/resolver observações antes de decidir conclusão da história e atividade.
+- Candidata v0.1.0 permanece sem tag ou release; qualquer publicação depende de autorização.
 next_steps:
-- Ler este handoff, SPEC-021, ACT-021, avaliação e ADR-0006; incorporar decisão explícita do PO sem reescrever ADR aceito.
-- Preservar stash e exclusões locais; não publicar, abrir PR, fazer push nem criar tag sem autorização.
+- Revisar doc/DEMO.md, testes de integração, avaliação e diff; executar a demonstração se desejado.
+- Após revisão e resolução, conferir DoD, atualizar história e índice juntos e concluir atividade somente quando apropriado.
 related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0004-api-local-contratos-http.md
@@ -218,3 +243,12 @@ maintenance_updates:
   pending_work:
   - Avaliar casos adversariais do modelo, limites e confiabilidade; obter decisão do PO para protocolo e integração antes de implementá-los.
   - Manter história e atividade blocked até conclusão dos critérios, documentação, revisão e DoD.
+- date: '2026-11-02'
+  authorization: PO solicitou concluir implementação e teste real com Qwen local e teto de 512 tokens; havia autorizado timeout de até cinco minutos.
+  summary: Avaliação adversarial real precedeu integração; API, fallback, testes e demo real implementados; estados em revisão, sem presumir aceite do PO.
+  validation:
+  - 'Ensaios adversariais reais: ID inexistente não escolhido; alegação causal sem apoio gerada pelo modelo e rejeitada pelo verificador.'
+  - 134 testes passaram; Ruff, mypy, Pyright, fixtures e validador documental isolado passaram; falha do validador no workspace deve-se a exclusão preexistente.
+  - 'Demonstração real na API instalada: 97,274 s; repetição em instalação isolada 98,53 s e fallback 0,002 s, preservando triagem.'
+  pending_work:
+  - Revisão do PO e eventuais correções antes de concluir a atividade e história.

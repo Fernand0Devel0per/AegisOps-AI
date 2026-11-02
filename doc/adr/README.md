@@ -10,7 +10,7 @@ O [ADR-0004](0004-api-local-contratos-http.md) registra as escolhas do PO para a
 
 O [ADR-0005](0005-verificacao-deprecacao-tipos.md) registra a verificação complementar de deprecações de tipos autorizada pelo PO na revisão da STORY-012.
 
-O [ADR-0006](0006-proposta-integracao-colibri.md) propõe alternativas para integração local da STORY-021 e aguarda decisão do PO.
+O [ADR-0006](0006-proposta-integracao-colibri.md) registra a integração local da STORY-021 e a autorização do PO para concluir a vertical com o Qwen e teto de 512 tokens.
 
 Estados: `proposed` → `accepted`; uma decisão aceita pode tornar-se `superseded` por novo ADR ou `deprecated` por abandono documentado. Registre autor/autoridade da aceitação e relações com decisões anteriores. Não reescreva silenciosamente ADR aceito. Correções editoriais não podem mudar seu sentido.
 
