@@ -1,6 +1,6 @@
 # Desenvolvimento local
 
-A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu consulta HTTP e saúde; a STORY-020 concluiu o núcleo determinístico. A STORY-021 integra esse núcleo à API e ao Qwen local, em revisão; veja [demo](DEMO.md). As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
+A STORY-010 prepara o pacote e a cadeia de qualidade; a STORY-011 adiciona contratos locais de entrada. A STORY-012 concluiu consulta HTTP e saúde; a STORY-020 concluiu o núcleo determinístico. A STORY-021 integra esse núcleo à API e ao Qwen local e foi revisada pelo PO; a integração da branch depende de decisão sobre o PR. Veja [demo](DEMO.md). As decisões e versões estão no [ADR-0003](adr/0003-ambiente-python-qualidade.md).
 
 ## Pré-requisitos
 

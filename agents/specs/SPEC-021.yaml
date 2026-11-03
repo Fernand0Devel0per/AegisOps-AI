@@ -38,8 +38,8 @@ data_contracts:
   fornecidas pelo LLM.
 - Texto final contém apenas frases canônicas verificadas; falha, indisponibilidade, timeout ou rejeição
   preserva o resultado básico e sinaliza limitação sem texto rejeitado.
-- Limites quantitativos e estrutura de transporte permanecem pendentes de decisão; nenhuma norma sintética
-  é política operacional.
+- Limites quantitativos e transporte da primeira vertical estão registrados no ADR-0006; nenhuma norma
+  sintética é política operacional.
 - triage é serialização integral e inalterada do resultado STORY-020; explanation é envelope separado
   com state, text, sentences e limitations.
 - Resposta Colibri limitada a 64 KiB, prompt a 4096 bytes e 16 observações; acima disso fallback sem alterar

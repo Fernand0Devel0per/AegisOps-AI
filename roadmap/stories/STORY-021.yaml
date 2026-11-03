@@ -5,7 +5,7 @@ description: Demonstrar envio de incidente sintético, triagem determinística e
 objective: Demonstrar envio de incidente sintético, triagem determinística e explicação local pela API.
 context: Derivada da Etapa 2 do plano original; não há implementação desta capacidade no bootstrap.
 priority: high
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-020

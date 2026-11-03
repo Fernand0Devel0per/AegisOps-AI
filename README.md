@@ -4,7 +4,7 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 02/11/2026:** a primeira vertical está implementada em revisão: a API recebe incidente sintético, retorna triagem determinística e, com Colibri local, explicação montada de frases verificadas; em falha, preserva a triagem com limitação. A candidata `v0.1.0` ainda não foi publicada. Veja [demo local](doc/DEMO.md) e [handoff](agents/handoffs/HANDOFF-021.yaml).
+**Estado em 03/11/2026:** a primeira vertical está implementada e foi revisada pelo PO: a API recebe incidente sintético, retorna triagem determinística e, com Colibri local, explicação montada de frases verificadas; em falha, preserva a triagem com limitação. A integração da branch depende da revisão e decisão de merge do PR; a candidata `v0.1.0` ainda não foi publicada. Veja [demo local](doc/DEMO.md) e [handoff](agents/handoffs/HANDOFF-021.yaml).
 
 ## Problema e capacidades previstas
 
@@ -54,7 +54,7 @@ O Colibri e o Qwen int4 são preparados fora do repositório e foram usados na d
 | Concluído | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
-| Em revisão | Envio pela API, triagem e explicação restrita por Qwen local, com verificação independente e fallback; veja [demo](doc/DEMO.md) e [avaliação](doc/decisions/story-021-avaliacao.md) |
+| Implementado; PR pendente | Envio pela API, triagem e explicação restrita por Qwen local, com verificação independente e fallback; veja [demo](doc/DEMO.md) e [avaliação](doc/decisions/story-021-avaliacao.md) |
 | Planejado | Busca de runbooks, hipóteses, persistência e evolução por etapas |
 
 A operação de investigação responde na própria requisição, sem persistência ou consulta posterior. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.

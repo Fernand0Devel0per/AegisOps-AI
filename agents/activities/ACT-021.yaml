@@ -3,7 +3,7 @@ story_id: STORY-021
 spec_id: SPEC-021
 title: Avaliar e integrar triagem com explicação local
 objective: Preparar e avaliar a explicação restrita antes de integrar a vertical à API.
-status: in_review
+status: completed
 agent:
   role: Agente de implementação e avaliação
   responsibility: Implementar e avaliar a vertical STORY-021 conforme SPEC-021 e decisão registrada no

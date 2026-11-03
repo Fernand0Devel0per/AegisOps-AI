@@ -4,8 +4,8 @@ story_id: STORY-021
 spec_id: SPEC-021
 source_agent: Codex — execução e autorrevisão
 target_agent: Product Owner e próximo executor da STORY-021
-status: partial
-summary: Vertical de triagem e explicação local implementada e demonstrada; validações concluídas, revisão da entrega pelo PO pendente.
+status: completed
+summary: Vertical de triagem e explicação local implementada, demonstrada e revisada pelo PO; PR e decisão de merge seguem como etapa separada.
 completed_work:
 - Atualizado origin; nos arquivos de origin/main ad2d017, STORY-020 e índice estão done e ACT-020 completed; EPIC-001 está done.
 - Retomada feat/story-021 com merge da base, preservando histórico; conflito de Q-017/Q-018 resolvido com evidência atual, sem reescrever os bloqueios históricos.
@@ -17,12 +17,12 @@ completed_work:
 - Ensaios adversariais reais concluídos antes da integração; modelo atendeu à instrução causal indevida, resposta foi rejeitada pelo verificador.
 - Implementadas rota síncrona, conexão restrita a loopback, seleção, verificação independente e fallback que preserva triagem.
 - Realizadas demonstração real na API do workspace e repetição com instalação travada em árvore isolada; fallback real conferido em ambas.
-- Executada autorrevisão pelo executor; entrega concreta aguardando revisão do PO.
+- Executada autorrevisão pelo executor; PO informou ter concluído sua revisão e solicitou atualizar estados e preparar PR.
 changed_files:
 - path: agents/specs/SPEC-021.yaml
   reason: Registrar contrato, limites e mapeamento dos quatro critérios.
 - path: agents/activities/ACT-021.yaml
-  reason: Registrar execução e estado em revisão.
+  reason: Registrar execução e conclusão da atividade.
 - path: src/aegisops/explanation.py
   reason: Gerar frases de observações e verificar seleção, integridade e referências sem LLM.
 - path: tests/unit/test_explanation.py
@@ -36,9 +36,9 @@ changed_files:
 - path: doc/decisions/open-questions.md
   reason: Registrar Q-019, decisão da primeira vertical e pendências.
 - path: README.md
-  reason: Distinguir vertical implementada em revisão das capacidades futuras.
+  reason: Distinguir vertical implementada das capacidades futuras e registrar pendência de integração.
 - path: roadmap/stories/STORY-021.yaml
-  reason: Registrar refinamento, referências e estado em revisão.
+  reason: Registrar refinamento, referências e conclusão da história na branch.
 - path: roadmap/index.yaml
   reason: Sincronizar estado e ponteiros.
 - path: agents/handoffs/HANDOFF-021.yaml
@@ -62,7 +62,7 @@ decisions_made:
 - POST /v1/investigations responde na própria requisição, sem persistência; triage contém resultado imutável STORY-020 e explanation é envelope separado.
 - Colibri opera manualmente em loopback; teto de 512 tokens, timeout de 300 s e fila zero; limites e ressalva de cancelamento em ADR-0006.
 - JSON inválido retorna 400, corpo excessivo 413, contrato de domínio inválido 422; falha/rejeição preserva triagem e não exibe conteúdo do modelo.
-- Entrega fica in_review até revisão solicitada e verificação do DoD; nenhuma tag ou release foi criada.
+- Após revisão informada pelo PO e conferência do DoD, história e atividade concluídas na branch; PR e merge são etapas separadas. Nenhuma tag ou release foi criada.
 acceptance_evidence:
 - criterion: AC-01
   result: Demo real em workspace e árvore isolada retornou triagem idêntica, severidade media e frases com evidências resolvidas; comando documentado.
@@ -71,7 +71,7 @@ acceptance_evidence:
   result: Testes HTTP cobrem sucesso, inválido, insuficiente, falha, expiração e rejeição; fallback real após encerrar Colibri preservou triagem.
   evidence: tests/integration/test_investigations.py
 - criterion: AC-03
-  result: README distingue vertical em revisão das capacidades futuras; resultados de avaliação e demo permitem revisão de candidata, sem publicação.
+  result: README distingue vertical implementada das capacidades futuras; resultados de avaliação e demo permitem avaliação da candidata, sem publicação.
   evidence: README.md
 - criterion: AC-04
   result: Avaliação anterior à integração cobriu IDs inexistentes e alegação causal sem apoio; modelo produziu a alegação e o verificador rejeitou integralmente.
@@ -90,7 +90,7 @@ validation:
   - git diff --check e git diff --cached --check
   - Duas inferências adversariais reais antes da integração; demo API e Qwen reais no workspace e em árvore isolada com fallback por servidor desligado.
   passed:
-  - check: 134 testes de aplicação passaram, incluindo 18 testes HTTP da nova vertical; limitação de volume, entrada inválida, insuficiência e falhas exercitados.
+  - check: 146 testes de aplicação passaram após as refatorações; limitação de volume, entrada inválida, insuficiência, referências e falhas exercitadas.
     evidence: tests/integration/test_investigations.py
   - check: Ruff check e format, mypy e Pyright passaram; Pyright emitiu aviso conhecido de resolução de yaml.
     evidence: pyproject.toml
@@ -98,16 +98,15 @@ validation:
     evidence: scripts/validate_repository.py
   - check: Demo real HTTP 200 com explicação verificada em 97,274 s; em árvore isolada, inferência em 98,53 s e fallback preservando triagem em 0,002 s.
     evidence: doc/decisions/story-021-avaliacao.md
-  - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; revisão independente não presumida.
+  - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; PO informou ter concluído sua revisão.
     evidence: agents/specs/SPEC-021.yaml
-  failed:
-  - Na ocasião, o validador documental no workspace encontrou referência da STORY-012 a um arquivo localmente excluído; exclusão preexistente preservada.
+  failed: []
   not_executed:
-  - Revisão da entrega pelo PO e aceitação final ainda pendentes; não atribuir validação humana inexistente.
-  - CI remota, push, PR, merge, tag e publicação não executados nem autorizados.
+  - Revisão do PR e decisão de merge ainda pendentes; não se presume aprovação formal no GitHub ou execução de testes pelo PO.
+  - CI remota desta versão e merge ainda não executados; tag e publicação não autorizadas.
   - Self-test do validador documental não executado porque seu código não foi alterado.
 review:
-  type: Autorrevisão do executor; revisão do PO solicitada e pendente.
+  type: Autorrevisão do executor e revisão informada pelo PO em 2026-11-03; revisão do PR ainda pendente.
   evidence: agents/handoffs/HANDOFF-021.yaml
 known_issues:
 - O modelo seguiu uma instrução adversarial de criar alegação causal sem apoio; o verificador rejeitou a resposta, mas os testes não provam robustez geral.
@@ -116,11 +115,11 @@ known_issues:
 - A exclusão local de agents/handoffs/STORY-020-blocked.md permanece fora da entrega.
 - uv avisou sobre leitura de symlink do Python base e fallback de hardlink na instalação isolada; Pyright avisou sobre resolução de yaml, sem erros.
 pending_work:
-- PO revisar a entrega concreta e registrar/resolver observações antes de decidir conclusão da história e atividade.
+- PO verificar o PR e decidir sobre o merge; não presumir aprovação formal nem integração à main.
 - Candidata v0.1.0 permanece sem tag ou release; qualquer publicação depende de autorização.
 next_steps:
-- Revisar doc/DEMO.md, testes de integração, avaliação e diff; executar a demonstração se desejado.
-- Após revisão e resolução, conferir DoD, atualizar história e índice juntos e concluir atividade somente quando apropriado.
+- Abrir PR para revisão e decisão de merge pelo PO; conferir CI da versão publicada.
+- Após decisão de merge, avaliar separadamente o gate do EPIC-002 antes de preparar trabalho de outra fase.
 related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0004-api-local-contratos-http.md
@@ -282,3 +281,12 @@ maintenance_updates:
   - Autorrevisão do executor comparou a lógica e as exceções; inferência real não repetida nesta alteração, que foi coberta por testes unitários e integração HTTP com dublê.
   pending_work:
   - Revisão do PO da entrega e das alterações antes da conclusão da história e atividade.
+- date: '2026-11-03'
+  authorization: PO informou ter concluído sua revisão e solicitou atualizar os estados, abrir PR e aguardar sua checagem e decisão de merge.
+  summary: Conferidos critérios e DoD; STORY-021 done, ACT-021 completed e handoff completed na branch; EPIC-002 mantém estado e gate próprio.
+  validation:
+  - Evidências dos quatro critérios, demonstrações, 146 testes, análises estáticas e limitações conferidos; inferência real após a última refatoração não foi repetida.
+  - Validador documental e verificações de diff executados para a mudança de estados; autorrevisão do executor registrada separadamente da revisão informada pelo PO.
+  pending_work:
+  - Publicar branch e abrir PR para checagem do PO; CI remota e decisão de merge não presumidas.
+  - Sem tag ou release; avaliação do gate do épico permanece separada.
