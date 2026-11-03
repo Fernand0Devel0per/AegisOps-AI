@@ -273,3 +273,12 @@ maintenance_updates:
   - Ruff, mypy, Pyright, validador documental e validador das três fixtures passaram; Pyright e uv mantêm os avisos conhecidos.
   - Após refatoração, nova inferência real pela API retornou HTTP 200 em 124,533 s, triagem idêntica e frases S-001, S-002 e S-MAX verificadas.
   - Autorrevisão do executor comparou o fluxo, as exceções e os limites com a versão anterior; revisão independente pelo PO permanece pendente.
+- date: '2026-11-03'
+  authorization: PO apontou o mesmo problema de legibilidade no gerador e verificador de explicações e solicitou ajuste.
+  summary: Extraídas funções para montar frases, validar catálogo e selecionar frases e conferir o suporte das referências, preservando os contratos e a ordem das verificações.
+  validation:
+  - Instalação travada e reinstalação não editável após alteração em src; 146 testes passaram, incluindo seis novos casos de fonte inconsistente e vínculo inválido.
+  - Ruff, mypy, Pyright e validadores documental e de incidentes passaram; avisos conhecidos de uv e Pyright permanecem.
+  - Autorrevisão do executor comparou a lógica e as exceções; inferência real não repetida nesta alteração, que foi coberta por testes unitários e integração HTTP com dublê.
+  pending_work:
+  - Revisão do PO da entrega e das alterações antes da conclusão da história e atividade.

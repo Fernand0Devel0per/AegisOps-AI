@@ -2,6 +2,7 @@
 
 import json
 from dataclasses import replace
+from datetime import timedelta
 from pathlib import Path
 from typing import Any
 
@@ -149,4 +150,42 @@ def test_rejects_observation_that_does_not_match_source(
     with pytest.raises(InvalidExplanation):
         verify_selection(
             {"sentence_ids": ["S-MAX"]}, canonical_sentences(result), altered, result
+        )
+
+
+@pytest.mark.parametrize(
+    "alteration",
+    ["incident", "missing_signal", "evidence_link", "metric", "unit", "period"],
+)
+def test_rejects_unrelated_or_inconsistent_source(
+    context: tuple[dict[str, Any], Incident, TriageResult], alteration: str
+) -> None:
+    _, incident, result = context
+    signals = list(incident.signals)
+    evidence = list(incident.evidence)
+    if alteration == "incident":
+        incident = replace(incident, id="outro-incidente")
+    elif alteration == "missing_signal":
+        incident = replace(incident, signals=tuple(signals[:1] + signals[2:]))
+    elif alteration == "evidence_link":
+        evidence[1] = replace(evidence[1], signal_id=signals[0].id)
+        incident = replace(incident, evidence=tuple(evidence))
+    else:
+        signal = signals[1]
+        if alteration == "metric":
+            signal = replace(signal, metric="outra_metrica")
+        elif alteration == "unit":
+            signal = replace(signal, unit="outra_unidade")
+        else:
+            signal = replace(
+                signal,
+                period=replace(
+                    signal.period, start=signal.period.start + timedelta(seconds=1)
+                ),
+            )
+        signals[1] = signal
+        incident = replace(incident, signals=tuple(signals))
+    with pytest.raises(InvalidExplanation, match="Referência inválida"):
+        verify_selection(
+            {"sentence_ids": ["S-MAX"]}, canonical_sentences(result), incident, result
         )
