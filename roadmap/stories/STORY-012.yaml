@@ -74,7 +74,6 @@ references:
 - agents/specs/SPEC-012.yaml
 - agents/activities/ACT-012.yaml
 - agents/handoffs/HANDOFF-012.yaml
-- doc/decisions/story-012-atualizacao-contexto.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.

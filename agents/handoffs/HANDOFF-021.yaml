@@ -101,7 +101,7 @@ validation:
   - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; revisão independente não presumida.
     evidence: agents/specs/SPEC-021.yaml
   failed:
-  - Validador documental no workspace encontrou referência STORY-012 ao arquivo localmente excluído doc/decisions/story-012-atualizacao-contexto.md; exclusão preexistente preservada.
+  - Na ocasião, o validador documental no workspace encontrou referência da STORY-012 a um arquivo localmente excluído; exclusão preexistente preservada.
   not_executed:
   - Revisão da entrega pelo PO e aceitação final ainda pendentes; não atribuir validação humana inexistente.
   - CI remota, push, PR, merge, tag e publicação não executados nem autorizados.
@@ -113,7 +113,7 @@ known_issues:
 - O modelo seguiu uma instrução adversarial de criar alegação causal sem apoio; o verificador rejeitou a resposta, mas os testes não provam robustez geral.
 - Timeout encerra espera e conexão da API, mas não garante cancelamento da inferência no servidor; fila zero e operador responsável conforme ADR-0006.
 - As medições são pontuais e sintéticas; 512 tokens não demonstraram ser mais rápidos que 256. Explicações podem omitir frases não obrigatórias.
-- As exclusões locais de agents/handoffs/STORY-020-blocked.md e doc/decisions/story-012-atualizacao-contexto.md permanecem fora da entrega.
+- A exclusão local de agents/handoffs/STORY-020-blocked.md permanece fora da entrega.
 - uv avisou sobre leitura de symlink do Python base e fallback de hardlink na instalação isolada; Pyright avisou sobre resolução de yaml, sem erros.
 pending_work:
 - PO revisar a entrega concreta e registrar/resolver observações antes de decidir conclusão da história e atividade.
@@ -148,7 +148,7 @@ maintenance_updates:
     - Validador documental passou na árvore isolada; verificações de diff passaram.
     failed:
     - Resposta de ambos os tetos não é JSON puro, inclui campo extra e omite S-MAX; ambas rejeitadas.
-    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
     not_executed:
     - Integração HTTP, teste real de fallback, avaliação das outras fixtures, licença e concorrência; não fazem parte desta comparação.
     - Testes de aplicação, Ruff e verificadores de tipos não repetidos nesta manutenção documental; código não alterado.
@@ -175,7 +175,7 @@ maintenance_updates:
     - Motor qwen36 compilou; catálogo remoto fixado identifica 49 arquivos de pesos e metadado necessário.
     - Validador documental passou em árvore isolada; verificações de diff passaram.
     failed:
-    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
     not_executed:
     - Inferência e verificação Qwen ainda não executadas no momento deste registro; dependem do download dos pesos.
     - A comparação de qualidade, latência e pico RSS ainda não existe; conferir status e arquivos de resultado, e documentar o que ocorreu.
@@ -205,7 +205,7 @@ maintenance_updates:
     - Após os testes, serviço transitório e processos Qwen não estavam ativos; artefatos locais não integram Git.
     - Validador documental passou na árvore isolada e verificações de diff passaram.
     failed:
-    - Validador documental no workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md; exclusão preservada.
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012; exclusão preservada na ocasião.
     not_executed:
     - Avaliação com as outras fixtures, entradas adversariais reais, testes fim a fim da API e comparação estatística; permanecem pendentes.
     - Nenhuma alteração de src, instalação nova de dependência de projeto ou integração de LLM foi realizada; suíte de aplicação e análise de tipos não foram repetidas nesta manutenção documental e experimental.
@@ -236,7 +236,7 @@ maintenance_updates:
     - Os tempos totais foram de 102,15, 102,40, 102,53 e 101,33 s, respectivamente; picos RSS e tokens registrados na avaliação.
     - Validador documental passou em árvore isolada e verificações de diff passaram.
     failed:
-    - Validador documental do workspace falhou pela exclusão preexistente de doc/decisions/story-012-atualizacao-contexto.md, preservada.
+    - Validador documental do workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
     not_executed:
     - Teste adversarial do modelo real, integração à API, fallback fim a fim e confirmação de que a API não invoca LLM para entrada inválida ou insuficiente; ainda não implementados.
     - Testes gerais e analisadores não repetidos porque src e dependências não mudaram; registros anteriores permanecem aplicáveis.
@@ -259,3 +259,9 @@ maintenance_updates:
   - Conteúdo local comparado com a versão anterior; não foram encontradas referências restantes ao registro.
   - Validador documental passou na árvore versionada isolada; no workspace continua falhando pela exclusão preexistente de STORY-012.
   - Verificações de diff e autorrevisão do executor realizadas; sem mudanças em código ou dependências.
+- date: '2026-11-03'
+  authorization: PO confirmou ter movido para arquivo local o registro anterior da STORY-012 e solicitou corrigir os apontamentos.
+  summary: Removida a referência obsoleta da STORY-012 e ajustadas menções nos handoffs; cópia local conferida e exclusão autorizada incorporada à entrega.
+  validation:
+  - Validador documental passou no workspace e na árvore versionada isolada; conferidos referências e diff, com autorrevisão do executor.
+  - Testes de aplicação não repetidos, pois não houve mudanças em código ou dependências.
