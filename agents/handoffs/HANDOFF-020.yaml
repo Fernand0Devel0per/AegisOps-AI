@@ -90,7 +90,7 @@ known_issues:
 - Na primeira rodada, Ruff format e mypy apontaram formatação e inferência de tipo; ambas corrigidas e verificações passaram na rodada final.
 - Instalação uv concluiu com aviso sobre leitura de symlink do Python base; Pyright relatou aviso conhecido de yaml no script documental.
 - Referências resolvíveis não comprovam verdade ou suporte semântico; limiares são sintéticos, não parâmetros de produção.
-- Exclusões locais preexistentes de agents/handoffs/STORY-020-blocked.md e doc/decisions/story-012-atualizacao-contexto.md permanecem fora da entrega; exclusão da branch feat/story-021 preservada em stash identificado para reaplicação nessa branch.
+- Na execução da atividade havia exclusões locais preexistentes preservadas; atualizações posteriores estão em HANDOFF-021.
 pending_work:
 - STORY-021 permanece em backlog e requer refinamento, especificação e atividade antes da implementação.
 next_steps:
@@ -115,7 +115,7 @@ maintenance_updates:
     not_executed:
     - Testes de aplicação não repetidos; apenas o registro documental da revisão foi alterado.
     failed:
-    - No workspace, validador encontrou referência da STORY-012 ao arquivo localmente excluído doc/decisions/story-012-atualizacao-contexto.md; exclusão preexistente preservada e arquivo presente na árvore versionada.
+    - Na ocasião, o validador do workspace encontrou uma referência da STORY-012 a um arquivo localmente excluído; a exclusão foi preservada.
   pending_work:
   - PO revisará o PR e decidirá sobre o merge; não presumir aprovação do PR ou conclusão da história.
 - date: '2026-11-01'

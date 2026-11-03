@@ -21,6 +21,9 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-015 | Validação da descoberta e continuação por agentes | PO; STORY-004 | PO aceitou produto, cenários e requisitos após relatar revisão e execução dos scripts; AC-01 ajustado para validar o fluxo documentado, sem atribuir explicação própria ao PO; ver [HANDOFF-004](../../agents/handoffs/HANDOFF-004.yaml) |
 | Q-016 | Papel do LLM, fallback e limites de recursos na primeira vertical | Papel e fallback aprovados pelo PO em 2026-10-30; detalhes técnicos pendentes | Regras calculam severidade e verificam evidências; Colibri explica; falha mantém saída básica. Modelo definitivo, avaliação e limites seguem abertos; ver [ADR-0002](../adr/0002-llm-local-primeira-vertical.md) e [HANDOFF-001](../../agents/handoffs/HANDOFF-001.yaml) |
 | Q-017 | Fechamento da STORY-012 e gate do EPIC-001 antes da STORY-020 | PO autorizou o fechamento em 2026-10-31 | Concluídos e integrados à base; evidências e autorização em [HANDOFF-012](../../agents/handoffs/HANDOFF-012.yaml). O bloqueio anterior consta do histórico Git da branch. |
+| Q-018 | Dependências da STORY-021 na base | Concluídas na base origin/main atualizada | STORY-020 está `done` e ACT-020 `completed`; o bloqueio anterior permanece no histórico da branch. Ver [HANDOFF-020](../../agents/handoffs/HANDOFF-020.yaml). |
+
+| Q-019 | Confiabilidade e evolução da explicação local | Avaliar confiabilidade geral, evolução do modelo e custo operacional | [ADR-0006 aceito](../adr/0006-proposta-integracao-colibri.md) registra a integração da primeira vertical, autorizada pelo PO com Qwen e teto de 512 tokens. A [avaliação](story-021-avaliacao.md) inclui testes nas três fixtures e ensaios adversariais anteriores à integração; o PO informou ter revisado a entrega. A decisão sobre o PR e avaliações mais amplas permanecem pendentes. |
 
 ## Riscos de execução
 

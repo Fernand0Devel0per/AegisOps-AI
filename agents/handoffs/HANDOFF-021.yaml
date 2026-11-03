@@ -1,0 +1,292 @@
+id: HANDOFF-021
+activity_id: ACT-021
+story_id: STORY-021
+spec_id: SPEC-021
+source_agent: Codex — execução e autorrevisão
+target_agent: Product Owner e próximo executor da STORY-021
+status: completed
+summary: Vertical de triagem e explicação local implementada, demonstrada e revisada pelo PO; PR e decisão de merge seguem como etapa separada.
+completed_work:
+- Atualizado origin; nos arquivos de origin/main ad2d017, STORY-020 e índice estão done e ACT-020 completed; EPIC-001 está done.
+- Retomada feat/story-021 com merge da base, preservando histórico; conflito de Q-017/Q-018 resolvido com evidência atual, sem reescrever os bloqueios históricos.
+- Lidos requisitos, incidentes, fixtures, contratos, API, ADRs, workflow, validação, handoffs e seções pertinentes do plano local; ADR-0002 substitui parcialmente o plano na primeira vertical sem lacuna material identificada.
+- Preparadas SPEC-021 draft e ACT-021 blocked, mapeados critérios, limitações e trabalho independente; IDs estavam disponíveis.
+- Criado gerador de frases canônicas e verificador isolado, sem integração à API ou ao LLM; avaliados casos controlados antes da integração.
+- Proposta ADR-0006 apresenta alternativas e limites candidatos; não se presume aprovação do PO nem qualidade do modelo.
+- PO autorizou concluir a vertical com o Qwen avaliado e limite de 512 tokens; timeout de até 300 s já havia sido solicitado.
+- Ensaios adversariais reais concluídos antes da integração; modelo atendeu à instrução causal indevida, resposta foi rejeitada pelo verificador.
+- Implementadas rota síncrona, conexão restrita a loopback, seleção, verificação independente e fallback que preserva triagem.
+- Realizadas demonstração real na API do workspace e repetição com instalação travada em árvore isolada; fallback real conferido em ambas.
+- Executada autorrevisão pelo executor; PO informou ter concluído sua revisão e solicitou atualizar estados e preparar PR.
+changed_files:
+- path: agents/specs/SPEC-021.yaml
+  reason: Registrar contrato, limites e mapeamento dos quatro critérios.
+- path: agents/activities/ACT-021.yaml
+  reason: Registrar execução e conclusão da atividade.
+- path: src/aegisops/explanation.py
+  reason: Gerar frases de observações e verificar seleção, integridade e referências sem LLM.
+- path: tests/unit/test_explanation.py
+  reason: Avaliar fixtures e casos adversariais controlados.
+- path: doc/decisions/story-021-avaliacao.md
+  reason: Registrar metodologia, evidência, resultados e limites da avaliação prévia.
+- path: doc/adr/0006-proposta-integracao-colibri.md
+  reason: Registrar alternativas, decisão autorizada e limites da integração local.
+- path: doc/adr/README.md
+  reason: Indexar ADR-0006 e seu estado.
+- path: doc/decisions/open-questions.md
+  reason: Registrar Q-019, decisão da primeira vertical e pendências.
+- path: README.md
+  reason: Distinguir vertical implementada das capacidades futuras e registrar pendência de integração.
+- path: roadmap/stories/STORY-021.yaml
+  reason: Registrar refinamento, referências e conclusão da história na branch.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e ponteiros.
+- path: agents/handoffs/HANDOFF-021.yaml
+  reason: Registrar continuidade e resultados reais.
+- path: src/aegisops/colibri.py
+  reason: Conectar ao Colibri local com limites, timeout total e análise estrita da resposta.
+- path: src/aegisops/api.py
+  reason: Expor envio síncrono, validação, explicação verificada e fallback.
+- path: tests/integration/test_investigations.py
+  reason: Cobrir a fronteira HTTP, as três fixtures e casos de sucesso e falha.
+- path: doc/DEMO.md
+  reason: Documentar preparação, execução real, contratos e limites.
+- path: doc/DEVELOPMENT.md
+  reason: Atualizar acesso à investigação e apontar demonstração.
+- path: doc/REQUIREMENTS.md
+  reason: Atualizar o estado de integração sem alterar requisitos aceitos.
+decisions_made:
+- Seleção controlada é objeto contendo apenas sentence_ids; texto livre ou chave adicional é rejeitado; IDs canônicos são S-MAX e posição S-NNN.
+- Frase máxima cita primeiro sinal no nível máximo; frases não interpolam textos livres de entrada. Verificador compara catálogo, seleção, fonte e vínculos.
+- Na preparação inicial, os limites e protocolo do ADR-0006 eram propostas; após autorização posterior do PO, a decisão para a primeira vertical foi registrada no ADR.
+- POST /v1/investigations responde na própria requisição, sem persistência; triage contém resultado imutável STORY-020 e explanation é envelope separado.
+- Colibri opera manualmente em loopback; teto de 512 tokens, timeout de 300 s e fila zero; limites e ressalva de cancelamento em ADR-0006.
+- JSON inválido retorna 400, corpo excessivo 413, contrato de domínio inválido 422; falha/rejeição preserva triagem e não exibe conteúdo do modelo.
+- Após revisão informada pelo PO e conferência do DoD, história e atividade concluídas na branch; PR e merge são etapas separadas. Nenhuma tag ou release foi criada.
+acceptance_evidence:
+- criterion: AC-01
+  result: Demo real em workspace e árvore isolada retornou triagem idêntica, severidade media e frases com evidências resolvidas; comando documentado.
+  evidence: doc/DEMO.md
+- criterion: AC-02
+  result: Testes HTTP cobrem sucesso, inválido, insuficiente, falha, expiração e rejeição; fallback real após encerrar Colibri preservou triagem.
+  evidence: tests/integration/test_investigations.py
+- criterion: AC-03
+  result: README distingue vertical implementada das capacidades futuras; resultados de avaliação e demo permitem avaliação da candidata, sem publicação.
+  evidence: README.md
+- criterion: AC-04
+  result: Avaliação anterior à integração cobriu IDs inexistentes e alegação causal sem apoio; modelo produziu a alegação e o verificador rejeitou integralmente.
+  evidence: doc/decisions/story-021-avaliacao.md
+validation:
+  executed:
+  - uv sync --locked --no-editable
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai após mudanças em src
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice
+  - python3 scripts/validate_incidents.py
+  - git diff --check e git diff --cached --check
+  - Duas inferências adversariais reais antes da integração; demo API e Qwen reais no workspace e em árvore isolada com fallback por servidor desligado.
+  passed:
+  - check: 146 testes de aplicação passaram após as refatorações; limitação de volume, entrada inválida, insuficiência, referências e falhas exercitadas.
+    evidence: tests/integration/test_investigations.py
+  - check: Ruff check e format, mypy e Pyright passaram; Pyright emitiu aviso conhecido de resolução de yaml.
+    evidence: pyproject.toml
+  - check: Validador documental passou em árvore isolada; validador das três fixtures e verificações de diff passaram.
+    evidence: scripts/validate_repository.py
+  - check: Demo real HTTP 200 com explicação verificada em 97,274 s; em árvore isolada, inferência em 98,53 s e fallback preservando triagem em 0,002 s.
+    evidence: doc/decisions/story-021-avaliacao.md
+  - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; PO informou ter concluído sua revisão.
+    evidence: agents/specs/SPEC-021.yaml
+  failed: []
+  not_executed:
+  - Revisão do PR e decisão de merge ainda pendentes; não se presume aprovação formal no GitHub ou execução de testes pelo PO.
+  - CI remota desta versão e merge ainda não executados; tag e publicação não autorizadas.
+  - Self-test do validador documental não executado porque seu código não foi alterado.
+review:
+  type: Autorrevisão do executor e revisão informada pelo PO em 2026-11-03; revisão do PR ainda pendente.
+  evidence: agents/handoffs/HANDOFF-021.yaml
+known_issues:
+- O modelo seguiu uma instrução adversarial de criar alegação causal sem apoio; o verificador rejeitou a resposta, mas os testes não provam robustez geral.
+- Timeout encerra espera e conexão da API, mas não garante cancelamento da inferência no servidor; fila zero e operador responsável conforme ADR-0006.
+- As medições são pontuais e sintéticas; 512 tokens não demonstraram ser mais rápidos que 256. Explicações podem omitir frases não obrigatórias.
+- A exclusão local de agents/handoffs/STORY-020-blocked.md permanece fora da entrega.
+- uv avisou sobre leitura de symlink do Python base e fallback de hardlink na instalação isolada; Pyright avisou sobre resolução de yaml, sem erros.
+pending_work:
+- PO verificar o PR e decidir sobre o merge; não presumir aprovação formal nem integração à main.
+- Candidata v0.1.0 permanece sem tag ou release; qualquer publicação depende de autorização.
+next_steps:
+- Abrir PR para revisão e decisão de merge pelo PO; conferir CI da versão publicada.
+- Após decisão de merge, avaliar separadamente o gate do EPIC-002 antes de preparar trabalho de outra fase.
+related_adrs:
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0006-proposta-integracao-colibri.md
+
+maintenance_updates:
+- date: '2026-11-01'
+  authorization: PO solicitou avaliar limites de saída de 256 e 512 tokens, com timeout de até cinco minutos por execução.
+  summary: Experimento local em CLI com INC-001 e prompt único; ambos processos concluíram, mas as duas respostas iguais foram rejeitadas pela política de saída.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar prompt completo, configuração, respostas, tempos e limites dos dois experimentos.
+  - path: doc/adr/0006-proposta-integracao-colibri.md
+    reason: Distinguir a proposta original dos parâmetros experimentais solicitados pelo PO.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar decisão de experimento, resultados e continuidade sem presumir aprovação da integração.
+  validation:
+    executed:
+    - Duas inferências locais isoladas, uma por teto; timeout 300 segundos e limites de recursos registrados na avaliação.
+    - Parsing estrito da resposta e verificação diagnóstica do objeto interno com o verificador existente.
+    - python3 scripts/validate_repository.py no workspace e em árvore temporária do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor das respostas, parâmetros, medições e interpretação; revisão independente não realizada.
+    passed:
+    - Cada processo saiu com código 0 dentro de 300 segundos; parâmetros e medições estão na avaliação.
+    - Validador documental passou na árvore isolada; verificações de diff passaram.
+    failed:
+    - Resposta de ambos os tetos não é JSON puro, inclui campo extra e omite S-MAX; ambas rejeitadas.
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
+    not_executed:
+    - Integração HTTP, teste real de fallback, avaliação das outras fixtures, licença e concorrência; não fazem parte desta comparação.
+    - Testes de aplicação, Ruff e verificadores de tipos não repetidos nesta manutenção documental; código não alterado.
+  pending_work:
+  - Avaliar opções para obter saída estruturada confiável e demais cenários antes de aprovar integração; manter STORY-021 e ACT-021 blocked.
+- date: '2026-11-01'
+  authorization: PO autorizou baixar e testar o candidato Qwen3-Coder-30B-A3B int4 com os limites de saída previamente discutidos.
+  summary: Download retomável em andamento; motor Qwen compilado em cópia isolada e serviço transitório preparado para executar e registrar os dois testes após o download.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar candidato, revisão, configuração experimental e onde consultar o estado real.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar autorização, progresso parcial e continuidade.
+  - path: doc/decisions/open-questions.md
+    reason: Indicar que o PO autorizou avaliação do candidato, sem presumir decisão de integração.
+  validation:
+    executed:
+    - make qwen36 em cópia isolada do Colibri no commit fixado; verificação das fontes e licença declarada do candidato.
+    - Conferência de espaço livre e inicialização do serviço transitório de download e avaliação; sintaxe dos scripts locais checada com py_compile.
+    - Coletor experimental exercitado com servidor HTTP simulado: aceitou seleção válida e rejeitou S-MAX ausente e saída truncada. Não é inferência de modelo.
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor do estado parcial, parâmetros e ausência de alegação de resultado; revisão independente pendente.
+    passed:
+    - Motor qwen36 compilou; catálogo remoto fixado identifica 49 arquivos de pesos e metadado necessário.
+    - Validador documental passou em árvore isolada; verificações de diff passaram.
+    failed:
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
+    not_executed:
+    - Inferência e verificação Qwen ainda não executadas no momento deste registro; dependem do download dos pesos.
+    - A comparação de qualidade, latência e pico RSS ainda não existe; conferir status e arquivos de resultado, e documentar o que ocorreu.
+  pending_work:
+  - Consultar systemctl --user status aegisops-story021-qwen-eval.service e .local/story021-qwen-experiment/status.json; registrar resultados efetivos dos dois testes.
+  - Manter STORY-021 e ACT-021 blocked; avaliação experimental não autoriza integração arquitetural nem conclui critérios.
+
+- date: '2026-11-01'
+  authorization: Continuação da avaliação do Qwen int4 solicitada pelo PO, com tetos de 256 e 512 tokens e timeout de até cinco minutos por tentativa.
+  summary: Download concluído; duas inferências reais na fixture INC-001 produziram seleção idêntica aceita pelo verificador; avaliação de confiabilidade e integração continuam pendentes.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar configuração, resposta bruta, tokens, tempo, memória, limitações e diferenças em relação ao teste anterior.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar Q-019 com o resultado parcial sem presumir decisão de integração.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar evidências e continuidade da avaliação autorizada.
+  validation:
+    executed:
+    - Download retomável da revisão d839110a17d31b4e6fa9f3d973b751f779b6b9c6; 49 arquivos de pesos presentes e comando do cliente concluído com código 0.
+    - Duas inferências reais Qwen em CPU, com 256 e 512 tokens, timeout 300 s, cap 32, contexto 2048 e limites de processo documentados.
+    - Parsing da resposta bruta, verificação de IDs e vínculos com o verificador existente e coleta de uso informado pelo gateway.
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor dos JSONs brutos, IDs, medições, limitações e estado da história; revisão independente pendente.
+    passed:
+    - Ambos retornaram a mesma seleção aceita, 26 tokens de saída e término stop; 106,73 s e 103,44 s, pico RSS de 6.554.164 e 6.555.636 KiB respectivamente.
+    - Após os testes, serviço transitório e processos Qwen não estavam ativos; artefatos locais não integram Git.
+    - Validador documental passou na árvore isolada e verificações de diff passaram.
+    failed:
+    - Validador documental no workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012; exclusão preservada na ocasião.
+    not_executed:
+    - Avaliação com as outras fixtures, entradas adversariais reais, testes fim a fim da API e comparação estatística; permanecem pendentes.
+    - Nenhuma alteração de src, instalação nova de dependência de projeto ou integração de LLM foi realizada; suíte de aplicação e análise de tipos não foram repetidas nesta manutenção documental e experimental.
+  pending_work:
+  - Avaliar demais cenários e confiabilidade; decidir com o PO modelo, limites e protocolo de integração antes de implementá-la.
+  - STORY-021 e ACT-021 continuam blocked; verificar todos os ACs, demo, revisão e DoD antes de concluir.
+
+- date: '2026-11-01'
+  authorization: Continuidade da avaliação local do Qwen nas três fixtures dentro da STORY-021; PO solicitou atualizações periódicas.
+  summary: Quatro inferências adicionais nas fixtures INC-002 e INC-003 produziram seleções aceitas para ambos os limites; integração continua bloqueada.
+  changed_files:
+  - path: doc/decisions/story-021-avaliacao.md
+    reason: Registrar prompts, respostas, evidências, tempo, recursos e limitações das duas fixtures adicionais.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar evidência de Q-019 sem declarar decisão de integração.
+  - path: agents/handoffs/HANDOFF-021.yaml
+    reason: Registrar validação e continuidade da atividade.
+  validation:
+    executed:
+    - Quatro inferências reais Qwen em CPU para INC-002 e INC-003, cada qual com tetos 256 e 512, timeout 300 s e os limites da avaliação anterior.
+    - Releitura de cada resposta bruta e verificação independente dos IDs e evidências com os contratos existentes.
+    - uv run --offline --locked --no-sync pytest -q tests/unit/test_explanation.py
+    - python3 scripts/validate_repository.py no workspace e em árvore isolada do índice; git diff --check e git diff --cached --check.
+    - Autorrevisão pelo executor de respostas brutas, referências e limites da avaliação; revisão independente pendente.
+    passed:
+    - As quatro respostas foram aceitas e terminaram com stop; limites de 256 e 512 produziram respostas idênticas por fixture.
+    - Os 18 testes controlados de explicação passaram em 0,03 s; dados insuficientes e seleções adversariais são testados no componente isolado.
+    - Os tempos totais foram de 102,15, 102,40, 102,53 e 101,33 s, respectivamente; picos RSS e tokens registrados na avaliação.
+    - Validador documental passou em árvore isolada e verificações de diff passaram.
+    failed:
+    - Validador documental do workspace falhou por exclusão preexistente de um arquivo referenciado pela STORY-012, preservada na ocasião.
+    not_executed:
+    - Teste adversarial do modelo real, integração à API, fallback fim a fim e confirmação de que a API não invoca LLM para entrada inválida ou insuficiente; ainda não implementados.
+    - Testes gerais e analisadores não repetidos porque src e dependências não mudaram; registros anteriores permanecem aplicáveis.
+  pending_work:
+  - Avaliar casos adversariais do modelo, limites e confiabilidade; obter decisão do PO para protocolo e integração antes de implementá-los.
+  - Manter história e atividade blocked até conclusão dos critérios, documentação, revisão e DoD.
+- date: '2026-11-02'
+  authorization: PO solicitou concluir implementação e teste real com Qwen local e teto de 512 tokens; havia autorizado timeout de até cinco minutos.
+  summary: Avaliação adversarial real precedeu integração; API, fallback, testes e demo real implementados; estados em revisão, sem presumir aceite do PO.
+  validation:
+  - 'Ensaios adversariais reais: ID inexistente não escolhido; alegação causal sem apoio gerada pelo modelo e rejeitada pelo verificador.'
+  - 134 testes passaram; Ruff, mypy, Pyright, fixtures e validador documental isolado passaram; falha do validador no workspace deve-se a exclusão preexistente.
+  - 'Demonstração real na API instalada: 97,274 s; repetição em instalação isolada 98,53 s e fallback 0,002 s, preservando triagem.'
+  pending_work:
+  - Revisão do PO e eventuais correções antes de concluir a atividade e história.
+- date: '2026-11-03'
+  authorization: PO solicitou remover do versionamento um registro de discussão anterior e preservá-lo localmente.
+  summary: Registro movido para diretório local ignorado; removida a menção à sua exclusão pendente, sem alterar os estados da história e da atividade.
+  validation:
+  - Conteúdo local comparado com a versão anterior; não foram encontradas referências restantes ao registro.
+  - Validador documental passou na árvore versionada isolada; no workspace continua falhando pela exclusão preexistente de STORY-012.
+  - Verificações de diff e autorrevisão do executor realizadas; sem mudanças em código ou dependências.
+- date: '2026-11-03'
+  authorization: PO confirmou ter movido para arquivo local o registro anterior da STORY-012 e solicitou corrigir os apontamentos.
+  summary: Removida a referência obsoleta da STORY-012 e ajustadas menções nos handoffs; cópia local conferida e exclusão autorizada incorporada à entrega.
+  validation:
+  - Validador documental passou no workspace e na árvore versionada isolada; conferidos referências e diff, com autorrevisão do executor.
+  - Testes de aplicação não repetidos, pois não houve mudanças em código ou dependências.
+- date: '2026-11-03'
+  authorization: PO apontou que checagens do adaptador deveriam ser delegadas a funções menores conforme AGENTS.md.
+  summary: Refatoradas checagens de porta, cabeçalhos, envelope, limites e timeout em funções coesas, preservando o comportamento e os contratos.
+  validation:
+  - Reinstalação travada não editável após alteração em src; 140 testes passaram, incluindo seis novos cenários HTTP de rejeição e preservação da triagem.
+  - Ruff, mypy, Pyright, validador documental e validador das três fixtures passaram; Pyright e uv mantêm os avisos conhecidos.
+  - Após refatoração, nova inferência real pela API retornou HTTP 200 em 124,533 s, triagem idêntica e frases S-001, S-002 e S-MAX verificadas.
+  - Autorrevisão do executor comparou o fluxo, as exceções e os limites com a versão anterior; revisão independente pelo PO permanece pendente.
+- date: '2026-11-03'
+  authorization: PO apontou o mesmo problema de legibilidade no gerador e verificador de explicações e solicitou ajuste.
+  summary: Extraídas funções para montar frases, validar catálogo e selecionar frases e conferir o suporte das referências, preservando os contratos e a ordem das verificações.
+  validation:
+  - Instalação travada e reinstalação não editável após alteração em src; 146 testes passaram, incluindo seis novos casos de fonte inconsistente e vínculo inválido.
+  - Ruff, mypy, Pyright e validadores documental e de incidentes passaram; avisos conhecidos de uv e Pyright permanecem.
+  - Autorrevisão do executor comparou a lógica e as exceções; inferência real não repetida nesta alteração, que foi coberta por testes unitários e integração HTTP com dublê.
+  pending_work:
+  - Revisão do PO da entrega e das alterações antes da conclusão da história e atividade.
+- date: '2026-11-03'
+  authorization: PO informou ter concluído sua revisão e solicitou atualizar os estados, abrir PR e aguardar sua checagem e decisão de merge.
+  summary: Conferidos critérios e DoD; STORY-021 done, ACT-021 completed e handoff completed na branch; EPIC-002 mantém estado e gate próprio.
+  validation:
+  - Evidências dos quatro critérios, demonstrações, 146 testes, análises estáticas e limitações conferidos; inferência real após a última refatoração não foi repetida.
+  - Validador documental e verificações de diff executados para a mudança de estados; autorrevisão do executor registrada separadamente da revisão informada pelo PO.
+  pending_work:
+  - Publicar branch e abrir PR para checagem do PO; CI remota e decisão de merge não presumidas.
+  - Sem tag ou release; avaliação do gate do épico permanece separada.

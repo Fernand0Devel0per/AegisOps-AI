@@ -1,10 +1,10 @@
 schema_version: 1
-updated_at: '2026-10-31'
+updated_at: '2026-11-03'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 2
-next_story: STORY-020
-next_activity: ACT-020
-next_step_note: STORY-020 concluída; ponteiros mantidos até preparar contratos da STORY-021, ainda em backlog.
+next_story: STORY-021
+next_activity: ACT-021
+next_step_note: STORY-021 e ACT-021 concluídas na branch; aguardar revisão e decisão de merge do PR antes de avaliar o gate do EPIC-002 e preparar próxima atividade.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -159,7 +159,7 @@ stories:
   path: roadmap/stories/STORY-021.yaml
   epic: EPIC-002
   priority: high
-  status: backlog
+  status: done
   dependencies:
   - STORY-020
 - id: STORY-030

@@ -4,13 +4,13 @@
 
 Plataforma de estudo e portfólio para investigar incidentes de serviços correlacionando sinais operacionais e documentação. A proposta é apoiar a triagem humana com observações, hipóteses, evidências verificáveis e limitações explícitas. Não há promessa de descoberta automática da causa raiz.
 
-**Estado em 31/10/2026:** descoberta aceita pelo PO e setup Python 3.14 concluído na STORY-010. Os contratos locais da STORY-011 estão concluídos; três incidentes sintéticos e requisitos estão documentados. A consulta local de incidentes e saúde foi concluída na STORY-012; o núcleo de triagem da STORY-020 está concluído, sem integração à API ou ao LLM. Colibri e OLMoE foram testados separadamente de forma exploratória.
+**Estado em 03/11/2026:** a primeira vertical está implementada e foi revisada pelo PO: a API recebe incidente sintético, retorna triagem determinística e, com Colibri local, explicação montada de frases verificadas; em falha, preserva a triagem com limitação. A integração da branch depende da revisão e decisão de merge do PR; a candidata `v0.1.0` ainda não foi publicada. Veja [demo local](doc/DEMO.md) e [handoff](agents/handoffs/HANDOFF-021.yaml).
 
 ## Problema e capacidades previstas
 
 Investigar degradação exige reunir métricas, alertas, eventos e runbooks dispersos. O AegisOps pretende tornar esse processo rastreável, começando com dados sintéticos e ferramentas somente de consulta.
 
-- Iniciar e consultar investigações por API; CLI é uma alternativa inicial a definir.
+- Enviar investigação sintética pela API; consulta posterior e CLI permanecem futuras.
 - Classificar severidade por regras determinísticas e indicar informações insuficientes.
 - Recuperar runbooks Markdown com identificação de origem e versão.
 - Produzir hipóteses e recomendações com referências verificadas por regras independentes do LLM.
@@ -29,7 +29,7 @@ Usuário → API/CLI → workflow simples de investigação
                     └─ verificação de evidências → relatório para revisão humana
 ```
 
-A primeira vertical será: **incidente sintético → severidade e evidências determinísticas + explicação por LLM local**, com fallback sem explicação. O ponto de partida aprovado é monolito modular; fronteiras internas serão desenhadas conforme as necessidades. Telemetria do AegisOps e dados do incidente investigado devem permanecer distinguíveis.
+A primeira vertical implementada é: **incidente sintético → severidade e evidências determinísticas + explicação local verificada**, com fallback sem explicação. O ponto de partida aprovado é monolito modular; fronteiras internas serão desenhadas conforme as necessidades. Telemetria do AegisOps e dados do incidente investigado devem permanecer distinguíveis.
 
 Consulte a [arquitetura e análise do plano](doc/architecture/overview.md), o [ADR-0001](doc/adr/0001-monolito-modular-baseline-deterministico.md) e o [ADR-0002](doc/adr/0002-llm-local-primeira-vertical.md).
 
@@ -43,7 +43,7 @@ Consulte a [arquitetura e análise do plano](doc/architecture/overview.md), o [A
 | Evolução da plataforma | OpenTelemetry, Collector, Prometheus, Grafana; Kubernetes, Helm/Kustomize; Argo CD; HPA/KEDA condicionados a medições |
 | Antes de conectores remotos reais | Autenticação/autorização, OIDC/JWT e permissões por ferramenta, a especificar |
 
-O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/0003-ambiente-python-qualidade.md) registra Python e ferramentas de qualidade; o [ADR-0004](doc/adr/0004-api-local-contratos-http.md) registra FastAPI e a direção da API; versões e evidências de compatibilidade estão no [handoff da STORY-012](agents/handoffs/HANDOFF-012.yaml). As demais tecnologias da tabela permanecem candidatas.
+O Colibri e o Qwen int4 são preparados fora do repositório e foram usados na demonstração local. O [ADR-0003](doc/adr/0003-ambiente-python-qualidade.md) registra Python e ferramentas de qualidade; o [ADR-0004](doc/adr/0004-api-local-contratos-http.md) registra FastAPI e a direção da API; versões e evidências de compatibilidade estão no [handoff da STORY-012](agents/handoffs/HANDOFF-012.yaml). As demais tecnologias da tabela permanecem candidatas.
 
 ## Implementado e planejado
 
@@ -54,9 +54,10 @@ O Colibri e um modelo foram testados fora do repositório. O [ADR-0003](doc/adr/
 | Concluído | Contratos locais de incidente, sinal e evidência e validação determinística de entrada; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
-| Planejado | Integração da triagem à API, explicação por LLM e evolução por etapas |
+| Implementado; PR pendente | Envio pela API, triagem e explicação restrita por Qwen local, com verificação independente e fallback; veja [demo](doc/DEMO.md) e [avaliação](doc/decisions/story-021-avaliacao.md) |
+| Planejado | Busca de runbooks, hipóteses, persistência e evolução por etapas |
 
-A triagem ainda não está exposta pela API. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
+A operação de investigação responde na própria requisição, sem persistência ou consulta posterior. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.
 
 ## Roadmap
 

@@ -1,0 +1,120 @@
+id: SPEC-021
+story_id: STORY-021
+title: Triagem por API e explicação restrita avaliada
+status: ready
+problem_statement: A triagem determinística não é acessível para envio de incidente à API e ainda não
+  há explicação local verificada.
+proposed_solution: Expor triagem síncrona com seleção local de frases, verificação independente e fallback
+  preservando o núcleo.
+architecture:
+  components:
+  - Núcleo existente validate_incident e triage_incident; resultados preservados.
+  - Gerador canônico e verificador independente existentes.
+  - API FastAPI e adaptador HTTP assíncrono restrito a loopback para Colibri manual, conforme ADR-0006.
+  interactions:
+  - Entrada validada antes da triagem; somente classificado pode solicitar seleção ao modelo.
+  - Verificador monta texto exclusivamente das frases canônicas válidas; nunca exibe texto livre do modelo.
+  data_flow:
+  - Incidente sintético → validação existente → triagem → frases canônicas → seleção de IDs → verificação
+    independente → explicação ou fallback.
+interfaces:
+- POST /v1/investigations recebe JSON sintético e retorna 200 com triage imutável e explanation; operação
+  síncrona sem persistência ou consulta posterior.
+- JSON malformado ou chave duplicada retorna 400, entrada de domínio inválida retorna 422 com errors path/code,
+  corpo acima de 256 KiB retorna 413; erros usam Problem Details.
+- Explicação verificada inclui state verificada, text construído apenas de frases canônicas e sentences
+  com IDs e evidências; insuficiente é nao_solicitada sem chamada.
+- Falha ou timeout retorna state indisponivel; resposta malformada, truncada ou seleção inválida retorna
+  rejeitada; ambas têm text null, sentences vazias e limitação sem conteúdo recusado.
+data_contracts:
+- Entrada respeita integralmente SPEC-011 e requisitos; entrada inválida não fornece resultado parcial
+  nem chama o LLM.
+- Resultado básico preserva incident_id, state, severity, observations, limitations e IDs da STORY-020;
+  insuficiente não chama LLM.
+- Frases canônicas derivam exclusivamente de observações e severidade; cada uma tem ID e referências ligadas
+  aos sinais descritos; frase máxima cita ao menos um sinal do nível máximo.
+- Verificar formato, duplicatas, IDs existentes, frase máxima obrigatória resolução dos vínculos evidência-sinal
+  e correspondência de métrica, valor, unidade e período em fonte validada; não confiar em referências
+  fornecidas pelo LLM.
+- Texto final contém apenas frases canônicas verificadas; falha, indisponibilidade, timeout ou rejeição
+  preserva o resultado básico e sinaliza limitação sem texto rejeitado.
+- Limites quantitativos e transporte da primeira vertical estão registrados no ADR-0006; nenhuma norma
+  sintética é política operacional.
+- triage é serialização integral e inalterada do resultado STORY-020; explanation é envelope separado
+  com state, text, sentences e limitations.
+- Resposta Colibri limitada a 64 KiB, prompt a 4096 bytes e 16 observações; acima disso fallback sem alterar
+  resultado.
+- O modelo pode receber só texto canônico, sem resumos, origens ou campos livres. Seleção validada contra
+  Incident construído a partir de entrada validada.
+dependencies:
+- roadmap/stories/STORY-020.yaml
+- agents/handoffs/HANDOFF-020.yaml
+- doc/REQUIREMENTS.md
+- doc/INCIDENTS.md
+security_considerations:
+- Sem remediação, serviços de terceiros ou dados reais; entrada e saída de modelo são dados não confiáveis.
+- Não tratar referência resolúvel como prova de apoio semântico; avaliar as frases contra observações.
+observability:
+- Erros de entrada trazem caminhos e códigos sem valores; falhas internas e do provedor são distintas
+  e sanitizadas.
+error_handling:
+- InvalidIncident prevalece sobre insuficiência; insuficiente não provoca chamada ao modelo.
+- Falhas e expiração do modelo ou rejeição mantêm resultado básico e informam limitação; falhas internas
+  não são convertidas silenciosamente em insuficiência.
+- Erros internos retornam 500 sanitizado; falhas de transporte/modelo não propagam conteúdo nem alteram
+  triagem.
+- Timeout total de 300 s fecha conexão; não garante cancelamento do servidor; fila zero e operador responsável
+  pelo processo.
+implementation_steps:
+- Concluir avaliação adversarial anterior à integração e registrar resultados.
+- Integrar rota síncrona para o consumidor, adaptador HTTP local, verificador e fallback.
+- Testar ponta a ponta, realizar demo real, validar, autorrevisar, solicitar revisão e produzir handoff.
+test_strategy:
+- Verificar três fixtures, suporte das frases, referência inexistente ou vinculada a outro sinal, duplicatas,
+  estrutura malformada, ausência da frase máxima e texto livre.
+- Verificar fim a fim sucesso, entrada inválida, insuficiência, falha, expiração, rejeição e preservação
+  integral do resultado básico.
+- Executar instalação travada, reinstalação não editável após mudanças em src, testes, Ruff, mypy, Pyright,
+  validadores e verificações de diff.
+- Exercitar corpo com limite, JSON duplicado, timeout, modelo ocupado, referência inválida, truncamento,
+  sem chamada para inválido ou insuficiente; testar integração HTTP real com Colibri além dos dublês.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Comando em doc/DEMO.md envia fixture à API e verifica resposta de inferência local real,
+    citações e severidade; depende de decisão e avaliação.
+  evidence: doc/DEMO.md
+- criterion_id: AC-02
+  validation: Testes HTTP fim a fim para sucesso, inválido, insuficiente, falha de LLM e fallback; verificar
+    não chamada quando aplicável.
+  evidence: tests/integration/
+- criterion_id: AC-03
+  validation: README diferencia capacidade demonstrada, limites e futuro; evidências sustentam avaliação
+    futura da candidata sem publicar tag.
+  evidence: README.md
+- criterion_id: AC-04
+  validation: Avaliação anterior à integração testa citações inexistentes, afirmações sem apoio e dados
+    insuficientes, com referência a resultados reais e limitações.
+  evidence: doc/decisions/
+open_questions:
+- 'Q-007/Q-019: confiabilidade geral, evolução de modelo e custo operacional seguem a avaliar; decisão
+  da primeira vertical em ADR-0006.'
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0003-ambiente-python-qualidade.md
+- doc/adr/0004-api-local-contratos-http.md
+- doc/adr/0005-verificacao-deprecacao-tipos.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-021.yaml
+- doc/standards/workflow.md
+independent_slice:
+- Implementar catálogo interno imutável a partir de TriageResult classificado; IDs fixos S-MAX e S-001
+  em diante, associados a observações por posição.
+- A frase máxima indica severidade e posição de um sinal do nível máximo; frases de observação registram
+  métrica, valor, unidade, período e nível, sem inserir texto livre do incidente.
+- Verificar seleção como objeto exato com chave sentence_ids e lista não vazia de strings; rejeitar IDs
+  inexistentes ou repetidos, campos extras, ausência de S-MAX e referência que não resolve para o sinal
+  correspondente no Incident validado.
+- O componente de seleção é independente do provedor e foi avaliado antes da integração.
