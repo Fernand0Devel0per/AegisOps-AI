@@ -43,6 +43,15 @@ def model_server(mode: str) -> Generator[tuple[int, list[dict[str, Any]]]]:
                 self.send_header("Content-Length", "0")
                 self.end_headers()
                 return
+            if mode in {"missing_length", "duplicate_length", "transfer_encoding"}:
+                self.send_response(200)
+                if mode == "duplicate_length":
+                    self.send_header("Content-Length", "0")
+                    self.send_header("Content-Length", "0")
+                if mode == "transfer_encoding":
+                    self.send_header("Transfer-Encoding", "chunked")
+                self.end_headers()
+                return
             selections: dict[str, str] = {
                 "success": '{"sentence_ids":["S-002","S-MAX"]}',
                 "unknown": '{"sentence_ids":["S-MAX","S-999"]}',
@@ -53,16 +62,24 @@ def model_server(mode: str) -> Generator[tuple[int, list[dict[str, Any]]]]:
                 "malformed": "```json",
                 "truncated": '{"sentence_ids":["S-MAX"]}',
                 "timeout": '{"sentence_ids":["S-MAX"]}',
+                "wrong_model": '{"sentence_ids":["S-MAX"]}',
+                "refusal": '{"sentence_ids":["S-MAX"]}',
+                "multiple_choices": '{"sentence_ids":["S-MAX"]}',
             }
-            envelope = {
-                "model": colibri.MODEL_ID,
+            envelope: dict[str, Any] = {
+                "model": "outro-modelo" if mode == "wrong_model" else colibri.MODEL_ID,
                 "choices": [
                     {
-                        "message": {"content": selections[mode], "refusal": None},
+                        "message": {
+                            "content": selections[mode],
+                            "refusal": "recusado" if mode == "refusal" else None,
+                        },
                         "finish_reason": "length" if mode == "truncated" else "stop",
                     }
                 ],
             }
+            if mode == "multiple_choices":
+                envelope["choices"].append(envelope["choices"][0])
             payload = json.dumps(envelope).encode()
             try:
                 self.send_response(200)
@@ -160,6 +177,9 @@ def test_invalid_json_and_body_limit(client: TestClient) -> None:
     [
         ("server_failure", "indisponivel"),
         ("oversized", "rejeitada"),
+        ("missing_length", "rejeitada"),
+        ("duplicate_length", "rejeitada"),
+        ("transfer_encoding", "rejeitada"),
         ("timeout", "indisponivel"),
         ("unknown", "rejeitada"),
         ("duplicate", "rejeitada"),
@@ -168,6 +188,9 @@ def test_invalid_json_and_body_limit(client: TestClient) -> None:
         ("duplicate_key", "rejeitada"),
         ("malformed", "rejeitada"),
         ("truncated", "rejeitada"),
+        ("wrong_model", "rejeitada"),
+        ("refusal", "rejeitada"),
+        ("multiple_choices", "rejeitada"),
     ],
 )
 def test_model_failures_preserve_exact_baseline(

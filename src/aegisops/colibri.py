@@ -44,14 +44,18 @@ def parse_json(data: str | bytes) -> Any:
     )
 
 
+def _valid_port(value: str) -> bool:
+    return (
+        len(value) <= 5
+        and value.isascii()
+        and value.isdecimal()
+        and 1 <= int(value) <= 65535
+    )
+
+
 def _port() -> int:
     value = os.environ.get("AEGISOPS_COLIBRI_PORT", "18999")
-    if (
-        len(value) > 5
-        or not value.isascii()
-        or not value.isdecimal()
-        or not 1 <= int(value) <= 65535
-    ):
+    if not _valid_port(value):
         raise ModelUnavailable("Configuração local inválida")
     return int(value)
 
@@ -84,55 +88,74 @@ def _request(prompt: str) -> bytes:
     )
 
 
+def _require_successful_status(status_line: str) -> None:
+    parts = status_line.split(" ", 2)
+    if len(parts) < 2 or not parts[0].startswith("HTTP/"):
+        raise ValueError
+    if int(parts[1]) != 200:
+        raise ModelUnavailable("Servidor não respondeu com sucesso")
+
+
+def _header_fields(lines: list[str]) -> dict[str, str]:
+    fields: dict[str, str] = {}
+    for line in lines:
+        if not line:
+            continue
+        key, value = line.split(":", 1)
+        key = key.strip().lower()
+        if key in fields:
+            raise ValueError
+        fields[key] = value.strip()
+    return fields
+
+
+def _bounded_content_length(fields: dict[str, str]) -> int:
+    if "transfer-encoding" in fields:
+        raise ValueError
+    length_text = fields["content-length"]
+    if not length_text.isascii() or not length_text.isdecimal():
+        raise ValueError
+    length = int(length_text)
+    if length > MAX_RESPONSE_BYTES:
+        raise ValueError
+    return length
+
+
 def _content_length(headers: bytes) -> int:
     try:
         lines = headers.decode("iso-8859-1").split("\r\n")
-        parts = lines[0].split(" ", 2)
-        if len(parts) < 2 or not parts[0].startswith("HTTP/"):
-            raise ValueError
-        status = int(parts[1])
-        if status != 200:
-            raise ModelUnavailable("Servidor não respondeu com sucesso")
-        fields: dict[str, str] = {}
-        for line in lines[1:]:
-            if not line:
-                continue
-            key, value = line.split(":", 1)
-            key = key.strip().lower()
-            if key in fields:
-                raise ValueError
-            fields[key] = value.strip()
-        if "transfer-encoding" in fields:
-            raise ValueError
-        length_text = fields["content-length"]
-        if not length_text.isascii() or not length_text.isdecimal():
-            raise ValueError
-        length = int(length_text)
-        if length > MAX_RESPONSE_BYTES:
-            raise ValueError
-        return length
+        _require_successful_status(lines[0])
+        return _bounded_content_length(_header_fields(lines[1:]))
     except (KeyError, ValueError, OverflowError) as exc:
         raise ModelRejected("Resposta HTTP inválida") from exc
 
 
+def _completed_choice(envelope: Any) -> dict[str, Any]:
+    if not isinstance(envelope, dict) or envelope.get("model") != MODEL_ID:
+        raise ValueError
+    choices = envelope.get("choices")
+    if not isinstance(choices, list) or len(choices) != 1:
+        raise ValueError
+    choice = choices[0]
+    if not isinstance(choice, dict) or choice.get("finish_reason") != "stop":
+        raise ValueError
+    return choice
+
+
+def _message_content(choice: dict[str, Any]) -> str:
+    message = choice.get("message")
+    if not isinstance(message, dict) or message.get("refusal") is not None:
+        raise ValueError
+    content = message.get("content")
+    if not isinstance(content, str):
+        raise TypeError
+    return content
+
+
 def _selection(body: bytes) -> object:
     try:
-        envelope = parse_json(body)
-        if not isinstance(envelope, dict) or envelope.get("model") != MODEL_ID:
-            raise ValueError
-        choices = envelope.get("choices")
-        if not isinstance(choices, list) or len(choices) != 1:
-            raise ValueError
-        choice = choices[0]
-        if not isinstance(choice, dict) or choice.get("finish_reason") != "stop":
-            raise ValueError
-        message = choice.get("message")
-        if not isinstance(message, dict) or message.get("refusal") is not None:
-            raise ValueError
-        content = message.get("content")
-        if not isinstance(content, str):
-            raise TypeError
-        return parse_json(content)
+        choice = _completed_choice(parse_json(body))
+        return parse_json(_message_content(choice))
     except (ValueError, TypeError, UnicodeDecodeError, RecursionError) as exc:
         raise ModelRejected("Resposta estruturada inválida") from exc
 
@@ -150,23 +173,31 @@ async def _exchange(request: bytes, port: int) -> bytes:
         await writer.wait_closed()
 
 
-async def select_sentences(sentences: tuple[Sentence, ...]) -> object:
-    """Solicita IDs sem enviar campos livres e com limite absoluto de tempo e volume."""
+def _bounded_prompt(sentences: tuple[Sentence, ...]) -> str:
     if len(sentences) - 1 > MAX_OBSERVATIONS:
         raise ModelUnavailable("Quantidade de observações excede o limite local")
     prompt = _prompt(sentences)
     if len(prompt.encode("utf-8")) > MAX_PROMPT_BYTES:
         raise ModelUnavailable("Prompt excede o limite local")
+    return prompt
+
+
+async def _exchange_with_deadline(prompt: str) -> bytes:
+    try:
+        async with asyncio.timeout(TIMEOUT_SECONDS):
+            return await _exchange(_request(prompt), _port())
+    except (OSError, TimeoutError, asyncio.IncompleteReadError) as exc:
+        raise ModelUnavailable("Servidor local indisponível ou expirado") from exc
+    except asyncio.LimitOverrunError as exc:
+        raise ModelRejected("Cabeçalho excede o limite") from exc
+
+
+async def select_sentences(sentences: tuple[Sentence, ...]) -> object:
+    """Solicita IDs sem enviar campos livres e com limite absoluto de tempo e volume."""
+    prompt = _bounded_prompt(sentences)
     if not _LOCK.acquire(blocking=False):
         raise ModelUnavailable("Explicação ocupada")
     try:
-        try:
-            async with asyncio.timeout(TIMEOUT_SECONDS):
-                response = await _exchange(_request(prompt), _port())
-        except (OSError, TimeoutError, asyncio.IncompleteReadError) as exc:
-            raise ModelUnavailable("Servidor local indisponível ou expirado") from exc
-        except asyncio.LimitOverrunError as exc:
-            raise ModelRejected("Cabeçalho excede o limite") from exc
-        return _selection(response)
+        return _selection(await _exchange_with_deadline(prompt))
     finally:
         _LOCK.release()
