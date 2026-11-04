@@ -3,9 +3,9 @@ activity_id: ACT-029
 story_id: SPIKE-030
 spec_id: SPEC-029
 source_agent: Codex — estudo documental e autorrevisão
-target_agent: Product Owner e próximo executor da SPIKE-030
-status: partial
-summary: PO considerou C0 rasa e pediu ampliar opções; busca adicional gerou C1 com onze unidades candidatas e dez consultas; revisão de C1 e licença GitLab por versão pendentes.
+target_agent: Product Owner e futuro executor das histórias posteriores
+status: completed
+summary: PO aceitou globalmente C1 em 2026-11-04 após solicitar ampliação; SPIKE-030 concluída com licenças, adaptações e rótulos efetivos condicionados ao trabalho posterior.
 completed_work:
 - Preparação anterior está no histórico d374eec; execução atual autorizada pelo PO restrita à SPIKE-030.
 - Fetch de origin realizado; HEAD d374eec descende de 30261c2, que contém fechamento do EPIC-002; origin/main permanece em 6206926.
@@ -14,20 +14,24 @@ completed_work:
 - Elaborados protocolo, métricas e proposta de separação por grupo, sem adoção de rótulos externos nem resultados de ranking.
 - PO revisou C0, considerou GL-DIAG raso e pediu mais busca e opções; executor concordou com a insuficiência e ampliou o estudo.
 - Examinados repositórios Durrell Gemuh, backstage-platform-template e MLH PE URL Shortener com licença MIT no mesmo commit; comparados CloudThinker e Mattermost com limites de escopo e afirmações.
-- Proposta C1 de onze unidades e Q01–Q10, incluindo cinco novos candidatos condicionais para os quatro sinais; revisão do PO de C1 solicitada e pendente.
+- C1 ampliada a onze unidades e Q01–Q10, com cinco candidatos condicionais para os quatro sinais.
+- PO declarou em 2026-11-04: “Agora ficou aceito vamos fechar com essa massa de dados apresentado agora”; aceite global no contexto de C1, exemplos e protocolo, sem inferir revisão individual ou execução de testes pelo PO.
+- Executor autorrevisou matriz, exemplos, licença e protocolo e concordou com o fechamento; limitações e condições para incorporação preservadas.
 changed_files:
 - path: doc/research/SPIKE-030.md
-  reason: Relatório, comparação, matriz, amostras, protocolo e registro de revisão pendente.
+  reason: Relatório, comparação, matriz, amostras, protocolo e aceite do PO.
 - path: doc/research/spike-030-fontes.yaml
   reason: Manifesto candidato com versão, condições, seções, licenças e atribuições.
 - path: roadmap/stories/SPIKE-030.yaml
-  reason: Estado real em revisão.
+  reason: Concluir spike com evidência por critério.
 - path: roadmap/index.yaml
   reason: Sincronizar spike e épico e orientar continuidade.
 - path: roadmap/epics/EPIC-003.yaml
-  reason: Épico iniciado; gate do estudo ainda pendente.
+  reason: Registrar gate do estudo concluído, mantendo épico em andamento.
+- path: agents/specs/SPEC-029.yaml
+  reason: Atualizar resultado e pendências da Q-020.
 - path: agents/activities/ACT-029.yaml
-  reason: Atividade em revisão após execução autorizada.
+  reason: Concluir atividade após validação e revisão.
 - path: agents/handoffs/HANDOFF-029.yaml
   reason: Registrar evidências, limitações e próximo passo.
 - path: README.md
@@ -39,15 +43,16 @@ changed_files:
 - path: doc/decisions/open-questions.md
   reason: Registrar proposta e licença pendente na Q-020.
 decisions_made:
-- C0 insuficiente conforme revisão inicial do PO; C1, rótulos, idiomas, tamanho e métricas são propostas sem aceite, não constituem decisão arquitetural ou autorização final de incorporação.
+- C0 insuficiente conforme revisão inicial; C1, exemplos e protocolo receberam aceite global do PO em 2026-11-04. O aceite não resolve licenças de terceiros, não comprova revisão de cada rótulo e não cria meta de desempenho.
+- Idiomas, grupos e métricas de C1 orientam o trabalho posterior; antes de medir, revisar rótulos sobre unidades adaptadas e congelar corpus e política de abstenção.
 - Manter STORY-030 e STORY-031 backlog; preservar a primeira vertical e seus limites.
 validation:
   executed:
-  - python3 scripts/validate_repository.py
-  - python3 scripts/validate_incidents.py
-  - git diff --check
-  - git diff --cached --check
-  - Verificação Python de IDs, campos do manifesto e presença dos exemplos Q01–Q10 no relatório.
+  - python3 scripts/validate_repository.py — repetido no fechamento em 2026-11-04.
+  - python3 scripts/validate_incidents.py — repetido no fechamento em 2026-11-04.
+  - git diff --check — repetido no fechamento em 2026-11-04.
+  - git diff --cached --check — repetido no fechamento em 2026-11-04.
+  - Verificação Python de IDs, campos do manifesto e presença dos exemplos Q01–Q10 no relatório; aceite global conferido em 2026-11-04.
   - Leitura HTTP dos cinco novos arquivos e licenças MIT fixados por commit, conferindo a presença das seções indicadas.
   passed:
   - check: Validador documental passou com 72 YAML, 11 épicos, 23 histórias e 30 Markdown; não valida fontes externas nem o plano local.
@@ -58,12 +63,11 @@ validation:
     evidence: doc/research/spike-030-fontes.yaml
   failed: []
   not_executed:
-  - Revisão do PO da C1 e decisões conjuntas pendentes; AC-04 não atendido.
   - Ranking, benchmark, inferência e testes de aplicação não executados porque não houve implementação de produto.
   - Self-test e Pyright não repetidos porque validador e código não foram alterados.
   - CI remota, push, PR, merge, tag e publicação não autorizados ou executados.
 review:
-  type: PO revisou C0 e solicitou ampliação; executor concordou e revisou C1; revisão do PO de C1 pendente.
+  type: PO revisou a proposta global, solicitou ampliação e aceitou C1; executor autorrevisou e concordou com fechamento. Nenhuma revisão individual ou teste executado pelo PO é alegado.
   evidence: doc/research/SPIKE-030.md
 known_issues:
 - Exclusão local preexistente de agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e fora da entrega.
@@ -71,11 +75,12 @@ known_issues:
 - Novas fontes presumem ambientes específicos e incluem alegações excessivas e comandos; positivos são condicionais a adaptações ainda inexistentes e revisão humana; sem prova de causa.
 - Ausência depende de C1 e da versão; números dos datasets não são métricas do produto.
 pending_work:
-- PO e executor devem revisar C1, licenças, aplicabilidade, adaptações, rótulos e protocolo, registrar concordâncias, divergências e decisões conjuntas; atualizar artefatos e revalidar.
 - Confirmar texto de licença e avisos aplicáveis às versões GitLab e direitos de terceiros antes de incorporar qualquer trecho.
-- Manter atividade e spike in_review até satisfazer todos critérios e DoD; STORY-030 e STORY-031 continuam backlog.
+- STORY-030, quando autorizada e refinada, deve materializar corpus, adaptar trechos e revisar rótulos e ausências na versão efetiva; não há dataset final nesta spike.
+- STORY-031, quando autorizada, deve definir e medir a política de recuperação e abstenção; nenhuma métrica de desempenho foi obtida.
 next_steps:
-- Ler doc/research/SPIKE-030.md e doc/research/spike-030-fontes.yaml; obter revisão explícita do PO, resolver Q-020 e registrar resultados reais.
+- Manter STORY-030 e STORY-031 backlog; aguardar autorização para refinamento e execução, consultando o estudo aceito.
+- Índice mantém SPIKE-030/ACT-029 como último par registrado porque seu validador exige vínculo existente; não há próxima atividade preparada.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

@@ -3,7 +3,7 @@ story_id: SPIKE-030
 spec_id: SPEC-029
 title: Estudar fontes e revisar desenho da avaliação de runbooks
 objective: Produzir estudo rastreável e proposta de avaliação própria revisada pelo PO antes de STORY-030 e STORY-031.
-status: in_review
+status: completed
 agent:
   role: Agente de pesquisa e avaliação documental
   responsibility: Inspecionar amostras e alternativas, propor corpus e protocolo e registrar revisão humana sem implementar produto.
@@ -25,7 +25,7 @@ expected_outputs:
 - doc/research/spike-030-fontes.yaml
 - agents/handoffs/HANDOFF-029.yaml
 constraints:
-- Estudo autorizado e executado em 2026-11-03; revisão do PO permanece necessária para encerramento.
+- Estudo autorizado e executado em 2026-11-03; revisão global e aceite do PO em 2026-11-04 registrados no handoff.
 - Não materializar corpus ou dataset final, implementar ranking, integrar API/LLM ou executar comandos dos runbooks.
 - Não presumir aprovação de rótulos, metas quantitativas, documentos individuais ou licenças sem revisão.
 execution_steps:

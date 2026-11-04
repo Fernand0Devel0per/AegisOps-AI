@@ -1,10 +1,10 @@
 schema_version: 1
 study: SPIKE-030
 consulted_at: '2026-11-03'
-status: proposta_nao_aprovada
+status: proposta_aceita_condicionada
 corpus_candidate: C1-proposta-ampliada-2026-11-03
-scope_note: C1 é uma lista hipotética de unidades, não um corpus materializado; a ausência é relativa a esta lista e às versões abaixo.
-review: {executor: proposta_e_autorrevisao, po: revisão_inicial_solicitou_ampliação; revisão_de_C1_pendente}
+scope_note: C1 foi aceita como proposta de unidades, não é corpus materializado; licenças, adaptações e rótulos sobre unidades efetivas permanecem sujeitos às condições documentadas. Ausência é relativa a esta lista e versões.
+review: {executor: autorrevisao_e_concordancia_com_fechamento, po: aceite_global_C1_2026-11-04}
 sources:
 - id: GL-DIAG
   repository: https://gitlab.com/gitlab-com/runbooks

@@ -23,4 +23,4 @@ references:
 - doc/architecture/overview.md
 - doc/decisions/spike-030-plano-estudo.md
 - agents/handoffs/HANDOFF-029.yaml
-refinement_notes: SPIKE-030 em revisão do PO após estudo documental; STORY-030 e STORY-031 permanecem backlog e exigem o gate do estudo, refinamento e contratos próprios. Corpus final, ranking e integração de LLM não foram implementados.
+refinement_notes: SPIKE-030 concluída após aceite global do PO em 2026-11-04; STORY-030 e STORY-031 permanecem backlog e exigem autorização, refinamento e contratos próprios. Corpus final, ranking e integração de LLM não foram implementados.

@@ -61,7 +61,7 @@ acceptance_mapping:
   validation: Registrar revisão explícita do PO, observações resolvidas e decisões ou pendências encaminhadas.
   evidence: agents/handoffs/HANDOFF-029.yaml
 open_questions:
-- Q-020 define seleção final, idioma, tamanho e protocolo; são resultados do estudo, não decisões presumidas na preparação.
+- Q-020 registra o aceite global de C1 e protocolo pelo PO; verificação de licença, adaptações e revisão de rótulos nas unidades efetivas permanecem para o trabalho posterior.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

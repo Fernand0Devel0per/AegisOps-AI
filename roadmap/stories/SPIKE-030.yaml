@@ -5,7 +5,7 @@ description: Estudar documentos públicos e definir um recorte de corpus e avali
 objective: Reduzir incertezas de aplicabilidade, licença, idioma e rótulos com evidências e decisão conjunta com o PO.
 context: PO aprovou estudar Prometheus Operator e seleção do GitLab como fontes, com avaliação própria; a pesquisa exploratória não é aceite do corpus nem execução deste estudo.
 priority: high
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-021
@@ -64,3 +64,8 @@ definition_of_done:
 - Revisão do PO sobre corpus candidato e protocolo registrada, sem presumir execução de testes por ele.
 - Validações executadas e limitações e verificações não executadas declaradas.
 - Handoff atualizado e estados da SPIKE-030 e índice sincronizados; histórias seguintes permanecem sem execução automática.
+completion_evidence:
+- 'AC-01: doc/research/spike-030-fontes.yaml registra origens, versões, licenças e lacunas; doc/research/SPIKE-030.md compara e exclui fontes.'
+- 'AC-02: doc/research/SPIKE-030.md mapeia os três incidentes, negativos difíceis e ausência relativa a C1.'
+- 'AC-03: doc/research/SPIKE-030.md registra Q01–Q10, rótulos condicionais e protocolo de idiomas, grupos, revisão e métricas.'
+- 'AC-04: PO aceitou globalmente C1 em 2026-11-04 após pedir ampliação; revisão, limites e encaminhamentos registrados em agents/handoffs/HANDOFF-029.yaml.'

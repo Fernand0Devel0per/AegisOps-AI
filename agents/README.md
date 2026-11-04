@@ -9,7 +9,7 @@ Comece por [AGENTS.md](../AGENTS.md). Esta pasta guarda estado versionável, nã
 | `handoffs/` | Estado real ao interromper ou encerrar: arquivos, motivos, evidências, falhas e próximo passo |
 | `templates/` | Modelos YAML para novos contratos |
 
-O bootstrap histórico está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activities/ACT-000.yaml) e [HANDOFF-000](handoffs/HANDOFF-000.yaml). A [SPIKE-030](../roadmap/stories/SPIKE-030.yaml) e [ACT-029](activities/ACT-029.yaml) estão em revisão; [HANDOFF-029](handoffs/HANDOFF-029.yaml) registra a proposta, validação e pendências para o PO.
+O bootstrap histórico está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activities/ACT-000.yaml) e [HANDOFF-000](handoffs/HANDOFF-000.yaml). A [SPIKE-030](../roadmap/stories/SPIKE-030.yaml) e [ACT-029](activities/ACT-029.yaml) foram concluídas; [HANDOFF-029](handoffs/HANDOFF-029.yaml) registra o aceite, a validação e as pendências para as histórias futuras.
 
 ## Regras de handoff
 
