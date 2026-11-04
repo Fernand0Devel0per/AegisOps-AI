@@ -85,3 +85,33 @@ related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0006-proposta-integracao-colibri.md
+maintenance_updates:
+- date: '2026-11-04'
+  authorization: PO solicitou mover o plano de estudo e o prompt da próxima sessão para .local, retirando-os do versionamento.
+  summary: Documentos de preparação da SPIKE-030 arquivados localmente; os contratos passaram a referenciar o relatório e o manifesto aceitos quando aplicável. A spike permanece concluída e as histórias futuras não foram iniciadas.
+  changed_files:
+  - path: agents/activities/ACT-029.yaml
+    reason: Remover entrada histórica cujo arquivo não integra mais o repositório.
+  - path: agents/specs/SPEC-029.yaml
+    reason: Retirar dependência e prompt arquivados e apontar os entregáveis versionados do estudo.
+  - path: roadmap/epics/EPIC-003.yaml
+    reason: Apontar relatório e manifesto versionados do estudo.
+  - path: roadmap/stories/SPIKE-030.yaml
+    reason: Atualizar referências do estudo concluído.
+  - path: roadmap/stories/STORY-030.yaml
+    reason: Apontar as fontes versionadas para refinamento futuro.
+  - path: roadmap/stories/STORY-031.yaml
+    reason: Apontar as fontes versionadas para refinamento futuro.
+  - path: agents/handoffs/HANDOFF-029.yaml
+    reason: Registrar manutenção solicitada e validação, sem alterar o relato do estudo.
+  local_archives:
+  - path: .local/spike-030-plano-estudo.md
+    sha256: dbc38f94acbac10be7a0f9f0a28b97773574c447fedc614b0f74967de1cd4d73
+  - path: .local/spike-030-proxima-sessao.md
+    sha256: 53123a9ae6a9d5c23063c2da7669b66370dae27f43f1ebbe0dce8f5e6efa7acc
+  note: Os arquivos locais são ignorados pelo Git e contêm links históricos relativos ao local original; cópias anteriores continuam no histórico Git. Exclusão local preexistente e stash preservados.
+  validation:
+  - python3 scripts/validate_repository.py — PASS; 72 YAML, 11 épicos, 23 histórias e 28 Markdown, com vínculos locais válidos.
+  - git diff --check e git diff --cached --check — PASS, sem erros de whitespace.
+  - git check-ignore confirmou os dois arquivos em .local; SHA-256 antes e depois da movimentação idênticos.
+  - Busca de referências versionadas aos caminhos removidos sem ocorrências; nenhum teste de aplicação executado por ser manutenção documental.

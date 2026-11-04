@@ -53,8 +53,8 @@ references:
 - agents/specs/SPEC-029.yaml
 - agents/activities/ACT-029.yaml
 - agents/handoffs/HANDOFF-029.yaml
-- doc/decisions/spike-030-plano-estudo.md
-- doc/decisions/spike-030-proxima-sessao.md
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
 - doc/INCIDENTS.md
 - doc/REQUIREMENTS.md
 - doc/decisions/open-questions.md

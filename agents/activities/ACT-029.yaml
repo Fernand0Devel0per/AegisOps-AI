@@ -15,7 +15,6 @@ inputs:
 - agents/specs/SPEC-029.yaml
 - agents/handoffs/HANDOFF-029.yaml
 - agents/handoffs/HANDOFF-021.yaml
-- doc/decisions/spike-030-plano-estudo.md
 - doc/INCIDENTS.md
 - doc/REQUIREMENTS.md
 - doc/standards/workflow.md

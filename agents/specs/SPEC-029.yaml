@@ -25,7 +25,6 @@ data_contracts:
 dependencies:
 - roadmap/stories/SPIKE-030.yaml
 - agents/handoffs/HANDOFF-021.yaml
-- doc/decisions/spike-030-plano-estudo.md
 - doc/INCIDENTS.md
 - doc/REQUIREMENTS.md
 security_considerations:
@@ -69,4 +68,5 @@ related_adrs:
 references:
 - AGENTS.md
 - doc/standards/workflow.md
-- doc/decisions/spike-030-proxima-sessao.md
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml

@@ -37,7 +37,8 @@ validation:
   - Revisar rótulos e autorização do corpus.
 references:
 - roadmap/stories/SPIKE-030.yaml
-- doc/decisions/spike-030-plano-estudo.md
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
