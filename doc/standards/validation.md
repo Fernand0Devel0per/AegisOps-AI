@@ -26,6 +26,8 @@ Exceto pela referência histórica ao plano local descrita abaixo, o validador r
 python3 scripts/validate_repository.py --self-test
 ```
 
+O catálogo de histórias aceita IDs `STORY-NNN` e `SPIKE-NNN`, com os mesmos vínculos e regras de dependências. O self-test verifica os dois prefixos, rejeita IDs curtos ou prefixos indevidos e exercita dependências e ciclos entre histórias e spikes.
+
 No bootstrap, verificamos o hash SHA-256 do plano para comprovar sua preservação naquele momento. Valor histórico de referência:
 
 ```text

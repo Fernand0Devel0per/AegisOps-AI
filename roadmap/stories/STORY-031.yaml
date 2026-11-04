@@ -8,6 +8,7 @@ priority: medium
 status: backlog
 refinement_required: true
 dependencies:
+- SPIKE-030
 - STORY-030
 scope:
   included:
@@ -38,6 +39,8 @@ validation:
   manual_checks:
   - Conferir exemplos de acerto, erro e ausência.
 references:
+- roadmap/stories/SPIKE-030.yaml
+- doc/decisions/spike-030-plano-estudo.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -47,3 +50,4 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Implementar ranking somente após SPIKE-030 e STORY-030 done; medir no protocolo e nos rótulos revisados, preservando casos sem documento e sem ajustar o ranking ao conjunto reservado de avaliação.

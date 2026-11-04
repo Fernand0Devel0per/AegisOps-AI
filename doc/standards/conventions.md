@@ -8,6 +8,7 @@ UTF-8, finais de linha LF, Markdown para comunicação conceitual e YAML para co
 |---|---|---|
 | Épico | `EPIC-000` | `roadmap/epics/EPIC-000.yaml` |
 | História | `STORY-001` | `roadmap/stories/STORY-001.yaml` |
+| Estudo (spike) | `SPIKE-030` | `roadmap/stories/SPIKE-030.yaml` |
 | Especificação | `SPEC-001` | `agents/specs/SPEC-001.yaml` |
 | Atividade | `ACT-001` | `agents/activities/ACT-001.yaml` |
 | Handoff | `HANDOFF-001` | `agents/handoffs/HANDOFF-001.yaml` |
@@ -16,6 +17,8 @@ UTF-8, finais de linha LF, Markdown para comunicação conceitual e YAML para co
 Usar no mínimo três dígitos nos contratos e quatro nos ADRs. Os zeros de templates são exemplos; arquivos em `templates/` e `0000-template.md` não são entidades de catálogo. Os contratos reais `STORY/SPEC/ACT/HANDOFF-000` são o registro legítimo do bootstrap. O número do épico acompanha a etapa do plano. Os intervalos de histórias (001–004, 010–012, 020–021…) auxiliam leitura; não há obrigação de preencher lacunas.
 
 Novos IDs são alocados verificando o índice e a pasta, sem reutilizar um ID histórico. A correspondência numérica entre história, spec e atividade inicial é conveniência, não regra de cardinalidade: uma história pode ter várias specs/atividades/handoffs com IDs novos.
+
+`SPIKE-NNN` identifica um estudo delimitado antes de decisões ou implementação. Usa o template de história e integra o catálogo `stories` e a lista `stories` do épico; pode depender de histórias e ser pré-requisito delas. Recebe SPEC, ACT e HANDOFF pelos IDs disponíveis, vinculados explicitamente por `story_id`. Na SPIKE-030, foram alocados SPEC-029, ACT-029 e HANDOFF-029; os números 030 e 031 desses contratos continuam disponíveis para as histórias correspondentes. A branch de estudo é `feat/spike-NNN`.
 
 ## Referências
 
@@ -29,7 +32,7 @@ Novos IDs são alocados verificando o índice e a pasta, sem reutilizar um ID hi
 
 | Artefato | Estados permitidos |
 |---|---|
-| História e épico | `backlog`, `ready`, `in_progress`, `blocked`, `in_review`, `done` |
+| História, spike e épico | `backlog`, `ready`, `in_progress`, `blocked`, `in_review`, `done` |
 | Spec | `draft`, `ready`, `superseded` |
 | Atividade | `pending`, `in_progress`, `blocked`, `in_review`, `completed`, `cancelled` |
 | Handoff | `completed`, `partial`, `blocked` |

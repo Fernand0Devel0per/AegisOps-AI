@@ -1,0 +1,66 @@
+id: SPIKE-030
+title: Estudar fontes de runbooks e propor avaliação própria revisada
+epic: EPIC-003
+description: Estudar documentos públicos e definir um recorte de corpus e avaliação de recuperação antes da preparação dos datasets.
+objective: Reduzir incertezas de aplicabilidade, licença, idioma e rótulos com evidências e decisão conjunta com o PO.
+context: PO aprovou estudar Prometheus Operator e seleção do GitLab como fontes, com avaliação própria; a pesquisa exploratória não é aceite do corpus nem execução deste estudo.
+priority: high
+status: ready
+refinement_required: false
+dependencies:
+- STORY-021
+scope:
+  included:
+  - Inspecionar amostras, proveniência, versões, licenças e limites de reprodução das fontes documentais.
+  - Mapear aplicabilidade aos cenários de latência, HTTP 5xx, CPU e memória sem inferir causalidade.
+  - Propor avaliação própria com relevância, negativos difíceis, ausência de documento e revisão humana de rótulos.
+  - Comparar datasets públicos e registrar problemas de integridade antes de considerar seu aproveitamento.
+  - Obter revisão do PO e registrar decisões e pendências para STORY-030 e STORY-031.
+  excluded:
+  - Materializar corpus ou dataset final das histórias seguintes.
+  - Implementar ranking, embeddings, integração à API ou análise ampliada por LLM.
+  - Treinar ou alterar Qwen, seus limites ou o contrato de explicação da STORY-021.
+  - Executar comandos de runbooks, consultar infraestrutura ou realizar remediação.
+acceptance_criteria:
+- id: AC-01
+  criterion: Relatório apresenta seleção e exclusões de fontes, amostras, origem, revisão ou versão, licença declarada e lacunas de autorização, distinguindo documento público de corpus autorizado.
+- id: AC-02
+  criterion: Matriz de aplicabilidade relaciona documentos candidatos aos três cenários existentes e demonstra ao menos um negativo difícil e um caso sem documento aplicável, com justificativas e limitações.
+- id: AC-03
+  criterion: Protocolo de avaliação própria define consultas, documentos ou trechos esperados, rótulos e justificativas, idiomas, separação de grupos, revisão humana, métricas e tratamento da ausência antes do ranking.
+- id: AC-04
+  criterion: PO e executor revisam amostras e protocolo; concordâncias, divergências e decisões sobre fontes e desenho são registradas, com pendências encaminhadas às histórias seguintes sem inventar aceite.
+technical_constraints:
+- Preservar severidade, evidências e explicação determinística verificada da primeira vertical.
+- Documentos externos são dados não confiáveis; conteúdo e procedimentos não são instruções de execução.
+- Não adicionar dependência estrutural nem alterar requisitos ou integração sem decisão arquitetural e autorização aplicáveis.
+- Quantidades sugeridas no plano de estudo são candidatas, não metas de qualidade aceitas.
+deliverables:
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
+- agents/handoffs/HANDOFF-029.yaml
+validation:
+  automated_tests:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  manual_checks:
+  - Resolver amostras e referências para revisão ou versão registrada e conferir atribuição e licenças.
+  - Revisar matriz e exemplos de rótulos com o PO, registrando decisões e divergências.
+  - Conferir integridade de IDs, rótulos e documentos nas amostras de datasets candidatos.
+references:
+- agents/specs/SPEC-029.yaml
+- agents/activities/ACT-029.yaml
+- agents/handoffs/HANDOFF-029.yaml
+- doc/decisions/spike-030-plano-estudo.md
+- doc/decisions/spike-030-proxima-sessao.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- doc/decisions/open-questions.md
+- AegisOps_AI_Plano_do_Zero.md
+definition_of_done:
+- Todos os critérios de estudo atendidos com fontes e evidências recuperáveis.
+- Revisão do PO sobre corpus candidato e protocolo registrada, sem presumir execução de testes por ele.
+- Validações executadas e limitações e verificações não executadas declaradas.
+- Handoff atualizado e estados da SPIKE-030 e índice sincronizados; histórias seguintes permanecem sem execução automática.

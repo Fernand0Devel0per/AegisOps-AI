@@ -1,6 +1,6 @@
 # Pendências, riscos e participação humana
 
-Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem a redação inicial de produto. Hipóteses e candidatas não são decisões aceitas.
+Estado em 2026-11-03. Itens futuros não bloqueiam a preparação documental nem a redação inicial de produto. Hipóteses e candidatas não são decisões aceitas.
 
 | ID | Lacuna / decisão | Responsável e momento | Impacto / próximo passo |
 |---|---|---|---|
@@ -9,7 +9,7 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-003 | Cinco critérios observáveis, três falhas e insuficiência de evidência | Agente + PO; STORY-003 | PO aceitou em 2026-10-30 os critérios e falhas de [REQUIREMENTS](../REQUIREMENTS.md), inclusive explicação restrita; evidência em [HANDOFF-004](../../agents/handoffs/HANDOFF-004.yaml) |
 | Q-004 | Python, versões compatíveis, gerenciador e type checker | Agente de setup propõe; PO decide ADR estrutural antes da STORY-010 | PO aprovou Python 3.14.8 e ferramentas do [ADR-0003](../adr/0003-ambiente-python-qualidade.md) em 2026-10-30 após teste isolado; instalação limpa do projeto e CI seguem para STORY-010 |
 | Q-005 | Rota/CLI mínima e contratos de erros; fluxo síncrono inicial | PO aceitou a direção da API em 2026-10-31; refinamento técnico na STORY-012 | Direções aceitas em [ADR-0004](../adr/0004-api-local-contratos-http.md); API, servidor, versões e transporte implementados e validados conforme [HANDOFF-012](../../agents/handoffs/HANDOFF-012.yaml). Eventual CLI permanece futura. |
-| Q-006 | Política e medidas de sucesso para hipóteses e retrieval | PO + agente de avaliação; Etapas 3–4 | Definir dataset e metas antes dos testes; medir sem fabricar resultados |
+| Q-006 | Política e medidas de sucesso para hipóteses e retrieval | PO + agente de avaliação; Etapas 3–4 | Recuperação começa pelo estudo e revisão da SPIKE-030/Q-020, antes do corpus e ranking; política de hipóteses permanece nas histórias da Etapa 4. Definir dataset e medidas antes dos testes; medir sem fabricar resultados. |
 | Q-007 | Modelo local, recursos e avaliação | PO aprovou Colibri para explicação na primeira vertical; modelo definitivo pendente | Avaliar qualidade, latência, memória e licença; manter resultado básico sem credenciais ou LLM |
 | Q-008 | LangGraph versus pipeline simples | Agente apresenta experimento; PO aprova adoção; Etapa 5 | Só adotar se houver ganho demonstrável; resultado válido pode manter baseline |
 | Q-009 | Docling, FAISS/pgvector e busca lexical/vetorial/híbrida | Agente propõe comparação; PO decide; Etapa 6 | Documentos autorizados, métricas e análise de falhas antes de escolha |
@@ -24,6 +24,7 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-018 | Dependências da STORY-021 na base | Concluídas na base origin/main atualizada | STORY-020 está `done` e ACT-020 `completed`; o bloqueio anterior permanece no histórico da branch. Ver [HANDOFF-020](../../agents/handoffs/HANDOFF-020.yaml). |
 
 | Q-019 | Confiabilidade e evolução da explicação local | Avaliar confiabilidade geral, evolução do modelo e custo operacional | [ADR-0006 aceito](../adr/0006-proposta-integracao-colibri.md) registra a integração da primeira vertical, autorizada pelo PO com Qwen e teto de 512 tokens. A [avaliação](story-021-avaliacao.md) inclui testes nas três fixtures e ensaios adversariais anteriores à integração; o PO informou ter revisado a entrega e o PR foi mesclado. Avaliações mais amplas permanecem pendentes. |
+| Q-020 | Seleção de runbooks e desenho da avaliação própria | Executor propõe e PO revisa na SPIKE-030 antes de STORY-030/031 | PO aprovou Prometheus Operator + seleção do GitLab como direção de estudo. Documentos individuais, licenças aplicáveis, adaptações, idiomas, tamanho, rótulos, divisão de grupos e métricas exigem exame e revisão conjunta. As quantidades sugeridas são candidatas. Ver [plano do estudo](spike-030-plano-estudo.md), [SPIKE-030](../../roadmap/stories/SPIKE-030.yaml) e [HANDOFF-029](../../agents/handoffs/HANDOFF-029.yaml). |
 
 ## Riscos de execução
 

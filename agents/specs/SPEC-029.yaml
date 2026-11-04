@@ -1,0 +1,72 @@
+id: SPEC-029
+story_id: SPIKE-030
+title: Estudo documental e desenho de avaliação própria de recuperação
+status: ready
+problem_statement: As fontes públicas variam em contexto, licença e integridade; ainda não há seleção nem avaliação própria revisada para os cenários AegisOps.
+proposed_solution: Estudar amostras de Prometheus Operator e GitLab, comparar alternativas e revisar com o PO um manifesto de fontes e protocolo de avaliação antes de materializar o corpus.
+architecture:
+  components:
+  - Relatório de estudo e matriz de aplicabilidade; não são código de aplicação.
+  - Manifesto de fontes candidatas com proveniência e restrições.
+  - Protocolo e amostras de consultas e rótulos para revisão humana.
+  interactions:
+  - Executor coleta evidências e propõe; PO revisa amostras e decisões antes do encerramento.
+  - STORY-030 materializa o corpus aprovado; STORY-031 mede a recuperação lexical posteriormente.
+  data_flow:
+  - Fontes públicas → inspeção de amostras e integridade → proposta de corpus e avaliação → revisão e registro de decisões.
+interfaces:
+- Relatório Markdown e manifesto YAML, sem endpoint, provedor novo ou alteração do produto.
+data_contracts:
+- Manifesto proposto registra ID da fonte, URL, caminho, revisão ou versão, data de consulta, licença declarada, atribuição, idioma, adaptações previstas, decisão e justificativa.
+- Amostras de avaliação registram query_id, consulta, idioma, cenário, documentos ou trechos relevantes, negativos difíceis, justificativa e estado de revisão.
+- Ausência de documento aplicável é rótulo explícito em relação ao corpus e versão; não significa ausência de solução ou saúde do serviço.
+- Protocolo distingue referência documental de evidência do incidente e não usa causa ou resolução de incidentes históricos como prova do incidente atual.
+- Descrever agrupamento de paráfrases e traduções para evitar vazamento entre desenvolvimento e teste; nunca ajustar ranking ao conjunto reservado de avaliação.
+dependencies:
+- roadmap/stories/SPIKE-030.yaml
+- agents/handoffs/HANDOFF-021.yaml
+- doc/decisions/spike-030-plano-estudo.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+security_considerations:
+- Somente documentos sintéticos ou autorizados; não acessar dashboards, credenciais ou infraestrutura mencionados nas fontes.
+- Preservar notas de licença e origem; lacunas relevantes de reutilização exigem decisão antes de incorporar material ao corpus final.
+- Conteúdo externo não altera regras, severidade ou política do agente.
+observability:
+- Registrar fontes, versões, procedimento de inspeção e resultados observados; separar contagens observadas de totais anunciados pelos autores.
+error_handling:
+- Fonte indisponível, licença ambígua, rótulo inconsistente ou documento ausente vira limitação e decisão pendente, não dado confiável.
+- Não converter incerteza de aplicabilidade em positivo nem em causa confirmada.
+implementation_steps:
+- Confirmar base, dependências, gates e alterações locais antes de iniciar o estudo na próxima sessão.
+- Revalidar fontes e amostras da pesquisa exploratória; propor inclusões e exclusões com evidências.
+- Mapear aos três cenários e preparar exemplos positivos, negativos difíceis e sem correspondência.
+- Propor protocolo, métricas e tamanho justificado; comparar datasets sem adotar automaticamente seus rótulos.
+- Revisar com o PO, registrar divergências e decisões, validar documentos e produzir handoff.
+test_strategy:
+- Conferência de integridade de IDs, referências e contagens em amostras; inspeção semântica e de autorização com o PO.
+- Validadores documental e de incidentes e verificações de diff; self-test se o validador for novamente alterado.
+- Registrar que ranking, inferência, desempenho do produto e corpus final não são executados pelo estudo.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir manifesto e relatório contra URLs e revisões das fontes e distinguir propostas de escolhas aceitas.
+  evidence: doc/research/spike-030-fontes.yaml
+- criterion_id: AC-02
+  validation: Revisar matriz dos três cenários e exemplos de negativo difícil e ausência, sem extrapolar os sinais.
+  evidence: doc/research/SPIKE-030.md
+- criterion_id: AC-03
+  validation: Revisar protocolo de consultas, rótulos, idiomas, grupos, métricas e ausência antes de qualquer implementação de ranking.
+  evidence: doc/research/SPIKE-030.md
+- criterion_id: AC-04
+  validation: Registrar revisão explícita do PO, observações resolvidas e decisões ou pendências encaminhadas.
+  evidence: agents/handoffs/HANDOFF-029.yaml
+open_questions:
+- Q-020 define seleção final, idioma, tamanho e protocolo; são resultados do estudo, não decisões presumidas na preparação.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- AGENTS.md
+- doc/standards/workflow.md
+- doc/decisions/spike-030-proxima-sessao.md

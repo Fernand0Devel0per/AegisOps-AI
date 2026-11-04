@@ -1,0 +1,46 @@
+id: ACT-029
+story_id: SPIKE-030
+spec_id: SPEC-029
+title: Estudar fontes e revisar desenho da avaliação de runbooks
+objective: Produzir estudo rastreável e proposta de avaliação própria revisada pelo PO antes de STORY-030 e STORY-031.
+status: pending
+agent:
+  role: Agente de pesquisa e avaliação documental
+  responsibility: Inspecionar amostras e alternativas, propor corpus e protocolo e registrar revisão humana sem implementar produto.
+inputs:
+- AGENTS.md
+- roadmap/index.yaml
+- roadmap/epics/EPIC-003.yaml
+- roadmap/stories/SPIKE-030.yaml
+- agents/specs/SPEC-029.yaml
+- agents/handoffs/HANDOFF-029.yaml
+- agents/handoffs/HANDOFF-021.yaml
+- doc/decisions/spike-030-plano-estudo.md
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- doc/standards/workflow.md
+- doc/standards/validation.md
+expected_outputs:
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
+- agents/handoffs/HANDOFF-029.yaml
+constraints:
+- Preparação registrada nesta sessão; execução do estudo ocorrerá na próxima sessão autorizada.
+- Não materializar corpus ou dataset final, implementar ranking, integrar API/LLM ou executar comandos dos runbooks.
+- Não presumir aprovação de rótulos, metas quantitativas, documentos individuais ou licenças sem revisão.
+execution_steps:
+- Confirmar base e dependências e iniciar somente SPIKE-030 após ler o prompt de continuidade.
+- Executar o estudo e a revisão definidos na SPEC-029.
+- Validar artefatos e registrar resultados, limitações, revisão e handoff antes de encerrar.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Documentos e referências consistentes; fontes e amostras resolvíveis e inspeção semântica registrada.
+  - Revisão do PO registrada antes de concluir o estudo; critérios e DoD verificados sem inventar métricas de ranking.
+dependencies:
+- ACT-021
+handoff_required: true
