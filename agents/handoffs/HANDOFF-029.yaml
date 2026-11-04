@@ -5,14 +5,16 @@ spec_id: SPEC-029
 source_agent: Codex — estudo documental e autorrevisão
 target_agent: Product Owner e próximo executor da SPIKE-030
 status: partial
-summary: Estudo e proposta concreta preparados em 2026-11-03; revisão obrigatória do PO e confirmação de licença GitLab por versão permanecem pendentes.
+summary: PO considerou C0 rasa e pediu ampliar opções; busca adicional gerou C1 com onze unidades candidatas e dez consultas; revisão de C1 e licença GitLab por versão pendentes.
 completed_work:
 - Preparação anterior está no histórico d374eec; execução atual autorizada pelo PO restrita à SPIKE-030.
 - Fetch de origin realizado; HEAD d374eec descende de 30261c2, que contém fechamento do EPIC-002; origin/main permanece em 6206926.
 - Conferidos STORY-021 done, ACT-021 completed, EPIC-002 done com autorização do PO; plano original disponível e Etapa 3 consultada.
 - Inspecionadas amostras fixadas, licenças declaradas e conjuntos públicos; proposta de seis unidades e oito consultas com positivos condicionais, negativos difíceis e ausências.
 - Elaborados protocolo, métricas e proposta de separação por grupo, sem adoção de rótulos externos nem resultados de ranking.
-- Autorrevisão do executor identificada no relatório; revisão do PO solicitada na conversa, sem resposta ou decisão presumida.
+- PO revisou C0, considerou GL-DIAG raso e pediu mais busca e opções; executor concordou com a insuficiência e ampliou o estudo.
+- Examinados repositórios Durrell Gemuh, backstage-platform-template e MLH PE URL Shortener com licença MIT no mesmo commit; comparados CloudThinker e Mattermost com limites de escopo e afirmações.
+- Proposta C1 de onze unidades e Q01–Q10, incluindo cinco novos candidatos condicionais para os quatro sinais; revisão do PO de C1 solicitada e pendente.
 changed_files:
 - path: doc/research/SPIKE-030.md
   reason: Relatório, comparação, matriz, amostras, protocolo e registro de revisão pendente.
@@ -37,7 +39,7 @@ changed_files:
 - path: doc/decisions/open-questions.md
   reason: Registrar proposta e licença pendente na Q-020.
 decisions_made:
-- C0, rótulos, idiomas, tamanho e métricas são somente propostas e precisam de revisão do PO; não constituem decisão arquitetural ou licença de uso final.
+- C0 insuficiente conforme revisão inicial do PO; C1, rótulos, idiomas, tamanho e métricas são propostas sem aceite, não constituem decisão arquitetural ou autorização final de incorporação.
 - Manter STORY-030 e STORY-031 backlog; preservar a primeira vertical e seus limites.
 validation:
   executed:
@@ -45,30 +47,31 @@ validation:
   - python3 scripts/validate_incidents.py
   - git diff --check
   - git diff --cached --check
-  - Verificação Python de IDs, campos do manifesto e presença dos exemplos Q01–Q08 no relatório.
+  - Verificação Python de IDs, campos do manifesto e presença dos exemplos Q01–Q10 no relatório.
+  - Leitura HTTP dos cinco novos arquivos e licenças MIT fixados por commit, conferindo a presença das seções indicadas.
   passed:
   - check: Validador documental passou com 72 YAML, 11 épicos, 23 histórias e 30 Markdown; não valida fontes externas nem o plano local.
     evidence: doc/standards/validation.md
   - check: Três fixtures, categorias, 21 IDs e referências passaram; não houve teste das regras de severidade.
     evidence: doc/INCIDENTS.md
-  - check: Seis IDs únicos, campos do manifesto e referências no relatório e exemplos Q01–Q08 conferidos; verificações de whitespace sem erros.
+  - check: Onze IDs únicos, campos do manifesto e referências no relatório, exemplos Q01–Q10, cinco novos arquivos e respectivas licenças MIT e seções indicadas conferidos; verificações de whitespace sem erros.
     evidence: doc/research/spike-030-fontes.yaml
   failed: []
   not_executed:
-  - Revisão do PO e decisões conjuntas pendentes; AC-04 não atendido.
+  - Revisão do PO da C1 e decisões conjuntas pendentes; AC-04 não atendido.
   - Ranking, benchmark, inferência e testes de aplicação não executados porque não houve implementação de produto.
   - Self-test e Pyright não repetidos porque validador e código não foram alterados.
   - CI remota, push, PR, merge, tag e publicação não autorizados ou executados.
 review:
-  type: Autorrevisão do executor; revisão humana do PO solicitada e pendente.
+  type: PO revisou C0 e solicitou ampliação; executor concordou e revisou C1; revisão do PO de C1 pendente.
   evidence: doc/research/SPIKE-030.md
 known_issues:
 - Exclusão local preexistente de agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e fora da entrega.
 - GitLab negou acesso direto por SHA com HTTP 403; páginas primárias de versões fixadas foram examinadas via indexação e licença MIT foi vista na página da cabeça, não confirmada para cada versão antiga ou conteúdo de terceiros.
-- C0 tem cobertura específica insuficiente para CPU/memória; positivos GL-DIAG são orientação geral condicional, sem prova de causa.
-- Ausência depende de C0 e da versão; números dos datasets não são métricas do produto.
+- Novas fontes presumem ambientes específicos e incluem alegações excessivas e comandos; positivos são condicionais a adaptações ainda inexistentes e revisão humana; sem prova de causa.
+- Ausência depende de C1 e da versão; números dos datasets não são métricas do produto.
 pending_work:
-- PO e executor devem revisar amostras, licenças, aplicabilidade, rótulos e protocolo, registrar concordâncias, divergências e decisões conjuntas; adaptar artefatos e revalidar.
+- PO e executor devem revisar C1, licenças, aplicabilidade, adaptações, rótulos e protocolo, registrar concordâncias, divergências e decisões conjuntas; atualizar artefatos e revalidar.
 - Confirmar texto de licença e avisos aplicáveis às versões GitLab e direitos de terceiros antes de incorporar qualquer trecho.
 - Manter atividade e spike in_review até satisfazer todos critérios e DoD; STORY-030 e STORY-031 continuam backlog.
 next_steps:
