@@ -1,6 +1,6 @@
 schema_version: 1
 corpus_version: C1-2026-11-04.1
-status: proposto_para_revisao
+status: revisado_po
 hash_method: 'SHA-256 UTF-8 de linhas ordenadas por path: <sha256>  <path>\n; somente arquivos de unidades.'
 corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
 units:
@@ -16,7 +16,7 @@ units:
   - Symptom- vs cause-based alerting
   - 'Querying: filtering and grouping'
   - Aggregation
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: GL-GITALY
   path: datasets/runbooks/gl-gitaly.md
   sha256: 3d2869b190a3e95fefccf2f279dc5b29051f2477453222038911e04e68415634
@@ -28,7 +28,7 @@ units:
   sections:
   - 'Problem: git processes spawned by Gitaly may consume significant CPU and memory'
   - Symptoms
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: GL-LAT
   path: datasets/runbooks/gl-lat.md
   sha256: 2774c3a6dcb359aec7611783bfbc3ed5a733d873d927f25568cf8b1cb5cb53bb
@@ -40,7 +40,7 @@ units:
   sections:
   - Symptoms
   - 1. Check the triage dashboard to assess the impact
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: PO-CPU
   path: datasets/runbooks/po-cpu.md
   sha256: 0d0e8e8e71288a7461ad7212d275b06f4c4313d71cc5dda69098809d779aa21e
@@ -52,7 +52,7 @@ units:
   sections:
   - Meaning
   - Diagnosis
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: PO-MEM
   path: datasets/runbooks/po-mem.md
   sha256: afe26e5487794fbeff902c911d72bf704a758c0eeb462447375ac80538aaed6b
@@ -64,7 +64,7 @@ units:
   sections:
   - Meaning
   - Diagnosis
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: PO-KCLIENT
   path: datasets/runbooks/po-kclient.md
   sha256: 4d4eafadc005322e461708edbf9092a5d3d28b5a275e3303308584a4019edc86
@@ -76,7 +76,7 @@ units:
   sections:
   - Meaning
   - Diagnosis
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: DU-CPU
   path: datasets/runbooks/du-cpu.md
   sha256: 91231b1f9b79b4e28619c0261a73ef5bc028d18b644c1207d78e85df9b3db68b
@@ -87,7 +87,7 @@ units:
   version: 15a4a5453fb76425337ac42ea75d7d84bae62822
   sections:
   - 1. Confirm scope
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: DU-5XX
   path: datasets/runbooks/du-5xx.md
   sha256: de5cc367e13397e983c8ce084b08fcac6d1283eec1a26c841fd527b5a74470bf
@@ -98,7 +98,7 @@ units:
   version: 15a4a5453fb76425337ac42ea75d7d84bae62822
   sections:
   - 1. Triage (first 5 minutes)
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: BK-CPU
   path: datasets/runbooks/bk-cpu.md
   sha256: f2f4e71939d31252ea425e443228d7a0db710fd5ce966a99ab1d68ac208ebd8a
@@ -110,7 +110,7 @@ units:
   sections:
   - Alert Description
   - 2. Check if it's sustained throttling or a spike
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: BK-MEM
   path: datasets/runbooks/bk-mem.md
   sha256: e91a2a0a709c5f5c0811c6ef724cd563f23a18935182844870d29173eae5bbc1
@@ -123,7 +123,7 @@ units:
   - Alert Description
   - 1. Identify the high-memory pods
   - 2. Check for a memory leak pattern
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
 - id: URL-LAT
   path: datasets/runbooks/url-lat.md
   sha256: e69da6b2d2c5d4dd232ecc3c72f465aeba71c5ec2a538cb2d2630194affb7c95
@@ -134,4 +134,5 @@ units:
   version: c47e12d39277b379ef43703b2f71b8863c888a9d
   sections:
   - 8. Runbook Summaries / HighLatency / Step 1 — Confirm and characterise
-  review: pendente_po
+  review: aceito_po_resposta_conjunta_2026-11-04
+review_evidence: datasets/evaluation/REVIEW.md

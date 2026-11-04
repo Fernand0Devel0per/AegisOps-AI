@@ -3,10 +3,10 @@ activity_id: ACT-030
 story_id: STORY-030
 spec_id: SPEC-030
 source_agent: Codex — execução e autorrevisão documental
-target_agent: Product Owner e futuro executor da STORY-030
-status: partial
-summary: Corpus e dataset candidatos materializados e validados; revisão individual do PO pendente. História e atividade
-  em revisão; STORY-031 não iniciada.
+target_agent: Product Owner e futuro executor autorizado da Etapa 3
+status: completed
+summary: STORY-030 concluída após revisão e aceite conjunto do PO; 11 unidades e 10 consultas preservadas, sem ranking.
+  STORY-031 continua backlog.
 completed_work:
 - Confirmados STORY-021 e SPIKE-030 done, ACT-029 completed e EPIC-002 done; plano original Etapa 3 disponível e
   consultado.
@@ -16,8 +16,9 @@ completed_work:
   e preservados; NOTICE raiz GitLab/Prometheus retornou HTTP 404.
 - Produzidas 11 unidades, 10 consultas pt/en, julgamentos com justificativas, casos não julgados, negativos difíceis
   e ausência relativa; autorrevisão semântica do executor realizada.
-- Solicitada revisão individual concreta ao PO por meio de datasets/evaluation/REVIEW.md; nenhuma concordância ou
-  divergência individual recebida até este handoff.
+- Revisão concreta solicitada ao PO em datasets/evaluation/REVIEW.md após o commit 547769c; em 2026-11-04 o PO confirmou
+  que revisou a entrega e aceitou a proposta de incidentes sintéticos em resposta conjunta, sem divergências específicas
+  informadas.
 changed_files:
 - path: README.md
   reason: Contrato, estado, continuidade ou documentação da STORY-030.
@@ -88,13 +89,13 @@ changed_files:
 decisions_made:
 - 'GitLab era uma lacuna na SPIKE: acesso raw posterior retornou os três textos integrais MIT das tags; textos,
   atribuições e hashes foram preservados. Acessibilidade pública não comprova direitos ocultos de terceiros.'
-- Corpus C1-2026-11-04.1 é candidato congelado para revisão; adaptação retira comandos, ações privilegiadas, limiares
-  e alegações indevidas e adiciona ressalvas.
+- Corpus C1-2026-11-04.1 foi aceito pelo PO em resposta conjunta após revisão; adaptação retira comandos, ações
+  privilegiadas, limiares e alegações indevidas e adiciona ressalvas.
 - Consultas da mesma fixture compartilham grupo inclusive INC-003; nenhuma partição atribuída, pois três fixtures
-  não são representativas. Solicitar ao PO autorização para novos incidentes sintéticos independentes antes de alegar
-  generalização.
-- Aceite global anterior não é revisão individual. Ausências são relativas ao corpus; itens não julgados permanecem
-  distintos de negativos; conjunto não está elegível para medir.
+  não são representativas. PO aceitou a proposta de novos incidentes sintéticos independentes para avaliação futura;
+  nenhum foi criado nesta história.
+- A aceitação do corpus efetivo foi conjunta e sem comentários separados por item; ausência é relativa ao corpus,
+  itens não julgados seguem distintos de negativos e medição exige política e partição prévias.
 validation:
   executed:
   - 'python3 datasets/evaluation/validate.py — PASS: 11 unidades, 10 consultas e integridade.'
@@ -110,34 +111,46 @@ validation:
   - git diff --cached --check identificou linha vazia extra no fim da licença Apache original; removida somente
     linha vazia final e hash atualizado; verificar novamente após staging.
   - git diff --cached --check após correção da linha vazia da licença — PASS.
+  - Revisão do PO registrada em datasets/evaluation/REVIEW.md; resposta conjunta sem declaração de execução de testes.
+  - No fechamento, validador documental rejeitou a lista de falhas históricas preenchida para handoff completed;
+    falha de whitespace já resolvida permanece no histórico de executados e foi retirada da lista de falhas abertas.
+  - 'No fechamento: python3 scripts/validate_repository.py — PASS, 75 YAML, 11 épicos, 23 histórias e 42 Markdown.'
+  - 'No fechamento: python3 scripts/validate_incidents.py — PASS, três fixtures e 21 IDs; não valida regras de severidade.'
+  - 'No fechamento: python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas e 10 mutações
+    inválidas rejeitadas.'
+  - 'No fechamento: comparação semântica YAML com HEAD anterior — PASS: somente metadados de revisão mudaram no
+    manifesto e nas consultas.'
+  - 'No fechamento: python3 -m py_compile datasets/evaluation/validate.py — PASS.'
+  - Falha inicial do diff staged por linha vazia na licença Apache foi corrigida e verificação repetida com sucesso
+    na entrega anterior.
   passed:
   - check: Integridade estrutural, hashes, referências, grupos e casos inválidos; não valida semântica nem direitos
       ocultos.
     evidence: datasets/evaluation/README.md
-  failed:
-  - Verificação inicial do diff staged encontrou whitespace no fim da licença Apache; corrigido, com texto integral
-    preservado.
+  - check: AC-01 e AC-02 com evidências e resposta de revisão do PO, sem alegação de resultados de busca.
+    evidence: datasets/evaluation/REVIEW.md
+  failed: []
   not_executed:
-  - 'Revisão individual do PO e consenso: solicitados, aguardando resposta.'
   - 'Ranking, inferência, testes de aplicação e métricas não executados: fora do escopo.'
   - 'Self-test do validador documental e Pyright não executados: scripts/validate_repository.py não foi alterado.'
   - CI, push, PR, merge, tag e publicação não executados.
 review:
-  type: Autorrevisão pelo executor; revisão individual do PO solicitada e ainda pendente.
+  type: Executor autorrevisou; PO respondeu afirmativamente à pergunta sobre cada unidade, licença, adaptação, consulta,
+    julgamentos e protocolo. A resposta foi conjunta, sem comentários individuais ou divergências específicas relatadas.
   evidence: datasets/evaluation/REVIEW.md
 known_issues:
 - Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash STORY-021 preservados e excluídos da entrega.
 - Somente três fixtures e uma hipótese de ausência; não há partição representativa nem prova de generalização.
-- Verificação de licenças e avisos não certifica direitos de terceiros ocultos; revisão humana permanece necessária.
+- Verificação de licenças e avisos não certifica direitos de terceiros ocultos; revisão do PO não certifica direitos
+  de terceiros ocultos.
 pending_work:
-- PO revisar individualmente cada unidade, licença, adaptação, consulta, julgamento e protocolo; registrar decisões,
-  divergências e eventuais mudanças.
-- Após revisão, corrigir, versionar novamente se necessário, revalidar, registrar evidência por critério e concluir
-  somente quando DoD satisfeito.
-- Aguardar autorização para ampliar cenários; não iniciar STORY-031 automaticamente.
+- Definir partição por grupos e política de retorno, abstenção, empates e falhas antes de qualquer medição, em trabalho
+  futuro autorizado.
+- Proposta de novos incidentes sintéticos independentes aceita pelo PO; sua criação e avaliação permanecem futuras.
+- Não iniciar STORY-031 automaticamente; permanece backlog e exige refinamento e contrato próprios.
 next_steps:
-- Continuar ACT-030 após resposta do PO; registrar revisão em datasets/evaluation/REVIEW.md e no handoff.
-- Manter conjunto inelegível para medição enquanto houver revisão ou desacordo pendente.
+- Aguardar solicitação para próximo trabalho; consultar STORY-031, SPEC-030 e este handoff quando houver autorização.
+- Se mudar unidades, licenças ou julgamentos, versionar e revisar novamente, inclusive ausências.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

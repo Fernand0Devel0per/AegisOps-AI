@@ -27,5 +27,4 @@ references:
 - doc/research/SPIKE-030.md
 - doc/research/spike-030-fontes.yaml
 - agents/handoffs/HANDOFF-029.yaml
-refinement_notes: SPIKE-030 concluída; STORY-030 em revisão com corpus e julgamentos propostos. STORY-031 permanece
-  backlog e não foi iniciada.
+refinement_notes: SPIKE-030 e STORY-030 concluídas; STORY-031 permanece backlog, sem ranking ou medição implementados.

@@ -3,10 +3,9 @@ title: Especificar runbooks e baseline rotulado de recuperação
 epic: EPIC-003
 description: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
 objective: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
-context: SPIKE-030 concluída e C1 aceita globalmente em 2026-11-04; revisão individual das unidades efetivas e rótulos
-  permanece necessária.
+context: SPIKE-030 concluída; corpus e rótulos efetivos revisados pelo PO após materialização em 2026-11-04.
 priority: medium
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-021
@@ -72,10 +71,10 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Contrato refinado conforme SPEC-030; revisão individual do PO é gate para medição e encerramento.
-  Fontes cuja licença não puder ser verificada ficam excluídas.
-progress_evidence:
-- 'AC-01: 11 unidades propostas com versões, origem, seções, licença e hashes em datasets/runbooks/manifest.yaml;
-  revisão individual do PO pendente.'
-- 'AC-02: 10 consultas propostas, positivos, negativos difíceis, não julgados e ausência relativa ao corpus em datasets/evaluation/queries.yaml;
-  revisão individual pendente.'
+refinement_notes: Entregáveis e resposta do PO registrados em HANDOFF-030; política de medição e partição continuam
+  futuras e STORY-031 não foi iniciada.
+completion_evidence:
+- 'AC-01: 11 unidades com identificadores, proveniência, versões, seções, licenças e hashes em datasets/runbooks/manifest.yaml;
+  revisão do PO em datasets/evaluation/REVIEW.md.'
+- 'AC-02: 10 consultas com positivos, negativos difíceis, não julgados e ausência relativa ao corpus em datasets/evaluation/queries.yaml;
+  revisão do PO em datasets/evaluation/REVIEW.md.'

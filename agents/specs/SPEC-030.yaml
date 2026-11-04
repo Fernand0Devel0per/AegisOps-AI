@@ -52,9 +52,9 @@ acceptance_mapping:
   validation: Examinar consultas, julgamentos, ausência em todas as unidades, grupos e revisão humana.
   evidence: datasets/evaluation/
 open_questions:
-- 'Q-020: os três textos de licença GitLab foram obtidos nas tags e preservados; revisão individual de cada unidade,
-  licença, rótulo e tradução pelo PO permanece pendente.'
-- 'Q-006: medir somente em trabalho posterior após congelamento, política e revisão; cobertura limitada a três fixtures.'
+- 'Q-020: revisão do PO sobre unidades, licenças, rótulos e protocolo registrada em datasets/evaluation/REVIEW.md;
+  direitos de terceiros ocultos não são certificados.'
+- 'Q-006: partição, política de medição e análise de hipóteses permanecem futuras; cobertura limitada a três fixtures.'
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

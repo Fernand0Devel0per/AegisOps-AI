@@ -1,4 +1,4 @@
-"""Validate the frozen corpus and proposed judgments without running retrieval."""
+"""Validate the frozen corpus and reviewed judgments without running retrieval."""
 from __future__ import annotations
 
 import copy
@@ -25,7 +25,9 @@ def check(manifest: dict, dataset: dict) -> None:
     require(len(unit_ids) == len(set(unit_ids)) and bool(unit_ids), 'IDs de unidades duplicados ou ausentes')
     paths = [u['path'] for u in units]
     require(len(paths) == len(set(paths)), 'Caminhos de unidades duplicados')
+    require(manifest['status'] == 'revisado_po', 'Corpus sem revisão registrada')
     for u in units:
+        require(u['review'] == 'aceito_po_resposta_conjunta_2026-11-04', 'Unidade sem aceite registrado')
         path, license_path = ROOT / u['path'], ROOT / u['license_path']
         require(path.is_file() and license_path.is_file(), 'Arquivo ou licença inexistente')
         require(digest(path.read_bytes()) == u['sha256'], 'Hash da unidade divergente')
@@ -55,7 +57,9 @@ def check(manifest: dict, dataset: dict) -> None:
         require(all(x.get('rationale') for x in q['relevant'] + q['negative']), 'Julgamento sem justificativa')
         require(q['absence'] == (not relevant), 'Ausência incompatível com relevantes')
         require(not q['absence'] or not unjudged, 'Ausência exige julgamento de todas as unidades')
-        require(q['review']['status'] == 'proposta_pendente_po', 'Revisão humana não registrada')
+        review = q['review']
+        require(review['status'] == 'aceito_po', 'Revisão humana não aceita')
+        require(review['po'] == 'Product Owner' and bool(review.get('po_date')), 'Revisor ou data ausente')
     require(all(len(g) == 1 for g in groups.values()), 'Variantes do incidente em grupos distintos')
     for a, b in [('Q01', 'Q02'), ('Q03', 'Q04'), ('Q05', 'Q07'), ('Q06', 'Q08'), ('Q09', 'Q10')]:
         pair = [q for q in dataset['queries'] if q['id'] in (a, b)]
@@ -82,7 +86,17 @@ def self_test(manifest: dict, dataset: dict) -> None:
     rejected(lambda d: d['queries'][6].update(group='outro-grupo'))
     rejected(lambda d: d.update(corpus_sha256='0' * 64))
     rejected(lambda d: d['queries'][0].update(fixture='datasets/incidents/inexistente.json'))
-    print('PASS: 7 mutações inválidas rejeitadas')
+    rejected(lambda d: d['queries'][0]['review'].update(status='proposta_pendente_po'))
+    rejected(lambda d: d['queries'][0]['review'].update(po_date=''))
+    candidate_manifest = copy.deepcopy(manifest)
+    candidate_manifest['units'][0]['review'] = 'pendente_po'
+    try:
+        check(candidate_manifest, dataset)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Unidade sem aceite foi aceita')
+    print('PASS: 10 mutações inválidas rejeitadas')
 
 
 def main() -> None:

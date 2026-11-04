@@ -2,7 +2,7 @@ schema_version: 1
 dataset_version: C1-queries-2026-11-04.1
 corpus_version: C1-2026-11-04.1
 corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
-status: proposto_nao_elegivel_para_medicao
+status: revisado_aguarda_preparacao_de_medicao
 split: nao_atribuido
 queries:
 - id: Q01
@@ -34,9 +34,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q02
   group: INC-001
   incident_id: INC-001
@@ -66,9 +68,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q03
   group: INC-002
   incident_id: INC-002
@@ -98,9 +102,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q04
   group: INC-002
   incident_id: INC-002
@@ -130,9 +136,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q05
   group: INC-003
   incident_id: INC-003
@@ -163,9 +171,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q06
   group: INC-003
   incident_id: INC-003
@@ -195,9 +205,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q07
   group: INC-003
   incident_id: INC-003
@@ -228,9 +240,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q08
   group: INC-003
   incident_id: INC-003
@@ -260,9 +274,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q09
   group: HYP-DEADLOCK
   incident_id: null
@@ -300,9 +316,11 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
 - id: Q10
   group: HYP-DEADLOCK
   incident_id: null
@@ -340,6 +358,9 @@ queries:
   review:
     executor: Codex
     date: '2026-11-04'
-    status: proposta_pendente_po
-    po: pendente
-    disagreement: não registrada; revisão do PO pendente
+    status: aceito_po
+    po: Product Owner
+    disagreement: Nenhuma divergência ou alteração específica foi informada; aceite conjunto.
+    po_date: '2026-11-04'
+    decision: Aceito pelo PO em resposta conjunta; ver REVIEW.md.
+review_evidence: datasets/evaluation/REVIEW.md

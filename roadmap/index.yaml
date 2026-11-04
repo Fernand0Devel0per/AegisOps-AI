@@ -4,8 +4,8 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 3
 next_story: STORY-030
 next_activity: ACT-030
-next_step_note: STORY-030 aguarda revisão individual do PO sobre corpus, licenças, rótulos e protocolo; STORY-031
-  permanece backlog.
+next_step_note: STORY-030 concluída; ponteiros mantêm o último contrato. STORY-031 permanece backlog, exige refinamento
+  e autorização própria.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -176,7 +176,7 @@ stories:
   path: roadmap/stories/STORY-030.yaml
   epic: EPIC-003
   priority: medium
-  status: in_review
+  status: done
   dependencies:
   - STORY-021
   - SPIKE-030
