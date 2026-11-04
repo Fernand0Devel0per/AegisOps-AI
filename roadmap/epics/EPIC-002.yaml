@@ -2,7 +2,7 @@ id: EPIC-002
 title: Motor de triagem baseado em evidências
 source_phase: 2
 objective: Entregar triagem determinística, explicação por LLM local e fallback pela API.
-status: in_progress
+status: done
 priority: high
 dependencies:
 - EPIC-001
@@ -12,6 +12,11 @@ scope:
 exit_criteria:
 - Três cenários classificados de forma reproduzível com evidências válidas.
 - Testes de limiares, unidades, inconsistências, insuficiência e fallback; sem alegação de causa raiz.
+completion_evidence:
+- As três fixtures reproduzem severidades e evidências esperadas; testes em tests/unit/test_triage.py e registro em agents/handoffs/HANDOFF-020.yaml.
+- Testes de limiares, unidades, inconsistências, insuficiência e fallback, incluindo integração HTTP, passaram; evidências em tests/unit/test_triage.py e tests/integration/test_investigations.py.
+- Explicação restrita e fallback foram avaliados e demonstrados; ensaio adversarial e limites estão em doc/decisions/story-021-avaliacao.md e agents/handoffs/HANDOFF-021.yaml.
+- STORY-020 e STORY-021 concluídas; PR 7 integrado e PO autorizou o fechamento do épico em 2026-11-03, conforme agents/handoffs/HANDOFF-021.yaml.
 stories:
 - STORY-020
 - STORY-021

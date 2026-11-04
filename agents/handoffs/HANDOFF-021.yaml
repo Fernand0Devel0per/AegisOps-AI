@@ -5,7 +5,7 @@ spec_id: SPEC-021
 source_agent: Codex — execução e autorrevisão
 target_agent: Product Owner e próximo executor da STORY-021
 status: completed
-summary: Vertical de triagem e explicação local implementada, demonstrada e revisada pelo PO; PR e decisão de merge seguem como etapa separada.
+summary: Vertical implementada, demonstrada e revisada; PR 7 mesclado e fechamento do EPIC-002 autorizado pelo PO e registrado localmente.
 completed_work:
 - Atualizado origin; nos arquivos de origin/main ad2d017, STORY-020 e índice estão done e ACT-020 completed; EPIC-001 está done.
 - Retomada feat/story-021 com merge da base, preservando histórico; conflito de Q-017/Q-018 resolvido com evidência atual, sem reescrever os bloqueios históricos.
@@ -18,6 +18,7 @@ completed_work:
 - Implementadas rota síncrona, conexão restrita a loopback, seleção, verificação independente e fallback que preserva triagem.
 - Realizadas demonstração real na API do workspace e repetição com instalação travada em árvore isolada; fallback real conferido em ambas.
 - Executada autorrevisão pelo executor; PO informou ter concluído sua revisão e solicitou atualizar estados e preparar PR.
+- PR 7 mesclado pelo PO; CI do head passou e o PO solicitou integrar à main local e concluir EPIC-002.
 changed_files:
 - path: agents/specs/SPEC-021.yaml
   reason: Registrar contrato, limites e mapeamento dos quatro critérios.
@@ -62,7 +63,7 @@ decisions_made:
 - POST /v1/investigations responde na própria requisição, sem persistência; triage contém resultado imutável STORY-020 e explanation é envelope separado.
 - Colibri opera manualmente em loopback; teto de 512 tokens, timeout de 300 s e fila zero; limites e ressalva de cancelamento em ADR-0006.
 - JSON inválido retorna 400, corpo excessivo 413, contrato de domínio inválido 422; falha/rejeição preserva triagem e não exibe conteúdo do modelo.
-- Após revisão informada pelo PO e conferência do DoD, história e atividade concluídas na branch; PR e merge são etapas separadas. Nenhuma tag ou release foi criada.
+- Após revisão informada pelo PO e conferência do DoD, história e atividade concluídas; PR 7 foi mesclado e gate do EPIC-002 conferido. Nenhuma tag ou release foi criada.
 acceptance_evidence:
 - criterion: AC-01
   result: Demo real em workspace e árvore isolada retornou triagem idêntica, severidade media e frases com evidências resolvidas; comando documentado.
@@ -100,13 +101,15 @@ validation:
     evidence: doc/decisions/story-021-avaliacao.md
   - check: Autorrevisão pelo executor comparou implementação, contratos, testes, evidências e documentação; PO informou ter concluído sua revisão.
     evidence: agents/specs/SPEC-021.yaml
+  - check: Quality remoto passou no PR 7 para o head f7792ec; merge 6206926 confirmado em origin/main.
+    evidence: .github/workflows/quality.yml
   failed: []
   not_executed:
-  - Revisão do PR e decisão de merge ainda pendentes; não se presume aprovação formal no GitHub ou execução de testes pelo PO.
-  - CI remota desta versão e merge ainda não executados; tag e publicação não autorizadas.
+  - Não se presume aprovação formal no GitHub ou execução de testes pelo PO; a revisão foi informada pelo PO e o merge foi confirmado.
+  - CI remota do fechamento documental do épico não executada; tag e publicação não autorizadas.
   - Self-test do validador documental não executado porque seu código não foi alterado.
 review:
-  type: Autorrevisão do executor e revisão informada pelo PO em 2026-11-03; revisão do PR ainda pendente.
+  type: Autorrevisão do executor e revisão informada pelo PO em 2026-11-03; PR 7 mesclado pelo PO sem aprovação formal registrada no GitHub.
   evidence: agents/handoffs/HANDOFF-021.yaml
 known_issues:
 - O modelo seguiu uma instrução adversarial de criar alegação causal sem apoio; o verificador rejeitou a resposta, mas os testes não provam robustez geral.
@@ -115,11 +118,11 @@ known_issues:
 - A exclusão local de agents/handoffs/STORY-020-blocked.md permanece fora da entrega.
 - uv avisou sobre leitura de symlink do Python base e fallback de hardlink na instalação isolada; Pyright avisou sobre resolução de yaml, sem erros.
 pending_work:
-- PO verificar o PR e decidir sobre o merge; não presumir aprovação formal nem integração à main.
+- STORY-030 permanece backlog e requer autorização e refinamento antes de iniciar.
 - Candidata v0.1.0 permanece sem tag ou release; qualquer publicação depende de autorização.
 next_steps:
-- Abrir PR para revisão e decisão de merge pelo PO; conferir CI da versão publicada.
-- Após decisão de merge, avaliar separadamente o gate do EPIC-002 antes de preparar trabalho de outra fase.
+- Não iniciar próxima história sem autorização; preservar ponteiros até existir novo contrato.
+- O fechamento documental do EPIC-002 está na main local; sua publicação remota requer autorização.
 related_adrs:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0004-api-local-contratos-http.md
@@ -290,3 +293,16 @@ maintenance_updates:
   pending_work:
   - Publicar branch e abrir PR para checagem do PO; CI remota e decisão de merge não presumidas.
   - Sem tag ou release; avaliação do gate do épico permanece separada.
+- date: '2026-11-03'
+  authorization: PO informou ter finalizado o PR e solicitou integrar à main local e finalizar o EPIC-002.
+  summary: PR 7 confirmado merged em 6206926; STORY-020 e STORY-021 estão done na base, critérios de saída conferidos e épico concluído localmente.
+  acceptance_evidence:
+  - Os testes em tests/unit/test_triage.py verificam classificação reproduzível das três fixtures e evidências, limiares, unidades, inconsistências e insuficiência.
+  - Os testes em tests/integration/test_investigations.py cobrem falha do provedor e fallback; avaliação e demonstrações estão em doc/decisions/story-021-avaliacao.md e doc/DEMO.md.
+  - Quality do PR 7 passou no head f7792ec; a avaliação adversarial e o verificador preservam a limitação de não afirmar causa raiz.
+  validation:
+  - Conferidos gh pr view 7, gh pr checks 7, estados dos arquivos de origin/main, critérios do épico e diff; validador documental executado para o fechamento.
+  - Autorrevisão documental pelo executor; a decisão de fechar o épico foi solicitada pelo PO, sem atribuir testes adicionais a ele.
+  - Testes de aplicação e inferência real não repetidos para o fechamento exclusivamente documental; resultados anteriores e CI remota são preservados.
+  pending_work:
+  - Fechamento do épico aguarda eventual publicação remota autorizada; não iniciar STORY-030 sem autorização.
