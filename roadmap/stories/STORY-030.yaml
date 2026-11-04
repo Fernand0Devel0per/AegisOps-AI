@@ -3,7 +3,7 @@ title: Especificar runbooks e baseline rotulado de recuperação
 epic: EPIC-003
 description: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
 objective: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
-context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
+context: SPIKE-030 concluída e proposta C1 aceita globalmente pelo PO em 2026-11-04; corpus e dataset ainda não foram materializados. A história exige refinamento, especificação e atividade antes da execução.
 priority: medium
 status: backlog
 refinement_required: true
@@ -36,16 +36,27 @@ validation:
   manual_checks:
   - Revisar rótulos e autorização do corpus.
 references:
+- roadmap/epics/EPIC-003.yaml
 - roadmap/stories/SPIKE-030.yaml
+- agents/handoffs/HANDOFF-029.yaml
 - doc/research/SPIKE-030.md
 - doc/research/spike-030-fontes.yaml
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- datasets/incidents/inc-001-latencia.json
+- datasets/incidents/inc-002-erros-5xx.json
+- datasets/incidents/inc-003-saturacao.json
+- doc/standards/workflow.md
+- doc/standards/validation.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
 - doc/decisions/open-questions.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Materializar corpus e dataset somente após estudo e revisão da SPIKE-030; consumir suas decisões de fontes, autorização, idioma, rótulos e protocolo sem presumir aceite de todo documento público.
+refinement_notes: >-
+  SPIKE-030 está done, ACT-029 completed e HANDOFF-029 registra aceite global de C1 e protocolo, não aprovação individual de cada trecho nem corpus existente. Antes de executar STORY-030, produzir especificação suficiente com mapeamento dos critérios e preparar atividade; manter backlog até atender às condições de ready e haver autorização de execução. Consultar relatório, manifesto e handoff para selecionar fontes e verificar licenças, avisos e direitos de terceiros antes de incorporar cada trecho. Revisar adaptações e rótulos nas unidades efetivas, incluindo negativos difíceis e ausência relativa à versão do corpus. Preservar grupos de paráfrases e traduções e registrar idiomas; não presumir que inglês melhora resultados sem medição. Não iniciar ranking nem STORY-031 nesta história.

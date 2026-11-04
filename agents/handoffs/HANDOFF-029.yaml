@@ -115,3 +115,17 @@ maintenance_updates:
   - git diff --check e git diff --cached --check — PASS, sem erros de whitespace.
   - git check-ignore confirmou os dois arquivos em .local; SHA-256 antes e depois da movimentação idênticos.
   - Busca de referências versionadas aos caminhos removidos sem ocorrências; nenhum teste de aplicação executado por ser manutenção documental.
+- date: '2026-11-04'
+  authorization: PO solicitou prompt de execução e atualização da STORY-030 com a spike concluída e fontes para consulta.
+  summary: STORY-030 atualizada com estado da SPIKE-030, leituras e pendências; prompt de execução preparado em .local/story-030-proxima-sessao.md, ignorado pelo Git. Preparação não executa nem autoriza a história por si só.
+  changed_files:
+  - path: roadmap/stories/STORY-030.yaml
+    reason: Apontar evidências, contratos e pendências de refinamento e manter backlog.
+  - path: agents/handoffs/HANDOFF-029.yaml
+    reason: Registrar continuidade da preparação sem alterar a conclusão da spike.
+  note: Não foi criada spec ou atividade de STORY-030 nesta preparação; o prompt orienta sua criação antes da execução. A exclusão local preexistente e o stash foram preservados.
+  validation:
+  - python3 scripts/validate_repository.py — PASS; 72 YAML, 11 épicos, 23 histórias e 28 Markdown.
+  - git diff --check e git diff --cached --check — PASS; git check-ignore confirmou que o prompt é local.
+  - Conferência de status backlog, dependências, existência das referências, conteúdo do prompt e handoff — PASS.
+  - Testes de aplicação não executados: preparação documental sem alteração de produto.
