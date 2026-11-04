@@ -1,0 +1,137 @@
+schema_version: 1
+corpus_version: C1-2026-11-04.1
+status: proposto_para_revisao
+hash_method: 'SHA-256 UTF-8 de linhas ordenadas por path: <sha256>  <path>\n; somente arquivos de unidades.'
+corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+units:
+- id: GL-DIAG
+  path: datasets/runbooks/gl-diag.md
+  sha256: fcb659d0c461e2d80394586507eb21298e3891784872a1f5bf84fb0a7870b934
+  source_sha256: 0ea7ce983ff5bf6c9bb7d9675dfa01ccfd69fb537592bce33045178157469df1
+  license_path: datasets/runbooks/licenses/gitlab-v4.111.0-MIT.txt
+  license_sha256: 311651f31ca46439529fbbfbfda7804d85d3a077391cf07919f4b5d6c5e261a2
+  source_url: https://gitlab.com/gitlab-com/runbooks/-/blob/v4.111.0/docs/tutorials/diagnosis.md
+  version: v4.111.0
+  sections:
+  - Symptom- vs cause-based alerting
+  - 'Querying: filtering and grouping'
+  - Aggregation
+  review: pendente_po
+- id: GL-GITALY
+  path: datasets/runbooks/gl-gitaly.md
+  sha256: 3d2869b190a3e95fefccf2f279dc5b29051f2477453222038911e04e68415634
+  source_sha256: 8ed0222854a307de2ef9062577ee8e046869cf541f968ecaa5c20946e5f67de0
+  license_path: datasets/runbooks/licenses/gitlab-v2.180.0-MIT.txt
+  license_sha256: 8520e105905e255ad0b46621888be6dbfd4ced0bfe0aed1eb69839ce5fd4ad51
+  source_url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.180.0/docs/gitaly/git-high-cpu-and-memory-usage.md
+  version: v2.180.0
+  sections:
+  - 'Problem: git processes spawned by Gitaly may consume significant CPU and memory'
+  - Symptoms
+  review: pendente_po
+- id: GL-LAT
+  path: datasets/runbooks/gl-lat.md
+  sha256: 2774c3a6dcb359aec7611783bfbc3ed5a733d873d927f25568cf8b1cb5cb53bb
+  source_sha256: 50891600cd8e813e1f470147b12738471a0ca25e696384cdc9179049c7082f87
+  license_path: datasets/runbooks/licenses/gitlab-v2.198.1-MIT.txt
+  license_sha256: 8520e105905e255ad0b46621888be6dbfd4ced0bfe0aed1eb69839ce5fd4ad51
+  source_url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.198.1/docs/gitaly/gitaly-latency.md
+  version: v2.198.1
+  sections:
+  - Symptoms
+  - 1. Check the triage dashboard to assess the impact
+  review: pendente_po
+- id: PO-CPU
+  path: datasets/runbooks/po-cpu.md
+  sha256: 0d0e8e8e71288a7461ad7212d275b06f4c4313d71cc5dda69098809d779aa21e
+  source_sha256: cdfb846e71a3c5edb19d73a56b1137158d1ee2b406a9db174f6605e1ffd4c30b
+  license_path: datasets/runbooks/licenses/prometheus-Apache-2.0.txt
+  license_sha256: a8ad31b1c3f40dca5a84119351b8fa8ddc868edd77fad8a8ebf6d8f2d16fa4ae
+  source_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/CPUThrottlingHigh.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  sections:
+  - Meaning
+  - Diagnosis
+  review: pendente_po
+- id: PO-MEM
+  path: datasets/runbooks/po-mem.md
+  sha256: afe26e5487794fbeff902c911d72bf704a758c0eeb462447375ac80538aaed6b
+  source_sha256: d441f56b3548f015ebd9e2ad4483cd714322e67f25aee58a036159d8a6bc2ed1
+  license_path: datasets/runbooks/licenses/prometheus-Apache-2.0.txt
+  license_sha256: a8ad31b1c3f40dca5a84119351b8fa8ddc868edd77fad8a8ebf6d8f2d16fa4ae
+  source_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeMemoryOvercommit.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  sections:
+  - Meaning
+  - Diagnosis
+  review: pendente_po
+- id: PO-KCLIENT
+  path: datasets/runbooks/po-kclient.md
+  sha256: 4d4eafadc005322e461708edbf9092a5d3d28b5a275e3303308584a4019edc86
+  source_sha256: 5202eafd0a0a0d0f6fec3f587c652d20bafb334223b80bd127568031a95a9293
+  license_path: datasets/runbooks/licenses/prometheus-Apache-2.0.txt
+  license_sha256: a8ad31b1c3f40dca5a84119351b8fa8ddc868edd77fad8a8ebf6d8f2d16fa4ae
+  source_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeClientErrors.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  sections:
+  - Meaning
+  - Diagnosis
+  review: pendente_po
+- id: DU-CPU
+  path: datasets/runbooks/du-cpu.md
+  sha256: 91231b1f9b79b4e28619c0261a73ef5bc028d18b644c1207d78e85df9b3db68b
+  source_sha256: 87f296761e1cd2b3706fd43d615418e32e6f55e852b8a229ec865c6ed1d0bbd3
+  license_path: datasets/runbooks/licenses/durrell-MIT.txt
+  license_sha256: afe919abf0f074d149b0566fcf56f23747405673db0a9f0b09dba29fb8c000b5
+  source_url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/runbooks/high-cpu.md
+  version: 15a4a5453fb76425337ac42ea75d7d84bae62822
+  sections:
+  - 1. Confirm scope
+  review: pendente_po
+- id: DU-5XX
+  path: datasets/runbooks/du-5xx.md
+  sha256: de5cc367e13397e983c8ce084b08fcac6d1283eec1a26c841fd527b5a74470bf
+  source_sha256: c320e3a628956ea3d4f0aa2a474d46a42e185b01517cda586f5a12cd99816026
+  license_path: datasets/runbooks/licenses/durrell-MIT.txt
+  license_sha256: afe919abf0f074d149b0566fcf56f23747405673db0a9f0b09dba29fb8c000b5
+  source_url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/runbooks/high-error-rate.md
+  version: 15a4a5453fb76425337ac42ea75d7d84bae62822
+  sections:
+  - 1. Triage (first 5 minutes)
+  review: pendente_po
+- id: BK-CPU
+  path: datasets/runbooks/bk-cpu.md
+  sha256: f2f4e71939d31252ea425e443228d7a0db710fd5ce966a99ab1d68ac208ebd8a
+  source_sha256: 29bf091a4217e323ecfb6e19f230a211aaf4954a8f852a98ed74ae7b6b308f5d
+  license_path: datasets/runbooks/licenses/backstage-MIT.txt
+  license_sha256: f4faa264ad8649438eb847f198c89aceb3e637e4d0c2048705c2b1a4d9570844
+  source_url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/docs/runbooks/high-cpu.md
+  version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+  sections:
+  - Alert Description
+  - 2. Check if it's sustained throttling or a spike
+  review: pendente_po
+- id: BK-MEM
+  path: datasets/runbooks/bk-mem.md
+  sha256: e91a2a0a709c5f5c0811c6ef724cd563f23a18935182844870d29173eae5bbc1
+  source_sha256: 400b571809b930d4dbb819a3c5fd06137aff6d677f8920bbd53fb9013d9b0caa
+  license_path: datasets/runbooks/licenses/backstage-MIT.txt
+  license_sha256: f4faa264ad8649438eb847f198c89aceb3e637e4d0c2048705c2b1a4d9570844
+  source_url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/docs/runbooks/high-memory.md
+  version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+  sections:
+  - Alert Description
+  - 1. Identify the high-memory pods
+  - 2. Check for a memory leak pattern
+  review: pendente_po
+- id: URL-LAT
+  path: datasets/runbooks/url-lat.md
+  sha256: e69da6b2d2c5d4dd232ecc3c72f465aeba71c5ec2a538cb2d2630194affb7c95
+  source_sha256: 9fea1f5e6161d2cf58fa33b9347217239b7096bc2b6084230692b442cda6484e
+  license_path: datasets/runbooks/licenses/url-shortener-MIT.txt
+  license_sha256: 22a8de5e09468e08b848fe08df05e2a9eb5a8a0621f84ac935efe892998b5e0f
+  source_url: https://github.com/RETR0-OS/MLH_PE_URL_Shortener/blob/c47e12d39277b379ef43703b2f71b8863c888a9d/docs/Incident%20Response/runbooks/INCIDENT-PLAYBOOK.md
+  version: c47e12d39277b379ef43703b2f71b8863c888a9d
+  sections:
+  - 8. Runbook Summaries / HighLatency / Step 1 — Confirm and characterise
+  review: pendente_po

@@ -1,0 +1,345 @@
+schema_version: 1
+dataset_version: C1-queries-2026-11-04.1
+corpus_version: C1-2026-11-04.1
+corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+status: proposto_nao_elegivel_para_medicao
+split: nao_atribuido
+queries:
+- id: Q01
+  group: INC-001
+  incident_id: INC-001
+  fixture: datasets/incidents/inc-001-latencia.json
+  language: pt-BR
+  text: O p95 de requisições subiu de 120 para 900 ms; como orientar investigação geral?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: URL-LAT
+    rationale: Trata p95 e volume; requer dados adicionais.
+  - id: GL-DIAG
+    rationale: Orienta análise geral de requisições lentas; exige dados adicionais.
+  negative:
+  - id: GL-LAT
+    rationale: Específico de Gitaly, componente não evidenciado.
+  unjudged:
+  - GL-GITALY
+  - PO-CPU
+  - PO-MEM
+  - PO-KCLIENT
+  - DU-CPU
+  - DU-5XX
+  - BK-CPU
+  - BK-MEM
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q02
+  group: INC-001
+  incident_id: INC-001
+  fixture: datasets/incidents/inc-001-latencia.json
+  language: en
+  text: Request p95 rose from 120 to 900 ms; what general diagnostic approach applies?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: URL-LAT
+    rationale: Trata p95 e volume; requer dados adicionais.
+  - id: GL-DIAG
+    rationale: Orienta análise geral de requisições lentas; exige dados adicionais.
+  negative:
+  - id: GL-LAT
+    rationale: Específico de Gitaly, componente não evidenciado.
+  unjudged:
+  - GL-GITALY
+  - PO-CPU
+  - PO-MEM
+  - PO-KCLIENT
+  - DU-CPU
+  - DU-5XX
+  - BK-CPU
+  - BK-MEM
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q03
+  group: INC-002
+  incident_id: INC-002
+  fixture: datasets/incidents/inc-002-erros-5xx.json
+  language: pt-BR
+  text: A taxa de respostas HTTP 5xx subiu para 20%; como examinar a abrangência dos erros?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: DU-5XX
+    rationale: Aborda abrangência de 5xx; endpoints e mudanças não foram observados.
+  - id: GL-DIAG
+    rationale: Propõe agrupar requisições com erros; exige dados adicionais.
+  negative:
+  - id: PO-KCLIENT
+    rationale: Erros de cliente Kubernetes em 15 minutos não são 5xx do serviço.
+  unjudged:
+  - GL-GITALY
+  - GL-LAT
+  - PO-CPU
+  - PO-MEM
+  - DU-CPU
+  - BK-CPU
+  - BK-MEM
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q04
+  group: INC-002
+  incident_id: INC-002
+  fixture: datasets/incidents/inc-002-erros-5xx.json
+  language: en
+  text: HTTP server errors reached 20%; how can we investigate their scope?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: DU-5XX
+    rationale: Aborda abrangência de 5xx; endpoints e mudanças não foram observados.
+  - id: GL-DIAG
+    rationale: Propõe agrupar requisições com erros; exige dados adicionais.
+  negative:
+  - id: PO-KCLIENT
+    rationale: Erros de cliente Kubernetes em 15 minutos não são 5xx do serviço.
+  unjudged:
+  - GL-GITALY
+  - GL-LAT
+  - PO-CPU
+  - PO-MEM
+  - DU-CPU
+  - BK-CPU
+  - BK-MEM
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q05
+  group: INC-003
+  incident_id: INC-003
+  fixture: datasets/incidents/inc-003-saturacao.json
+  language: pt-BR
+  text: CPU média do serviço atingiu 95% da capacidade alocada; como investigá-la sem assumir throttling?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: DU-CPU
+    rationale: Aborda escopo de CPU elevada sem afirmar impacto.
+  - id: BK-CPU
+    rationale: Distingue uso e medição separada de throttling.
+  negative:
+  - id: PO-CPU
+    rationale: Pressupõe throttling, não evidenciado por utilização.
+  - id: GL-GITALY
+    rationale: Exige contexto Gitaly e processos Git ausentes.
+  unjudged:
+  - GL-DIAG
+  - GL-LAT
+  - PO-MEM
+  - PO-KCLIENT
+  - DU-5XX
+  - BK-MEM
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q06
+  group: INC-003
+  incident_id: INC-003
+  fixture: datasets/incidents/inc-003-saturacao.json
+  language: pt-BR
+  text: Memória média do serviço chegou a 97% do limite; como investigar a utilização?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: BK-MEM
+    rationale: Aborda utilização e história de memória, sem inferir leak ou OOM.
+  negative:
+  - id: PO-MEM
+    rationale: Trata de requests e capacidade do cluster, não uso/limite do serviço.
+  - id: GL-GITALY
+    rationale: Exige contexto Gitaly e processos Git ausentes.
+  unjudged:
+  - GL-DIAG
+  - GL-LAT
+  - PO-CPU
+  - PO-KCLIENT
+  - DU-CPU
+  - DU-5XX
+  - BK-CPU
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q07
+  group: INC-003
+  incident_id: INC-003
+  fixture: datasets/incidents/inc-003-saturacao.json
+  language: en
+  text: Service CPU averaged 95% of allocated capacity; how investigate without assuming throttling?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: DU-CPU
+    rationale: Aborda escopo de CPU elevada sem afirmar impacto.
+  - id: BK-CPU
+    rationale: Distingue uso e medição separada de throttling.
+  negative:
+  - id: PO-CPU
+    rationale: Pressupõe throttling, não evidenciado por utilização.
+  - id: GL-GITALY
+    rationale: Exige contexto Gitaly e processos Git ausentes.
+  unjudged:
+  - GL-DIAG
+  - GL-LAT
+  - PO-MEM
+  - PO-KCLIENT
+  - DU-5XX
+  - BK-MEM
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q08
+  group: INC-003
+  incident_id: INC-003
+  fixture: datasets/incidents/inc-003-saturacao.json
+  language: en
+  text: Service memory averaged 97% of its limit; how investigate utilization?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: false
+  relevant:
+  - id: BK-MEM
+    rationale: Aborda utilização e história de memória, sem inferir leak ou OOM.
+  negative:
+  - id: PO-MEM
+    rationale: Trata de requests e capacidade do cluster, não uso/limite do serviço.
+  - id: GL-GITALY
+    rationale: Exige contexto Gitaly e processos Git ausentes.
+  unjudged:
+  - GL-DIAG
+  - GL-LAT
+  - PO-CPU
+  - PO-KCLIENT
+  - DU-CPU
+  - DU-5XX
+  - BK-CPU
+  - URL-LAT
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q09
+  group: HYP-DEADLOCK
+  incident_id: null
+  fixture: null
+  language: pt-BR
+  text: Há procedimento específico para diagnóstico de deadlocks PostgreSQL?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: true
+  relevant: []
+  negative:
+  - id: GL-DIAG
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: GL-GITALY
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: GL-LAT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-MEM
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-KCLIENT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: DU-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: DU-5XX
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: BK-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: BK-MEM
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: URL-LAT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  unjudged: []
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente
+- id: Q10
+  group: HYP-DEADLOCK
+  incident_id: null
+  fixture: null
+  language: en
+  text: Is there a specific procedure for diagnosing PostgreSQL deadlocks?
+  corpus_version: C1-2026-11-04.1
+  corpus_sha256: 562b1a8bf10a96ce8f83d41dd43ad102256e5c006bc44c67d78b3a31f691c3cb
+  absence: true
+  relevant: []
+  negative:
+  - id: GL-DIAG
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: GL-GITALY
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: GL-LAT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-MEM
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: PO-KCLIENT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: DU-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: DU-5XX
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: BK-CPU
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: BK-MEM
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  - id: URL-LAT
+    rationale: Unidade não fornece procedimento específico para deadlocks PostgreSQL.
+  unjudged: []
+  review:
+    executor: Codex
+    date: '2026-11-04'
+    status: proposta_pendente_po
+    po: pendente
+    disagreement: não registrada; revisão do PO pendente

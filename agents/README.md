@@ -11,6 +11,8 @@ Comece por [AGENTS.md](../AGENTS.md). Esta pasta guarda estado versionável, nã
 
 O bootstrap histórico está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activities/ACT-000.yaml) e [HANDOFF-000](handoffs/HANDOFF-000.yaml). A [SPIKE-030](../roadmap/stories/SPIKE-030.yaml) e [ACT-029](activities/ACT-029.yaml) foram concluídas; [HANDOFF-029](handoffs/HANDOFF-029.yaml) registra o aceite, a validação e as pendências para as histórias futuras.
 
+A [STORY-030](../roadmap/stories/STORY-030.yaml) está em revisão: [SPEC-030](specs/SPEC-030.yaml), [ACT-030](activities/ACT-030.yaml) e [HANDOFF-030](handoffs/HANDOFF-030.yaml) registram o corpus e as decisões pendentes.
+
 ## Regras de handoff
 
 - Nenhuma atividade é `completed` sem validação executada e evidência registrada. Caso parcial/bloqueado deve usar o estado correspondente.

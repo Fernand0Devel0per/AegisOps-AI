@@ -1,0 +1,144 @@
+id: HANDOFF-030
+activity_id: ACT-030
+story_id: STORY-030
+spec_id: SPEC-030
+source_agent: Codex — execução e autorrevisão documental
+target_agent: Product Owner e futuro executor da STORY-030
+status: partial
+summary: Corpus e dataset candidatos materializados e validados; revisão individual do PO pendente. História e atividade
+  em revisão; STORY-031 não iniciada.
+completed_work:
+- Confirmados STORY-021 e SPIKE-030 done, ACT-029 completed e EPIC-002 done; plano original Etapa 3 disponível e
+  consultado.
+- Preparados SPEC-030 e ACT-030, critérios mapeados e transições coerentes no índice e história; sem decisão estrutural
+  nova.
+- Inspecionadas 11 fontes C1 e licenças nas versões; os três LICENSE GitLab foram obtidos por raw na tag correta
+  e preservados; NOTICE raiz GitLab/Prometheus retornou HTTP 404.
+- Produzidas 11 unidades, 10 consultas pt/en, julgamentos com justificativas, casos não julgados, negativos difíceis
+  e ausência relativa; autorrevisão semântica do executor realizada.
+- Solicitada revisão individual concreta ao PO por meio de datasets/evaluation/REVIEW.md; nenhuma concordância ou
+  divergência individual recebida até este handoff.
+changed_files:
+- path: README.md
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: agents/README.md
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: roadmap/epics/EPIC-003.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: roadmap/index.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: roadmap/stories/STORY-030.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: doc/decisions/open-questions.md
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: agents/specs/SPEC-030.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: agents/activities/ACT-030.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: agents/handoffs/HANDOFF-030.yaml
+  reason: Contrato, estado, continuidade ou documentação da STORY-030.
+- path: datasets/evaluation/README.md
+  reason: Consultas, protocolo, pedido de revisão ou validação do dataset.
+- path: datasets/evaluation/REVIEW.md
+  reason: Consultas, protocolo, pedido de revisão ou validação do dataset.
+- path: datasets/evaluation/queries.yaml
+  reason: Consultas, protocolo, pedido de revisão ou validação do dataset.
+- path: datasets/evaluation/validate.py
+  reason: Consultas, protocolo, pedido de revisão ou validação do dataset.
+- path: datasets/runbooks/README.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/bk-cpu.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/bk-mem.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/du-5xx.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/du-cpu.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/gl-diag.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/gl-gitaly.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/gl-lat.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/backstage-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/durrell-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/gitlab-v2.180.0-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/gitlab-v2.198.1-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/gitlab-v4.111.0-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/prometheus-Apache-2.0.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/licenses/url-shortener-MIT.txt
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/manifest.yaml
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/po-cpu.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/po-kclient.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/po-mem.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+- path: datasets/runbooks/url-lat.md
+  reason: Unidade, licença ou manifesto de corpus versionado.
+decisions_made:
+- 'GitLab era uma lacuna na SPIKE: acesso raw posterior retornou os três textos integrais MIT das tags; textos,
+  atribuições e hashes foram preservados. Acessibilidade pública não comprova direitos ocultos de terceiros.'
+- Corpus C1-2026-11-04.1 é candidato congelado para revisão; adaptação retira comandos, ações privilegiadas, limiares
+  e alegações indevidas e adiciona ressalvas.
+- Consultas da mesma fixture compartilham grupo inclusive INC-003; nenhuma partição atribuída, pois três fixtures
+  não são representativas. Solicitar ao PO autorização para novos incidentes sintéticos independentes antes de alegar
+  generalização.
+- Aceite global anterior não é revisão individual. Ausências são relativas ao corpus; itens não julgados permanecem
+  distintos de negativos; conjunto não está elegível para medir.
+validation:
+  executed:
+  - 'python3 datasets/evaluation/validate.py — PASS: 11 unidades, 10 consultas e integridade.'
+  - 'python3 datasets/evaluation/validate.py --self-test — PASS: sete mutações inválidas rejeitadas.'
+  - 'python3 scripts/validate_incidents.py — PASS: 3 fixtures e 21 IDs; sem validação de severidade.'
+  - python3 -m py_compile datasets/evaluation/validate.py — PASS.
+  - git diff --check e git diff --cached --check — PASS nas verificações antes do handoff; serão repetidas após
+    staging.
+  - Leitura de arquivos e LICENSE originais fixados e busca de avisos nos arquivos; inspeção manual de adaptações,
+    rótulos e ausência.
+  - 'python3 scripts/validate_repository.py — PASS: 75 YAML, 11 épicos, 23 histórias e 42 Markdown; plano local
+    não verificado.'
+  - git diff --cached --check identificou linha vazia extra no fim da licença Apache original; removida somente
+    linha vazia final e hash atualizado; verificar novamente após staging.
+  - git diff --cached --check após correção da linha vazia da licença — PASS.
+  passed:
+  - check: Integridade estrutural, hashes, referências, grupos e casos inválidos; não valida semântica nem direitos
+      ocultos.
+    evidence: datasets/evaluation/README.md
+  failed:
+  - Verificação inicial do diff staged encontrou whitespace no fim da licença Apache; corrigido, com texto integral
+    preservado.
+  not_executed:
+  - 'Revisão individual do PO e consenso: solicitados, aguardando resposta.'
+  - 'Ranking, inferência, testes de aplicação e métricas não executados: fora do escopo.'
+  - 'Self-test do validador documental e Pyright não executados: scripts/validate_repository.py não foi alterado.'
+  - CI, push, PR, merge, tag e publicação não executados.
+review:
+  type: Autorrevisão pelo executor; revisão individual do PO solicitada e ainda pendente.
+  evidence: datasets/evaluation/REVIEW.md
+known_issues:
+- Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash STORY-021 preservados e excluídos da entrega.
+- Somente três fixtures e uma hipótese de ausência; não há partição representativa nem prova de generalização.
+- Verificação de licenças e avisos não certifica direitos de terceiros ocultos; revisão humana permanece necessária.
+pending_work:
+- PO revisar individualmente cada unidade, licença, adaptação, consulta, julgamento e protocolo; registrar decisões,
+  divergências e eventuais mudanças.
+- Após revisão, corrigir, versionar novamente se necessário, revalidar, registrar evidência por critério e concluir
+  somente quando DoD satisfeito.
+- Aguardar autorização para ampliar cenários; não iniciar STORY-031 automaticamente.
+next_steps:
+- Continuar ACT-030 após resposta do PO; registrar revisão em datasets/evaluation/REVIEW.md e no handoff.
+- Manter conjunto inelegível para medição enquanto houver revisão ou desacordo pendente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md

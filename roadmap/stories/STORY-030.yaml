@@ -3,38 +3,46 @@ title: Especificar runbooks e baseline rotulado de recuperação
 epic: EPIC-003
 description: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
 objective: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
-context: SPIKE-030 concluída e proposta C1 aceita globalmente pelo PO em 2026-11-04; corpus e dataset ainda não foram materializados. A história exige refinamento, especificação e atividade antes da execução.
+context: SPIKE-030 concluída e C1 aceita globalmente em 2026-11-04; revisão individual das unidades efetivas e rótulos
+  permanece necessária.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-021
 - SPIKE-030
 scope:
   included:
-  - Formato de runbook
-  - IDs, origem e versão
-  - Dataset rotulado
+  - Corpus Markdown adaptado de unidades C1 autorizadas, com proveniência e licença por versão.
+  - Dataset bilíngue próprio, julgamentos e ausência relativos ao corpus, grupos e protocolo de revisão.
   excluded:
   - Embeddings
   - Integração de LLM nesta atividade de preparação do corpus
   - Documentos não autorizados
+  - Busca ou ranking e STORY-031
+  - Execução de comandos, remediação ou acesso a infraestrutura das fontes
 acceptance_criteria:
 - id: AC-01
   criterion: Runbooks versionados têm identificador, origem e versão.
 - id: AC-02
   criterion: Dataset inclui consultas relevantes, ausência de documento aplicável e documento irrelevante.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - datasets/runbooks/
 - datasets/evaluation/
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/evaluation/validate.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
   manual_checks:
-  - Revisar rótulos e autorização do corpus.
+  - Revisar individualmente corpus, licenças, traduções, rótulos e protocolo com PO; registrar divergências e decisão.
 references:
 - roadmap/epics/EPIC-003.yaml
 - roadmap/stories/SPIKE-030.yaml
@@ -53,10 +61,21 @@ references:
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0006-proposta-integracao-colibri.md
 - doc/decisions/open-questions.md
+- agents/specs/SPEC-030.yaml
+- agents/activities/ACT-030.yaml
+- agents/handoffs/HANDOFF-030.yaml
+- datasets/runbooks/manifest.yaml
+- datasets/evaluation/queries.yaml
+- datasets/evaluation/REVIEW.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: >-
-  SPIKE-030 está done, ACT-029 completed e HANDOFF-029 registra aceite global de C1 e protocolo, não aprovação individual de cada trecho nem corpus existente. Antes de executar STORY-030, produzir especificação suficiente com mapeamento dos critérios e preparar atividade; manter backlog até atender às condições de ready e haver autorização de execução. Consultar relatório, manifesto e handoff para selecionar fontes e verificar licenças, avisos e direitos de terceiros antes de incorporar cada trecho. Revisar adaptações e rótulos nas unidades efetivas, incluindo negativos difíceis e ausência relativa à versão do corpus. Preservar grupos de paráfrases e traduções e registrar idiomas; não presumir que inglês melhora resultados sem medição. Não iniciar ranking nem STORY-031 nesta história.
+refinement_notes: Contrato refinado conforme SPEC-030; revisão individual do PO é gate para medição e encerramento.
+  Fontes cuja licença não puder ser verificada ficam excluídas.
+progress_evidence:
+- 'AC-01: 11 unidades propostas com versões, origem, seções, licença e hashes em datasets/runbooks/manifest.yaml;
+  revisão individual do PO pendente.'
+- 'AC-02: 10 consultas propostas, positivos, negativos difíceis, não julgados e ausência relativa ao corpus em datasets/evaluation/queries.yaml;
+  revisão individual pendente.'

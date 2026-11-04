@@ -55,7 +55,7 @@ O Colibri e o Qwen int4 são preparados fora do repositório e foram usados na d
 | Concluído | Consulta local por API e health, sem triagem; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Núcleo local de triagem determinística, separado da API; veja [desenvolvimento local](doc/DEVELOPMENT.md) |
 | Concluído | Envio pela API, triagem e explicação restrita por Qwen local, com verificação independente e fallback; veja [demo](doc/DEMO.md) e [avaliação](doc/decisions/story-021-avaliacao.md) |
-| Estudo concluído | [SPIKE-030](roadmap/stories/SPIKE-030.yaml): [relatório e proposta C1](doc/research/SPIKE-030.md) aceitos pelo PO; corpus e busca ainda não implementados. |
+| Em revisão | [STORY-030](roadmap/stories/STORY-030.yaml): [corpus candidato](datasets/runbooks/README.md) e [consultas propostas](datasets/evaluation/README.md) aguardam revisão individual do PO; busca ainda não implementada. |
 | Planejado | Busca de runbooks, hipóteses, persistência e evolução por etapas |
 
 A operação de investigação responde na própria requisição, sem persistência ou consulta posterior. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.

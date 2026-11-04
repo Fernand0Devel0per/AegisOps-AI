@@ -1,17 +1,20 @@
 id: EPIC-003
 title: Documentação operacional e recuperação básica
 source_phase: 3
-objective: Estudar fontes e avaliação própria revisada antes de construir baseline lexical de runbooks Markdown com rastreabilidade.
+objective: Estudar fontes e avaliação própria revisada antes de construir baseline lexical de runbooks Markdown
+  com rastreabilidade.
 status: in_progress
 priority: medium
 dependencies:
 - EPIC-002
 scope:
-- Estudo prévio de Prometheus Operator e seleção do GitLab como fontes, com avaliação própria revisada pelo PO e executor.
+- Estudo prévio de Prometheus Operator e seleção do GitLab como fontes, com avaliação própria revisada pelo PO e
+  executor.
 - Formato de runbooks e dataset
 - Ranking e avaliação lexical
 exit_criteria:
-- Estudo de fontes, aplicabilidade e protocolo de avaliação concluído e revisado na SPIKE-030 antes das histórias de corpus e ranking.
+- Estudo de fontes, aplicabilidade e protocolo de avaliação concluído e revisado na SPIKE-030 antes das histórias
+  de corpus e ranking.
 - Cada trecho recuperado tem ID, origem e versão.
 - Dataset verifica relevância e ausência de runbook aplicável.
 stories:
@@ -24,4 +27,5 @@ references:
 - doc/research/SPIKE-030.md
 - doc/research/spike-030-fontes.yaml
 - agents/handoffs/HANDOFF-029.yaml
-refinement_notes: SPIKE-030 concluída após aceite global do PO em 2026-11-04; STORY-030 e STORY-031 permanecem backlog e exigem autorização, refinamento e contratos próprios. Corpus final, ranking e integração de LLM não foram implementados.
+refinement_notes: SPIKE-030 concluída; STORY-030 em revisão com corpus e julgamentos propostos. STORY-031 permanece
+  backlog e não foi iniciada.
