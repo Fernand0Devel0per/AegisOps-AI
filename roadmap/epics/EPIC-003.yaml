@@ -2,7 +2,7 @@ id: EPIC-003
 title: Documentação operacional e recuperação básica
 source_phase: 3
 objective: Estudar fontes e avaliação própria revisada antes de construir baseline lexical de runbooks Markdown com rastreabilidade.
-status: ready
+status: in_progress
 priority: medium
 dependencies:
 - EPIC-002
@@ -23,4 +23,4 @@ references:
 - doc/architecture/overview.md
 - doc/decisions/spike-030-plano-estudo.md
 - agents/handoffs/HANDOFF-029.yaml
-refinement_notes: SPIKE-030 preparada para estudo em outra sessão; STORY-030 e STORY-031 permanecem backlog e exigem o gate do estudo, refinamento e contratos próprios. Nenhum corpus, avaliação de ranking ou integração de LLM foi implementado nesta preparação.
+refinement_notes: SPIKE-030 em revisão do PO após estudo documental; STORY-030 e STORY-031 permanecem backlog e exigem o gate do estudo, refinamento e contratos próprios. Corpus final, ranking e integração de LLM não foram implementados.

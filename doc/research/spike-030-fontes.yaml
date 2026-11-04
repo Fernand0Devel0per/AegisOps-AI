@@ -1,0 +1,86 @@
+schema_version: 1
+study: SPIKE-030
+consulted_at: '2026-11-03'
+status: proposta_nao_aprovada
+corpus_candidate: C0-proposta-2026-11-03
+scope_note: C0 é uma lista hipotética de unidades, não um corpus materializado; a ausência é relativa a esta lista e às versões abaixo.
+review: {executor: proposta_e_autorrevisao, po: pendente}
+sources:
+- id: GL-DIAG
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/tutorials/diagnosis.md
+  version: v4.111.0
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v4.111.0/docs/tutorials/diagnosis.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT no projeto atual; confirmar texto e abrangência na versão v4.111.0 e direitos de conteúdo de terceiros antes de incorporar.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos de copyright e licença aplicáveis.
+  language: en
+  sections: ['Symptom- vs cause-based alerting', 'Querying: filtering and grouping', 'Aggregation']
+  adaptation: Candidato a unidade curta em inglês e eventual tradução anotada; remover dependência de ferramentas GitLab e comandos, sem inventar evidência ou alterar significado; sujeita à revisão.
+  applicability: Orientação geral para investigar latência e erros; exige sinais adicionais e não identifica sua causa. Trechos sobre recursos servem como contexto geral sujeito a revisão, não procedimento específico de CPU ou memória do serviço.
+  decision: candidato_positivo_condicional
+- id: GL-GITALY
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/gitaly/git-high-cpu-and-memory-usage.md
+  version: v2.180.0
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.180.0/docs/gitaly/git-high-cpu-and-memory-usage.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT declarado no projeto atual; confirmar na versão fixada e direitos de terceiros.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos aplicáveis.
+  language: en
+  sections: ['Problem: git processes spawned by Gitaly may consume significant CPU and memory', Symptoms]
+  adaptation: Somente eventual trecho de sintomas como distrator explicitamente rotulado; omitir comandos, ações e referências privadas.
+  applicability: CPU e memória de processos Git/Gitaly exigem identificação de componente ausente nas fixtures; não extrapolar.
+  decision: candidato_negativo_dificil
+- id: GL-LAT
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/gitaly/gitaly-latency.md
+  version: v2.198.1
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.198.1/docs/gitaly/gitaly-latency.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT declarado no projeto atual; confirmar na versão fixada e direitos de terceiros.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos aplicáveis.
+  language: en
+  sections: [Symptoms, '1. Check the triage dashboard to assess the impact']
+  adaptation: Eventual distrator de latência Gitaly; não incorporar comandos nem orientações de acesso.
+  applicability: P95 Gitaly não equivale a P95 de serviço fictício; documento sinaliza possível depreciação e contém remediação.
+  decision: candidato_negativo_dificil
+- id: PO-CPU
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/CPUThrottlingHigh.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/CPUThrottlingHigh.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator; não trazer ações de mitigação como instruções.
+  applicability: Exige evidência de throttling, não fornecida por utilização de CPU.
+  decision: candidato_negativo_dificil
+- id: PO-MEM
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/KubeMemoryOvercommit.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeMemoryOvercommit.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator; não importar ações de mitigação.
+  applicability: Trata de requests agregados e tolerância a falha do cluster, não de utilização relativa ao limite de um serviço.
+  decision: candidato_negativo_dificil
+- id: PO-KCLIENT
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/KubeClientErrors.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeClientErrors.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator de erros; mitigação consta como TODO.
+  applicability: Erros de cliente da API Kubernetes em 15 minutos não equivalem a HTTP 5xx do serviço em cinco minutos.
+  decision: candidato_negativo_dificil

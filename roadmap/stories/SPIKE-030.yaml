@@ -5,7 +5,7 @@ description: Estudar documentos públicos e definir um recorte de corpus e avali
 objective: Reduzir incertezas de aplicabilidade, licença, idioma e rótulos com evidências e decisão conjunta com o PO.
 context: PO aprovou estudar Prometheus Operator e seleção do GitLab como fontes, com avaliação própria; a pesquisa exploratória não é aceite do corpus nem execução deste estudo.
 priority: high
-status: ready
+status: in_review
 refinement_required: false
 dependencies:
 - STORY-021

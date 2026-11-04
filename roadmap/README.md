@@ -4,7 +4,7 @@
 
 ## Ordem inicial (histórico do bootstrap)
 
-A sequência abaixo registra a preparação inicial; os estados atuais e a próxima atividade estão no índice. A Etapa 2 foi concluída e a Etapa 3 começa pelo estudo preparado da SPIKE-030.
+A sequência abaixo registra a preparação inicial; os estados atuais e a próxima atividade estão no índice. A Etapa 2 foi concluída e a Etapa 3 começou pelo estudo da SPIKE-030, agora em revisão.
 
 1. `STORY-000`: bootstrap documental concluído; não é a conclusão da descoberta.
 2. [STORY-001](stories/STORY-001.yaml): produto, usuário, decisão e limites. Está `ready`, com [SPEC-001](../agents/specs/SPEC-001.yaml) e [ACT-001](../agents/activities/ACT-001.yaml) pendente.
@@ -21,7 +21,7 @@ Estados de histórias e épicos: `backlog`, `ready`, `in_progress`, `blocked`, `
 
 O estado da história no arquivo e no índice deve coincidir. O mesmo vale para título, prioridade, épico e dependências catalogadas. IDs são estáveis; não renumerar ao reordenar prioridades. O catálogo duplica apenas esses metadados mínimos para permitir descoberta; descrição e critérios vivem no arquivo da história.
 
-Estudos usam IDs `SPIKE-NNN` e o mesmo template, pasta `stories/`, catálogo e estados das histórias. Podem ser dependências diretas de histórias. No EPIC-003, a [SPIKE-030](stories/SPIKE-030.yaml) estuda fontes e avaliação própria antes de STORY-030 e STORY-031; está preparada, sem estudo iniciado, com SPEC-029 e ACT-029. A seleção documental e os rótulos exigem a revisão prevista no aceite. A próxima sessão está descrita no [prompt de continuidade](../doc/decisions/spike-030-proxima-sessao.md).
+Estudos usam IDs `SPIKE-NNN` e o mesmo template, pasta `stories/`, catálogo e estados das histórias. Podem ser dependências diretas de histórias. No EPIC-003, a [SPIKE-030](stories/SPIKE-030.yaml) estuda fontes e avaliação própria antes de STORY-030 e STORY-031; tem proposta documentada e está em revisão, com SPEC-029 e ACT-029. A seleção documental e os rótulos exigem a revisão prevista no aceite; veja o [handoff](../agents/handoffs/HANDOFF-029.yaml).
 
 `ready` exige escopo delimitado, dependências concluídas, critérios verificáveis, spec suficiente e atividade preparada. `done` exige evidência por critério, validação registrada, revisão e handoff. Revisão do PO é obrigatória no gate de descoberta e em decisões/requisitos que a exijam. Consulte [workflow](../doc/standards/workflow.md).
 

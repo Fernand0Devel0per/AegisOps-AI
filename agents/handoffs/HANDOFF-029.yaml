@@ -2,100 +2,77 @@ id: HANDOFF-029
 activity_id: ACT-029
 story_id: SPIKE-030
 spec_id: SPEC-029
-source_agent: Codex — preparação documental e autorrevisão
-target_agent: Product Owner e executor da SPIKE-030 na próxima sessão
+source_agent: Codex — estudo documental e autorrevisão
+target_agent: Product Owner e próximo executor da SPIKE-030
 status: partial
-summary: Contrato de estudo preparado, sem execução da ACT-029; fontes e avaliação própria ainda exigem estudo e revisão conjunta.
+summary: Estudo e proposta concreta preparados em 2026-11-03; revisão obrigatória do PO e confirmação de licença GitLab por versão permanecem pendentes.
 completed_work:
-- PO aprovou estudar Prometheus Operator e seleção do GitLab como fontes documentais, com avaliação própria revisada por ele e pelo executor.
-- Conferidos AGENTS, templates, workflow, plano na Etapa 3, catálogo e contratos disponíveis; IDs 029 estavam livres para spec, atividade e handoff.
-- Fetch de origin conferiu PR 7 integrado em 6206926; main local em 30261c2 contém EPIC-002 done, enquanto origin/main ainda não contém esse fechamento.
-- Criada feat/spike-030 a partir da main local, preservando a exclusão preexistente e o stash identificado.
-- Preparadas SPIKE-030 ready, SPEC-029 ready e ACT-029 pending; EPIC-003 ready e ponteiros atualizados sem declarar início do estudo.
-- STORY-030 e STORY-031 passaram a depender explicitamente da SPIKE-030, preservando as dependências anteriores.
-- Registrados plano, fontes e observações exploratórias, decisões pendentes e prompt versionado para a próxima sessão.
-- Validador e convenções estendidos para IDs SPIKE no mesmo catálogo das histórias, sem nova categoria de contratos ou mudança de produto.
+- Preparação anterior está no histórico d374eec; execução atual autorizada pelo PO restrita à SPIKE-030.
+- Fetch de origin realizado; HEAD d374eec descende de 30261c2, que contém fechamento do EPIC-002; origin/main permanece em 6206926.
+- Conferidos STORY-021 done, ACT-021 completed, EPIC-002 done com autorização do PO; plano original disponível e Etapa 3 consultada.
+- Inspecionadas amostras fixadas, licenças declaradas e conjuntos públicos; proposta de seis unidades e oito consultas com positivos condicionais, negativos difíceis e ausências.
+- Elaborados protocolo, métricas e proposta de separação por grupo, sem adoção de rótulos externos nem resultados de ranking.
+- Autorrevisão do executor identificada no relatório; revisão do PO solicitada na conversa, sem resposta ou decisão presumida.
 changed_files:
+- path: doc/research/SPIKE-030.md
+  reason: Relatório, comparação, matriz, amostras, protocolo e registro de revisão pendente.
+- path: doc/research/spike-030-fontes.yaml
+  reason: Manifesto candidato com versão, condições, seções, licenças e atribuições.
 - path: roadmap/stories/SPIKE-030.yaml
-  reason: Catalogar estudo, escopo, critérios e gate de revisão conjunta.
-- path: agents/specs/SPEC-029.yaml
-  reason: Mapear critérios do estudo, entregáveis, limites e validação.
-- path: agents/activities/ACT-029.yaml
-  reason: Preparar execução futura como pending, sem confundir com o registro atual.
-- path: agents/handoffs/HANDOFF-029.yaml
-  reason: Transferir estado, base, decisões e validação da preparação.
-- path: roadmap/epics/EPIC-003.yaml
-  reason: Incluir estudo anterior ao corpus e ao ranking e tornar o gate explícito.
-- path: roadmap/stories/STORY-030.yaml
-  reason: Exigir a SPIKE-030 antes da materialização de corpus e rótulos.
-- path: roadmap/stories/STORY-031.yaml
-  reason: Exigir a SPIKE-030 e o corpus antes de medir recuperação lexical.
+  reason: Estado real em revisão.
 - path: roadmap/index.yaml
-  reason: Sincronizar catálogo, dependências, fase de preparação e próximos contratos.
-- path: scripts/validate_repository.py
-  reason: Aceitar SPIKE como ID de história e exercitar IDs e dependências mistas no self-test.
-- path: AGENTS.md
-  reason: Documentar branch feat/spike-NNN e mesmas regras de contrato e revisão.
-- path: doc/standards/conventions.md
-  reason: Registrar IDs de estudo, vínculos explícitos e alocação dos contratos.
-- path: doc/standards/workflow.md
-  reason: Distinguir estudo preparado, executado e revisado.
-- path: doc/standards/validation.md
-  reason: Documentar suporte e self-test de IDs SPIKE.
-- path: roadmap/README.md
-  reason: Explicar papel dos estudos no catálogo e apontar a continuidade.
+  reason: Sincronizar spike e épico e orientar continuidade.
+- path: roadmap/epics/EPIC-003.yaml
+  reason: Épico iniciado; gate do estudo ainda pendente.
+- path: agents/activities/ACT-029.yaml
+  reason: Atividade em revisão após execução autorizada.
+- path: agents/handoffs/HANDOFF-029.yaml
+  reason: Registrar evidências, limitações e próximo passo.
 - path: README.md
-  reason: Apresentar preparação do estudo sem anunciar corpus ou busca implementados.
+  reason: Apresentar estado real da spike.
 - path: agents/README.md
-  reason: Apontar o próximo contrato preparado e sua continuidade, preservando o bootstrap como histórico.
+  reason: Atualizar atividade corrente.
+- path: roadmap/README.md
+  reason: Atualizar estado do estudo.
 - path: doc/decisions/open-questions.md
-  reason: Registrar Q-020 e vincular o desenho de avaliação a Q-006.
-- path: doc/decisions/spike-030-plano-estudo.md
-  reason: Preservar direção aprovada, observações exploratórias, fontes e decisões pendentes.
-- path: doc/decisions/spike-030-proxima-sessao.md
-  reason: Oferecer prompt autossuficiente e versionado para a próxima sessão.
+  reason: Registrar proposta e licença pendente na Q-020.
 decisions_made:
-- SPIKE-030 usa contrato e pasta de histórias, participa do catálogo stories e é dependência explícita de ambas as histórias seguintes.
-- SPEC/ACT/HANDOFF-029 vinculam SPIKE-030 por IDs; números 030 e 031 permanecem disponíveis para contratos posteriores.
-- EPIC-003 ready significa estudo preparado; ACT-029 pending e handoff partial registram que estudo e revisão ainda não aconteceram.
-- Não materializar corpus final nem implementar ranking, API, embeddings, treinamento ou mudanças no Qwen nesta preparação ou no estudo delimitado.
-- Licenças, amostras individuais, idiomas, quantidades, rótulos e protocolo final são resultados a examinar na Q-020; não se presume sua aprovação.
+- C0, rótulos, idiomas, tamanho e métricas são somente propostas e precisam de revisão do PO; não constituem decisão arquitetural ou licença de uso final.
+- Manter STORY-030 e STORY-031 backlog; preservar a primeira vertical e seus limites.
 validation:
   executed:
-  - python3 scripts/validate_repository.py no workspace e na árvore versionada isolada do índice
-  - python3 scripts/validate_repository.py --self-test
+  - python3 scripts/validate_repository.py
   - python3 scripts/validate_incidents.py
-  - uv run --offline --locked --no-sync pyright
-  - git diff --check e git diff --cached --check
-  - Autorrevisão dos critérios, vínculos, estados e ausência de alterações de produto ou corpus.
+  - git diff --check
+  - git diff --cached --check
+  - Verificação Python de IDs, campos do manifesto e presença dos exemplos Q01–Q08 no relatório.
   passed:
-  - check: Catálogo, referências, estados e vínculos da SPIKE-030, SPEC-029, ACT-029 e dependências de STORY-030/031 passaram no validador documental.
-    evidence: roadmap/index.yaml
-  - check: Self-test aceitou IDs e dependências STORY/SPIKE válidos e rejeitou IDs indevidos e ciclos, preservando as verificações anteriores.
-    evidence: scripts/validate_repository.py
-  - check: As três fixtures passaram no validador de incidentes; Pyright terminou com zero erros e aviso conhecido sobre yaml; verificações de diff passaram.
+  - check: Validador documental passou com 72 YAML, 11 épicos, 23 histórias e 30 Markdown; não valida fontes externas nem o plano local.
     evidence: doc/standards/validation.md
+  - check: Três fixtures, categorias, 21 IDs e referências passaram; não houve teste das regras de severidade.
+    evidence: doc/INCIDENTS.md
+  - check: Seis IDs únicos, campos do manifesto e referências no relatório e exemplos Q01–Q08 conferidos; verificações de whitespace sem erros.
+    evidence: doc/research/spike-030-fontes.yaml
   failed: []
   not_executed:
-  - ACT-029 e seus critérios de estudo não executados; esta sessão somente prepara a tarefa solicitada.
-  - Testes de aplicação e inferência real não repetidos, pois não há alteração de produto; mudanças do validador têm self-test próprio.
-  - Não houve nova auditoria integral dos datasets; a pesquisa exploratória anterior é ponto de partida a revalidar.
-  - CI remota, push, PR e merge desta preparação não executados nem autorizados.
+  - Revisão do PO e decisões conjuntas pendentes; AC-04 não atendido.
+  - Ranking, benchmark, inferência e testes de aplicação não executados porque não houve implementação de produto.
+  - Self-test e Pyright não repetidos porque validador e código não foram alterados.
+  - CI remota, push, PR, merge, tag e publicação não autorizados ou executados.
 review:
-  type: Autorrevisão do executor da preparação; revisão do estudo pelo PO ainda não realizada.
-  evidence: doc/decisions/spike-030-plano-estudo.md
+  type: Autorrevisão do executor; revisão humana do PO solicitada e pendente.
+  evidence: doc/research/SPIKE-030.md
 known_issues:
-- Exclusão local de agents/handoffs/STORY-020-blocked.md e stash identificado da STORY-021 preservados fora desta entrega.
-- Origin/main ainda não contém o fechamento local do EPIC-002 nem esta preparação; conferir arquivos da base escolhida antes de iniciar.
-- Fontes e licenças podem mudar; fixar revisão ou versão por amostra e registrar limitações antes de uso no corpus.
-- Pyright emitiu aviso reportMissingModuleSource sobre yaml no validador documental, sem erro; PyYAML está disponível no Python usado pelos scripts.
+- Exclusão local preexistente de agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e fora da entrega.
+- GitLab negou acesso direto por SHA com HTTP 403; páginas primárias de versões fixadas foram examinadas via indexação e licença MIT foi vista na página da cabeça, não confirmada para cada versão antiga ou conteúdo de terceiros.
+- C0 tem cobertura específica insuficiente para CPU/memória; positivos GL-DIAG são orientação geral condicional, sem prova de causa.
+- Ausência depende de C0 e da versão; números dos datasets não são métricas do produto.
 pending_work:
-- Executar ACT-029 na próxima sessão, usando o prompt versionado, e produzir relatório e manifesto previstos.
-- Revisar amostras e protocolo com o PO antes de concluir SPIKE-030.
-- STORY-030 e STORY-031 permanecem backlog e não são iniciadas pelo registro da spike.
+- PO e executor devem revisar amostras, licenças, aplicabilidade, rótulos e protocolo, registrar concordâncias, divergências e decisões conjuntas; adaptar artefatos e revalidar.
+- Confirmar texto de licença e avisos aplicáveis às versões GitLab e direitos de terceiros antes de incorporar qualquer trecho.
+- Manter atividade e spike in_review até satisfazer todos critérios e DoD; STORY-030 e STORY-031 continuam backlog.
 next_steps:
-- Ler doc/decisions/spike-030-proxima-sessao.md e conferir a base com os fechamentos locais preservados.
-- Iniciar somente o estudo autorizado e atualizar estados em conjunto; manter conclusões condicionadas às evidências e à revisão.
+- Ler doc/research/SPIKE-030.md e doc/research/spike-030-fontes.yaml; obter revisão explícita do PO, resolver Q-020 e registrar resultados reais.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
