@@ -5,7 +5,7 @@ description: Recuperar trechos por tags/palavras-chave com proveniência verific
 objective: Recuperar trechos por tags/palavras-chave com proveniência verificável.
 context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
 priority: medium
-status: in_progress
+status: done
 refinement_required: false
 dependencies:
 - SPIKE-030
@@ -35,7 +35,17 @@ deliverables:
 - tests/evaluation/
 - doc/EVALUATION.md
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/evaluation/validate.py --self-test
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - git diff --check
+  - git diff --cached --check
   manual_checks:
   - Conferir exemplos de acerto, erro e ausência.
 references:
@@ -48,10 +58,16 @@ references:
 - doc/decisions/open-questions.md
 - agents/specs/SPEC-031.yaml
 - agents/activities/ACT-031.yaml
+- agents/handoffs/HANDOFF-031.yaml
+- doc/EVALUATION.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Execução autorizada; SPEC-031 e ACT-031 fixam protocolo exploratório antes do ranking. Sem teste
-  independente representativo.
+refinement_notes: Implementação e medição exploratória autorrevisadas; sem teste independente nem validação do PO
+  nesta entrega.
+completion_evidence:
+- 'AC-01: recursos do pacote, hashes, caminho, versão e fontes testados em tests/evaluation/test_retrieval.py.'
+- 'AC-02: saída abstained e CorpusError separados e testados; ausência relativa examinada em doc/EVALUATION.md.'
+- 'AC-03: medidas, numeradores, denominadores, resultados e limites em doc/EVALUATION.md e datasets/evaluation/results-c1-lexical.json.'

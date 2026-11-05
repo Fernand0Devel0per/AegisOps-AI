@@ -26,6 +26,7 @@ packages = ["src/aegisops"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "datasets/incidents" = "aegisops/data/incidents"
+"datasets/runbooks" = "aegisops/data/runbooks"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -49,8 +49,8 @@ acceptance_mapping:
   validation: Medir consultas elegíveis e relatar métricas e falhas por idioma e grupo.
   evidence: doc/EVALUATION.md
 open_questions:
-- 'Q-006: conjunto pequeno, sem teste independente representativo.'
-- 'Q-020: aceite conjunto existente; não alterar rótulos ou corpus.'
+- 'Q-006: avaliação exploratória medida; conjunto pequeno, sem teste independente representativo ou meta de sucesso.'
+- 'Q-020: aceite conjunto existente preservado; corpus e rótulos não alterados.'
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

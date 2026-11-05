@@ -3,7 +3,7 @@ story_id: STORY-031
 spec_id: SPEC-031
 title: Implementar e medir baseline lexical
 objective: Produzir busca local com proveniência e avaliação exploratória reproduzível.
-status: in_progress
+status: completed
 agent:
   role: Agente de implementação
   responsibility: Implementar, validar, revisar e registrar limites.

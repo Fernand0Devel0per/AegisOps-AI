@@ -23,3 +23,5 @@ A [STORY-030](../roadmap/stories/STORY-030.yaml) está concluída: [SPEC-030](sp
 - Versionar contratos, atualizações do roadmap e evidências com a entrega Git. Nunca afirmar commit/CI/publicação se não aconteceram.
 
 Estados e convenções estão em [conventions.md](../doc/standards/conventions.md). O fluxo completo está em [workflow.md](../doc/standards/workflow.md).
+
+A [STORY-031](../roadmap/stories/STORY-031.yaml) foi concluída localmente com autorrevisão; [SPEC-031](specs/SPEC-031.yaml), [ACT-031](activities/ACT-031.yaml) e [HANDOFF-031](handoffs/HANDOFF-031.yaml) registram a entrega e continuidade.
