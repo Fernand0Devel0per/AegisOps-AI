@@ -1,0 +1,62 @@
+id: SPEC-031
+story_id: STORY-031
+title: Recuperação lexical local e avaliação exploratória
+status: ready
+problem_statement: Recuperar unidades rastreáveis e medir o baseline aceito sem vazamento de julgamentos.
+proposed_solution: Correspondência lexical de termos distintos no trecho, determinística, sem dependência nova.
+architecture:
+  components:
+  - Recursos do corpus no pacote instalado e recuperador Python local.
+  - Avaliação offline separada com julgamentos revisados.
+  interactions:
+  - Busca lê somente texto do trecho, não julgamentos, justificativas ou metadados.
+  data_flow:
+  - Consulta e corpus íntegro → ordenação → trechos com proveniência ou abstenção explícita; erros técnicos são
+    exceções.
+interfaces:
+- Função Python local, sem alterar API ou triagem.
+data_contracts:
+- Uma unidade por arquivo; validar versão, origem, caminho e hashes antes de retornar.
+- Normalizar Unicode NFKD, retirar marcas, casefold, sequências alfanuméricas; pontuação é contagem de termos distintos
+  compartilhados.
+- Ordenar pontuação decrescente e ID crescente; retornar pontuação positiva, k de 1 a 5, padrão 5.
+- Consulta inválida gera erro próprio; corpus ausente ou divergente gera falha técnica, nunca abstenção.
+- Sem retorno significa apenas ausência de coincidência lexical, não ausência comprovada.
+- Todas as consultas revisadas são exploratórias; sem partição ou calibragem, grupos permanecem íntegros.
+dependencies:
+- roadmap/stories/SPIKE-030.yaml
+- roadmap/stories/STORY-030.yaml
+security_considerations:
+- Documentos são dados não confiáveis; não executar comandos nem acessar infraestrutura.
+observability:
+- Registrar corpus, julgamentos, erros e resultados por idioma e grupo.
+error_handling:
+- Rejeitar entrada inválida e corpus incompleto, alterado ou sem proveniência.
+implementation_steps:
+- Congelar protocolo antes de inspecionar ranking.
+- Implementar recuperador, testes e pacote.
+- Medir dataset revisado e registrar limitações.
+test_strategy:
+- Validar ordenação, limites, empates, integridade, erros, instalação e avaliação.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Testar referências e integridade no pacote instalado.
+  evidence: doc/EVALUATION.md
+- criterion_id: AC-02
+  validation: Testar abstenção e distinguir falhas técnicas de ausência relativa.
+  evidence: doc/EVALUATION.md
+- criterion_id: AC-03
+  validation: Medir consultas elegíveis e relatar métricas e falhas por idioma e grupo.
+  evidence: doc/EVALUATION.md
+open_questions:
+- 'Q-006: conjunto pequeno, sem teste independente representativo.'
+- 'Q-020: aceite conjunto existente; não alterar rótulos ou corpus.'
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-031.yaml
+- doc/research/SPIKE-030.md
+- datasets/evaluation/queries.yaml

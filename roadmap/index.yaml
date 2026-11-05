@@ -2,10 +2,9 @@ schema_version: 1
 updated_at: '2026-11-04'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 3
-next_story: STORY-030
-next_activity: ACT-030
-next_step_note: STORY-030 concluída; ponteiros mantêm o último contrato. STORY-031 permanece backlog, exige refinamento
-  e autorização própria.
+next_story: STORY-031
+next_activity: ACT-031
+next_step_note: STORY-031 em andamento; avaliação exploratória e revisão da entrega pendentes.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -185,7 +184,7 @@ stories:
   path: roadmap/stories/STORY-031.yaml
   epic: EPIC-003
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
   - SPIKE-030
   - STORY-030

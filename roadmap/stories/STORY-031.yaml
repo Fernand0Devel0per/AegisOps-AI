@@ -5,8 +5,8 @@ description: Recuperar trechos por tags/palavras-chave com proveniência verific
 objective: Recuperar trechos por tags/palavras-chave com proveniência verificável.
 context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_progress
+refinement_required: false
 dependencies:
 - SPIKE-030
 - STORY-030
@@ -27,8 +27,8 @@ acceptance_criteria:
 - id: AC-03
   criterion: Resultados e falhas no dataset são registrados como baseline lexical.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - src/aegisops/
@@ -46,9 +46,12 @@ references:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
+- agents/specs/SPEC-031.yaml
+- agents/activities/ACT-031.yaml
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Implementar ranking somente após SPIKE-030 e STORY-030 done; medir no protocolo e nos rótulos revisados, preservando casos sem documento e sem ajustar o ranking ao conjunto reservado de avaliação.
+refinement_notes: Execução autorizada; SPEC-031 e ACT-031 fixam protocolo exploratório antes do ranking. Sem teste
+  independente representativo.
