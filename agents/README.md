@@ -26,4 +26,4 @@ Estados e convenções estão em [conventions.md](../doc/standards/conventions.m
 
 A [STORY-031](../roadmap/stories/STORY-031.yaml) foi concluída e integrada no PR 8; [SPEC-031](specs/SPEC-031.yaml), [ACT-031](activities/ACT-031.yaml) e [HANDOFF-031](handoffs/HANDOFF-031.yaml) registram a entrega e continuidade.
 
-O EPIC-003 foi encerrado após o merge informado e pedido do PO; o [HANDOFF-031](handoffs/HANDOFF-031.yaml) registra o fechamento. STORY-040 permanece em backlog e requer refinamento antes de execução.
+O EPIC-003 foi encerrado após o merge informado e pedido do PO; o [HANDOFF-031](handoffs/HANDOFF-031.yaml) registra o fechamento. A [STORY-040](../roadmap/stories/STORY-040.yaml) foi refinada e está em revisão: [SPEC-040](specs/SPEC-040.yaml), [ACT-040](activities/ACT-040.yaml) e [HANDOFF-040](handoffs/HANDOFF-040.yaml) registram a preparação e a revisão do PO pendente. STORY-041 permanece backlog.

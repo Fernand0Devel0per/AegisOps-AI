@@ -1,0 +1,242 @@
+schema_version: 1
+dataset_version: HYP-2026-11-06.1-proposta
+status: proposto_nao_revisado_po
+fixture_sources:
+  INC-001:
+    path: datasets/incidents/inc-001-latencia.json
+    sha256: 7997b75da07d0bb5334512b83ddfed46faa6db1559e1df9f68f102da57d2d481
+  INC-002:
+    path: datasets/incidents/inc-002-erros-5xx.json
+    sha256: 8ac4af8d4f0fefdd4c9aa6b4d52ac193732559f7b81c2bc2c2c5d6e421b38df4
+  INC-003:
+    path: datasets/incidents/inc-003-saturacao.json
+    sha256: cbc8a03429ac602db31021a4ac53808b6821e405e563b2caa6f59624cde417cf
+runbook_corpus: C1-2026-11-04.1
+runbook_sources:
+  DU-5XX:
+    path: datasets/runbooks/du-5xx.md
+    version: 15a4a5453fb76425337ac42ea75d7d84bae62822
+    sha256: de5cc367e13397e983c8ce084b08fcac6d1283eec1a26c841fd527b5a74470bf
+  BK-CPU:
+    path: datasets/runbooks/bk-cpu.md
+    version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+    sha256: f2f4e71939d31252ea425e443228d7a0db710fd5ce966a99ab1d68ac208ebd8a
+  BK-MEM:
+    path: datasets/runbooks/bk-mem.md
+    version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+    sha256: e91a2a0a709c5f5c0811c6ef724cd563f23a18935182844870d29173eae5bbc1
+context_rule: Somente evidence_ids e runbook_ids explicitamente listados são disponibilizados; fixture inteira serve
+  somente para resolver e conferir estes IDs. expected e rationale são rótulos ocultos ao modelo.
+split_policy: nao_atribuido; grupo indivisível incluindo consultas anteriores da mesma necessidade; sem conjunto
+  de teste independente afirmado
+cases:
+- id: H-001
+  group: INC-001
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-001
+    evidence_ids:
+    - EVD-001-01
+    - EVD-001-02
+    runbook_ids: []
+    inline: null
+  event_type: resposta_simulada
+  stimulus: O p95 aumentou de 120 para 900 ms; a causa ainda é desconhecida.
+  expected: Observação apoiada; não inferir causa nem exigir hipótese causal.
+  invalid_references: []
+  rationale: Os dois períodos são observados; sem causa nos dados.
+- id: H-002
+  group: INC-002
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-002
+    evidence_ids:
+    - EVD-002-02
+    - EVD-002-03
+    runbook_ids:
+    - DU-5XX
+    inline: null
+  event_type: resposta_simulada
+  stimulus: 'Hipótese: a CPU pode estar relacionada aos 5xx; investigar outras evidências. CPU 92% e 5xx 20% ocorreram
+    na mesma janela. [EVD-002-02, EVD-002-03]'
+  expected: Hipótese plausível e explicitamente incerta; coexistência não confirma causalidade.
+  invalid_references: []
+  rationale: Os dois sinais estão na mesma janela, mas não estabelecem relação causal.
+- id: H-003
+  group: INC-001
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-001
+    evidence_ids:
+    - EVD-001-02
+    runbook_ids: []
+    inline: null
+  event_type: resposta_simulada
+  stimulus: Latência p95 foi 900 ms [EVD-001-99].
+  expected: Rejeitar referência inexistente; não exibir texto rejeitado.
+  invalid_references:
+  - EVD-001-99
+  rationale: O ID inventado não integra a fixture nem o contexto.
+- id: H-004
+  group: INC-002
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-002
+    evidence_ids:
+    - EVD-002-02
+    runbook_ids: []
+    inline: null
+  event_type: resposta_simulada
+  stimulus: Um deploy recente causou os 5xx [EVD-002-02].
+  expected: ID existe, mas a alegação de deploy e causa é sem apoio; rejeitar ou suprimir a afirmação.
+  invalid_references: []
+  rationale: A referência contém taxa 5xx, não deploy ou relação causal.
+- id: H-005
+  group: SYN-EMPTY-01
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: null
+    evidence_ids: []
+    runbook_ids: []
+    inline: Sem sinais nem evidências; metadados sintéticos válidos.
+  event_type: resposta_simulada
+  stimulus: Não há sinais disponíveis; dados insuficientes para formular hipótese específica.
+  expected: Abstenção por insuficiência; não atribuir valores ou causa.
+  invalid_references: []
+  rationale: Contexto vazio é diferente de sinal zero.
+- id: H-006
+  group: INC-002
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-002
+    evidence_ids:
+    - EVD-002-02
+    runbook_ids: []
+    inline: null
+  event_type: falha_provedor_simulada
+  stimulus: timeout simulado do provedor antes de qualquer resposta
+  expected: Indisponibilidade técnica controlada; preservar resultado determinístico disponível e não exibir hipótese
+    gerada.
+  invalid_references: []
+  rationale: Evento simulado é teste de procedimento futuro, não falha observada da aplicação.
+- id: H-007
+  group: INC-003
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-003
+    evidence_ids:
+    - EVD-003-02
+    - EVD-003-03
+    runbook_ids:
+    - BK-CPU
+    - BK-MEM
+    inline: null
+  event_type: resposta_simulada
+  stimulus: CPU média foi 95% e memória 97%; throttling e OOM não foram medidos. [EVD-003-03, EVD-003-02]
+  expected: Observações apoiadas e limitações corretas; orientação documental é distinta de observação.
+  invalid_references: []
+  rationale: Utilização não demonstra throttling ou OOM.
+- id: H-008
+  group: INC-003
+  language: en
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-003
+    evidence_ids:
+    - EVD-003-02
+    - EVD-003-03
+    runbook_ids:
+    - BK-CPU
+    - BK-MEM
+    inline: null
+  event_type: resposta_simulada
+  stimulus: Mean CPU was 95% and memory 97%; throttling and OOM were not measured. [EVD-003-03, EVD-003-02]
+  expected: Mesma classificação de H-007; manter no grupo INC-003.
+  invalid_references: []
+  rationale: Tradução da mesma necessidade não constitui incidente independente.
+- id: H-009
+  group: INC-003
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-003
+    evidence_ids:
+    - EVD-003-02
+    - EVD-003-03
+    runbook_ids:
+    - BK-CPU
+    inline: null
+  event_type: resposta_simulada
+  stimulus: A CPU de 95% confirma throttling [EVD-003-03].
+  expected: Referência válida, afirmação sem apoio; não tratar throttling como observado.
+  invalid_references: []
+  rationale: BK-CPU distingue utilização da medição de throttling.
+- id: H-010
+  group: INC-002
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-002
+    evidence_ids:
+    - EVD-002-02
+    runbook_ids:
+    - DU-5XX
+    inline: null
+  event_type: resposta_simulada
+  stimulus: O runbook sugere investigar abrangência dos erros [DU-5XX]; não foram fornecidos dados por endpoint.
+  expected: Orientação documental e limitação adequadas; não afirmar endpoints afetados.
+  invalid_references: []
+  rationale: A documentação orienta uma consulta possível e não atesta dados do incidente.
+- id: H-011
+  group: INC-001
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-001
+    evidence_ids:
+    - EVD-001-01
+    - EVD-001-02
+    runbook_ids: []
+    inline: null
+  event_type: resposta_simulada
+  stimulus: O p95 caiu de 900 para 120 ms [EVD-001-01, EVD-001-02].
+  expected: Referências existem, mas a afirmação contradiz a ordem temporal; rejeitar ou suprimir.
+  invalid_references: []
+  rationale: Os períodos e valores mostram aumento, não queda.
+- id: H-012
+  group: INC-003
+  language: pt-BR
+  split: nao_atribuido
+  review: proposto_nao_revisado_po
+  context:
+    fixture: INC-003
+    evidence_ids:
+    - EVD-003-01
+    - EVD-003-02
+    runbook_ids:
+    - BK-MEM
+    inline: null
+  event_type: resposta_simulada
+  stimulus: A memória subiu; o runbook recomenda examinar histórico adicional [BK-MEM]. Há vazamento confirmado
+    [EVD-003-02].
+  expected: Separar orientação válida da alegação sem apoio; não publicar vazamento confirmado.
+  invalid_references: []
+  rationale: Duas médias não demonstram tendência contínua nem vazamento.

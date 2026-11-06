@@ -40,3 +40,7 @@ Os numeradores de recall são somas dos recalls por consulta (não quantidade de
 Q01 encontra URL-LAT em segundo lugar e não encontra GL-DIAG no horizonte; GL-LAT é negativo julgado. Q09 abstém por falta de coincidência lexical; Q10 retorna cinco trechos julgados negativos para a mesma necessidade hipotética. Nenhum desses resultados prova ausência ou aplicabilidade fora do corpus. No conjunto, há 15 ocorrências de trechos não julgados nos resultados; elas não são erros nem acertos automaticamente. As proporções por idioma usam apenas quatro positivas e uma ausência por idioma, com consultas pareadas e dependentes; não permitem inferência sobre desempenho por idioma ou generalização.
 
 Durante a implementação houve duas execuções preliminares com ordem de normalização divergente da especificação: a primeira aplicou casefold antes de NFKD; uma correção intermediária omitiu casefold. Foram defeitos de conformidade, não calibração. Corrigida para a ordem congelada, reinstalado o pacote e repetida a avaliação; os resultados finais são os acima, idênticos numericamente aos da primeira execução, sem ajustar a política. Uma primeira verificação mypy também falhou em tipo de fixture de teste e foi corrigida.
+
+## Preparação separada: hipóteses ampliadas
+
+A [proposta da STORY-040](decisions/story-040-avaliacao.md) e seus [casos](../datasets/hypothesis-evaluation/cases.yaml) aguardam revisão do PO. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.

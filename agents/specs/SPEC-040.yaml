@@ -1,0 +1,52 @@
+id: SPEC-040
+story_id: STORY-040
+title: Preparação da avaliação de hipóteses ampliadas
+status: ready
+problem_statement: Faltam casos e protocolo revisados para avaliar hipóteses sem confundir referência com suporte.
+proposed_solution: Preparar casos sintéticos, rubrica, políticas e opções de metas antes de qualquer experimento.
+architecture:
+  components:
+  - Dataset documental isolado da avaliação lexical e da explicação restrita.
+  - Protocolo de avaliação humana e métricas candidatas.
+  interactions:
+  - Revisão do PO precede uso dos novos casos como julgados e aprovação das metas.
+  data_flow:
+  - Contexto limitado e versionado → resposta simulada ou evento → julgamento humano futuro; nenhuma inferência nesta atividade.
+interfaces:
+- Apenas arquivos documentais; nenhuma interface de aplicação nova.
+data_contracts:
+- Contexto por IDs incluídos e fonte versionada; rótulos propostos, grupo indivisível e divisão não atribuída.
+- Referência inexistente é explicitamente inválida; IDs existentes não provam apoio semântico.
+- Falha técnica, saída rejeitada, abstenção e hipótese sem apoio são categorias distintas.
+dependencies:
+- roadmap/stories/STORY-031.yaml
+security_considerations:
+- Entradas e documentos são não confiáveis; não executar runbooks ou alterar infraestrutura.
+observability:
+- Protocolo futuro registra versões, parâmetros, tokens disponíveis, tempo, recursos e despesas observadas.
+error_handling:
+- Documentar insuficiência, discordância, falha técnica e rejeição sem apresentar saída rejeitada.
+implementation_steps:
+- Refinar história e preparar atividade antes de elaborar artefatos.
+- Elaborar casos, rubrica, políticas, métricas e opções; solicitar revisão explícita do PO.
+- Validar documentos e produzir handoff parcial enquanto revisão estiver pendente.
+test_strategy:
+- Validar sintaxe, IDs, referências, grupos, rótulos e integridade das fontes; não executar inferência.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir casos e rubrica e obter revisão concreta do PO sobre conteúdo e rótulos.
+  evidence: datasets/hypothesis-evaluation/cases.yaml
+- criterion_id: AC-02
+  validation: Conferir definições e opções antes de teste e obter revisão do PO sobre métricas e limites de custo.
+  evidence: doc/decisions/story-040-avaliacao.md
+open_questions:
+- Q-006 metas e julgamentos pendem de revisão do PO; não são resultados.
+- Q-007 e Q-019 permanecem abertas para avaliação ampliada; sem nova escolha de modelo.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- roadmap/stories/STORY-040.yaml
+- doc/standards/workflow.md
+- agents/handoffs/HANDOFF-031.yaml
