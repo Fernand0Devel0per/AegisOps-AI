@@ -1,10 +1,10 @@
 schema_version: 1
-updated_at: '2026-11-04'
+updated_at: '2026-11-06'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 3
 next_story: STORY-031
 next_activity: ACT-031
-next_step_note: EPIC-003 preparado para revisão do PO no PR; permanece em andamento até validação humana, sem avanço de fase.
+next_step_note: EPIC-003 concluído após merge e pedido do PO; STORY-040 permanece backlog e requer refinamento e autorização antes da execução. Os ponteiros mantêm o último contrato existente.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -30,7 +30,7 @@ epics:
   title: Documentação operacional e recuperação básica
   path: roadmap/epics/EPIC-003.yaml
   priority: medium
-  status: in_progress
+  status: done
   dependencies:
   - EPIC-002
 - id: EPIC-004

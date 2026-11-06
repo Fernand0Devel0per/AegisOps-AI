@@ -184,3 +184,33 @@ maintenance_updates:
   - Exclusão local preexistente e stash preservados e fora do PR.
   next_steps:
   - Abrir PR para revisão e aguardar checagem do PO; não fazer merge nem encerrar o gate antes da decisão.
+- date: '2026-11-06'
+  authorization: PO informou que realizou o merge do PR 8, solicitou sincronização local e pediu que o status refletisse o fim do épico.
+  summary: EPIC-003 encerrado após merge e pedido explícito do PO; histórias e critérios de saída têm evidências registradas. STORY-040 e EPIC-004 permanecem backlog e não foram iniciados.
+  changed_files:
+  - path: roadmap/epics/EPIC-003.yaml
+    reason: Marcar conclusão e registrar evidências e autorização.
+  - path: roadmap/index.yaml
+    reason: Sincronizar estado do épico e registrar continuidade sem iniciar nova fase.
+  - path: README.md
+    reason: Refletir conclusão do épico e integração do PR.
+  - path: agents/README.md
+    reason: Atualizar continuidade após merge e encerramento.
+  - path: agents/handoffs/HANDOFF-031.yaml
+    reason: Registrar decisão do PO e validações desta atualização.
+  validation:
+    executed:
+    - 'gh pr view 8: PR mesclado, commit 4ca50a56b620beb666a08aa9323619f85d44f6c0, duas execuções Quality com sucesso; nenhuma revisão formal no GitHub.'
+    - 'python3 scripts/validate_repository.py — PASS na conferência do fechamento.'
+    - 'python3 scripts/validate_incidents.py — PASS, 3 fixtures e 21 IDs; sem testar severidade.'
+    - 'git diff --check e git diff --cached --check — PASS na conferência do fechamento.'
+    failed: []
+    not_executed:
+    - 'Testes de aplicação não repetidos: alteração documental de estado, sem mudanças no código.'
+    - 'Push, novo PR ou merge desta atualização não solicitados nem executados.'
+  review: PO informou que fez o merge e pediu encerrar o épico; não informou detalhes da revisão ou testes próprios, e o GitHub não registra revisão formal.
+  known_issues:
+  - Avaliação lexical é exploratória, sem teste independente representativo; ausência é relativa ao corpus.
+  - Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados.
+  next_steps:
+  - Quando autorizado, refinar STORY-040, suas dependências e critérios antes de preparar spec e atividade; não iniciar EPIC-004 automaticamente.
