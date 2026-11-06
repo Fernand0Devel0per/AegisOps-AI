@@ -27,4 +27,8 @@ references:
 - doc/research/SPIKE-030.md
 - doc/research/spike-030-fontes.yaml
 - agents/handoffs/HANDOFF-029.yaml
-refinement_notes: SPIKE-030 e STORY-030 concluídas; STORY-031 concluída localmente com autorrevisão; gate do épico permanece aberto à validação aplicável do PO.
+exit_evidence:
+- 'Estudo e protocolo revisados: doc/research/SPIKE-030.md e agents/handoffs/HANDOFF-029.yaml.'
+- 'Trechos com ID, origem e versão: src/aegisops/retrieval.py e tests/evaluation/test_retrieval.py.'
+- 'Relevância e ausência relativa ao corpus: datasets/evaluation/queries.yaml, datasets/evaluation/REVIEW.md e doc/EVALUATION.md.'
+refinement_notes: Critérios com evidências e histórias concluídas; entrega preparada para revisão do PO no PR. O épico permanece em andamento até a validação humana; merge aguarda autorização posterior.

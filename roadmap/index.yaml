@@ -4,8 +4,7 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 3
 next_story: STORY-031
 next_activity: ACT-031
-next_step_note: STORY-031 concluída localmente com autorrevisão; EPIC-003 permanece em andamento, sem avançar de
-  fase ou presumir validação do PO.
+next_step_note: EPIC-003 preparado para revisão do PO no PR; permanece em andamento até validação humana, sem avanço de fase.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos

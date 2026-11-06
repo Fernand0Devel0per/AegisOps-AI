@@ -153,3 +153,34 @@ maintenance_updates:
   - Exclusão local preexistente e stash preservados.
   next_steps:
   - PO pode revisar a manutenção e a entrega da STORY-031; EPIC-003 permanece em andamento.
+- date: '2026-11-05'
+  authorization: PO solicitou preparar o encerramento do EPIC-003 e abrir PR; revisão e merge ficam para decisão posterior.
+  summary: Critérios de saída do épico reunidos com evidências; SPIKE-030, STORY-030 e STORY-031 concluídas. EPIC-003 permanece em andamento até a checagem do PO, sem presumir aceite ou merge.
+  changed_files:
+  - path: roadmap/epics/EPIC-003.yaml
+    reason: Mapear cada critério de saída à evidência concreta e registrar revisão pendente.
+  - path: roadmap/index.yaml
+    reason: Registrar que a entrega está preparada para revisão, mantendo o estado coerente.
+  - path: agents/handoffs/HANDOFF-031.yaml
+    reason: Preservar o pedido do PO, validações e continuidade.
+  validation:
+    executed:
+    - 'uv run --offline --locked --no-sync pytest -q — PASS, 163 testes.'
+    - 'Ruff check e format --check para src, tests e scripts de avaliação — PASS.'
+    - 'uv run --offline --locked --no-sync mypy src tests — PASS.'
+    - 'uv run --offline --locked --no-sync pyright — PASS com aviso conhecido de resolução de yaml.'
+    - 'python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas, 10 mutações.'
+    - 'python3 datasets/evaluation/measure.py | cmp - datasets/evaluation/results-c1-lexical.json — PASS, saída idêntica.'
+    - 'python3 scripts/validate_incidents.py — PASS, 3 fixtures e 21 IDs.'
+    - 'python3 scripts/validate_repository.py e python3 scripts/validate_repository.py --self-test — PASS.'
+    - 'git diff origin/main...HEAD --check — PASS antes desta atualização; diffs de trabalho e staging verificados na entrega.'
+    failed: []
+    not_executed:
+    - 'Revisão final do PO, aprovação de merge e CI do PR ainda não observadas.'
+  review: Executor conferiu evidências e validações; PO solicitou PR e pretende checar a entrega, sem declarar revisão ou aceite ainda.
+  known_issues:
+  - O PR contém o fechamento local do EPIC-002 ainda ausente de origin/main, além de todo o EPIC-003.
+  - Avaliação de recuperação é exploratória e não representa teste independente; ausências são relativas ao corpus.
+  - Exclusão local preexistente e stash preservados e fora do PR.
+  next_steps:
+  - Abrir PR para revisão e aguardar checagem do PO; não fazer merge nem encerrar o gate antes da decisão.
