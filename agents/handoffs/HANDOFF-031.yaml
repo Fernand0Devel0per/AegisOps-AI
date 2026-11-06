@@ -214,3 +214,29 @@ maintenance_updates:
   - Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados.
   next_steps:
   - Quando autorizado, refinar STORY-040, suas dependências e critérios antes de preparar spec e atividade; não iniciar EPIC-004 automaticamente.
+- date: '2026-11-06'
+  authorization: PO solicitou preparar um prompt para iniciar o EPIC-004 e executar a STORY-040.
+  summary: Prompt de continuidade preparado em arquivo local ignorado; preparação não iniciou o épico, não executou a história e não criou spec ou atividade para STORY-040.
+  changed_files:
+  - path: agents/handoffs/HANDOFF-031.yaml
+    reason: Registrar a preparação, a base necessária, validações e continuidade.
+  local_artifacts:
+  - path: .local/story-040-proxima-sessao.md
+    sha256: ce9787b11953b157955e279c016797dc21ec8f1bea16794dc0790e4a28b824fa
+    note: Prompt ignorado pelo Git; contém autorização delimitada a ser enviada pelo PO ao executar em outra sessão.
+  validation:
+    executed:
+    - 'Conferidos EPIC-003 done no commit local 6ecf18c, PR 8 mesclado em 4ca50a5, STORY-040 e EPIC-004 backlog e ausência de spec/atividade 040.'
+    - 'git check-ignore confirmou o prompt local; SHA-256 registrado em local_artifacts.'
+    - 'python3 scripts/validate_repository.py — PASS na conferência da preparação.'
+    - 'git diff --check e git diff --cached --check — PASS na conferência da preparação.'
+    failed: []
+    not_executed:
+    - 'Execução da STORY-040, preparação de dataset, testes de aplicação e inferência: somente o prompt foi solicitado nesta preparação.'
+    - 'Push, PR e merge não solicitados nem executados.'
+  review: Executor conferiu escopo e fontes do prompt; não atribui revisão ou aceite do conteúdo ao PO.
+  known_issues:
+  - Encerramento do EPIC-003 em 6ecf18c ainda não está na main remota; próximo executor deve escolher base que o contenha ou equivalente.
+  - Exclusão preexistente e stash da STORY-021 permanecem preservados.
+  next_steps:
+  - PO pode enviar o prompt em nova sessão; criar ou retomar feat/story-040 a partir de base com o fechamento do EPIC-003 e refinar a história antes de executar.
