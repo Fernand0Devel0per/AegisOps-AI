@@ -9,3 +9,5 @@ Fontes e unidades são em inglês; consultas pt-BR e inglês permitem futurament
 Antes de medir: fixar partição por grupo e política de retorno, abstenção, empates e falhas sem ajustar no teste; se conteúdo ou julgamentos mudarem, revisar e versionar novamente e excluir itens sem consenso. A SPIKE-030 define Recall@3/5, posição e MRR para positivas, retorno indevido/abstenção para ausências e seus denominadores; falhas técnicas não contam como abstenção. Resultados exploratórios estão na avaliação; nenhuma meta de desempenho foi aceita.
 
 Para verificação local, execute `python3 datasets/evaluation/validate.py` e `python3 datasets/evaluation/validate.py --self-test`. Essas verificações estruturais não comprovam pertinência semântica, direitos de terceiros ou aprovação humana.
+
+O validador separa a conferência das unidades, do corpus, dos julgamentos e dos grupos. Na medição, `measure.py` valida os arquivos congelados e calcula os resultados; `retrieval_worker.py` executa as consultas no pacote instalado, em processo separado, e registra falhas por consulta. Essa organização não altera o protocolo ou os julgamentos.
