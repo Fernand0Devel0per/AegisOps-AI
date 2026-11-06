@@ -1,0 +1,186 @@
+id: HANDOFF-031
+activity_id: ACT-031
+story_id: STORY-031
+spec_id: SPEC-031
+source_agent: Codex — implementação e autorrevisão
+target_agent: Product Owner e próximo executor autorizado
+status: completed
+summary: STORY-031 concluída localmente com autorrevisão; avaliação exploratória, sem teste independente ou validação
+  do PO; EPIC-003 continua em andamento.
+completed_work:
+- Base ac2acea contém STORY-030, SPIKE-030 e EPIC-002 concluídos; ACT-029 e ACT-030 completed. Etapa 3 do plano
+  local consultada.
+- Criada feat/story-031 a partir de ac2acea; exclusão preexistente e stash preservados.
+- Protocolo e contratos congelados no commit 683a125 antes de inspecionar rankings.
+- Recuperação determinística sobre trechos, com hashes e proveniência validados no pacote não editável, separada
+  da API.
+- Medição das 10 consultas revisadas como exploratória; sem particionar grupos, sem alterar corpus, julgamentos
+  ou primeira vertical.
+- Executor autorrevisou contrato, implementação, diff, resultados e casos de erro; nenhuma revisão ou teste do PO
+  é alegado.
+changed_files:
+- path: agents/specs/SPEC-031.yaml
+  reason: Contrato e mapeamento de aceite.
+- path: agents/activities/ACT-031.yaml
+  reason: Atividade, validação e estado.
+- path: roadmap/stories/STORY-031.yaml
+  reason: Refinamento, evidências e estado.
+- path: roadmap/index.yaml
+  reason: Sincronizar história e continuidade.
+- path: roadmap/epics/EPIC-003.yaml
+  reason: Estado local, mantendo gate aberto.
+- path: src/aegisops/retrieval.py
+  reason: Recuperação lexical e verificação dos recursos.
+- path: pyproject.toml
+  reason: Incluir corpus no pacote instalado.
+- path: tests/evaluation/
+  reason: Testar ranking, falhas, métricas e instalação.
+- path: datasets/evaluation/measure.py
+  reason: Reproduzir medição offline com hashes fixos.
+- path: datasets/evaluation/results-c1-lexical.json
+  reason: Resultados por consulta e agregados.
+- path: datasets/evaluation/README.md
+  reason: Atualizar estado da avaliação sem alterar julgamentos.
+- path: doc/EVALUATION.md
+  reason: Protocolo congelado, resultados, erros e limitações.
+- path: doc/DEVELOPMENT.md
+  reason: Contrato e uso local do pacote.
+- path: doc/decisions/open-questions.md
+  reason: Atualizar Q-006 e Q-020.
+- path: README.md
+  reason: Estado público da capacidade.
+- path: agents/README.md
+  reason: Continuidade.
+- path: agents/handoffs/HANDOFF-031.yaml
+  reason: Registro de entrega e revisão.
+decisions_made:
+- Busca lexical por termos distintos, sem pesos ou sinônimos, limite 5 e empate por ID; escolhas reversíveis previstas
+  na história e sem nova dependência estrutural.
+- Sem divisão representativa de três incidentes; resultados exploratórios sem calibragem ou teste independente.
+- Abstenção significa ausência de coincidência lexical; falhas técnicas são exceções separadas, e Q09/Q10 são ausência
+  relativa e hipotética.
+acceptance_evidence:
+- criterion: AC-01
+  result: IDs, origem, versão, caminho e hash resolvidos e testados no pacote instalado.
+  evidence: tests/evaluation/test_retrieval.py
+- criterion: AC-02
+  result: Abstenção explícita testada e falhas técnicas não são convertidas em ausência; exemplos de ausência relativa
+    medidos.
+  evidence: doc/EVALUATION.md
+- criterion: AC-03
+  result: Recall, posição, MRR, retorno indevido, abstenção, falhas e não julgados por idioma, grupo e consulta.
+  evidence: doc/EVALUATION.md
+validation:
+  executed:
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai — PASS, aviso de symlink do Python
+    base.
+  - uv run --offline --locked --no-sync pytest -q — PASS, 161 testes.
+  - uv run --offline --locked --no-sync ruff check src tests — PASS.
+  - uv run --offline --locked --no-sync ruff format --check src tests — PASS.
+  - uv run --offline --locked --no-sync mypy src tests — PASS.
+  - uv run --offline --locked --no-sync pyright — PASS, 0 erros e aviso conhecido de resolução de yaml.
+  - python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas e 10 mutações.
+  - python3 scripts/validate_incidents.py — PASS, três fixtures e 21 IDs; não verifica severidade.
+  - python3 datasets/evaluation/measure.py — PASS, 10 consultas e 0 falhas técnicas; resultado versionado.
+  - python3 scripts/validate_repository.py — PASS na conferência final.
+  - git diff --check e git diff --cached --check — PASS na conferência final.
+  passed:
+  - check: Critérios, proveniência e erros testados; 161 testes no pacote não editável.
+    evidence: tests/evaluation/test_retrieval.py
+  - check: Métricas e dados por grupo e idioma, sem converter não julgados em negativos.
+    evidence: doc/EVALUATION.md
+  failed: []
+  not_executed:
+  - CI remota, push, PR, merge, tag e publicação não autorizados nem executados.
+  - 'Self-test do validador documental não necessário: scripts/validate_repository.py não foi alterado.'
+  - Nenhuma revisão ou execução de testes pelo PO foi informada.
+review:
+  type: Autorrevisão do executor, permitida pelo workflow para esta história; nenhuma revisão independente ou validação
+    do PO é alegada.
+  evidence: doc/EVALUATION.md
+known_issues:
+- Três incidentes e uma necessidade hipotética; idioma e grupos dependentes e rótulos incompletos não permitem generalização.
+- Execuções preliminares com ordem de normalização divergente foram descartadas; conformidade corrigida e resultados
+  finais repetidos, sem ajuste ao ranking.
+- Falhas iniciais de mypy no teste e Ruff de importação corrigidas; validador documental apontou link ao handoff
+  ainda não criado, resolvido na entrega final.
+- Aviso de symlink do uv e aviso de yaml do Pyright; sem falhas finais relevantes.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash STORY-021 preservados.
+pending_work:
+- Validar o gate do EPIC-003 e eventual aceite do PO quando solicitado; nenhuma fase posterior foi iniciada.
+- Ampliar casos independentes somente em trabalho autorizado; revisão humana dos novos casos e rótulos é necessária.
+next_steps:
+- Revisar entrega concreta e evidências com o PO; não avançar automaticamente de fase.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+maintenance_updates:
+- date: '2026-11-05'
+  authorization: PO solicitou refatorar os scripts de validação e medição para funções menores e nomes claros, conforme AGENTS.md.
+  summary: Separadas validações, cálculos e execução do pacote instalado, sem alterar o protocolo congelado, o corpus, os julgamentos ou os resultados.
+  changed_files:
+  - path: datasets/evaluation/validate.py
+    reason: Isolar verificações de unidades, proveniência, julgamentos, revisão e grupos, além das mutações do self-test.
+  - path: datasets/evaluation/measure.py
+    reason: Separar conferência de hashes, execução das consultas, cálculo por consulta e agregação.
+  - path: datasets/evaluation/retrieval_worker.py
+    reason: Substituir código embutido em string por módulo executado no processo isolado.
+  - path: tests/evaluation/test_measure.py
+    reason: Verificar métricas por consulta e distinção entre abstenção e falha no processo isolado.
+  - path: datasets/evaluation/README.md
+    reason: Explicar as responsabilidades dos scripts.
+  - path: agents/handoffs/HANDOFF-031.yaml
+    reason: Registrar autorização, alterações e evidência desta manutenção.
+  validation:
+    executed:
+    - 'python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas e 10 mutações.'
+    - 'Comparação pontual com o validador de HEAD anterior — PASS em 26 cenários válidos ou alterados, incluindo tipos e mensagens de erro; script comparativo temporário não versionado.'
+    - 'python3 datasets/evaluation/measure.py | cmp - datasets/evaluation/results-c1-lexical.json — PASS, saída idêntica byte a byte.'
+    - 'uv run --offline --locked --no-sync pytest -q — PASS, 163 testes.'
+    - 'Ruff check e format --check sobre src, tests e os três scripts de avaliação — PASS.'
+    - 'uv run --offline --locked --no-sync mypy src tests — PASS.'
+    - 'uv run --offline --locked --no-sync pyright — PASS, zero erros e aviso conhecido de resolução de yaml.'
+    - 'python3 scripts/validate_repository.py e python3 scripts/validate_incidents.py — PASS.'
+    - 'git diff --check e git diff --cached --check — PASS.'
+    failed: []
+    not_executed:
+    - 'CI remota, push, PR e publicação não autorizados ou executados.'
+    - 'Reinstalação do pacote não editável dispensada: nenhum arquivo em src ou configuração do pacote foi alterado.'
+  review: Autorrevisão do executor; nenhuma revisão ou execução de testes pelo PO é alegada.
+  known_issues:
+  - Comparação do validador cobre 26 cenários, não prova equivalência para todas as entradas possíveis.
+  - Exclusão local preexistente e stash preservados.
+  next_steps:
+  - PO pode revisar a manutenção e a entrega da STORY-031; EPIC-003 permanece em andamento.
+- date: '2026-11-05'
+  authorization: PO solicitou preparar o encerramento do EPIC-003 e abrir PR; revisão e merge ficam para decisão posterior.
+  summary: Critérios de saída do épico reunidos com evidências; SPIKE-030, STORY-030 e STORY-031 concluídas. EPIC-003 permanece em andamento até a checagem do PO, sem presumir aceite ou merge.
+  changed_files:
+  - path: roadmap/epics/EPIC-003.yaml
+    reason: Mapear cada critério de saída à evidência concreta e registrar revisão pendente.
+  - path: roadmap/index.yaml
+    reason: Registrar que a entrega está preparada para revisão, mantendo o estado coerente.
+  - path: agents/handoffs/HANDOFF-031.yaml
+    reason: Preservar o pedido do PO, validações e continuidade.
+  validation:
+    executed:
+    - 'uv run --offline --locked --no-sync pytest -q — PASS, 163 testes.'
+    - 'Ruff check e format --check para src, tests e scripts de avaliação — PASS.'
+    - 'uv run --offline --locked --no-sync mypy src tests — PASS.'
+    - 'uv run --offline --locked --no-sync pyright — PASS com aviso conhecido de resolução de yaml.'
+    - 'python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas, 10 mutações.'
+    - 'python3 datasets/evaluation/measure.py | cmp - datasets/evaluation/results-c1-lexical.json — PASS, saída idêntica.'
+    - 'python3 scripts/validate_incidents.py — PASS, 3 fixtures e 21 IDs.'
+    - 'python3 scripts/validate_repository.py e python3 scripts/validate_repository.py --self-test — PASS.'
+    - 'git diff origin/main...HEAD --check — PASS antes desta atualização; diffs de trabalho e staging verificados na entrega.'
+    failed: []
+    not_executed:
+    - 'Revisão final do PO, aprovação de merge e CI do PR ainda não observadas.'
+  review: Executor conferiu evidências e validações; PO solicitou PR e pretende checar a entrega, sem declarar revisão ou aceite ainda.
+  known_issues:
+  - O PR contém o fechamento local do EPIC-002 ainda ausente de origin/main, além de todo o EPIC-003.
+  - Avaliação de recuperação é exploratória e não representa teste independente; ausências são relativas ao corpus.
+  - Exclusão local preexistente e stash preservados e fora do PR.
+  next_steps:
+  - Abrir PR para revisão e aguardar checagem do PO; não fazer merge nem encerrar o gate antes da decisão.

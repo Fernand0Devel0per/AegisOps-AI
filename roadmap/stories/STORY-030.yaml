@@ -3,44 +3,78 @@ title: Especificar runbooks e baseline rotulado de recuperação
 epic: EPIC-003
 description: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
 objective: Preparar corpus Markdown e perguntas com documentos esperados antes do ranking.
-context: Derivada da Etapa 3 do plano original; não há implementação desta capacidade no bootstrap.
+context: SPIKE-030 concluída; corpus e rótulos efetivos revisados pelo PO após materialização em 2026-11-04.
 priority: medium
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
 - STORY-021
+- SPIKE-030
 scope:
   included:
-  - Formato de runbook
-  - IDs, origem e versão
-  - Dataset rotulado
+  - Corpus Markdown adaptado de unidades C1 autorizadas, com proveniência e licença por versão.
+  - Dataset bilíngue próprio, julgamentos e ausência relativos ao corpus, grupos e protocolo de revisão.
   excluded:
   - Embeddings
   - Integração de LLM nesta atividade de preparação do corpus
   - Documentos não autorizados
+  - Busca ou ranking e STORY-031
+  - Execução de comandos, remediação ou acesso a infraestrutura das fontes
 acceptance_criteria:
 - id: AC-01
   criterion: Runbooks versionados têm identificador, origem e versão.
 - id: AC-02
   criterion: Dataset inclui consultas relevantes, ausência de documento aplicável e documento irrelevante.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - datasets/runbooks/
 - datasets/evaluation/
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/evaluation/validate.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
   manual_checks:
-  - Revisar rótulos e autorização do corpus.
+  - Revisar individualmente corpus, licenças, traduções, rótulos e protocolo com PO; registrar divergências e decisão.
 references:
+- roadmap/epics/EPIC-003.yaml
+- roadmap/stories/SPIKE-030.yaml
+- agents/handoffs/HANDOFF-029.yaml
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+- datasets/incidents/inc-001-latencia.json
+- datasets/incidents/inc-002-erros-5xx.json
+- datasets/incidents/inc-003-saturacao.json
+- doc/standards/workflow.md
+- doc/standards/validation.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
 - doc/decisions/open-questions.md
+- agents/specs/SPEC-030.yaml
+- agents/activities/ACT-030.yaml
+- agents/handoffs/HANDOFF-030.yaml
+- datasets/runbooks/manifest.yaml
+- datasets/evaluation/queries.yaml
+- datasets/evaluation/REVIEW.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Entregáveis e resposta do PO registrados em HANDOFF-030; política de medição e partição continuam
+  futuras e STORY-031 não foi iniciada.
+completion_evidence:
+- 'AC-01: 11 unidades com identificadores, proveniência, versões, seções, licenças e hashes em datasets/runbooks/manifest.yaml;
+  revisão do PO em datasets/evaluation/REVIEW.md.'
+- 'AC-02: 10 consultas com positivos, negativos difíceis, não julgados e ausência relativa ao corpus em datasets/evaluation/queries.yaml;
+  revisão do PO em datasets/evaluation/REVIEW.md.'

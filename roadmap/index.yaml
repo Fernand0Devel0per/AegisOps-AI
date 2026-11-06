@@ -1,10 +1,10 @@
 schema_version: 1
-updated_at: '2026-11-03'
+updated_at: '2026-11-04'
 source: AegisOps_AI_Plano_do_Zero.md
-current_phase: 2
-next_story: STORY-021
-next_activity: ACT-021
-next_step_note: STORY-021 e ACT-021 concluídas na branch; aguardar revisão e decisão de merge do PR antes de avaliar o gate do EPIC-002 e preparar próxima atividade.
+current_phase: 3
+next_story: STORY-031
+next_activity: ACT-031
+next_step_note: EPIC-003 preparado para revisão do PO no PR; permanece em andamento até validação humana, sem avanço de fase.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -23,14 +23,14 @@ epics:
   title: Motor de triagem baseado em evidências
   path: roadmap/epics/EPIC-002.yaml
   priority: high
-  status: in_progress
+  status: done
   dependencies:
   - EPIC-001
 - id: EPIC-003
   title: Documentação operacional e recuperação básica
   path: roadmap/epics/EPIC-003.yaml
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
   - EPIC-002
 - id: EPIC-004
@@ -162,21 +162,31 @@ stories:
   status: done
   dependencies:
   - STORY-020
+- id: SPIKE-030
+  title: Estudar fontes de runbooks e propor avaliação própria revisada
+  path: roadmap/stories/SPIKE-030.yaml
+  epic: EPIC-003
+  priority: high
+  status: done
+  dependencies:
+  - STORY-021
 - id: STORY-030
   title: Especificar runbooks e baseline rotulado de recuperação
   path: roadmap/stories/STORY-030.yaml
   epic: EPIC-003
   priority: medium
-  status: backlog
+  status: done
   dependencies:
   - STORY-021
+  - SPIKE-030
 - id: STORY-031
   title: Implementar e avaliar recuperação lexical de runbooks
   path: roadmap/stories/STORY-031.yaml
   epic: EPIC-003
   priority: medium
-  status: backlog
+  status: done
   dependencies:
+  - SPIKE-030
   - STORY-030
 - id: STORY-040
   title: Definir avaliação e políticas para análise ampliada com LLM

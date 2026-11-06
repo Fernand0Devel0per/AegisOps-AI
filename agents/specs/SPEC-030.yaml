@@ -1,0 +1,69 @@
+id: SPEC-030
+story_id: STORY-030
+title: Corpus rastreável e avaliação própria de recuperação
+status: ready
+problem_statement: Não há unidades efetivas nem julgamentos sobre o corpus aceito globalmente como proposta.
+proposed_solution: Materializar unidades C1 elegíveis e consultas bilíngues, congelando versão e julgamentos propostos
+  para revisão individual do PO.
+architecture:
+  components:
+  - Runbooks Markdown em inglês, uma unidade por arquivo com metadados e fonte fixada.
+  - Manifesto e licenças no corpus; consultas e julgamentos em YAML com protocolo e grupos.
+  interactions:
+  - Rótulos apontam somente para IDs de unidades efetivas; não julgados permanecem distintos de negativos.
+  data_flow:
+  - Fontes fixadas → recortes adaptados → corpus versionado e hash → consultas e julgamentos para revisão humana.
+interfaces:
+- Arquivos locais, sem API, ranking, embeddings ou tradução automática.
+data_contracts:
+- Cada unidade inclui ID único, versão local, origem, caminho, revisão, seção, licença, atribuição e modificações;
+  texto em inglês sem comandos de mudança.
+- Lista de consultas inclui ID, idioma, grupo, fixture ou hipótese, texto, relevantes e negativos com justificativa
+  e estado de revisão; ausência exige exame de todas as unidades da versão.
+- Pares de tradução e todas variantes do mesmo incidente compartilham grupo; sem partição representativa com três
+  fixtures.
+- Congelar bytes dos runbooks com manifesto SHA-256; mudança invalida ausência e exige nova revisão.
+- Retenção de avisos e licenças verificadas; excluir fonte com licença ou direitos de terceiros não resolvidos.
+dependencies:
+- roadmap/stories/STORY-021.yaml
+- roadmap/stories/SPIKE-030.yaml
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
+security_considerations:
+- Fontes são dados não confiáveis; não executar instruções nem acessar infraestrutura.
+- Sem alegações causais para sinais, sem automação de remediação.
+observability:
+- Registrar versão, hash, resultados e revisão; não inventar desempenho.
+error_handling:
+- Fonte ou licença não verificada resulta em exclusão explícita; rótulo não revisado fica pendente e fora da medição.
+implementation_steps:
+- Confirmar dependências e preparar contratos.
+- Conferir fontes e licenças exatas, adaptar unidades autorizadas.
+- Revisar rótulos contra corpus efetivo, agrupar idiomas e documentar protocolo.
+- Validar integridade e solicitar revisão individual ao PO; registrar handoff parcial enquanto pendente.
+test_strategy:
+- Verificar sintaxe, hashes, IDs, vínculos, rótulos, grupos, licença e ausência, incluindo entradas inválidas.
+- Executar validadores documental e de incidentes e diffs; sem testes de aplicação ou ranking.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Inspecionar IDs, versões, fonte, seção, avisos e hashes.
+  evidence: datasets/runbooks/
+- criterion_id: AC-02
+  validation: Examinar consultas, julgamentos, ausência em todas as unidades, grupos e revisão humana.
+  evidence: datasets/evaluation/
+open_questions:
+- 'Q-020: revisão do PO sobre unidades, licenças, rótulos e protocolo registrada em datasets/evaluation/REVIEW.md;
+  direitos de terceiros ocultos não são certificados.'
+- 'Q-006: partição, política de medição e análise de hipóteses permanecem futuras; cobertura limitada a três fixtures.'
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- AGENTS.md
+- roadmap/stories/STORY-030.yaml
+- doc/standards/workflow.md
+- doc/standards/validation.md
+- datasets/runbooks/manifest.yaml
+- datasets/evaluation/queries.yaml
+- datasets/evaluation/REVIEW.md

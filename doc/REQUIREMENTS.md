@@ -2,7 +2,7 @@
 
 ## Estado e escopo
 
-Requisitos da [STORY-003](../roadmap/stories/STORY-003.yaml), aceitos pelo PO em 2026-10-30 para a primeira vertical; a descoberta foi aceita pelo PO após revisão documentada na STORY-004. Os limiares abaixo são escolhas **sintéticas para testes**, não medições nem recomendações operacionais. A API de consulta e o núcleo da STORY-020 estão concluídos; a integração à API e à explicação local foi revisada pelo PO na STORY-021 e aguarda decisão sobre o PR. Os critérios foram aceitos como proposta sintética; a aceitação não transforma os valores em regras de produção. Ela respeita o papel determinístico e o fallback do [ADR-0002](adr/0002-llm-local-primeira-vertical.md).
+Requisitos da [STORY-003](../roadmap/stories/STORY-003.yaml), aceitos pelo PO em 2026-10-30 para a primeira vertical; a descoberta foi aceita pelo PO após revisão documentada na STORY-004. Os limiares abaixo são escolhas **sintéticas para testes**, não medições nem recomendações operacionais. A API de consulta e o núcleo da STORY-020 estão concluídos; a integração à API e à explicação local foi revisada pelo PO e integrada na STORY-021. Os critérios foram aceitos como proposta sintética; a aceitação não transforma os valores em regras de produção. Ela respeita o papel determinístico e o fallback do [ADR-0002](adr/0002-llm-local-primeira-vertical.md).
 
 ## Entrada e restrições
 

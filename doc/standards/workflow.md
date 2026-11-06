@@ -26,6 +26,8 @@ Implementação pode produzir documentos na descoberta ou código nas etapas aut
 
 Para entrar em `ready`, a história deve ter escopo pequeno, dependências `done`, aceite verificável, spec `ready` e atividade `pending` preparada. Histórias futuras marcadas para refinamento não entram diretamente em execução. Perguntas futuras não bloqueiam trabalho independente; pergunta que altera o aceite da atividade precisa de resolução antes do trabalho dependente.
 
+Um estudo `SPIKE-NNN` segue o mesmo fluxo e usa o contrato de história, com entregáveis de pesquisa e decisões. Pode ficar `ready` com estudo ainda não iniciado. Quando seu aceite exigir revisão do PO sobre fontes, rótulos ou protocolo de avaliação, essa revisão precisa ser registrada antes de `done`; criar a tarefa ou realizar uma pesquisa exploratória não satisfaz esse gate.
+
 Para concluir uma atividade, registrar pelo menos uma validação executada, seu resultado e evidência recuperável. Não declarar concluída com validação falha relevante ao escopo. Registrar separadamente testes de aplicação ausentes por não haver implementação. Uma revisão automatizada ou autorrevisão deve ser identificada como tal, sem atribuir revisão humana inexistente.
 
 Para história `done`, todos os ACs e DoD devem ter evidência, revisão deve estar registrada, e handoffs devem representar o trabalho realizado. Na Etapa 0, STORY-004 exige validação humana da descoberta, mesmo que histórias documentais anteriores tenham revisão de consistência pelo próprio agente.

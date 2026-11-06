@@ -1,6 +1,6 @@
 # Pendências, riscos e participação humana
 
-Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem a redação inicial de produto. Hipóteses e candidatas não são decisões aceitas.
+Estado em 2026-11-03. Itens futuros não bloqueiam a preparação documental nem a redação inicial de produto. Hipóteses e candidatas não são decisões aceitas.
 
 | ID | Lacuna / decisão | Responsável e momento | Impacto / próximo passo |
 |---|---|---|---|
@@ -9,7 +9,7 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-003 | Cinco critérios observáveis, três falhas e insuficiência de evidência | Agente + PO; STORY-003 | PO aceitou em 2026-10-30 os critérios e falhas de [REQUIREMENTS](../REQUIREMENTS.md), inclusive explicação restrita; evidência em [HANDOFF-004](../../agents/handoffs/HANDOFF-004.yaml) |
 | Q-004 | Python, versões compatíveis, gerenciador e type checker | Agente de setup propõe; PO decide ADR estrutural antes da STORY-010 | PO aprovou Python 3.14.8 e ferramentas do [ADR-0003](../adr/0003-ambiente-python-qualidade.md) em 2026-10-30 após teste isolado; instalação limpa do projeto e CI seguem para STORY-010 |
 | Q-005 | Rota/CLI mínima e contratos de erros; fluxo síncrono inicial | PO aceitou a direção da API em 2026-10-31; refinamento técnico na STORY-012 | Direções aceitas em [ADR-0004](../adr/0004-api-local-contratos-http.md); API, servidor, versões e transporte implementados e validados conforme [HANDOFF-012](../../agents/handoffs/HANDOFF-012.yaml). Eventual CLI permanece futura. |
-| Q-006 | Política e medidas de sucesso para hipóteses e retrieval | PO + agente de avaliação; Etapas 3–4 | Definir dataset e metas antes dos testes; medir sem fabricar resultados |
+| Q-006 | Política e medidas de sucesso para hipóteses e retrieval | PO + agente de avaliação; Etapas 3–4 | SPIKE-030 concluída; corpus e dataset da STORY-030 revisados e aceitos pelo PO. Baseline lexical exploratório medido na STORY-031; teste independente, metas e política de hipóteses permanecem futuros. Ver [avaliação](../EVALUATION.md). |
 | Q-007 | Modelo local, recursos e avaliação | PO aprovou Colibri para explicação na primeira vertical; modelo definitivo pendente | Avaliar qualidade, latência, memória e licença; manter resultado básico sem credenciais ou LLM |
 | Q-008 | LangGraph versus pipeline simples | Agente apresenta experimento; PO aprova adoção; Etapa 5 | Só adotar se houver ganho demonstrável; resultado válido pode manter baseline |
 | Q-009 | Docling, FAISS/pgvector e busca lexical/vetorial/híbrida | Agente propõe comparação; PO decide; Etapa 6 | Documentos autorizados, métricas e análise de falhas antes de escolha |
@@ -23,7 +23,8 @@ Estado em 2026-10-31. Itens futuros não bloqueiam a preparação documental nem
 | Q-017 | Fechamento da STORY-012 e gate do EPIC-001 antes da STORY-020 | PO autorizou o fechamento em 2026-10-31 | Concluídos e integrados à base; evidências e autorização em [HANDOFF-012](../../agents/handoffs/HANDOFF-012.yaml). O bloqueio anterior consta do histórico Git da branch. |
 | Q-018 | Dependências da STORY-021 na base | Concluídas na base origin/main atualizada | STORY-020 está `done` e ACT-020 `completed`; o bloqueio anterior permanece no histórico da branch. Ver [HANDOFF-020](../../agents/handoffs/HANDOFF-020.yaml). |
 
-| Q-019 | Confiabilidade e evolução da explicação local | Avaliar confiabilidade geral, evolução do modelo e custo operacional | [ADR-0006 aceito](../adr/0006-proposta-integracao-colibri.md) registra a integração da primeira vertical, autorizada pelo PO com Qwen e teto de 512 tokens. A [avaliação](story-021-avaliacao.md) inclui testes nas três fixtures e ensaios adversariais anteriores à integração; o PO informou ter revisado a entrega. A decisão sobre o PR e avaliações mais amplas permanecem pendentes. |
+| Q-019 | Confiabilidade e evolução da explicação local | Avaliar confiabilidade geral, evolução do modelo e custo operacional | [ADR-0006 aceito](../adr/0006-proposta-integracao-colibri.md) registra a integração da primeira vertical, autorizada pelo PO com Qwen e teto de 512 tokens. A [avaliação](story-021-avaliacao.md) inclui testes nas três fixtures e ensaios adversariais anteriores à integração; o PO informou ter revisado a entrega e o PR foi mesclado. Avaliações mais amplas permanecem pendentes. |
+| Q-020 | Seleção de runbooks e desenho da avaliação própria | Estudo concluído; STORY-030/031 quando autorizadas | PO aceitou globalmente C1 e protocolo em 2026-11-04 após solicitar ampliação. Licenças GitLab por versão lidas e preservadas; PO revisou e aceitou corpus efetivo, adaptações, licenças, traduções, rótulos e protocolo em resposta conjunta. Direitos ocultos de terceiros não são certificados; política exploratória fixada na STORY-031; partição representativa permanece futura. Nenhuma meta de desempenho foi aceita. Ver [revisão](../../datasets/evaluation/REVIEW.md). Ver [estudo](../research/SPIKE-030.md) e [handoff](../../agents/handoffs/HANDOFF-029.yaml). |
 
 ## Riscos de execução
 

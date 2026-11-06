@@ -1,0 +1,151 @@
+schema_version: 1
+study: SPIKE-030
+consulted_at: '2026-11-03'
+status: proposta_aceita_condicionada
+corpus_candidate: C1-proposta-ampliada-2026-11-03
+scope_note: C1 foi aceita como proposta de unidades, não é corpus materializado; licenças, adaptações e rótulos sobre unidades efetivas permanecem sujeitos às condições documentadas. Ausência é relativa a esta lista e versões.
+review: {executor: autorrevisao_e_concordancia_com_fechamento, po: aceite_global_C1_2026-11-04}
+sources:
+- id: GL-DIAG
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/tutorials/diagnosis.md
+  version: v4.111.0
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v4.111.0/docs/tutorials/diagnosis.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT no projeto atual; confirmar texto e abrangência na versão v4.111.0 e direitos de conteúdo de terceiros antes de incorporar.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos de copyright e licença aplicáveis.
+  language: en
+  sections: ['Symptom- vs cause-based alerting', 'Querying: filtering and grouping', 'Aggregation']
+  adaptation: Candidato a unidade curta em inglês e eventual tradução anotada; remover dependência de ferramentas GitLab e comandos, sem inventar evidência ou alterar significado; sujeita à revisão.
+  applicability: Orientação geral para investigar latência e erros; exige sinais adicionais e não identifica sua causa. Trechos sobre recursos servem como contexto geral sujeito a revisão, não procedimento específico de CPU ou memória do serviço.
+  decision: candidato_positivo_condicional
+- id: GL-GITALY
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/gitaly/git-high-cpu-and-memory-usage.md
+  version: v2.180.0
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.180.0/docs/gitaly/git-high-cpu-and-memory-usage.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT declarado no projeto atual; confirmar na versão fixada e direitos de terceiros.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos aplicáveis.
+  language: en
+  sections: ['Problem: git processes spawned by Gitaly may consume significant CPU and memory', Symptoms]
+  adaptation: Somente eventual trecho de sintomas como distrator explicitamente rotulado; omitir comandos, ações e referências privadas.
+  applicability: CPU e memória de processos Git/Gitaly exigem identificação de componente ausente nas fixtures; não extrapolar.
+  decision: candidato_negativo_dificil
+- id: GL-LAT
+  repository: https://gitlab.com/gitlab-com/runbooks
+  path: docs/gitaly/gitaly-latency.md
+  version: v2.198.1
+  url: https://gitlab.com/gitlab-com/runbooks/-/blob/v2.198.1/docs/gitaly/gitaly-latency.md
+  license_url: https://gitlab.com/gitlab-com/runbooks/-/blob/37572b449cf301711570a21ce6edeaf021fba7fc/LICENSE
+  declared_license: MIT declarado no projeto atual; confirmar na versão fixada e direitos de terceiros.
+  attribution: GitLab.com / Runbooks e respectivos autores; preservar avisos aplicáveis.
+  language: en
+  sections: [Symptoms, '1. Check the triage dashboard to assess the impact']
+  adaptation: Eventual distrator de latência Gitaly; não incorporar comandos nem orientações de acesso.
+  applicability: P95 Gitaly não equivale a P95 de serviço fictício; documento sinaliza possível depreciação e contém remediação.
+  decision: candidato_negativo_dificil
+- id: PO-CPU
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/CPUThrottlingHigh.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/CPUThrottlingHigh.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator; não trazer ações de mitigação como instruções.
+  applicability: Exige evidência de throttling, não fornecida por utilização de CPU.
+  decision: candidato_negativo_dificil
+- id: PO-MEM
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/KubeMemoryOvercommit.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeMemoryOvercommit.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator; não importar ações de mitigação.
+  applicability: Trata de requests agregados e tolerância a falha do cluster, não de utilização relativa ao limite de um serviço.
+  decision: candidato_negativo_dificil
+- id: PO-KCLIENT
+  repository: https://github.com/prometheus-operator/runbooks
+  path: content/runbooks/kubernetes/KubeClientErrors.md
+  version: a685d14cf5128bb30e2bf935c3983decd772d885
+  url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/content/runbooks/kubernetes/KubeClientErrors.md
+  license_url: https://github.com/prometheus-operator/runbooks/blob/a685d14cf5128bb30e2bf935c3983decd772d885/LICENSE
+  declared_license: Apache-2.0 na raiz; conferir avisos específicos e NOTICE aplicável antes de distribuição.
+  attribution: Prometheus Operator contributors; reter avisos aplicáveis, licença e indicação de modificações.
+  language: en
+  sections: [Meaning, Diagnosis]
+  adaptation: Trechos candidatos para distrator de erros; mitigação consta como TODO.
+  applicability: Erros de cliente da API Kubernetes em 15 minutos não equivalem a HTTP 5xx do serviço em cinco minutos.
+  decision: candidato_negativo_dificil
+- id: DU-CPU
+  repository: https://github.com/durrello/incident-response-runbooks
+  path: runbooks/high-cpu.md
+  version: 15a4a5453fb76425337ac42ea75d7d84bae62822
+  url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/runbooks/high-cpu.md
+  license_url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/LICENSE
+  declared_license: MIT no arquivo LICENSE da revisão, copyright 2026 Durrell Gemuh; conferir avisos adicionais e direitos de terceiros antes de incorporar.
+  attribution: Durrell Gemuh e colaboradores; preservar copyright e aviso de permissão MIT em cópias ou partes substanciais.
+  language: en
+  sections: ['1. Confirm scope']
+  adaptation: Candidato a orientação geral revisada para distinguir escopo e avaliar sinais adicionais; excluir comandos e afirmações absolutas sobre impacto, limiares e remediação.
+  applicability: CPU alta é compatível como sinal inicial; escopo de pod ou nó e impacto em usuários não constam da fixture.
+  decision: candidato_positivo_condicional
+- id: DU-5XX
+  repository: https://github.com/durrello/incident-response-runbooks
+  path: runbooks/high-error-rate.md
+  version: 15a4a5453fb76425337ac42ea75d7d84bae62822
+  url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/runbooks/high-error-rate.md
+  license_url: https://github.com/durrello/incident-response-runbooks/blob/15a4a5453fb76425337ac42ea75d7d84bae62822/LICENSE
+  declared_license: MIT no arquivo LICENSE da revisão, copyright 2026 Durrell Gemuh; conferir avisos adicionais e direitos de terceiros antes de incorporar.
+  attribution: Durrell Gemuh e colaboradores; preservar copyright e aviso de permissão MIT em cópias ou partes substanciais.
+  language: en
+  sections: ['1. Triage (first 5 minutes)']
+  adaptation: Apenas perguntas gerais sobre escopo e mudanças hipotéticas; excluir comandos, rollback, prioridade e limiares do autor.
+  applicability: Respostas 5xx do serviço justificam investigação geral de abrangência; endpoint, região e mudanças recentes não são observados.
+  decision: candidato_positivo_condicional
+- id: BK-CPU
+  repository: https://github.com/moatazeldebsy/backstage-platform-template
+  path: docs/runbooks/high-cpu.md
+  version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+  url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/docs/runbooks/high-cpu.md
+  license_url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/LICENSE
+  declared_license: MIT no LICENSE da revisão, copyright 2025 backstage-platform-template contributors; conferir avisos adicionais e direitos de terceiros.
+  attribution: backstage-platform-template contributors; preservar copyright e permissão MIT em cópias ou partes substanciais.
+  language: en
+  sections: ['Alert Description', "2. Check if it's sustained throttling or a spike"]
+  adaptation: Adaptar apenas distinção entre utilização e necessidade de medir throttling; omitir afirmação de que o alerta prova throttling e todas as ações privilegiadas.
+  applicability: Contêiner e limite de CPU são contexto adicional ausente; candidato apenas após adaptação e revisão; utilização de CPU por si só não prova throttling.
+  decision: candidato_positivo_condicional
+- id: BK-MEM
+  repository: https://github.com/moatazeldebsy/backstage-platform-template
+  path: docs/runbooks/high-memory.md
+  version: 6b0aad93ad05119d0d464eb0eac9e829f8212d45
+  url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/docs/runbooks/high-memory.md
+  license_url: https://github.com/moatazeldebsy/backstage-platform-template/blob/6b0aad93ad05119d0d464eb0eac9e829f8212d45/LICENSE
+  declared_license: MIT no LICENSE da revisão, copyright 2025 backstage-platform-template contributors; conferir avisos adicionais e direitos de terceiros.
+  attribution: backstage-platform-template contributors; preservar copyright e permissão MIT em cópias ou partes substanciais.
+  language: en
+  sections: ['Alert Description', '1. Identify the high-memory pods', '2. Check for a memory leak pattern']
+  adaptation: Adaptar perguntas sobre uso relativo ao limite e evolução temporal, sem presumir contêiner; excluir limiares, OOM iminente, causa e comandos de mudança.
+  applicability: Uso/limite é conceitualmente próximo ao INC-003; contêiner, séries detalhadas, leak e OOM não foram observados, e duas médias não demonstram tendência contínua.
+  decision: candidato_positivo_condicional
+- id: URL-LAT
+  repository: https://github.com/RETR0-OS/MLH_PE_URL_Shortener
+  path: docs/Incident Response/runbooks/INCIDENT-PLAYBOOK.md
+  version: c47e12d39277b379ef43703b2f71b8863c888a9d
+  url: https://github.com/RETR0-OS/MLH_PE_URL_Shortener/blob/c47e12d39277b379ef43703b2f71b8863c888a9d/docs/Incident%20Response/runbooks/INCIDENT-PLAYBOOK.md
+  license_url: https://github.com/RETR0-OS/MLH_PE_URL_Shortener/blob/c47e12d39277b379ef43703b2f71b8863c888a9d/LICENSE
+  declared_license: MIT indicado no LICENSE da revisão; confirmar autoria e avisos de terceiros antes de incorporar.
+  attribution: MLH PE URL Shortener Contributors, copyright 2025; preservar copyright e permissão MIT em cópias ou partes substanciais.
+  language: en
+  sections: ['8. Runbook Summaries / HighLatency / Step 1 — Confirm and characterise']
+  adaptation: Adaptar perguntas sobre p95 e volume de requisições; excluir comandos, limites, ambiente Docker, causas fechadas e remediação.
+  applicability: p95 de HTTP é comparável ao sinal da fixture, mas a fonte assume URL shortener, ferramentas e métricas adicionais ausentes.
+  decision: candidato_positivo_condicional

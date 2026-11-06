@@ -9,7 +9,9 @@ Comece por [AGENTS.md](../AGENTS.md). Esta pasta guarda estado versionável, nã
 | `handoffs/` | Estado real ao interromper ou encerrar: arquivos, motivos, evidências, falhas e próximo passo |
 | `templates/` | Modelos YAML para novos contratos |
 
-O bootstrap está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activities/ACT-000.yaml) e [HANDOFF-000](handoffs/HANDOFF-000.yaml). A execução seguinte usa [SPEC-001](specs/SPEC-001.yaml) e [ACT-001](activities/ACT-001.yaml), ligadas à [STORY-001](../roadmap/stories/STORY-001.yaml). A atividade inicial ainda não foi executada.
+O bootstrap histórico está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activities/ACT-000.yaml) e [HANDOFF-000](handoffs/HANDOFF-000.yaml). A [SPIKE-030](../roadmap/stories/SPIKE-030.yaml) e [ACT-029](activities/ACT-029.yaml) foram concluídas; [HANDOFF-029](handoffs/HANDOFF-029.yaml) registra o aceite, a validação e as pendências para as histórias futuras.
+
+A [STORY-030](../roadmap/stories/STORY-030.yaml) está concluída: [SPEC-030](specs/SPEC-030.yaml), [ACT-030](activities/ACT-030.yaml) e [HANDOFF-030](handoffs/HANDOFF-030.yaml) registram o corpus, o aceite do PO e as limitações futuras.
 
 ## Regras de handoff
 
@@ -21,3 +23,5 @@ O bootstrap está registrado em [SPEC-000](specs/SPEC-000.yaml), [ACT-000](activ
 - Versionar contratos, atualizações do roadmap e evidências com a entrega Git. Nunca afirmar commit/CI/publicação se não aconteceram.
 
 Estados e convenções estão em [conventions.md](../doc/standards/conventions.md). O fluxo completo está em [workflow.md](../doc/standards/workflow.md).
+
+A [STORY-031](../roadmap/stories/STORY-031.yaml) foi concluída localmente com autorrevisão; [SPEC-031](specs/SPEC-031.yaml), [ACT-031](activities/ACT-031.yaml) e [HANDOFF-031](handoffs/HANDOFF-031.yaml) registram a entrega e continuidade.

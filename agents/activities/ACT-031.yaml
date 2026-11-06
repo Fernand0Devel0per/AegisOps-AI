@@ -1,0 +1,46 @@
+id: ACT-031
+story_id: STORY-031
+spec_id: SPEC-031
+title: Implementar e medir baseline lexical
+objective: Produzir busca local com proveniência e avaliação exploratória reproduzível.
+status: completed
+agent:
+  role: Agente de implementação
+  responsibility: Implementar, validar, revisar e registrar limites.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-031.yaml
+- agents/specs/SPEC-031.yaml
+- agents/handoffs/HANDOFF-030.yaml
+- datasets/evaluation/queries.yaml
+- datasets/runbooks/manifest.yaml
+expected_outputs:
+- src/aegisops/
+- tests/evaluation/
+- doc/EVALUATION.md
+- agents/handoffs/HANDOFF-031.yaml
+constraints:
+- Não mudar corpus ou rótulos nem integrar LLM; não executar runbooks.
+- Congelar política antes de inspecionar ranking; não alegar teste independente.
+execution_steps:
+- Congelar protocolo.
+- Implementar e testar pacote instalado.
+- Medir e registrar resultados e revisão.
+validation:
+  commands:
+  - python3 datasets/evaluation/validate.py --self-test
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Registrar resultados, erros e limitações.
+dependencies:
+- ACT-029
+- ACT-030
+handoff_required: true

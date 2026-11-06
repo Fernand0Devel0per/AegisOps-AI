@@ -38,7 +38,7 @@ LIST_FIELDS = {
     "activity": "inputs expected_outputs constraints execution_steps dependencies",
     "handoff": "completed_work changed_files decisions_made known_issues pending_work next_steps related_adrs",
 }
-PREFIX = {"story": "STORY", "epic": "EPIC", "spec": "SPEC", "activity": "ACT", "handoff": "HANDOFF"}
+PREFIX = {"story": "(?:STORY|SPIKE)", "epic": "EPIC", "spec": "SPEC", "activity": "ACT", "handoff": "HANDOFF"}
 FOLDERS = {"story": "roadmap/stories", "epic": "roadmap/epics", "spec": "agents/specs", "activity": "agents/activities", "handoff": "agents/handoffs"}
 
 
@@ -85,9 +85,13 @@ def fields_at(data, fields, label):
         require(field in data, f"{label}: campo ausente {field}.")
 
 
+def valid_identifier(kind, identifier):
+    return re.fullmatch(PREFIX[kind] + r"-\d{3,}", str(identifier)) is not None
+
+
 def contract(kind, data, label, template=False):
     fields_at(data, REQUIRED[kind], label)
-    require(re.fullmatch(PREFIX[kind] + r"-\d{3,}", str(data["id"])), f"{label}: ID inválido.")
+    require(valid_identifier(kind, data["id"]), f"{label}: ID inválido.")
     require(data["status"] in STATES[kind], f"{label}: estado inválido.")
     for key in LIST_FIELDS[kind].split():
         list_at(data, key, label)
@@ -200,6 +204,10 @@ def self_test():
         lambda: acyclic({"A": {"dependencies": ["B"]}, "B": {"dependencies": ["A"]}}),
         lambda: same_catalog({"status": "done"}, {"id": "X", "status": "ready"}, ["status"]),
         lambda: ac_mapping({"acceptance_criteria": [{"id": "AC-01"}]}, {"id": "SPEC-X", "acceptance_mapping": []}),
+        lambda: acyclic({"STORY-030": {"dependencies": ["SPIKE-030"]}, "SPIKE-030": {"dependencies": ["STORY-030"]}}),
+        lambda: require(valid_identifier("story", "SPIKE-30"), "ID curto deve ser rejeitado."),
+        lambda: require(valid_identifier("story", "SPIKES-030"), "Prefixo desconhecido deve ser rejeitado."),
+        lambda: require(valid_identifier("spec", "SPIKE-030"), "Spike não é ID de especificação."),
     ]
     for case in cases:
         try:
@@ -208,6 +216,9 @@ def self_test():
             continue
         raise Invalid("Self-test aceitou entrada inválida.")
     require(parse_yaml("id: A\nitems: []\n") == {"id": "A", "items": []}, "Self-test rejeitou entrada válida.")
+    for identifier in ("STORY-030", "SPIKE-030"):
+        require(valid_identifier("story", identifier), f"Self-test rejeitou ID válido: {identifier}")
+    acyclic({"SPIKE-030": {"dependencies": []}, "STORY-030": {"dependencies": ["SPIKE-030"]}, "STORY-031": {"dependencies": ["SPIKE-030", "STORY-030"]}})
     global ROOT
     original_root = ROOT
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -235,7 +246,7 @@ def self_test():
             require(markdown_files() == [ROOT / "README.md"], "Self-test incluiu arquivo fora da validação.")
         finally:
             ROOT = original_root
-    print("PASS self-test: contratos inválidos e caminhos indevidos rejeitados; plano local opcional em referências e links.")
+    print("PASS self-test: IDs STORY/SPIKE e dependências mistas válidos; contratos inválidos, ciclos e caminhos indevidos rejeitados; plano local opcional em referências e links.")
 
 
 def validate():

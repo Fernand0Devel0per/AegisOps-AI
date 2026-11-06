@@ -1,0 +1,297 @@
+{
+  "overall": {
+    "queries": 10,
+    "technical_failures": 0,
+    "positive_denominator": 8,
+    "absence_denominator": 2,
+    "unjudged_at_5": 15,
+    "negative_at_5": 14,
+    "recall_sum_3": 5.5,
+    "recall_sum_5": 7.5,
+    "reciprocal_rank_sum_5": 5.833333333333333,
+    "positive_abstentions": 0,
+    "absence_returns": 1,
+    "absence_abstentions": 1
+  },
+  "languages": {
+    "pt-BR": {
+      "queries": 5,
+      "technical_failures": 0,
+      "positive_denominator": 4,
+      "absence_denominator": 1,
+      "unjudged_at_5": 6,
+      "negative_at_5": 5,
+      "recall_sum_3": 2.5,
+      "recall_sum_5": 3.5,
+      "reciprocal_rank_sum_5": 3.5,
+      "positive_abstentions": 0,
+      "absence_returns": 0,
+      "absence_abstentions": 1
+    },
+    "en": {
+      "queries": 5,
+      "technical_failures": 0,
+      "positive_denominator": 4,
+      "absence_denominator": 1,
+      "unjudged_at_5": 9,
+      "negative_at_5": 9,
+      "recall_sum_3": 3.0,
+      "recall_sum_5": 4.0,
+      "reciprocal_rank_sum_5": 2.3333333333333335,
+      "positive_abstentions": 0,
+      "absence_returns": 1,
+      "absence_abstentions": 0
+    }
+  },
+  "groups": {
+    "HYP-DEADLOCK": {
+      "queries": 2,
+      "technical_failures": 0,
+      "positive_denominator": 0,
+      "absence_denominator": 2,
+      "unjudged_at_5": 0,
+      "negative_at_5": 5,
+      "recall_sum_3": 0,
+      "recall_sum_5": 0,
+      "reciprocal_rank_sum_5": 0,
+      "positive_abstentions": 0,
+      "absence_returns": 1,
+      "absence_abstentions": 1
+    },
+    "INC-001": {
+      "queries": 2,
+      "technical_failures": 0,
+      "positive_denominator": 2,
+      "absence_denominator": 0,
+      "unjudged_at_5": 2,
+      "negative_at_5": 2,
+      "recall_sum_3": 1.5,
+      "recall_sum_5": 1.5,
+      "reciprocal_rank_sum_5": 1.0,
+      "positive_abstentions": 0,
+      "absence_returns": 0,
+      "absence_abstentions": 0
+    },
+    "INC-002": {
+      "queries": 2,
+      "technical_failures": 0,
+      "positive_denominator": 2,
+      "absence_denominator": 0,
+      "unjudged_at_5": 4,
+      "negative_at_5": 2,
+      "recall_sum_3": 1.0,
+      "recall_sum_5": 2.0,
+      "reciprocal_rank_sum_5": 2.0,
+      "positive_abstentions": 0,
+      "absence_returns": 0,
+      "absence_abstentions": 0
+    },
+    "INC-003": {
+      "queries": 4,
+      "technical_failures": 0,
+      "positive_denominator": 4,
+      "absence_denominator": 0,
+      "unjudged_at_5": 9,
+      "negative_at_5": 5,
+      "recall_sum_3": 3.0,
+      "recall_sum_5": 4.0,
+      "reciprocal_rank_sum_5": 2.8333333333333335,
+      "positive_abstentions": 0,
+      "absence_returns": 0,
+      "absence_abstentions": 0
+    }
+  },
+  "queries": [
+    {
+      "id": "Q01",
+      "group": "INC-001",
+      "language": "pt-BR",
+      "absence": false,
+      "ids": [
+        "GL-LAT",
+        "URL-LAT"
+      ],
+      "error": null,
+      "first": 2,
+      "rr": 0.5,
+      "recall_3": 0.5,
+      "recall_5": 0.5,
+      "unjudged": 0,
+      "negative": 1
+    },
+    {
+      "id": "Q02",
+      "group": "INC-001",
+      "language": "en",
+      "absence": false,
+      "ids": [
+        "GL-LAT",
+        "GL-DIAG",
+        "URL-LAT",
+        "BK-CPU",
+        "BK-MEM"
+      ],
+      "error": null,
+      "first": 2,
+      "rr": 0.5,
+      "recall_3": 1.0,
+      "recall_5": 1.0,
+      "unjudged": 2,
+      "negative": 1
+    },
+    {
+      "id": "Q03",
+      "group": "INC-002",
+      "language": "pt-BR",
+      "absence": false,
+      "ids": [
+        "DU-5XX",
+        "PO-KCLIENT",
+        "BK-CPU",
+        "BK-MEM",
+        "GL-DIAG"
+      ],
+      "error": null,
+      "first": 1,
+      "rr": 1.0,
+      "recall_3": 0.5,
+      "recall_5": 1.0,
+      "unjudged": 2,
+      "negative": 1
+    },
+    {
+      "id": "Q04",
+      "group": "INC-002",
+      "language": "en",
+      "absence": false,
+      "ids": [
+        "DU-5XX",
+        "PO-KCLIENT",
+        "BK-MEM",
+        "GL-DIAG",
+        "DU-CPU"
+      ],
+      "error": null,
+      "first": 1,
+      "rr": 1.0,
+      "recall_3": 0.5,
+      "recall_5": 1.0,
+      "unjudged": 2,
+      "negative": 1
+    },
+    {
+      "id": "Q05",
+      "group": "INC-003",
+      "language": "pt-BR",
+      "absence": false,
+      "ids": [
+        "BK-CPU",
+        "PO-CPU",
+        "BK-MEM",
+        "DU-CPU",
+        "GL-GITALY"
+      ],
+      "error": null,
+      "first": 1,
+      "rr": 1.0,
+      "recall_3": 0.5,
+      "recall_5": 1.0,
+      "unjudged": 1,
+      "negative": 2
+    },
+    {
+      "id": "Q06",
+      "group": "INC-003",
+      "language": "pt-BR",
+      "absence": false,
+      "ids": [
+        "BK-MEM",
+        "BK-CPU",
+        "DU-5XX",
+        "GL-DIAG",
+        "GL-GITALY"
+      ],
+      "error": null,
+      "first": 1,
+      "rr": 1.0,
+      "recall_3": 1.0,
+      "recall_5": 1.0,
+      "unjudged": 3,
+      "negative": 1
+    },
+    {
+      "id": "Q07",
+      "group": "INC-003",
+      "language": "en",
+      "absence": false,
+      "ids": [
+        "DU-5XX",
+        "PO-CPU",
+        "BK-CPU",
+        "BK-MEM",
+        "DU-CPU"
+      ],
+      "error": null,
+      "first": 3,
+      "rr": 0.3333333333333333,
+      "recall_3": 0.5,
+      "recall_5": 1.0,
+      "unjudged": 2,
+      "negative": 1
+    },
+    {
+      "id": "Q08",
+      "group": "INC-003",
+      "language": "en",
+      "absence": false,
+      "ids": [
+        "PO-MEM",
+        "BK-MEM",
+        "BK-CPU",
+        "DU-5XX",
+        "DU-CPU"
+      ],
+      "error": null,
+      "first": 2,
+      "rr": 0.5,
+      "recall_3": 1.0,
+      "recall_5": 1.0,
+      "unjudged": 3,
+      "negative": 1
+    },
+    {
+      "id": "Q09",
+      "group": "HYP-DEADLOCK",
+      "language": "pt-BR",
+      "absence": true,
+      "ids": [],
+      "error": null,
+      "first": null,
+      "rr": 0,
+      "recall_3": 0.0,
+      "recall_5": 0.0,
+      "unjudged": 0,
+      "negative": 0
+    },
+    {
+      "id": "Q10",
+      "group": "HYP-DEADLOCK",
+      "language": "en",
+      "absence": true,
+      "ids": [
+        "BK-CPU",
+        "BK-MEM",
+        "DU-5XX",
+        "DU-CPU",
+        "GL-DIAG"
+      ],
+      "error": null,
+      "first": null,
+      "rr": 0,
+      "recall_3": 0.0,
+      "recall_5": 0.0,
+      "unjudged": 0,
+      "negative": 5
+    }
+  ]
+}

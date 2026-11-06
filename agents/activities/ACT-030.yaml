@@ -1,0 +1,41 @@
+id: ACT-030
+story_id: STORY-030
+spec_id: SPEC-030
+title: Materializar corpus e julgamentos para revisão
+objective: Produzir corpus e dataset rastreáveis sem implementar recuperação.
+status: completed
+agent:
+  role: Agente de documentação e avaliação
+  responsibility: Verificar fontes e adaptar unidades; propor rótulos e solicitar revisão humana.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-030.yaml
+- agents/specs/SPEC-030.yaml
+- agents/handoffs/HANDOFF-029.yaml
+- doc/research/SPIKE-030.md
+- doc/research/spike-030-fontes.yaml
+- doc/INCIDENTS.md
+- doc/REQUIREMENTS.md
+expected_outputs:
+- datasets/runbooks/
+- datasets/evaluation/
+- agents/handoffs/HANDOFF-030.yaml
+constraints:
+- Não executar comandos das fontes nem implementar busca, ranking ou mudanças em src.
+- Sem revisão individual do PO, manter julgamentos pendentes e história não concluída.
+execution_steps:
+- Verificar licenças e seções, excluir lacunas.
+- Materializar, julgar e validar contra corpus efetivo.
+- Solicitar revisão concreta ao PO e registrar handoff.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Referências e integridade consistentes; registrar falhas e revisões pendentes.
+dependencies:
+- ACT-021
+- ACT-029
+handoff_required: true
