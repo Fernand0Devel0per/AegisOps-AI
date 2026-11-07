@@ -1,0 +1,9 @@
+{
+  "id": "SYN-MISSING-01",
+  "version": "1.0-proposta",
+  "synthetic": true,
+  "service": "Serviço fictício sem telemetria",
+  "window_utc": "2026-11-04T08:00:00Z/2026-11-04T08:05:00Z",
+  "scope": "Somente avaliação documental; não é fixture aceita pela API.",
+  "evidence": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "SYN-DNS-01",
+  "version": "1.0-proposta",
+  "synthetic": true,
+  "service": "Resolvedor fictício",
+  "window_utc": "2026-11-02T12:00:00Z/2026-11-02T12:05:00Z",
+  "scope": "Somente avaliação documental; não é fixture aceita pela API.",
+  "evidence": [
+    {
+      "id": "EVD-D01-01",
+      "summary": "Das 100 consultas DNS sintéticas no intervalo, 30 expiraram; sonda sintética A."
+    },
+    {
+      "id": "EVD-D01-02",
+      "summary": "Das 100 consultas DNS sintéticas no intervalo anterior 2026-11-02T11:55:00Z/2026-11-02T12:00:00Z, 2 expiraram; sonda sintética A."
+    }
+  ]
+}

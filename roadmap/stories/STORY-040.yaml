@@ -58,7 +58,7 @@ definition_of_done:
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
 
-refinement_notes: Casos e políticas são propostas; revisão humana e decisão sobre metas e custo pendentes. Nenhuma inferência realizada.
+refinement_notes: PO aprovou Opção B como diretriz experimental e execução sem serviços pagos; revisão de casos e rubrica refinada e limites técnicos locais permanecem pendentes. Nenhuma inferência realizada.
 acceptance_evidence:
 - "AC-01: casos e rubrica propostos em datasets/hypothesis-evaluation/cases.yaml e doc/decisions/story-040-avaliacao.md; revisão do PO pendente."
-- "AC-02: métricas, procedimento e opções em doc/decisions/story-040-avaliacao.md; metas e limites ainda não aprovados pelo PO."
+- "AC-02: métricas e procedimento em doc/decisions/story-040-avaliacao.md; PO aprovou metas exploratórias e ausência de serviços pagos, sujeito a ajustes; revisão do protocolo refinado e limites técnicos pendentes."

@@ -9,7 +9,7 @@ architecture:
   - Dataset documental isolado da avaliação lexical e da explicação restrita.
   - Protocolo de avaliação humana e métricas candidatas.
   interactions:
-  - Revisão do PO precede uso dos novos casos como julgados e aprovação das metas.
+  - PO aprovou direção experimental e metas condicionais; revisão dos casos e da rubrica refinada precede uso como julgados.
   data_flow:
   - Contexto limitado e versionado → resposta simulada ou evento → julgamento humano futuro; nenhuma inferência nesta atividade.
 interfaces:
@@ -23,7 +23,7 @@ dependencies:
 security_considerations:
 - Entradas e documentos são não confiáveis; não executar runbooks ou alterar infraestrutura.
 observability:
-- Protocolo futuro registra versões, parâmetros, tokens disponíveis, tempo, recursos e despesas observadas.
+- Protocolo futuro separa geração bruta, aceita e exibida e registra versões, parâmetros, tokens, tempo, recursos e despesas observadas.
 error_handling:
 - Documentar insuficiência, discordância, falha técnica e rejeição sem apresentar saída rejeitada.
 implementation_steps:
@@ -40,7 +40,7 @@ acceptance_mapping:
   validation: Conferir definições e opções antes de teste e obter revisão do PO sobre métricas e limites de custo.
   evidence: doc/decisions/story-040-avaliacao.md
 open_questions:
-- Q-006 metas e julgamentos pendem de revisão do PO; não são resultados.
+- Q-006 Opção B aprovada como diretriz experimental; rótulos e rubrica refinada aguardam revisão, sem resultados.
 - Q-007 e Q-019 permanecem abertas para avaliação ampliada; sem nova escolha de modelo.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md

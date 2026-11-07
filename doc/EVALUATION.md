@@ -43,4 +43,4 @@ Durante a implementação houve duas execuções preliminares com ordem de norma
 
 ## Preparação separada: hipóteses ampliadas
 
-A [proposta da STORY-040](decisions/story-040-avaliacao.md) e seus [casos](../datasets/hypothesis-evaluation/cases.yaml) aguardam revisão do PO. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.
+Na [STORY-040](decisions/story-040-avaliacao.md), o PO aprovou direção experimental condicional; os [casos ampliados](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica refinada aguardam revisão. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.

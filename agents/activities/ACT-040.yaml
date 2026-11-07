@@ -22,10 +22,10 @@ expected_outputs:
 constraints:
 - Não alterar corpus, julgamentos de retrieval, primeira vertical ou código de aplicação.
 - Não fazer inferência, chamadas pagas ou usar infraestrutura remota.
-- Não marcar casos julgados nem aprovar metas em nome do PO.
+- Não marcar casos julgados; registrar a Opção B aprovada pelo PO somente como diretriz experimental.
 execution_steps:
-- Produzir casos e política com referências explícitas.
-- Propor métricas e opções de custo; solicitar revisão do PO e registrar resposta quando recebida.
+- Produzir casos e política com referências explícitas; separar geração, aceitação e exibição.
+- Registrar a decisão do PO, refinar métricas e ampliar casos; solicitar revisão concreta do novo conteúdo.
 - Validar e registrar handoff parcial até revisão necessária.
 validation:
   commands:
