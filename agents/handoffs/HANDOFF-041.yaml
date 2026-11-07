@@ -5,8 +5,8 @@ spec_id: SPEC-041
 source_agent: Codex — implementação
 target_agent: Product Owner e próximo executor da STORY-041
 status: partial
-summary: Contratos preparados e recorte estruturado offline implementado; análise descritiva geral, rubrica
-  completa e revisão permanecem pendentes.
+summary: 'STORY-041 parcial: incremento aprovado de catálogo estruturado e orientações curadas implementado
+  e testado; linguagem natural e avaliação integral pendentes.'
 completed_work:
 - Confirmadas STORY-040 done, ACT-040 completed e EPIC-003 done; branch feat/story-041 criada a partir de 2e7bcd4.
 - Mock assíncrono e seleção estrita de referências; fatos e comparação temporal construídos a partir de sinais
@@ -45,23 +45,22 @@ decisions_made:
 acceptance_evidence:
 - id: AC-01
   state: partial
-  evidence: tests/unit/test_descriptive.py
-  remaining: Mock e limites do recorte testados; não existe prompt de geração descritiva nem integração de
-    provedor real.
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Mock e limites estruturados testados; falta prompt de geração e adaptador real autorizado.
 - id: AC-02
   state: partial
-  evidence: tests/unit/test_descriptive.py
-  remaining: IDs e saída restrita testados; orientação documental e análise semântica humana dos casos ainda
-    não realizadas.
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Vínculos, fontes curadas, rejeições e integridade testados; falta cobertura de fontes e intenção
+    em linguagem natural.
 - id: AC-03
   state: partial
-  evidence: tests/unit/test_descriptive.py
-  remaining: Estados e preservação da triagem testados no recorte; cobertura integral dos casos ainda não demonstrada.
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Falhas e fallback testados no recorte; cobertura integral da rubrica não demonstrada.
 - id: AC-04
   state: pending
   evidence: doc/EVALUATION.md
-  remaining: Executar casos elegíveis, julgamento humano e métricas por estágio somente conforme autorização;
-    não há resultados de geração.
+  remaining: Casos relacionados individualmente aos testes; falta execução integral e métricas por estágio
+    quando autorizadas.
 validation:
   executed:
   - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
@@ -95,19 +94,22 @@ review:
   type: Autorrevisão pelo executor; revisão do PO pendente.
   evidence: doc/decisions/story-041-alternativas.md
 known_issues:
-- Não interpreta perguntas abertas ou runbooks; fixtures de texto livre não são suportadas.
-- Mock não gera texto; versão de protocolo não é prompt de geração.
-- Limite de tempo assíncrono depende de cancelamento cooperativo; IDs não provam suporte semântico.
-- Métricas de geração bruta, aceitação, exibição, utilidade e abstenção no conjunto dos 24 casos não foram
-  medidas.
+- Entrada é estruturada; perguntas em linguagem natural continuam objetivo futuro e não são interpretadas.
+- Somente DU-5XX, BK-CPU e BK-MEM têm orientação curada; não há interpretação geral de runbooks nem das fixtures
+  sintéticas em texto.
+- Mock não gera texto; não existe prompt de geração descritiva ou adaptador real para esta análise.
+- Tempo assíncrono depende de cancelamento cooperativo; IDs não comprovam suporte semântico geral.
+- Não foram medidas as métricas por estágio ou executados integralmente os 24 casos.
 pending_work:
-- Escolher desenho para cobrir perguntas e fontes livres; obter aprovação e ADR antes de mudança arquitetural
-  ou pública quando necessária.
-- Implementar e avaliar critérios pendentes sem suprimir partes inválidas sem mecanismo validado.
+- Avaliar separadamente alternativas e riscos para perguntas em linguagem natural; não introduzir revisão humana
+  por requisição.
+- Completar critérios e avaliação da STORY-041 com as devidas autorizações; obter aprovação e ADR antes de
+  alterações relevantes de arquitetura ou contrato público.
 - Solicitar revisão da entrega e registrar evidências antes de concluir história ou atividade.
 - Preparar protocolo e obter autorização específica antes de qualquer experimento real.
 next_steps:
-- Revisar alternativas com o PO e continuar somente STORY-041.
+- Continuar somente a STORY-041 conforme autorização; consultar cobertura por caso e alternativas para linguagem
+  natural.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -117,3 +119,63 @@ git:
   base: 2e7bcd4
   note: Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash STORY-021 preservados fora do commit;
     sem push.
+maintenance_updates:
+- date: '2026-11-07'
+  authorization: PO aprovou alternativa 1 para catálogo estruturado e fontes curadas; sem geração livre, revisão
+    por requisição, alteração da API ou inferência real.
+  summary: Adicionada análise interna estruturada com seleção explícita de evidências e três orientações curadas,
+    fonte e hash fixados, limites, mock e fallback.
+  changed_files:
+  - path: src/aegisops/curated_analysis.py
+    reason: Observações, comparações, orientação curada e verificação de contexto e proveniência.
+  - path: tests/unit/test_curated_analysis.py
+    reason: Cenários estruturados, dados inválidos, respostas adversariais, integridade, timeout e fallback.
+  - path: agents/specs/SPEC-041.yaml
+    reason: Atualizar contrato interno e mapeamento para alternativa aprovada.
+  - path: agents/activities/ACT-041.yaml
+    reason: Registrar autorização e limites do incremento.
+  - path: roadmap/stories/STORY-041.yaml
+    reason: Registrar estado parcial e novos testes.
+  - path: roadmap/index.yaml
+    reason: Manter ponteiro e estado coerentes.
+  - path: roadmap/epics/EPIC-004.yaml
+    reason: Registrar avanço sem concluir épico.
+  - path: doc/EVALUATION.md
+    reason: Mapear mecanismos e pendências para cada um dos 24 casos.
+  - path: doc/DEVELOPMENT.md
+    reason: Documentar função interna e seus limites.
+  - path: doc/decisions/story-041-alternativas.md
+    reason: Registrar decisão explícita do PO.
+  - path: doc/decisions/story-041-linguagem-natural.md
+    reason: Registrar alternativas e riscos para objetivo futuro.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar questão e preservar requisito de decisão arquitetural.
+  - path: agents/handoffs/HANDOFF-041.yaml
+    reason: Continuidade e evidências do incremento.
+  validation:
+    commands:
+    - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+    - uv run --offline --locked --no-sync pytest -q
+    - uv run --offline --locked --no-sync ruff check src tests
+    - uv run --offline --locked --no-sync ruff format --check src tests
+    - uv run --offline --locked --no-sync mypy src tests
+    - uv run --offline --locked --no-sync pyright
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - python3 datasets/evaluation/validate.py --self-test
+    - git diff --check
+    - git diff --cached --check
+    results:
+    - Pacote reinstalado; aviso do uv sobre symlink do Python base, instalação concluída.
+    - 190 testes passaram; Ruff e mypy passaram; Pyright 0 erros e 1 aviso de origem PyYAML.
+    - Validadores documental, incidentes e corpus lexical passaram; 10 mutações inválidas rejeitadas.
+    - Primeiro mypy do incremento falhou por tipo de tupla; ajustado e revalidado.
+    - Revisão é autorrevisão do executor, não aceite do PO.
+  limitations:
+  - Sem inferência real, métricas de qualidade por estágio, geração livre, conexão remota, implantação ou alteração
+    da API.
+  - Observações recebidas não têm veracidade ou hash externo verificados; orientações fixas são vinculadas
+    a hash, versão e origem do corpus.
+  - Os 24 casos foram relacionados aos mecanismos e lacunas; não houve execução integral ou teste independente.
+  next_steps:
+  - Prosseguir STORY-041 sem marcar conclusão automática; linguagem natural deve ser avaliada separadamente.

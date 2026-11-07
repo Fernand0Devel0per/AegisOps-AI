@@ -50,6 +50,7 @@ deliverables:
 - agents/handoffs/HANDOFF-041.yaml
 validation:
   automated_tests:
+  - tests/unit/test_curated_analysis.py
   - tests/unit/test_descriptive.py
   - uv run --offline --locked --no-sync pytest -q
   manual_checks:
@@ -70,4 +71,5 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Contrato refinado e atividade iniciada; não presume aceitação ou capacidade semântica geral.
+refinement_notes: Alternativa 1 aprovada pelo PO em 2026-11-07; incremento estruturado e orientações curadas
+  em validação, sem concluir a história. Linguagem natural permanece objetivo futuro.

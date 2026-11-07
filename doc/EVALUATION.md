@@ -45,7 +45,9 @@ Durante a implementação houve duas execuções preliminares com ordem de norma
 
 Na [STORY-040](decisions/story-040-avaliacao.md), o PO aceitou a conclusão da preparação descritiva. Os [casos](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica não são resultados de inferência nem alteram a avaliação lexical congelada acima.
 
-## STORY-041 — recorte offline parcial
+## STORY-041 — primeiro recorte offline (histórico)
+
+O incremento de 2026-11-07 amplia este recorte; veja a seção seguinte para o estado atual.
 
 A implementação interna `aegisops.descriptive` aceita uma métrica estruturada das quatro já suportadas pelo contrato de incidente e usa um mock em memória. Ela não integra a API. A saída aceita contém observações montadas pelo código e referências conferidas contra os vínculos do contexto; o mock não gera texto. Quando existem exatamente dois sinais da mesma métrica, unidade e agregação em períodos não sobrepostos, a comparação é calculada na ordem temporal. Na pergunta causal sinalizada pelo chamador, relata observações e explicita que não estabelece causa. Não interpreta perguntas abertas, documentos ou as fixtures textuais específicas da avaliação. A string de versão identifica o protocolo de seleção; ainda não há prompt de geração descritiva nem adaptador real para esta análise.
 
@@ -58,3 +60,46 @@ Os testes offline exercitam mecanismos relacionados a H-003 (referência inexist
 Não houve geração bruta de modelo, julgamento de respostas aceitas/exibidas pela rubrica, nem medição de utilidade, abstenção ou rejeição no conjunto dos 24 casos. Essas métricas e a proporção de citações válidas são **não mensuradas**, não 100% ou 0%. A meta exploratória ≥95% na geração bruta continua aplicável apenas a experimento autorizado e não é gate suficiente para produção. Saídas simuladas são testes de implementação, não falhas observadas de modelo ou resultados de inferência. Sem experimento, latência de inferência, tokens e despesas são desconhecidos; zero chamadas reais não comprova custo de uma execução futura. O PO aceitou conjuntamente a STORY-040, sem decisões individuais relatadas por caso.
 
 Alternativas para ampliar a cobertura estão em [story-041-alternativas.md](decisions/story-041-alternativas.md). Qualquer experimento real requer protocolo concreto, ambiente, limites e autorização específica antes da execução.
+
+## STORY-041 — catálogo estruturado e fontes curadas (2026-11-07)
+
+O PO aprovou a alternativa 1 como incremento, sem concluir a história. `aegisops.curated_analysis.analyze_curated` é uma função Python interna e opcional, sem mudança na API HTTP. O chamador seleciona explicitamente IDs de evidência e de até três documentos curados. O contexto da análise contém apenas os IDs escolhidos; a triagem integral continua separada para fallback e pode conter outras observações, portanto um avaliador não deve tratá-la como contexto da resposta. O mock seleciona IDs sem rede. Saída estruturada distingue observações, comparações e orientações; nenhum texto livre do provedor é exibido.
+
+A observação preserva ID do incidente, sinal e evidência, métrica, valor, unidade, período UTC e contagens quando aplicáveis. Esses dados são recebidos pelo núcleo: o vínculo é verificado, mas não há hash externo ou comprovação de verdade da entrada. A comparação é calculada somente para exatamente dois sinais da mesma métrica, unidade e agregação, com períodos ordenáveis não sobrepostos; os IDs dos dois períodos acompanham o resultado. A ausência de comparação não significa igualdade ou ausência de divergência.
+
+Orientações fixas de DU-5XX, BK-CPU e BK-MEM são atribuídas ao documento e não são observações. O carregador existente verifica o corpus inteiro; além disso, cada orientação exige o hash específico da versão curada. A saída informa caminho, hash da unidade, versão do corpus, URL e revisão da fonte. Divergência ou indisponibilidade produz falha controlada, preservando triagem e sem exibir a análise parcial. Os textos são paráfrases curadas locais, não interpretação geral de documentos. Não se executam runbooks ou comandos. O contexto estruturado não informa endpoints ou regiões; a orientação do DU-5XX é condicional. Referência válida não prova apoio semântico geral.
+
+A entrada aceita até 16 sinais, 64 evidências, 16 IDs de evidência e três IDs de documento; IDs têm até 80 caracteres restritos, e há limites para números e agregação. Há uma única chamada de mock com timeout cooperativo; o módulo recebe objeto Python já materializado e não substitui limites de transporte ou isolamento de um provedor real. Falta de seleção, referência fora do contexto, saída extra, falha de corpus, timeout e indisponibilidade têm estados distintos e não mostram conteúdo parcialmente inválido. Para dados de entrada inválidos, vale a exceção do contrato de incidente existente.
+
+### Relação com os 24 casos
+
+A tabela relaciona **mecanismos exercitados**, não resultados completos da rubrica. A solicitação de IDs foi especificada manualmente nos testes; nenhum teste interpreta as perguntas em linguagem natural. Exemplos negativos são respostas controladas ou adaptadas, não inferência de modelo. A rejeição de texto livre resulta do formato permitido, não de detecção semântica automática. O conjunto e os grupos permanecem inalterados.
+
+| Caso | Cobertura deste incremento e pendência |
+|---|---|
+| H-001 | Comparação p95 e referências testadas; estímulo sem citação e sua classificação semântica não avaliados. |
+| H-002 | Múltiplas métricas e rejeição de texto livre exercitadas separadamente; julgamento integral da resposta não implementado. |
+| H-003 | Seleção com EVD-001-99 rejeitada no contexto de EVD-001-02. |
+| H-004 | Afirmação simulada de deploy rejeitada como texto livre; não há identificação automática de falta de apoio. |
+| H-005 | Contexto vazio de incidente válido produz insuficiência; estímulo textual não é interpretado. |
+| H-006 | Timeout injetado preserva triagem e omite a análise; não é falha de modelo observada. |
+| H-007 | CPU e memória estruturadas e BK-CPU/BK-MEM separados são testados; resposta simulada e intenção não avaliadas integralmente. |
+| H-008 | Mesmo mecanismo de H-007; resposta em inglês e adequação linguística não avaliadas. |
+| H-009 | Orientação curada distingue CPU e throttling; alegação livre não é classificada semanticamente. |
+| H-010 | Orientação DU-5XX atribuída e limitação sobre endpoints/regiões testadas no contexto estruturado; estímulo textual não interpretado. |
+| H-011 | Comparação temporal calculada e resposta contraditória adaptada rejeitada por formato; não há detector semântico geral. |
+| H-012 | Resposta mista adaptada é rejeitada integralmente; não há avaliação por afirmação nem supressão parcial. |
+| H-013 | Não atendido: fixture de fila em texto e pergunta livre não são entradas suportadas. |
+| H-014 | Não atendido: fixture de fila e resposta simulada em texto não são interpretadas. |
+| H-015 | Não atendido: fixture DNS textual e pergunta livre não são suportadas. |
+| H-016 | Não atendido: fixture DNS textual e contradição em texto não são interpretadas. |
+| H-017 | Não atendido: sondas em texto, divergência de amostras e pergunta universal não são interpretadas. |
+| H-018 | Não atendido: generalização em texto e sondas divergentes não são interpretadas. |
+| H-019 | Insuficiência de incidente vazio exercitada; fixture SYN-MISSING-01 e pergunta livre não são entradas suportadas. |
+| H-020 | Respostas livres são rejeitadas por formato; fixture SYN-MISSING-01 e classificação semântica não suportadas. |
+| H-021 | Anotação maliciosa inserida em incidente estruturado não chega às observações ou orientações; fixture SYN-INJECT-01 e pergunta livre não são suportadas. |
+| H-022 | Texto livre é rejeitado por formato; o estímulo e a fixture específicos não foram avaliados integralmente. |
+| H-023 | Seleção manual do contexto EVD-002-02/DU-5XX exercita 20%, 200/1000, atribuição, proveniência e limitação; a pergunta livre não foi interpretada. |
+| H-024 | Seleção explícita restringe a evidência apresentada; adequação automática à pergunta ou julgamento da resposta simulada não implementados. |
+
+Não há execução integral dos 24 casos, julgamento de qualidade por estágio, resultados de geração ou percentuais para a meta exploratória. Mecanismos testados não demonstram utilidade geral, cobertura semântica, robustez geral a injeção ou representatividade. As variantes de INC-002 e INC-003 continuam em seus grupos; não houve teste independente. Interpretação de perguntas em linguagem natural permanece objetivo futuro, com [alternativas e riscos](decisions/story-041-linguagem-natural.md) separados. Avaliação humana de critérios e evidências é distinta de uma revisão obrigatória por requisição, que não foi introduzida.

@@ -22,7 +22,10 @@ expected_outputs:
 constraints:
 - Não alterar API, Colibri, prompt ou limite de 512 tokens da primeira vertical; não executar inferência real.
 - Não executar comandos contidos nos dados; rejeitar conteúdo livre não verificado.
+- Sem geração livre nem revisão humana obrigatória por requisição; linguagem natural permanece objetivo futuro.
 execution_steps:
+- 'Aplicar alternativa 1 aprovada em 2026-11-07: ampliar catálogo estruturado e fontes curadas com proveniência
+  e testes; preservar API.'
 - Implementar recorte seguro e testes offline.
 - Confrontar critérios e registrar o que permanece pendente.
 - Executar validações e produzir handoff.

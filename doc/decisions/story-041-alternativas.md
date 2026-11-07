@@ -7,3 +7,8 @@ O recorte implementado seleciona fatos construídos a partir de sinais estrutura
 3. **Combinar catálogo para saída automática e revisão humana para o restante.** Mantém a limitação explícita de ambos os caminhos e acrescenta a necessidade de decidir como encaminhar casos sem converter falha ou rejeição em sucesso.
 
 A escolha de eventual fluxo de revisão ou mudança pública de interface precisa de decisão do PO e, quando arquiteturalmente relevante, ADR antes de implementação. Nenhuma dessas alternativas autoriza inferência real, chamadas remotas ou modificar a API. O trabalho parcial independente e seus testes estão registrados no HANDOFF-041; a história não está concluída.
+
+
+## Decisão do PO — 2026-11-07
+
+Alternativa 1 aprovada como próximo incremento: ampliar catálogo estruturado e fontes curadas, preservando construção determinística, proveniência verificável, rejeição de conteúdo não autorizado, API e fallback. Sem geração livre ou revisão humana por requisição. Interpretar perguntas em linguagem natural continua objetivo do produto; alternativas e riscos serão avaliados separadamente. Alterações relevantes adicionais de arquitetura ou contrato público exigem ADR para aprovação prévia. Não há autorização de inferência real, integração remota, serviços pagos ou implantação. A ampliação não conclui a STORY-041.

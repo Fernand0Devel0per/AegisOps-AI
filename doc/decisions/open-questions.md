@@ -37,4 +37,4 @@ Estado em 2026-11-03. Itens futuros não bloqueiam a preparação documental nem
 Ao resolver item, registrar decisão, referência (ADR quando arquitetural), evidência e data; não apagar o histórico de uma decisão relevante.
 
 
-STORY-041: a ampliação para perguntas e documentos em texto livre e eventual revisão humana requer decisão de desenho antes de mudança estrutural ou de interface; alternativas e evidências estão em [story-041-alternativas.md](story-041-alternativas.md). O recorte estruturado não prova verificação semântica geral.
+STORY-041: PO aprovou o catálogo estruturado e fontes curadas, sem revisão humana por requisição. Perguntas em linguagem natural permanecem objetivo futuro; [alternativas e riscos](story-041-linguagem-natural.md) exigem avaliação separada. Mudanças arquiteturais relevantes ou de contrato público exigem ADR e aprovação antes da implementação. O recorte estruturado não prova verificação semântica geral.
