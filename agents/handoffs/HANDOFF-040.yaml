@@ -5,7 +5,7 @@ spec_id: SPEC-040
 source_agent: Codex — preparação e autorrevisão
 target_agent: Product Owner e próximo executor autorizado
 status: partial
-summary: PO delimitou avaliação descritiva e revisão humana individual; 22 casos e rubrica atualizados aguardam aceite explícito; experimento não autorizado.
+summary: PO revisou proposta anterior e solicitou ajustes; 24 casos e rubrica atualizados aguardam aceite individual explícito; experimento não autorizado.
 completed_work:
 - Dependências concluídas conferidas; branch feat/story-040 criada sobre 9c3bd8e, descendente de 6ecf18c.
 - Etapa 4 do plano local, fontes, contratos e handoffs aplicáveis consultados; avaliação lexical e explicação restrita preservadas.
@@ -14,6 +14,7 @@ completed_work:
 - Após decisão anterior do PO, preparados mais dez casos em cinco incidentes sintéticos novos e métricas separadas por estágio, sem inferência.
 - Após decisão descritiva do PO, revisados H-001 a H-022 e ajustados sete casos, sem criar casos novos; diferenças e justificativas preservadas em datasets/hypothesis-evaluation/changes-v3.yaml.
 - Rubrica adaptada à intenção, precisão e revisão individual; conflito com STORY-041 e pendências de refinamento registrados.
+- Após revisão do PO de H-001 a H-022, ajustados rótulos H-001, H-002 e H-012; adicionados H-023 e H-024 no grupo INC-002, sem afirmar incidentes independentes.
 - Na entrega inicial a revisão foi solicitada; depois o PO aprovou a direção experimental, condicionada a sete ajustes, sem aprovar casos individuais.
 changed_files:
 - path: roadmap/index.yaml
@@ -39,9 +40,11 @@ changed_files:
 - path: datasets/hypothesis-evaluation/incidents/syn-inject-01.json
   reason: Incidente sintético com anotação adversarial não confiável, proposto para avaliação.
 - path: datasets/hypothesis-evaluation/REVIEW.md
-  reason: Tabela dos 22 casos em linguagem humana para revisão do PO.
+  reason: Tabela dos 24 casos e checklist em linguagem humana para revisão individual do PO.
 - path: datasets/hypothesis-evaluation/changes-v3.yaml
   reason: Versão anterior, valores alterados e justificativas por campo.
+- path: datasets/hypothesis-evaluation/changes-v4.yaml
+  reason: Valores anteriores, ajustes por caso e inclusão de H-023/H-024 rastreáveis à decisão do PO.
 - path: doc/decisions/story-040-avaliacao.md
   reason: Rubrica, políticas, protocolo, métricas, opções e revisão necessária.
 - path: agents/README.md
@@ -60,6 +63,7 @@ decisions_made:
 - PO aprovou Opção B como diretriz experimental, com gates controlados, metas de geração bruta, métricas por estágio, ampliação de casos e revisão humana independente.
 - PO determinou execução apenas local sem serviços pagos; limites técnicos dependem de definição e aprovação prévias. Não autorizou inferência, implantação, produção ou aceitação de resultados.
 - PO ajustou escopo da etapa para descrição sem exigir hipóteses; preservou meta de ≥95% de citações brutas e retirou ≥90% de hipóteses do aceite atual.
+- PO esclareceu H-001, H-002 e H-012 e solicitou exatamente dois casos; sua revisão anterior não declarou aceite individual.
 - PO é o único revisor humano; ausência de segundo revisor e concordância interavaliadores é limitação, não bloqueio automático. Conflito entre dependência descritiva e hipóteses de STORY-041 exige decisão em refinamento futuro.
 acceptance_evidence:
 - criterion: AC-01
@@ -75,7 +79,8 @@ validation:
   - python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas e 10 mutações inválidas rejeitadas.
   - PYTHONPATH=. python3 /tmp/check_story040.py — PASS na primeira entrega, 12 casos; script temporário não versionado.
   - PYTHONPATH=. python3 /tmp/check_story040_v2.py — PASS na entrega anterior, 22 casos e 6 mutações inválidas rejeitadas; script temporário não versionado.
-  - PYTHONPATH=. python3 /tmp/check_story040_v3.py — PASS, 22 casos, hashes, grupos, integridade das diferenças e tabela; 6 mutações inválidas rejeitadas; script temporário não versionado.
+  - PYTHONPATH=. python3 /tmp/check_story040_v3.py — PASS na revisão anterior, 22 casos e 6 mutações inválidas rejeitadas; script temporário não versionado.
+  - PYTHONPATH=. python3 /tmp/check_story040_v4.py — PASS, 24 casos, hashes, grupos, rastreabilidade das mudanças e tabela; dados de 5xx, CPU e runbook conferidos; 7 mutações inválidas rejeitadas. Script temporário não versionado.
   - python3 scripts/validate_repository.py — PASS na revisão descritiva, 81 YAML, 11 épicos, 23 histórias e 45 Markdown.
   - git diff --check e git diff --cached --check — PASS nas conferências de trabalho e staging.
   passed:
@@ -91,15 +96,15 @@ validation:
   - Self-test de scripts/validate_repository.py e Pyright não executados; o validador documental não foi alterado.
   - CI, push, PR, merge, tag e publicação não executados.
 review:
-  type: PO revisou a entrega anterior, aprovou escopo descritivo e revisão individual e solicitou ajustes incrementais; não aprovou os 22 casos ou rubrica final. Executor preparou a revisão para novo aceite do PO.
+  type: PO revisou os 22 casos anteriores, aprovou direção geral e solicitou ajustes em H-001, H-002 e H-012 e dois casos adicionais. Não declarou aceite individual dos 24 casos nem da rubrica final.
   evidence: doc/decisions/story-040-avaliacao.md
 known_issues:
 - Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados fora da entrega.
 - Casos propostos pequenos e conhecidos, incluindo cinco incidentes novos ainda sem revisão; não demonstram representatividade nem teste cego. Fontes anteriores não foram transformadas em negativos.
-- Referências válidas não provam apoio semântico e não existe verificador semântico geral implementado nesta história.
+- Referências válidas não provam apoio semântico e não existe verificador semântico geral implementado nesta história. A conferência pontual não encontrou incompatibilidade factual entre fontes e rótulos atualizados; ela não substitui revisão semântica humana.
 - Não há segundo revisor humano nem medição de concordância interavaliadores; limitação não bloqueia automaticamente avaliação futura.
 pending_work:
-- Solicitar revisão individual do PO dos 22 casos, rótulos e rubrica; registrar sua decisão e divergências em relação à proposta, sem exigir segundo revisor.
+- Solicitar revisão individual do PO dos 24 casos, rótulos e rubrica; registrar sua decisão e divergências em relação à proposta, sem exigir segundo revisor.
 - Revisão humana é condição de fechamento; não marcar STORY-040 done enquanto pendente.
 next_steps:
 - Após revisão do PO, atualizar casos e protocolo conforme decisão, validar novamente e fechar somente com todos ACs e DoD atendidos; limites e autorização do experimento permanecem separados.
@@ -125,3 +130,9 @@ po_direction_descriptive:
   review_protocol: PO é único revisor humano; ausência de segundo revisor e de concordância interavaliadores registrada como limitação.
   pending: PO deve revisar casos e rubrica; decidir futuramente refinamento da STORY-041 e eventuais casos adicionais.
   restrictions: Sem autorização para inferência, implantação, alteração da aplicação ou avanço da STORY-041.
+
+po_final_adjustments:
+  evidence: datasets/hypothesis-evaluation/changes-v4.yaml
+  decision: PO aprovou direção descritiva, Opção B adaptada e revisão individual; revisou proposta anterior e solicitou ajustes antes do aceite final.
+  requested: Distinguir apoio e ausência de citação em H-001; inadequação ao escopo em H-002; rejeição global de H-012 sem supressão implementada e validada; adicionar exatamente H-023 e H-024.
+  review_status: Não há aceite individual declarado; STORY-040 permanece in_review.
