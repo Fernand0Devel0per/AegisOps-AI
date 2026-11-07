@@ -35,3 +35,6 @@ Estado em 2026-11-03. Itens futuros não bloqueiam a preparação documental nem
 - **Deriva documental:** alterar história/índice juntos e validar referências, dependências e evidências. Datas e comandos executados pertencem ao handoff.
 
 Ao resolver item, registrar decisão, referência (ADR quando arquitetural), evidência e data; não apagar o histórico de uma decisão relevante.
+
+
+STORY-041: a ampliação para perguntas e documentos em texto livre e eventual revisão humana requer decisão de desenho antes de mudança estrutural ou de interface; alternativas e evidências estão em [story-041-alternativas.md](story-041-alternativas.md). O recorte estruturado não prova verificação semântica geral.

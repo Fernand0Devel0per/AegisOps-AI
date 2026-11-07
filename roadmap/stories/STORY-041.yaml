@@ -3,10 +3,10 @@ title: Introduzir analista descritivo opcional com gateway e verificador determi
 epic: EPIC-004
 description: Introduzir análise descritiva com saída tipada, limites, mock offline e tratamento de falhas.
 objective: Introduzir análise descritiva baseada em evidências, sem exigir hipóteses causais.
-context: Direção descritiva definida pelo PO na STORY-040; complementa a explicação restrita da STORY-021. O card permanece backlog e requer refinamento antes de execução.
+context: STORY-040 concluída com aceite conjunto; análise descritiva, sem inferência real autorizada.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_progress
+refinement_required: false
 dependencies:
 - STORY-040
 scope:
@@ -23,27 +23,39 @@ scope:
   - Inferência real ou serviços remotos/pagos sem autorização específica
 acceptance_criteria:
 - id: AC-01
-  criterion: Modo mock funciona sem internet ou credenciais; chamadas reais são opcionais.
+  criterion: Modo mock offline com saída estruturada, prompt versionado e limites de contexto, tempo e ciclos;
+    sem credenciais.
 - id: AC-02
-  criterion: Referências inexistentes são rejeitadas por regras fora do LLM.
+  criterion: Verificação independente rejeita referências inexistentes ou fora do contexto e não exibe conteúdo
+    inválido; observações e orientação documental são distinguidas, com limitações e sem causalidade inventada.
 - id: AC-03
-  criterion: Timeout e indisponibilidade têm resultado controlado e testes; avaliação usa dataset e métricas
-    descritivas previamente preparados.
+  criterion: Timeout, indisponibilidade, rejeição, insuficiência e abstenção são diferenciados, preservando
+    triagem determinística e sem alterar a API existente.
+- id: AC-04
+  criterion: Casos e rubrica da STORY-040 exercitam fidelidade, intenção, segurança e política de exibição;
+    métricas separam geração bruta, aceita e exibida, utilidade, abstenções e rejeições; limitações e avaliações
+    humanas pendentes são explícitas.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 - Verificação de IDs não prova suporte semântico; não presumir mecanismo automático de verificação semântica.
-- Limites locais técnicos e qualquer experimento real exigem aprovação do PO antes da execução.
+- Limites técnicos de qualquer experimento real e sua execução exigem aprovação específica do PO.
 deliverables:
 - src/aegisops/
-- tests/evaluation/
+- tests/
 - doc/EVALUATION.md
+- agents/specs/SPEC-041.yaml
+- agents/activities/ACT-041.yaml
+- agents/handoffs/HANDOFF-041.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - tests/unit/test_descriptive.py
+  - uv run --offline --locked --no-sync pytest -q
   manual_checks:
   - Avaliar comportamento com casos e métricas da STORY-040 sem confundir simulações e inferência real.
-  - Registrar latência, recursos e despesas efetivamente observadas quando uma execução for autorizada; valor ausente é desconhecido.
+  - Registrar latência, recursos e despesas efetivamente observadas quando uma execução for autorizada; valor
+    ausente é desconhecido.
 references:
 - roadmap/stories/STORY-040.yaml
 - agents/handoffs/HANDOFF-040.yaml
@@ -58,5 +70,4 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-
-refinement_notes: Card alinhado à descrição por decisão do PO ao concluir STORY-040; permanece backlog, sem spec ou atividade preparadas. Refinar contrato e decisões antes de implementação ou experimento.
+refinement_notes: Contrato refinado e atividade iniciada; não presume aceitação ou capacidade semântica geral.

@@ -1,0 +1,66 @@
+id: SPEC-041
+story_id: STORY-041
+title: Análise descritiva opcional e verificação independente
+status: ready
+problem_statement: O conjunto revisado exige análise descritiva rastreável sem presumir verificação semântica
+  geral.
+proposed_solution: Introduzir componente Python independente, inicialmente restrito a sinais estruturados,
+  com gateway mock e catálogo determinístico de observações; conteúdo livre não é exibido. Cobertura documental
+  e avaliação completa permanecem requisitos explícitos.
+architecture:
+  components:
+  - Gateway assíncrono injetável e mock offline; verificador independente e construção determinística.
+  - Triagem existente preservada; sem integração HTTP nesta etapa parcial.
+  interactions:
+  - Não alterar Colibri, prompt nem limite da primeira vertical.
+  data_flow:
+  - Incidente validado e solicitação estruturada → catálogo limitado → seleção de IDs → verificação → observações
+    ou fallback.
+interfaces:
+- Função Python interna opcional; não altera contrato HTTP.
+data_contracts:
+- Seleção exclusivamente de IDs fornecidos; qualquer texto adicional rejeita toda a resposta.
+- Observações montadas pelo núcleo a partir de valores e períodos validados; referências verificadas contra
+  o contexto, sem alegar prova semântica geral.
+- Recorte inicial limitado a métricas existentes; questões livres, documentos e casos sintéticos de texto livre
+  não são interpretados por este recorte.
+dependencies:
+- roadmap/stories/STORY-040.yaml
+security_considerations:
+- Dados e saídas não confiáveis; não executar instruções nem comandos. Não apresentar texto livre do provedor.
+observability:
+- Separar saída bruta, aceita e exibida na avaliação; não registrar texto não confiável em logs.
+error_handling:
+- Distinguir rejeição, timeout, indisponibilidade, insuficiência e abstenção; preservar a triagem.
+implementation_steps:
+- Preparar contrato e atividade antes de implementar.
+- Implementar recorte verificável e testar mocks; registrar cobertura e lacunas.
+- Completar avaliação por caso e pedir revisão da entrega antes de eventual conclusão.
+test_strategy:
+- Testes offline de referências, contexto, comparação temporal, rejeição global, falhas e fallback; avaliação
+  humana separada.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Testar mock, esquema e limites.
+  evidence: tests/unit/test_descriptive.py
+- criterion_id: AC-02
+  validation: Testar IDs inválidos, afirmações livres e documentação; registrar lacunas.
+  evidence: tests/unit/test_descriptive.py
+- criterion_id: AC-03
+  validation: Injetar timeout, indisponibilidade e insuficiência; comparar triagem.
+  evidence: tests/unit/test_descriptive.py
+- criterion_id: AC-04
+  validation: Confrontar casos e métricas por estágio sem inventar resultados ou julgamentos humanos.
+  evidence: doc/EVALUATION.md
+open_questions:
+- 'Q-006: limites e autorização específicos necessários antes de experimento real; nenhum experimento autorizado.'
+- Cobertura de entradas livres e orientação documental ainda não demonstrada.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- roadmap/stories/STORY-041.yaml
+- agents/handoffs/HANDOFF-040.yaml
+- datasets/hypothesis-evaluation/cases.yaml
+- doc/decisions/story-040-avaliacao.md

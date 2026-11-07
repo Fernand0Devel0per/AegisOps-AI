@@ -1,0 +1,9 @@
+# STORY-041 — alternativas para ampliar a análise descritiva
+
+O recorte implementado seleciona fatos construídos a partir de sinais estruturados da primeira vertical; ele não interpreta perguntas ou fontes em texto livre. A rubrica aceita pela STORY-040 inclui cinco fixtures de avaliação em texto livre, orientação de runbook e questões de intenção. Referência existente não demonstra que uma resposta de texto livre é apoiada ou atende à pergunta. A entrega integral não está demonstrada.
+
+1. **Expandir catálogo estruturado e fontes curadas.** Modelar explicitamente as observações, períodos, contagens e orientações atribuídas, sem executar documentos; conferir proveniência e integridade e montar a saída por regras. É testável para domínios previamente estruturados, mas demanda curadoria, não resolve textos arbitrários e pode omitir pedidos fora do catálogo.
+2. **Resposta livre com revisão humana antes da exibição.** Preservar geração, verificação de IDs e rejeição integral de referências inválidas; uma pessoa revisa intenção, apoio e contradição antes de liberar texto. Cobre mais formas de pergunta, mas exige definir como a revisão ocorre, estados, privacidade e interface. Não constitui verificador semântico automático nem é autorização para executar modelos.
+3. **Combinar catálogo para saída automática e revisão humana para o restante.** Mantém a limitação explícita de ambos os caminhos e acrescenta a necessidade de decidir como encaminhar casos sem converter falha ou rejeição em sucesso.
+
+A escolha de eventual fluxo de revisão ou mudança pública de interface precisa de decisão do PO e, quando arquiteturalmente relevante, ADR antes de implementação. Nenhuma dessas alternativas autoriza inferência real, chamadas remotas ou modificar a API. O trabalho parcial independente e seus testes estão registrados no HANDOFF-041; a história não está concluída.
