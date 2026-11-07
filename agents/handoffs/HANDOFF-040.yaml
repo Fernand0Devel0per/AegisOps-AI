@@ -5,21 +5,23 @@ spec_id: SPEC-040
 source_agent: Codex — preparação e autorrevisão
 target_agent: Product Owner e próximo executor autorizado
 status: partial
-summary: PO aprovou Opção B condicional como diretriz experimental; dataset ampliado e protocolo refinado aguardam revisão; experimento não autorizado.
+summary: PO delimitou avaliação descritiva e revisão humana individual; 22 casos e rubrica atualizados aguardam aceite explícito; experimento não autorizado.
 completed_work:
 - Dependências concluídas conferidas; branch feat/story-040 criada sobre 9c3bd8e, descendente de 6ecf18c.
 - Etapa 4 do plano local, fontes, contratos e handoffs aplicáveis consultados; avaliação lexical e explicação restrita preservadas.
 - História refinada, spec e atividade preparadas; EPIC-004 iniciado por autorização explícita.
 - Na primeira entrega, doze casos simulados propostos, contexto rastreável, políticas, rubrica, métricas e opções documentados sem inferência.
-- Após decisão do PO, preparados mais dez casos em cinco incidentes sintéticos novos e métricas separadas por estágio, sem inferência.
+- Após decisão anterior do PO, preparados mais dez casos em cinco incidentes sintéticos novos e métricas separadas por estágio, sem inferência.
+- Após decisão descritiva do PO, revisados H-001 a H-022 e ajustados sete casos, sem criar casos novos; diferenças e justificativas preservadas em datasets/hypothesis-evaluation/changes-v3.yaml.
+- Rubrica adaptada à intenção, precisão e revisão individual; conflito com STORY-041 e pendências de refinamento registrados.
 - Na entrega inicial a revisão foi solicitada; depois o PO aprovou a direção experimental, condicionada a sete ajustes, sem aprovar casos individuais.
 changed_files:
 - path: roadmap/index.yaml
-  reason: Sincronizar estados e continuidade da STORY-040 e EPIC-004.
+  reason: Sincronizar título e continuidade da STORY-040 e EPIC-004.
 - path: roadmap/stories/STORY-040.yaml
   reason: Refinamento, evidências parciais e revisão pendente.
 - path: roadmap/epics/EPIC-004.yaml
-  reason: Registrar início autorizado e gate ainda aberto.
+  reason: Registrar início autorizado, decisão descritiva e necessidade de refinamento futuro da STORY-041.
 - path: agents/specs/SPEC-040.yaml
   reason: Contrato e mapeamento por critério.
 - path: agents/activities/ACT-040.yaml
@@ -36,6 +38,10 @@ changed_files:
   reason: Incidente sintético com dados insuficientes, proposto para avaliação.
 - path: datasets/hypothesis-evaluation/incidents/syn-inject-01.json
   reason: Incidente sintético com anotação adversarial não confiável, proposto para avaliação.
+- path: datasets/hypothesis-evaluation/REVIEW.md
+  reason: Tabela dos 22 casos em linguagem humana para revisão do PO.
+- path: datasets/hypothesis-evaluation/changes-v3.yaml
+  reason: Versão anterior, valores alterados e justificativas por campo.
 - path: doc/decisions/story-040-avaliacao.md
   reason: Rubrica, políticas, protocolo, métricas, opções e revisão necessária.
 - path: agents/README.md
@@ -53,6 +59,8 @@ decisions_made:
 - Todas as variantes de um incidente compartilham grupo; sem partição ou teste independente declarado.
 - PO aprovou Opção B como diretriz experimental, com gates controlados, metas de geração bruta, métricas por estágio, ampliação de casos e revisão humana independente.
 - PO determinou execução apenas local sem serviços pagos; limites técnicos dependem de definição e aprovação prévias. Não autorizou inferência, implantação, produção ou aceitação de resultados.
+- PO ajustou escopo da etapa para descrição sem exigir hipóteses; preservou meta de ≥95% de citações brutas e retirou ≥90% de hipóteses do aceite atual.
+- PO é o único revisor humano; ausência de segundo revisor e concordância interavaliadores é limitação, não bloqueio automático. Conflito entre dependência descritiva e hipóteses de STORY-041 exige decisão em refinamento futuro.
 acceptance_evidence:
 - criterion: AC-01
   result: Casos e rubrica preparados; revisão humana dos casos e rótulos pendente.
@@ -62,16 +70,18 @@ acceptance_evidence:
   evidence: doc/decisions/story-040-avaliacao.md
 validation:
   executed:
-  - python3 scripts/validate_repository.py — PASS, 81 YAML, 11 épicos, 23 histórias e 44 Markdown; vínculos e ACs conferidos na revisão atual.
+  - python3 scripts/validate_repository.py — PASS, 81 YAML, 11 épicos, 23 histórias e 44 Markdown; vínculos e ACs conferidos na entrega anterior.
   - python3 scripts/validate_incidents.py — PASS, 3 fixtures e 21 IDs; sem testar severidade.
   - python3 datasets/evaluation/validate.py --self-test — PASS, 11 unidades, 10 consultas e 10 mutações inválidas rejeitadas.
   - PYTHONPATH=. python3 /tmp/check_story040.py — PASS na primeira entrega, 12 casos; script temporário não versionado.
-  - PYTHONPATH=. python3 /tmp/check_story040_v2.py — PASS, 22 casos, 5 incidentes novos, hashes, referências, grupos e 6 mutações inválidas rejeitadas; script temporário não versionado.
+  - PYTHONPATH=. python3 /tmp/check_story040_v2.py — PASS na entrega anterior, 22 casos e 6 mutações inválidas rejeitadas; script temporário não versionado.
+  - PYTHONPATH=. python3 /tmp/check_story040_v3.py — PASS, 22 casos, hashes, grupos, integridade das diferenças e tabela; 6 mutações inválidas rejeitadas; script temporário não versionado.
+  - python3 scripts/validate_repository.py — PASS na revisão descritiva, 81 YAML, 11 épicos, 23 histórias e 45 Markdown.
   - git diff --check e git diff --cached --check — PASS nas conferências de trabalho e staging.
   passed:
   - check: Conferência estrutural e de referências dos casos, fontes e agrupamento; não substitui revisão semântica.
     evidence: datasets/hypothesis-evaluation/cases.yaml
-  - check: Protocolo, rubrica e alternativas autorrevisados; sem aceite do PO.
+  - check: Protocolo e rubrica descritivos autorrevisados; sem aceite final do PO.
     evidence: doc/decisions/story-040-avaliacao.md
   failed:
   - Primeira execução da conferência temporária falhou por importação de scripts fora do PYTHONPATH; repetida com PYTHONPATH=. e aprovada.
@@ -81,14 +91,15 @@ validation:
   - Self-test de scripts/validate_repository.py e Pyright não executados; o validador documental não foi alterado.
   - CI, push, PR, merge, tag e publicação não executados.
 review:
-  type: PO aprovou a Opção B condicionalmente e exigiu sete ajustes; não declarou revisão individual dos casos nem aceite do protocolo refinado. Executor preparou os ajustes para nova revisão.
+  type: PO revisou a entrega anterior, aprovou escopo descritivo e revisão individual e solicitou ajustes incrementais; não aprovou os 22 casos ou rubrica final. Executor preparou a revisão para novo aceite do PO.
   evidence: doc/decisions/story-040-avaliacao.md
 known_issues:
 - Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados fora da entrega.
 - Casos propostos pequenos e conhecidos, incluindo cinco incidentes novos ainda sem revisão; não demonstram representatividade nem teste cego. Fontes anteriores não foram transformadas em negativos.
-- Referências válidas não provam apoio semântico e não existe verificador de hipóteses implementado nesta história.
+- Referências válidas não provam apoio semântico e não existe verificador semântico geral implementado nesta história.
+- Não há segundo revisor humano nem medição de concordância interavaliadores; limitação não bloqueia automaticamente avaliação futura.
 pending_work:
-- Solicitar revisão do PO dos 22 casos, rótulos e rubrica refinada; obter revisão independente e registrar divergências e adjudicação.
+- Solicitar revisão individual do PO dos 22 casos, rótulos e rubrica; registrar sua decisão e divergências em relação à proposta, sem exigir segundo revisor.
 - Revisão humana é condição de fechamento; não marcar STORY-040 done enquanto pendente.
 next_steps:
 - Após revisão do PO, atualizar casos e protocolo conforme decisão, validar novamente e fechar somente com todos ACs e DoD atendidos; limites e autorização do experimento permanecem separados.
@@ -105,3 +116,12 @@ po_decision:
   requested_adjustments: Separar estágios; expandir incidentes; medir abstenção indevida, utilidade e rejeições; preservar revisão semântica independente e divergências.
   disagreement: Nenhuma divergência individual sobre casos ou rótulos foi comunicada; não presumir sua revisão.
   pending: Revisão do conteúdo ampliado e da rubrica refinada; limites técnicos e autorização de experimento antes de testes.
+
+po_direction_descriptive:
+  date: '2026-11-06'
+  evidence: doc/decisions/story-040-avaliacao.md
+  agreement: Descrição baseada em evidências, sem exigir causalidade; Opção B preservada com ≥95% de citações na geração bruta.
+  superseded_for_this_scope: A meta anterior de ≥90% de hipóteses apoiadas não é critério ou gate atual; decisão histórica permanece registrada.
+  review_protocol: PO é único revisor humano; ausência de segundo revisor e de concordância interavaliadores registrada como limitação.
+  pending: PO deve revisar casos e rubrica; decidir futuramente refinamento da STORY-041 e eventuais casos adicionais.
+  restrictions: Sem autorização para inferência, implantação, alteração da aplicação ou avanço da STORY-041.

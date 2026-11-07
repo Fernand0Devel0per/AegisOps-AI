@@ -41,6 +41,6 @@ Q01 encontra URL-LAT em segundo lugar e não encontra GL-DIAG no horizonte; GL-L
 
 Durante a implementação houve duas execuções preliminares com ordem de normalização divergente da especificação: a primeira aplicou casefold antes de NFKD; uma correção intermediária omitiu casefold. Foram defeitos de conformidade, não calibração. Corrigida para a ordem congelada, reinstalado o pacote e repetida a avaliação; os resultados finais são os acima, idênticos numericamente aos da primeira execução, sem ajustar a política. Uma primeira verificação mypy também falhou em tipo de fixture de teste e foi corrigida.
 
-## Preparação separada: hipóteses ampliadas
+## Preparação separada: análise descritiva
 
-Na [STORY-040](decisions/story-040-avaliacao.md), o PO aprovou direção experimental condicional; os [casos ampliados](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica refinada aguardam revisão. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.
+Na [STORY-040](decisions/story-040-avaliacao.md), o PO aprovou direção experimental descritiva e revisão humana individual; os [casos ampliados](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica refinada aguardam revisão. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.

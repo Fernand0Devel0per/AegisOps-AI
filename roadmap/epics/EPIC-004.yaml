@@ -19,4 +19,4 @@ stories:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
-refinement_notes: STORY-040 em revisão do PO; STORY-041 permanece backlog. Nenhum critério de saída do épico é declarado concluído.
+refinement_notes: STORY-040 prepara avaliação descritiva por decisão do PO. STORY-041 permanece backlog com hipóteses; exige refinamento e eventual avaliação causal própria antes de execução. Nenhum critério de saída do épico é declarado concluído.

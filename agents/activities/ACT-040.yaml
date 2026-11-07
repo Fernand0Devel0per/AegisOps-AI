@@ -1,8 +1,8 @@
 id: ACT-040
 story_id: STORY-040
 spec_id: SPEC-040
-title: Preparar avaliação de hipóteses e revisão do PO
-objective: Produzir casos e protocolo concretos sem executar modelos ou antecipar implementação.
+title: Preparar avaliação descritiva e revisão do PO
+objective: Produzir casos e protocolo descritivo concretos sem executar modelos ou antecipar implementação.
 status: in_review
 agent:
   role: Agente de avaliação
@@ -17,15 +17,17 @@ inputs:
 - datasets/evaluation/queries.yaml
 expected_outputs:
 - datasets/hypothesis-evaluation/cases.yaml
+- datasets/hypothesis-evaluation/REVIEW.md
+- datasets/hypothesis-evaluation/changes-v3.yaml
 - doc/decisions/story-040-avaliacao.md
 - agents/handoffs/HANDOFF-040.yaml
 constraints:
 - Não alterar corpus, julgamentos de retrieval, primeira vertical ou código de aplicação.
 - Não fazer inferência, chamadas pagas ou usar infraestrutura remota.
-- Não marcar casos julgados; registrar a Opção B aprovada pelo PO somente como diretriz experimental.
+- Não marcar casos julgados; registrar Opção B adaptada à descrição e a revisão humana individual pelo PO.
 execution_steps:
 - Produzir casos e política com referências explícitas; separar geração, aceitação e exibição.
-- Registrar a decisão do PO, refinar métricas e ampliar casos; solicitar revisão concreta do novo conteúdo.
+- Registrar a decisão do PO, refinar métricas e revisar os casos existentes; solicitar revisão concreta do conteúdo.
 - Validar e registrar handoff parcial até revisão necessária.
 validation:
   commands:

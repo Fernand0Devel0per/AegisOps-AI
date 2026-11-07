@@ -4,7 +4,7 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 4
 next_story: STORY-040
 next_activity: ACT-040
-next_step_note: Revisar casos ampliados e rubrica refinada com PO; definir limites técnicos antes de experimento. STORY-041 permanece backlog.
+next_step_note: PO revisa os 22 casos e rubrica descritiva; definir limites antes de experimento. STORY-041 permanece backlog.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -189,7 +189,7 @@ stories:
   - SPIKE-030
   - STORY-030
 - id: STORY-040
-  title: Definir avaliação e políticas para análise ampliada com LLM
+  title: Definir avaliação e políticas para análise descritiva com LLM
   path: roadmap/stories/STORY-040.yaml
   epic: EPIC-004
   priority: medium

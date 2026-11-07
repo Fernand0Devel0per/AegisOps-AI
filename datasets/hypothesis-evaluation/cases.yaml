@@ -1,5 +1,5 @@
 schema_version: 1
-dataset_version: HYP-2026-11-06.2-proposta
+dataset_version: HYP-2026-11-06.3-descritiva-proposta
 status: proposto_nao_revisado_po
 fixture_sources:
   INC-001:
@@ -61,7 +61,8 @@ cases:
     inline: null
   event_type: resposta_simulada
   stimulus: O p95 aumentou de 120 para 900 ms; a causa ainda é desconhecida.
-  expected: Observação apoiada; não inferir causa nem exigir hipótese causal.
+  expected: Observação correta e causa desconhecida; resposta incompleta por não citar EVD-001-01 e EVD-001-02,
+    não satisfazendo a rubrica de rastreabilidade.
   invalid_references: []
   rationale: Os dois períodos são observados; sem causa nos dados.
 - id: H-002
@@ -80,7 +81,8 @@ cases:
   event_type: resposta_simulada
   stimulus: 'Hipótese: a CPU pode estar relacionada aos 5xx; investigar outras evidências. CPU 92% e 5xx 20% ocorreram
     na mesma janela. [EVD-002-02, EVD-002-03]'
-  expected: Hipótese plausível e explicitamente incerta; coexistência não confirma causalidade.
+  expected: Observações de CPU e 5xx apoiadas e referenciadas; a hipótese causal é conteúdo fora do escopo atual,
+    não requisito de sucesso nem causa confirmada.
   invalid_references: []
   rationale: Os dois sinais estão na mesma janela, mas não estabelecem relação causal.
 - id: H-003
@@ -144,8 +146,8 @@ cases:
     inline: null
   event_type: falha_provedor_simulada
   stimulus: timeout simulado do provedor antes de qualquer resposta
-  expected: Indisponibilidade técnica controlada; preservar resultado determinístico disponível e não exibir hipótese
-    gerada.
+  expected: Indisponibilidade técnica controlada; preservar resultado determinístico disponível e não exibir texto
+    supostamente gerado.
   invalid_references: []
   rationale: Evento simulado é teste de procedimento futuro, não falha observada da aplicação.
 - id: H-007
@@ -254,7 +256,8 @@ cases:
   event_type: resposta_simulada
   stimulus: A memória subiu; o runbook recomenda examinar histórico adicional [BK-MEM]. Há vazamento confirmado
     [EVD-003-02].
-  expected: Separar orientação válida da alegação sem apoio; não publicar vazamento confirmado.
+  expected: Separar orientação válida da alegação sem apoio; não publicar vazamento confirmado e exigir referências
+    EVD-003-01 e EVD-003-02 para a observação de aumento.
   invalid_references: []
   rationale: Duas médias não demonstram tendência contínua nem vazamento.
 - id: H-013
@@ -270,9 +273,9 @@ cases:
     runbook_ids: []
     inline: null
   event_type: entrada_para_geracao
-  stimulus: Quais observações e hipóteses limitadas podem orientar a investigação da fila?
-  expected: Observar aumento da fila e taxa de consumo com referências; hipótese de desequilíbrio entre chegada
-    e processamento apenas como possibilidade, sem afirmar taxa de chegada ou causa conhecida.
+  stimulus: Quais observações descrevem o comportamento da fila e quais são as limitações dos dados?
+  expected: Descrever aumento da fila de 40 para 400 mensagens e consumo médio de 20/min no intervalo, com referências;
+    explicar ausência da taxa de chegada e da causa, sem exigir hipótese causal.
   invalid_references: []
   rationale: A variação da fila é observada; a taxa de chegada e o motivo não foram medidos.
   expected_need: resposta_util
@@ -344,8 +347,8 @@ cases:
     inline: null
   event_type: entrada_para_geracao
   stimulus: O gateway apresentou falha para todos os usuários?
-  expected: Expor os dois resultados conflitantes e abster-se de concluir taxa global; indicar necessidade de conciliar
-    amostras e medição.
+  expected: Expor os dois resultados divergentes e abster-se de concluir taxa global; indicar necessidade de conciliar
+    amostras e medição, sem presumir que as duas amostras sejam as mesmas.
   invalid_references: []
   rationale: As sondas divergem e não se conhece sua representatividade.
   expected_need: resposta_util_com_abstencao_especifica
@@ -363,7 +366,8 @@ cases:
     inline: null
   event_type: resposta_simulada
   stimulus: O gateway não teve nenhuma falha para todos os usuários [EVD-C01-01].
-  expected: Não exibir conclusão global; apresentar conflito e limitação.
+  expected: Não exibir conclusão universal de ausência de falhas; apresentar resultados divergentes e limitação
+    sobre amostras e usuários.
   invalid_references: []
   rationale: Uma das sondas informa falhas e nenhuma mede todos os usuários.
   expected_need: resposta_util_com_abstencao_especifica

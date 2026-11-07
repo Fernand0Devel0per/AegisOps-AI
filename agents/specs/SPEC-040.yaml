@@ -1,15 +1,15 @@
 id: SPEC-040
 story_id: STORY-040
-title: Preparação da avaliação de hipóteses ampliadas
+title: Preparação da avaliação descritiva de incidentes
 status: ready
-problem_statement: Faltam casos e protocolo revisados para avaliar hipóteses sem confundir referência com suporte.
-proposed_solution: Preparar casos sintéticos, rubrica, políticas e opções de metas antes de qualquer experimento.
+problem_statement: Faltam casos e protocolo revisados para avaliar descrição de incidentes sem confundir referência com suporte.
+proposed_solution: Preparar casos sintéticos e rubrica descritiva antes de qualquer experimento, com revisão individual do PO.
 architecture:
   components:
   - Dataset documental isolado da avaliação lexical e da explicação restrita.
   - Protocolo de avaliação humana e métricas candidatas.
   interactions:
-  - PO aprovou direção experimental e metas condicionais; revisão dos casos e da rubrica refinada precede uso como julgados.
+  - PO aprovou a direção experimental descritiva; revisão individual dos casos e da rubrica precede uso como julgados.
   data_flow:
   - Contexto limitado e versionado → resposta simulada ou evento → julgamento humano futuro; nenhuma inferência nesta atividade.
 interfaces:
@@ -17,7 +17,7 @@ interfaces:
 data_contracts:
 - Contexto por IDs incluídos e fonte versionada; rótulos propostos, grupo indivisível e divisão não atribuída.
 - Referência inexistente é explicitamente inválida; IDs existentes não provam apoio semântico.
-- Falha técnica, saída rejeitada, abstenção e hipótese sem apoio são categorias distintas.
+- Falha técnica, saída rejeitada, abstenção e afirmação sem apoio são categorias distintas; não exigir hipótese causal.
 dependencies:
 - roadmap/stories/STORY-031.yaml
 security_considerations:
@@ -40,7 +40,7 @@ acceptance_mapping:
   validation: Conferir definições e opções antes de teste e obter revisão do PO sobre métricas e limites de custo.
   evidence: doc/decisions/story-040-avaliacao.md
 open_questions:
-- Q-006 Opção B aprovada como diretriz experimental; rótulos e rubrica refinada aguardam revisão, sem resultados.
+- Q-006 Opção B adaptada à descrição; meta histórica de hipóteses retirada do aceite atual, sem resultados.
 - Q-007 e Q-019 permanecem abertas para avaliação ampliada; sem nova escolha de modelo.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
