@@ -43,4 +43,4 @@ Durante a implementação houve duas execuções preliminares com ordem de norma
 
 ## Preparação separada: análise descritiva
 
-Na [STORY-040](decisions/story-040-avaliacao.md), o PO aprovou direção experimental descritiva e revisão humana individual; os [casos ampliados](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica refinada aguardam revisão. Não são resultados de inferência nem alteram a avaliação lexical congelada acima.
+Na [STORY-040](decisions/story-040-avaliacao.md), o PO aceitou a conclusão da preparação descritiva. Os [casos](../datasets/hypothesis-evaluation/cases.yaml) e a rubrica não são resultados de inferência nem alteram a avaliação lexical congelada acima.

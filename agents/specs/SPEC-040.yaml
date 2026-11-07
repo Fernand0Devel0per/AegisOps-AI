@@ -9,7 +9,7 @@ architecture:
   - Dataset documental isolado da avaliação lexical e da explicação restrita.
   - Protocolo de avaliação humana e métricas candidatas.
   interactions:
-  - PO aprovou a direção experimental descritiva; revisão individual dos casos e da rubrica precede uso como julgados.
+  - PO aprovou a direção experimental e aceitou a conclusão da entrega em resposta conjunta; decisões individuais por caso não foram detalhadas.
   data_flow:
   - Contexto limitado e versionado → resposta simulada ou evento → julgamento humano futuro; nenhuma inferência nesta atividade.
 interfaces:
@@ -29,7 +29,7 @@ error_handling:
 implementation_steps:
 - Refinar história e preparar atividade antes de elaborar artefatos.
 - Elaborar casos, rubrica, políticas, métricas e opções; solicitar revisão explícita do PO.
-- Validar documentos e produzir handoff parcial enquanto revisão estiver pendente.
+- Validar documentos e produzir handoff após aceite conjunto registrado.
 test_strategy:
 - Validar sintaxe, IDs, referências, grupos, rótulos e integridade das fontes; não executar inferência.
 acceptance_mapping:
@@ -40,7 +40,7 @@ acceptance_mapping:
   validation: Conferir definições e opções antes de teste e obter revisão do PO sobre métricas e limites de custo.
   evidence: doc/decisions/story-040-avaliacao.md
 open_questions:
-- Q-006 Opção B adaptada à descrição; meta histórica de hipóteses retirada do aceite atual, sem resultados.
+- Q-006 Opção B adaptada à descrição e entrega aceita pelo PO; meta histórica de hipóteses retirada, sem resultados.
 - Q-007 e Q-019 permanecem abertas para avaliação ampliada; sem nova escolha de modelo.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md

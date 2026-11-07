@@ -5,7 +5,7 @@ description: Fixar casos esperados e medidas de correção descritiva, citaçõe
 objective: Preparar avaliação descritiva baseada em evidências antes do experimento, sem exigir hipóteses causais.
 context: EPIC-003 concluído; Etapa 4 consultada. Preparação documental distinta da explicação restrita e da avaliação lexical.
 priority: medium
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-031
@@ -63,7 +63,7 @@ definition_of_done:
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
 
-refinement_notes: PO definiu escopo descritivo e revisão individual; AC-01 ajustado por essa decisão. Opção B preservada com meta de citações; casos e rubrica aguardam aceite, limites técnicos antes de experimento.
+refinement_notes: PO aceitou a conclusão da entrega em resposta conjunta; limites técnicos e autorização para experimento permanecem futuros. Não se atribuem decisões individuais por caso.
 acceptance_evidence:
-- "AC-01: casos e rubrica propostos em datasets/hypothesis-evaluation/cases.yaml e doc/decisions/story-040-avaliacao.md; revisão do PO pendente."
-- "AC-02: métricas descritivas e diretriz experimental em doc/decisions/story-040-avaliacao.md; meta de citações aprovada como diretriz, rubrica final e limites técnicos pendentes."
+- "AC-01: 24 casos e rubrica em datasets/hypothesis-evaluation/cases.yaml e doc/decisions/story-040-avaliacao.md; aceite conjunto do PO em datasets/hypothesis-evaluation/REVIEW.md."
+- "AC-02: métricas, metas experimentais e procedimento em doc/decisions/story-040-avaliacao.md; PO aceitou entrega, limites técnicos e autorização de experimento permanecem futuros."

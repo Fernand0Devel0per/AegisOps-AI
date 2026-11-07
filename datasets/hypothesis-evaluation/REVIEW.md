@@ -1,6 +1,6 @@
 # Revisão dos 24 casos — proposta ao PO
 
-Versão `HYP-2026-11-06.4-descritiva-proposta`. O PO revisou a proposta anterior e aprovou a direção geral, solicitando ajustes; **o aceite individual dos 24 casos ainda não foi declarado**, inclusive para os marcados como “manter”. Esta tabela é análise do executor, não aprovação humana nem resultado de experimento. “Simulada” é uma resposta preparada para verificar a rubrica; “geração” é uma solicitação para uso em futuro teste autorizado; “falha simulada” é um evento de teste, não falha observada da aplicação. As evidências são somente as disponibilizadas ao caso; caminhos, hashes, períodos, estímulos integrais e versões estão no [dataset](cases.yaml). IDs de runbook identificam orientação documental, não sinal observado.
+Versão `HYP-2026-11-06.4-descritiva-proposta`; SHA-256 de [cases.yaml](cases.yaml): `0c629aef0c42edb800ed0bda592c9f114d0710411c9392c2be6758f28bcf1a9d`. O PO revisou a proposta anterior, solicitou ajustes e depois declarou: “certo doi meu aceite para conclusao da tarefa”. Esse é um **aceite conjunto da entrega**, sem decisões individuais relatadas para os 24 casos. A tabela registra análise do executor, não resultados de experimento. “Simulada” é uma resposta preparada para verificar a rubrica; “geração” é uma solicitação para uso em futuro teste autorizado; “falha simulada” é um evento de teste, não falha observada da aplicação. As evidências são somente as disponibilizadas ao caso; caminhos, hashes, períodos, estímulos integrais e versões estão no [dataset](cases.yaml). IDs de runbook identificam orientação documental, não sinal observado.
 
 | ID | Objetivo do teste | Classificação esperada | Evidências utilizadas | Resultado esperado em linguagem humana | Recomendação | Justificativa |
 |---|---|---|---|---|---|---|
@@ -31,12 +31,14 @@ Versão `HYP-2026-11-06.4-descritiva-proposta`. O PO revisou a proposta anterior
 
 Os ajustes anteriores de H-001/H-002/H-006/H-012/H-013/H-017/H-018 estão em [changes-v3.yaml](changes-v3.yaml). Os ajustes adicionais de H-001, H-002 e H-012 e os dois novos casos estão em [changes-v4.yaml](changes-v4.yaml), com valores anteriores e atuais. H-023 e H-024 reutilizam INC-002: são variantes do mesmo grupo, não incidentes independentes. Nenhuma alteração foi feita aos demais casos nesta revisão. A conferência pontual de valores e fontes não encontrou incompatibilidade factual nos rótulos atualizados ou nos dois casos novos; as distinções de H-001, H-002 e H-012 são ajustes de classificação e política. A conferência não é revisão semântica humana completa.
 
-## Checklist de revisão individual do PO
+## Checklist apresentado ao PO
 
 - [ ] Conferir H-001, H-002 e H-012 por afirmação e por resultado global, inclusive a regra de rejeição quando não houver supressão validada.
 - [ ] Conferir H-023 e H-024, suas perguntas, expectativas e a atribuição ao grupo INC-002.
 - [ ] Revisar H-003 a H-022, as referências, os limites e as classificações na tabela e no [dataset](cases.yaml).
 - [ ] Revisar a [rubrica e as métricas](../../doc/decisions/story-040-avaliacao.md), especialmente apoio versus citação, intenção e separação dos estágios.
 - [ ] Registrar aceite ou alterações por caso e da rubrica, com data e versão; nenhum item marcado pelo executor representa decisão do PO.
+
+Os campos `review: proposto_nao_revisado_po` no YAML preservam o estado de preparação anterior ao aceite conjunto; não significam que o PO deixou de revisar a proposta e não são julgamentos individuais. Não foram alterados para não atribuir decisão por caso que não foi comunicada. O checklist acima foi apresentado antes do aceite; não se presume quais itens foram marcados. O aceite conjunto aplica-se ao conjunto apresentado; não registra decisões individuais nem transforma respostas esperadas em resultados observados. Mudanças futuras nos rótulos devem ser versionadas e revisadas.
 
 Limitação: o PO é o único revisor humano; não há segundo revisor nem medição de concordância interavaliadores. O conjunto conhecido não é teste cego.
