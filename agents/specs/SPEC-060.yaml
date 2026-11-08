@@ -1,0 +1,52 @@
+id: SPEC-060
+story_id: STORY-060
+title: Preparação e desenho agregado dos incrementos
+status: draft
+problem_statement: Consolidar avaliação por incrementos de corpus, ingestão e recuperação com baseline lexical e
+  decisão fundamentada.
+proposed_solution: Preparação documental; execução agregada depende dos resultados e da autorização dos incrementos.
+architecture:
+  components:
+  - Corpus, julgamentos e gabaritos
+  - Ingestão e recuperação isoladas
+  - Relatórios com evidências
+  interactions:
+  - Sem integração à API, primeira vertical ou Colibri.
+  data_flow:
+  - Documentos não confiáveis → extração isolada → trechos e proveniência → avaliação, quando autorizada.
+interfaces:
+- Artefatos locais versionados; nenhuma mudança de contrato público.
+data_contracts:
+- Identidade, versão e hash do documento; âncoras de evidência, páginas/seções, relevância e ausência relativa.
+- Não julgados e falhas técnicas são distintos de negativos e abstenções.
+dependencies:
+- doc/architecture/rich-document-evaluation-protocol.md
+- roadmap/stories/STORY-060.yaml
+security_considerations:
+- Não executar conteúdo de documentos; dados sintéticos ou autorizados; fixar limites antes da execução.
+observability:
+- Registrar configuração, ambiente, tempo, CPU, memória, falhas e exclusões quando houver execução.
+error_handling:
+- Não converter falha de extração ou consulta em abstenção ou sucesso.
+implementation_steps:
+- Revisar protocolo e decisões abertas.
+- Executar somente com autorização específica e dependências satisfeitas.
+- Validar, revisar e registrar evidências e handoff.
+test_strategy:
+- Validar rastreabilidade, critérios, falhas e reproduzibilidade adequados ao incremento; sem inventar resultados.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
+  evidence: doc/architecture/rich-document-evaluation-protocol.md
+- criterion_id: AC-02
+  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
+  evidence: doc/architecture/rich-document-evaluation-protocol.md
+- criterion_id: AC-03
+  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
+  evidence: doc/architecture/rich-document-evaluation-protocol.md
+open_questions:
+- 'Q-009: autorização do experimento, recursos, ferramentas e eventual decisão arquitetural.'
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md

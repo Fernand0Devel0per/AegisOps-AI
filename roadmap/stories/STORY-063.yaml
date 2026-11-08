@@ -1,0 +1,49 @@
+id: STORY-063
+title: Avaliar recuperação e citações em documentos ricos
+epic: EPIC-006
+description: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
+objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
+context: Incremento proposto da STORY-060; execução depende de autorização específica e revisão dos contratos.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-062
+scope:
+  included:
+  - Baseline lexical e alternativas autorizadas
+  - Avaliação por configuração, citações e ausências
+  excluded:
+  - Inferência real
+  - Banco vetorial ou adoção de dependência sem autorização
+  - Conclusão de superioridade sem evidência suficiente
+acceptance_criteria:
+- id: AC-01
+  criterion: Baseline lexical equivalente e configurações congeladas são avaliados no mesmo corpus, extração e unidade
+    de julgamento; diferenças não controladas são discriminadas.
+- id: AC-02
+  criterion: Recall@k, MRR@k, relevância quando julgada, cobertura, citações, ausências, latência, CPU e memória
+    reportam definições, numeradores, denominadores, erros, exclusões e resultados por configuração.
+- id: AC-03
+  criterion: Relatório revisado apresenta limitações e decisão recomendada; adoção estrutural somente após ADR apropriado
+    e aprovação do PO.
+technical_constraints:
+- Local-first; documentos são dados não confiáveis; não executar comandos deles.
+- Sem alterar API, primeira vertical ou Colibri; sem dependências estruturais ou ferramentas candidatas sem autorização
+  e ADR apropriado.
+deliverables:
+- doc/architecture/rich-document-retrieval-results.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Conferir critérios, evidências e revisão antes de encerrar; registrar validações efetivas.
+references:
+- doc/architecture/rich-document-evaluation-protocol.md
+- doc/EVALUATION.md
+- doc/decisions/open-questions.md
+- roadmap/stories/STORY-062.yaml
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações resolvidas; aceite do PO quando exigido.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

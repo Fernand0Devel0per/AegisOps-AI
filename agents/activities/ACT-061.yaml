@@ -1,0 +1,37 @@
+id: ACT-061
+story_id: STORY-061
+spec_id: SPEC-061
+title: Execução futura — Construir corpus e julgamentos para documentos ricos
+objective: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
+status: pending
+agent:
+  role: Agente de engenharia
+  responsibility: Revisar contrato e executar somente após autorização específica.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-061.yaml
+- agents/specs/SPEC-061.yaml
+- doc/architecture/rich-document-evaluation-protocol.md
+- agents/handoffs/HANDOFF-060.yaml
+expected_outputs:
+- datasets/rich-documents/manifest.yaml
+- datasets/rich-documents/questions.yaml
+- datasets/rich-documents/REVIEW.md
+constraints:
+- 'Proposta preliminar: não iniciar enquanto spec estiver draft, dependências não concluídas ou PO não autorizar
+  execução.'
+- Não alterar a API, primeira vertical ou Colibri; não instalar ferramentas nem executar modelos sem autorização
+  aplicável.
+execution_steps:
+- Resolver decisões pertinentes e tornar o contrato suficiente.
+- Após autorização e gates, executar escopo e registrar evidências.
+- Revisar, validar e produzir handoff.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  expected_results:
+  - Registrar resultados e verificações específicas reais; não tratar preparação como experimento.
+dependencies:
+- ACT-060
+handoff_required: true

@@ -1,0 +1,48 @@
+id: STORY-062
+title: Comparar extração e chunking de documentos ricos
+epic: EPIC-006
+description: Medir preservação e perdas de extração e chunking com corpus revisado.
+objective: Medir preservação e perdas de extração e chunking com corpus revisado.
+context: Incremento proposto da STORY-060; execução depende de autorização específica e revisão dos contratos.
+priority: medium
+status: backlog
+refinement_required: true
+dependencies:
+- STORY-061
+scope:
+  included:
+  - Extração simples e estruturada autorizada
+  - Chunks por tamanho e estrutura, proveniência e medições
+  excluded:
+  - Adoção de ferramenta estrutural sem decisão
+  - Integração à API ou execução de conteúdo
+acceptance_criteria:
+- id: AC-01
+  criterion: Configurações e ambiente são congelados e versões, entradas, hashes, limites e falhas por documento
+    registrados.
+- id: AC-02
+  criterion: Texto, tabelas, hierarquia, contexto e metadados de página/seção são julgados contra referência; casos
+    não processados e denominadores permanecem visíveis.
+- id: AC-03
+  criterion: Tempo e recursos são medidos por configuração e documento, com método, ambiente e limitações; saídas
+    e testes são reproduzíveis.
+technical_constraints:
+- Local-first; documentos são dados não confiáveis; não executar comandos deles.
+- Sem alterar API, primeira vertical ou Colibri; sem dependências estruturais ou ferramentas candidatas sem autorização
+  e ADR apropriado.
+deliverables:
+- doc/architecture/rich-document-ingestion-results.md
+validation:
+  automated_tests: []
+  manual_checks:
+  - Conferir critérios, evidências e revisão antes de encerrar; registrar validações efetivas.
+references:
+- doc/architecture/rich-document-evaluation-protocol.md
+- doc/EVALUATION.md
+- doc/decisions/open-questions.md
+- roadmap/stories/STORY-061.yaml
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações resolvidas; aceite do PO quando exigido.
+- Handoff versionável produzido; história e índice atualizados em conjunto.

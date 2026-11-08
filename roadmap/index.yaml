@@ -1,11 +1,11 @@
 schema_version: 1
 updated_at: '2026-11-07'
 source: AegisOps_AI_Plano_do_Zero.md
-current_phase: 5
-next_story: STORY-050
-next_activity: ACT-050
-next_step_note: STORY-050 ratificada pelo PO; EPIC-005 permanece aberto, sem outra história catalogada. STORY-041
-  e EPIC-004 seguem em andamento.
+current_phase: 6
+next_story: STORY-061
+next_activity: ACT-061
+next_step_note: Preparação documental concluída; STORY-061 e EPIC-006 em backlog. Execução somente após autorização
+  específica e refinamento; STORY-041 e EPIC-004 seguem em andamento.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -45,7 +45,7 @@ epics:
   title: Orquestração de agentes e controle de estado
   path: roadmap/epics/EPIC-005.yaml
   priority: medium
-  status: in_progress
+  status: done
   dependencies:
   - EPIC-003
 - id: EPIC-006
@@ -222,6 +222,33 @@ stories:
   status: backlog
   dependencies:
   - STORY-050
+  - STORY-061
+  - STORY-062
+  - STORY-063
+- id: STORY-061
+  title: Construir corpus e julgamentos para documentos ricos
+  path: roadmap/stories/STORY-061.yaml
+  epic: EPIC-006
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-050
+- id: STORY-062
+  title: Comparar extração e chunking de documentos ricos
+  path: roadmap/stories/STORY-062.yaml
+  epic: EPIC-006
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-061
+- id: STORY-063
+  title: Avaliar recuperação e citações em documentos ricos
+  path: roadmap/stories/STORY-063.yaml
+  epic: EPIC-006
+  priority: medium
+  status: backlog
+  dependencies:
+  - STORY-062
 - id: STORY-070
   title: Instrumentar investigações e demonstrar incidente controlado
   path: roadmap/stories/STORY-070.yaml

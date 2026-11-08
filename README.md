@@ -58,6 +58,8 @@ O Colibri e o Qwen int4 são preparados fora do repositório e foram usados na d
 | Corpus revisado | [STORY-030](roadmap/stories/STORY-030.yaml): [corpus](datasets/runbooks/README.md) e [consultas](datasets/evaluation/README.md) aceitos pelo PO. |
 | Concluído | EPIC-003: busca lexical local com proveniência e [avaliação exploratória](doc/EVALUATION.md); ainda não integrada à API. |
 | Concluído | [Preparação da avaliação descritiva](doc/decisions/story-040-avaliacao.md), aceita pelo PO; sem inferência ou resultados de modelo. |
+| Concluído | EPIC-005: [comparação de workflow](doc/architecture/workflow-evaluation.md); pipeline mantido, protótipo não adotado. |
+| Preparado | [Protocolo para documentos ricos](doc/architecture/rich-document-evaluation-protocol.md) e incrementos propostos; corpus e experimento ainda não executados. |
 | Planejado | Analista descritivo opcional, persistência e evolução por etapas |
 
 A operação de investigação responde na própria requisição, sem persistência ou consulta posterior. O workflow de CI passou localmente com `act`, incluindo falha deliberada, e executou com sucesso no GitHub Actions após o envio da branch; consulte o [handoff](agents/handoffs/HANDOFF-010.yaml) para a evidência e os limites.

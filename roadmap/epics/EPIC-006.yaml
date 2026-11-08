@@ -7,15 +7,19 @@ priority: medium
 dependencies:
 - EPIC-005
 scope:
-- Corpus autorizado e ingestão
-- Avaliação de chunking e retrieval
+- Corpus sintético ou autorizado e julgamentos
+- Comparação de extração, chunking e recuperação; decisões condicionais a evidência e aprovação
 exit_criteria:
 - Documentos têm origem autorizada e citações por página/seção.
 - Comparação medida, com falhas de extração e métricas adequadas ao dataset.
 stories:
 - STORY-060
+- STORY-061
+- STORY-062
+- STORY-063
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
-refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
-  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.
+- doc/architecture/rich-document-evaluation-protocol.md
+refinement_notes: STORY-060 agrega a avaliação; incrementos A/B/C são STORY-061/062/063 em backlog. Preparação não
+  autoriza execução; EPIC-006 permanece backlog.
