@@ -71,5 +71,5 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Alternativa 1 aprovada pelo PO em 2026-11-07; incremento estruturado e orientações curadas
-  em validação, sem concluir a história. Linguagem natural permanece objetivo futuro.
+refinement_notes: Incremento estruturado do catálogo e fontes curadas integrado pelo PR 9; critérios pendentes
+  e tratamento para encerramento formal aguardam decisão do PO. Linguagem natural continua objetivo futuro.

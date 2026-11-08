@@ -4,8 +4,8 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 4
 next_story: STORY-041
 next_activity: ACT-041
-next_step_note: STORY-041 em andamento; alternativa de catálogo estruturado aprovada, linguagem natural e avaliação
-  integral pendentes.
+next_step_note: PR 9 integrado. PO informou considerar EPIC-004 finalizado; decisão sobre critérios pendentes
+  da STORY-041 necessária para conciliar o estado e liberar a STORY-050.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
