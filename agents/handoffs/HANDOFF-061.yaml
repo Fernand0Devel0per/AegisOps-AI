@@ -1,0 +1,85 @@
+id: HANDOFF-061
+activity_id: ACT-061
+story_id: STORY-061
+spec_id: SPEC-061
+source_agent: Codex — engenharia e autorrevisão
+target_agent: Product Owner e próximo executor autorizado
+status: partial
+summary: Corpus sintético e 13 julgamentos propostos produzidos e verificados localmente; revisão e aceite do PO pendentes.
+completed_work:
+- Base ed20a92 em feat/story-060 verificada; EPIC-005 done e STORY-050 done; branch feat/story-061 criada dessa base.
+- SPEC-061 e ACT-061 refinados antes da construção; critérios e estados sincronizados com história e índice.
+- Cinco PDFs de seis páginas no total, fontes YAML, manifesto, perguntas separadas dos gabaritos e tabela de revisão produzidos.
+- Inspeção visual pelo executor de todas as seis páginas e conferência de âncoras, relações e duas ausências; revisão humana pendente.
+changed_files:
+- path: datasets/rich-documents/
+  reason: PDFs, fontes, manifesto, perguntas, gabaritos, gerador, validador e relatório para revisão humana.
+- path: roadmap/stories/STORY-061.yaml
+  reason: Critérios verificáveis e estado in_review.
+- path: agents/specs/SPEC-061.yaml
+  reason: Contrato concreto e mapeamento de aceite.
+- path: agents/activities/ACT-061.yaml
+  reason: Execução autorizada e revisão pendente.
+- path: roadmap/index.yaml
+  reason: Sincronizar história, épico e próximo passo.
+- path: roadmap/epics/EPIC-006.yaml
+  reason: Indicar andamento sem declarar conclusão.
+- path: README.md
+  reason: Estado público do corpus em revisão.
+- path: agents/README.md
+  reason: Continuidade e localização do handoff.
+- path: doc/architecture/rich-document-evaluation-protocol.md
+  reason: Distinguir preparação histórica de corpus atual ainda não aceito.
+- path: doc/decisions/open-questions.md
+  reason: Atualizar Q-009 sem antecipar decisões futuras.
+- path: agents/handoffs/HANDOFF-061.yaml
+  reason: Evidências, limitações e próximo gate.
+decisions_made:
+- Somente documents/ é a entrada dos mecanismos futuros; perguntas e gabaritos ficam em arquivos separados e não recuperáveis por política.
+- Conjunto exploratório sem partição independente ou cega; variantes e fontes de um cenário permanecem no mesmo grupo.
+- ReportLab 4.4.10 e PyYAML 6.0.2 preexistentes usados localmente; nenhuma instalação ou dependência estrutural adicionada.
+validation:
+  executed:
+  - python3 datasets/rich-documents/validate.py --self-test
+  - Regeneração em diretório temporário com generate(source, destino) e comparação byte a byte dos cinco PDFs.
+  - pdfinfo e pdftotext por página; rasterização pdftoppm e inspeção visual pelo executor de seis páginas.
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: Cinco PDFs, seis páginas e 13 perguntas; oito mutações estruturais rejeitadas; hashes e reprodução idênticos.
+    evidence: datasets/rich-documents/REVIEW.md
+  - check: Conteúdo e layouts conferidos pelo executor; suporte semântico não é provado pelo validador.
+    evidence: datasets/rich-documents/REVIEW.md
+  - check: Pyright sem erros; um aviso preexistente de resolução de fonte de yaml em scripts/validate_repository.py.
+    evidence: agents/handoffs/HANDOFF-061.yaml
+  - check: Validador documental e verificações de whitespace passaram.
+    evidence: agents/handoffs/HANDOFF-061.yaml
+  failed: []
+  not_executed:
+  - Revisão e aceite humanos; PO deve revisar a entrega concreta.
+  - Testes de aplicação e CI remota; não há mudança da aplicação e não houve publicação.
+  - Experimentos de extração comparativa, chunking, recuperação, OCR, gráficos ou inferência; fora do escopo autorizado.
+review:
+  type: Autorrevisão do executor; revisão semântica e aceite do PO pendentes.
+  evidence: datasets/rich-documents/REVIEW.md
+known_issues:
+- Amostra pequena e exposta ao executor; sem teste independente ou cego, e nenhuma medida de desempenho.
+- Verificação de âncoras é estrutural e não substitui leitura dos PDFs nem julgamento semântico humano.
+- Pyright reporta aviso de fonte do módulo yaml no validador documental existente, sem erro.
+- Primeira checagem de diff staged sinalizou whitespace interno dos PDFs, pois Git os detectou como texto; .gitattributes os declara binários e a checagem foi repetida.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e excluídos da entrega.
+pending_work:
+- PO revisar documentos, gabaritos, ausências, grupos e critérios; registrar alcance do aceite e resolver observações.
+- Somente após aceite e todos os critérios, atualizar história, atividade, índice e handoff; STORY-062 exige autorização específica.
+next_steps:
+- Aguardar revisão do PO da tabela e dos PDFs em datasets/rich-documents/REVIEW.md; não iniciar STORY-062 automaticamente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md
+git:
+  branch: feat/story-061
+  base: ed20a92
+  note: Base local não presumida publicada; sem push, PR ou merge. Exclusão preexistente e stash não incluídos.

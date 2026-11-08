@@ -1,0 +1,55 @@
+schema_version: 1
+corpus_version: 1.0.0
+questions:
+- id: Q01
+  scenario_group: atlas
+  question: Qual foi a latência p95 do Atlas entre 10:00 e 10:20 UTC?
+  intent: Localizar métrica e período
+- id: Q02
+  scenario_group: atlas
+  question: Qual era o p95 do Atlas na janela anterior?
+  intent: Distinguir períodos
+- id: Q03
+  scenario_group: atlas
+  question: Com qual frequência o runbook recomenda verificar a latência?
+  intent: Localizar orientação
+- id: Q04
+  scenario_group: filas
+  question: Qual o limite de alerta da fila Vega, em mensagens?
+  intent: Relacionar linha, coluna e unidade
+- id: Q05
+  scenario_group: filas
+  question: Qual a idade máxima da fila Lyra, em minutos?
+  intent: Relacionar linha, coluna e unidade
+- id: Q06
+  scenario_group: http
+  question: O que verificar após aumento de HTTP 503 no serviço Íris?
+  intent: Preservar a associação da coluna esquerda
+- id: Q07
+  scenario_group: http
+  question: O que verificar após aumento de HTTP 429 no serviço Lume?
+  intent: Preservar a associação da coluna direita
+- id: Q08
+  scenario_group: recursos
+  question: Qual condição de CPU aciona a investigação de processos ativos?
+  intent: Preservar subseção, valor e duração
+- id: Q09
+  scenario_group: recursos
+  question: Qual condição de memória aciona a investigação de consumo por processo?
+  intent: Distinguir subseções e durações
+- id: Q10
+  scenario_group: orion
+  question: No cenário em que a mensagem mais antiga atingiu 18 minutos, qual comparação é indicada?
+  intent: Relacionar sinal e ação em páginas distintas
+- id: Q11
+  scenario_group: orion
+  question: Qual janela deve ser usada para registrar as duas taxas associadas ao cenário OR-7?
+  intent: Localizar duração relacionada à ação
+- id: Q12
+  scenario_group: ausencias
+  question: Qual é o limite de deadlock do serviço Atlas?
+  intent: Identificar ausência no corpus
+- id: Q13
+  scenario_group: ausencias
+  question: Qual é o endereço IP do serviço Lume?
+  intent: Identificar ausência no corpus

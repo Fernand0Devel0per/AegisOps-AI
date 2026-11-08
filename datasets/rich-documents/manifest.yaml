@@ -1,0 +1,108 @@
+schema_version: 1
+corpus_id: RICH-01
+corpus_version: 1.0.0
+generated_on: '2026-11-08'
+generation:
+  method: Python 3 + ReportLab 4.4.10, canvas invariant=1; fontes YAML versionadas
+  command: python3 datasets/rich-documents/generate.py
+  date_note: Data declarada da geração; metadados internos fixados para reprodução byte a byte.
+authorship: Conteúdo original sintético criado para AegisOps AI pelo agente de engenharia.
+authorization: PO autorizou sua criação e uso para este corpus em 2026-11-08; nenhum material de terceiros foi incorporado.
+scope: Exploratório, sem OCR ou gráficos; apenas documents/ é entrada para ingestão futura.
+documents:
+- id: RD-01
+  name: Latência do serviço Atlas
+  purpose: Métricas e períodos em texto
+  family: texto_simples
+  version: 1.0.0
+  authorship: Original sintético criado pelo agente para AegisOps AI
+  authorization: Criação e uso autorizados pelo PO para STORY-061
+  source: source/RD-01.yaml
+  file: documents/RD-01.pdf
+  sha256: 55097265641d612ec5aaba078f5d46bae6e18a5d9f600a3497d14a91e1e2f493
+  pages: 1
+  sections:
+  - 1. Latência do Atlas
+  question_ids:
+  - Q01
+  - Q02
+  - Q03
+  scenario_groups:
+  - atlas
+- id: RD-02
+  name: Tabela das filas Vega e Lyra
+  purpose: Associação de células, cabeçalhos e unidades
+  family: tabela
+  version: 1.0.0
+  authorship: Original sintético criado pelo agente para AegisOps AI
+  authorization: Criação e uso autorizados pelo PO para STORY-061
+  source: source/RD-02.yaml
+  file: documents/RD-02.pdf
+  sha256: f70e7c04c34cc8a65c2663195098921b4324afaa7c07effc1df982254ecc62a1
+  pages: 1
+  sections:
+  - 1. Limites das filas
+  question_ids:
+  - Q04
+  - Q05
+  scenario_groups:
+  - filas
+- id: RD-03
+  name: 'Duas colunas: respostas HTTP'
+  purpose: Associação por coluna e ordem de leitura
+  family: duas_colunas
+  version: 1.0.0
+  authorship: Original sintético criado pelo agente para AegisOps AI
+  authorization: Criação e uso autorizados pelo PO para STORY-061
+  source: source/RD-03.yaml
+  file: documents/RD-03.pdf
+  sha256: 52558ff91a447fd3492fec72a46eb1cf6008c4b7c72c43f10dd66b0d6d395322
+  pages: 1
+  sections:
+  - 1. Diagnóstico por serviço
+  question_ids:
+  - Q06
+  - Q07
+  scenario_groups:
+  - http
+- id: RD-04
+  name: Guia hierárquico de recursos
+  purpose: Contexto de títulos e subseções
+  family: hierarquia
+  version: 1.0.0
+  authorship: Original sintético criado pelo agente para AegisOps AI
+  authorization: Criação e uso autorizados pelo PO para STORY-061
+  source: source/RD-04.yaml
+  file: documents/RD-04.pdf
+  sha256: e9ce8a858af315e82c4a0e2cdf1af0cfec9bae45045cc4a2546941ad11a88f58
+  pages: 1
+  sections:
+  - 1. Diagnóstico de recursos
+  - 1.1 CPU
+  - 1.2 Memória
+  - 2. Orientações
+  - 2.1 Registro
+  question_ids:
+  - Q08
+  - Q09
+  scenario_groups:
+  - recursos
+- id: RD-05
+  name: Investigação entre páginas
+  purpose: Relacionar evidências em páginas distintas
+  family: multiplas_paginas
+  version: 1.0.0
+  authorship: Original sintético criado pelo agente para AegisOps AI
+  authorization: Criação e uso autorizados pelo PO para STORY-061
+  source: source/RD-05.yaml
+  file: documents/RD-05.pdf
+  sha256: 90eb2d35e72a68e5cf2dce93c3d66f7e7b1be1615758d1e901c3b36e78c8daff
+  pages: 2
+  sections:
+  - 1. Sinal da fila Órion
+  - 2. Ação para OR-7
+  question_ids:
+  - Q10
+  - Q11
+  scenario_groups:
+  - orion

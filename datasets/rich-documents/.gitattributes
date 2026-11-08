@@ -1,0 +1,2 @@
+# PDFs são binários, mesmo quando gerados com streams não comprimidos.
+documents/*.pdf binary

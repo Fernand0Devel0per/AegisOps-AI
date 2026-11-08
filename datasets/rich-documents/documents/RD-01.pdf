@@ -1,0 +1,90 @@
+%PDF-1.3
+%“Œ‹ž ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+5 0 obj
+<<
+/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+>>
+endobj
+6 0 obj
+<<
+/Author (AegisOps AI \204 corpus sint\351tico) /CreationDate (D:20000101000000+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20000101000000+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (Lat\352ncia do servi\347o Atlas) /Trapped /False
+>>
+endobj
+7 0 obj
+<<
+/Count 1 /Kids [ 4 0 R ] /Type /Pages
+>>
+endobj
+8 0 obj
+<<
+/Length 802
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 14 Tf 16.8 TL ET
+BT 1 0 0 1 45 790 Tm (Lat\352ncia do servi\347o Atlas) Tj T* ET
+BT /F2 12 Tf 14.4 TL ET
+BT 1 0 0 1 45 755 Tm (1. Lat\352ncia do Atlas) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 731 Tm (Durante 10:00\22610:20 UTC, a lat\352ncia p95 do Atlas foi 840 ms.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 712 Tm (Na janela anterior de 09:40\22610:00 UTC, o p95 foi 310 ms.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 693 Tm (O runbook recomenda verificar a lat\352ncia a cada 5 minutos.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 674 Tm (Os valores descrevem observa\347\365es sint\351ticas e n\343o demonstram causa.) Tj T* ET
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 45 35 Tm (RD-01 | p\341gina 1 | vers\343o 1.0.0 | sint\351tico) Tj T* ET
+ 
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000061 00000 n 
+0000000102 00000 n 
+0000000209 00000 n 
+0000000321 00000 n 
+0000000524 00000 n 
+0000000592 00000 n 
+0000000903 00000 n 
+0000000962 00000 n 
+trailer
+<<
+/ID 
+[<9209366ba5a92d837371fb921ce8e5c9><9209366ba5a92d837371fb921ce8e5c9>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 6 0 R
+/Root 5 0 R
+/Size 9
+>>
+startxref
+1814
+%%EOF

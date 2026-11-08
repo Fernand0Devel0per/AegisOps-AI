@@ -1,11 +1,11 @@
 schema_version: 1
-updated_at: '2026-11-07'
+updated_at: '2026-11-08'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 6
 next_story: STORY-061
 next_activity: ACT-061
-next_step_note: Preparação documental concluída; STORY-061 e EPIC-006 em backlog. Execução somente após autorização
-  específica e refinamento; STORY-041 e EPIC-004 seguem em andamento.
+next_step_note: STORY-061 em revisão do PO; não iniciar STORY-062 automaticamente. STORY-041 e EPIC-004 permanecem
+  em andamento.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -52,7 +52,7 @@ epics:
   title: RAG com documentos ricos
   path: roadmap/epics/EPIC-006.yaml
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
   - EPIC-005
 - id: EPIC-007
@@ -230,7 +230,7 @@ stories:
   path: roadmap/stories/STORY-061.yaml
   epic: EPIC-006
   priority: medium
-  status: backlog
+  status: in_review
   dependencies:
   - STORY-050
 - id: STORY-062

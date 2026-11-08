@@ -1,37 +1,48 @@
 id: ACT-061
 story_id: STORY-061
 spec_id: SPEC-061
-title: Execução futura — Construir corpus e julgamentos para documentos ricos
+title: Construir corpus sintético e preparar julgamentos para revisão
 objective: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
-status: pending
+status: in_review
 agent:
   role: Agente de engenharia
-  responsibility: Revisar contrato e executar somente após autorização específica.
+  responsibility: Construir, validar, inspecionar e encaminhar corpus e julgamentos ao PO.
 inputs:
 - AGENTS.md
 - roadmap/stories/STORY-061.yaml
 - agents/specs/SPEC-061.yaml
 - doc/architecture/rich-document-evaluation-protocol.md
 - agents/handoffs/HANDOFF-060.yaml
+- roadmap/stories/STORY-060.yaml
+- doc/EVALUATION.md
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
 expected_outputs:
 - datasets/rich-documents/manifest.yaml
 - datasets/rich-documents/questions.yaml
+- datasets/rich-documents/judgments.yaml
 - datasets/rich-documents/REVIEW.md
+- datasets/rich-documents/documents/
+- datasets/rich-documents/source/
+- datasets/rich-documents/generate.py
+- datasets/rich-documents/validate.py
+- agents/handoffs/HANDOFF-061.yaml
 constraints:
-- 'Proposta preliminar: não iniciar enquanto spec estiver draft, dependências não concluídas ou PO não autorizar
-  execução.'
-- Não alterar a API, primeira vertical ou Colibri; não instalar ferramentas nem executar modelos sem autorização
-  aplicável.
+- Execução local autorizada apenas para STORY-061; manter em revisão até aceite do PO.
+- Sem experimentos de extração, chunking ou recuperação, OCR, gráficos, inferência ou alterações à API e Colibri.
+- Somente documentos originais sintéticos, até 10 páginas e 5 MiB; preservar exclusão e stash preexistentes.
 execution_steps:
-- Resolver decisões pertinentes e tornar o contrato suficiente.
-- Após autorização e gates, executar escopo e registrar evidências.
-- Revisar, validar e produzir handoff.
+- Refinar contratos antes da criação; verificar gates e base Git.
+- Gerar PDFs determinísticos, manifesto, perguntas e julgamentos separados.
+- Inspecionar originais e layouts, validar, reproduzir, registrar limites e handoff para revisão do PO.
 validation:
   commands:
+  - python3 datasets/rich-documents/validate.py --self-test
   - python3 scripts/validate_repository.py
   - git diff --check
+  - git diff --cached --check
   expected_results:
-  - Registrar resultados e verificações específicas reais; não tratar preparação como experimento.
+  - Integridade, rastreabilidade, mutações e reprodução verificadas; suporte semântico e aceite humano distintos.
 dependencies:
 - ACT-060
 handoff_required: true

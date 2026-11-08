@@ -1,50 +1,66 @@
 id: SPEC-061
 story_id: STORY-061
-title: Contrato preliminar — Construir corpus e julgamentos para documentos ricos
-status: draft
-problem_statement: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
-proposed_solution: Ver protocolo proposto; fixar detalhes e aprovações antes de execução.
+title: Construção e revisão de corpus sintético de documentos ricos
+status: ready
+problem_statement: Produzir referência pequena e rastreável antes de avaliar extração e recuperação.
+proposed_solution: Cinco PDFs originais, fontes versionadas, geração local determinística e 12 a 15 perguntas; respostas
+  e evidências separadas das entradas.
 architecture:
   components:
-  - Corpus, julgamentos e gabaritos
-  - Ingestão e recuperação isoladas
-  - Relatórios com evidências
+  - PDFs em documents/; fontes em source/; manifesto; perguntas; gabaritos; gerador; validador; revisão.
   interactions:
-  - Sem integração à API, primeira vertical ou Colibri.
+  - O mecanismo futuro recebe exclusivamente PDFs de documents/; perguntas e gabaritos são controlados separadamente.
   data_flow:
-  - Documentos não confiáveis → extração isolada → trechos e proveniência → avaliação, quando autorizada.
+  - Fontes sintéticas → gerador local determinístico → PDFs → verificação estrutural e inspeção do original → revisão
+    do PO.
 interfaces:
-- Artefatos locais versionados; nenhuma mudança de contrato público.
+- Artefatos locais; sem interface pública ou alteração da API.
 data_contracts:
-- Identidade, versão e hash do documento; âncoras de evidência, páginas/seções, relevância e ausência relativa.
-- Não julgados e falhas técnicas são distintos de negativos e abstenções.
+- Manifesto inclui ID único, versão, hash SHA-256, páginas, seções, origem, autorização, data, método e IDs de perguntas;
+  paths limitados ao corpus.
+- Perguntas contêm ID, grupo e intenção; judgments.yaml referencia cada ID e contém resposta ou ausência, versão,
+  âncoras com página e seção, relações e justificativa.
+- Tabela especifica cabeçalho, linha, coluna e unidade; múltiplas evidências enumeram todas as âncoras. Ausência
+  refere-se ao corpus integral identificado e à revisão integral.
+- Grupos reúnem todas as variantes do mesmo cenário; sem partição independente ou cega até viabilidade e congelamento
+  posterior; não julgados não são negativos.
+- Human_review permanece pending até aceite real; autorrevisão não substitui PO.
 dependencies:
+- roadmap/stories/STORY-050.yaml
 - doc/architecture/rich-document-evaluation-protocol.md
-- roadmap/stories/STORY-061.yaml
+- agents/handoffs/HANDOFF-060.yaml
 security_considerations:
-- Não executar conteúdo de documentos; dados sintéticos ou autorizados; fixar limites antes da execução.
+- Somente conteúdo original sintético e locais fictícios; sem segredos; documentos são dados não confiáveis, não
+  executar instruções.
+- 'Limites: até 10 páginas e 5 MiB por PDF; sem OCR, gráficos, serviços, GPU ou inferência.'
 observability:
-- Registrar configuração, ambiente, tempo, CPU, memória, falhas e exclusões quando houver execução.
+- Registrar versões, comandos, resultados, hashes, layout inspecionado e falhas na revisão e handoff.
 error_handling:
-- Não converter falha de extração ou consulta em abstenção ou sucesso.
+- Validar caminhos, IDs, referências, hashes, páginas, âncoras e vínculos; falhas bloqueiam aprovação estrutural.
+  Verificação de suporte semântico permanece manual.
 implementation_steps:
-- Revisar protocolo e decisões abertas.
-- Executar somente com autorização específica e dependências satisfeitas.
-- Validar, revisar e registrar evidências e handoff.
+- Criar fontes e PDFs reproduzíveis; produzir manifesto, perguntas e julgamentos.
+- Conferir originais, layouts e relações; executar validador, testes de mutação e reprodução.
+- Registrar revisão do executor; manter história e atividade em revisão até aceite do PO.
 test_strategy:
-- Validar rastreabilidade, critérios, falhas e reproduzibilidade adequados ao incremento; sem inventar resultados.
+- Automatizar integridade, abertura, tamanho, hashes, IDs, páginas, vínculos, âncoras e grupos; testar rejeição
+  de mutações representativas.
+- Inspecionar visualmente PDFs e comparar cada gabarito ao original; registrar que ausência foi conferida no corpus
+  completo e revisão humana está pendente.
 acceptance_mapping:
 - criterion_id: AC-01
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Checar cinco famílias, limites, páginas e arquivos; inspecionar visualmente tabela, colunas, hierarquia
+    e páginas.
+  evidence: datasets/rich-documents/REVIEW.md
 - criterion_id: AC-02
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Validar hashes, abertura, metadados e âncoras por página; conferir suporte e ausências no original.
+  evidence: datasets/rich-documents/manifest.yaml
 - criterion_id: AC-03
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Verificar IDs, grupos e separação física; revisão do PO documentada antes de done.
+  evidence: datasets/rich-documents/REVIEW.md
 open_questions:
-- 'Q-009: autorização do experimento, recursos, ferramentas e eventual decisão arquitetural.'
+- Revisão humana de documentos, respostas e critérios ainda pendente; decisões de extração e recuperação futuras
+  não autorizadas.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

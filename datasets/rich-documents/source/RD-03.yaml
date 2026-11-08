@@ -1,0 +1,18 @@
+id: RD-03
+title: 'Duas colunas: respostas HTTP'
+family: duas_colunas
+pages:
+- - kind: heading
+    content: 1. Diagnóstico por serviço
+  - kind: columns
+    content:
+      left:
+      - Serviço Íris
+      - Para Íris, aumento de HTTP 503
+      - indica verificar o pool de conexões.
+      - Não alterar o timeout nesta etapa.
+      right:
+      - Serviço Lume
+      - Para Lume, aumento de HTTP 429
+      - indica verificar o limite de requisições.
+      - Não reiniciar o pool nesta etapa.

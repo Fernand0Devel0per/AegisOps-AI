@@ -3,10 +3,10 @@ title: Construir corpus e julgamentos para documentos ricos
 epic: EPIC-006
 description: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
 objective: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
-context: Incremento proposto da STORY-060; execução depende de autorização específica e revisão dos contratos.
+context: Execução local autorizada pelo PO em 2026-11-08; corpus e julgamentos aguardam revisão humana.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_review
+refinement_required: false
 dependencies:
 - STORY-050
 scope:
@@ -19,14 +19,18 @@ scope:
   - Elementos visuais sem método de julgamento
 acceptance_criteria:
 - id: AC-01
-  criterion: Documentos cobrem texto simples, tabelas, colunas, títulos hierárquicos e evidências em páginas distintas;
-    visuais têm método ou exclusão explícita.
+  criterion: Cinco PDFs originais sintéticos, com até 10 páginas e 5 MiB cada, cobrem texto simples, tabela física,
+    duas colunas físicas, hierarquia e evidências entre páginas; OCR e gráficos excluídos. Inspeção visual registra
+    os layouts.
 - id: AC-02
-  criterion: Cada documento informa origem, autorização, versão e SHA-256; cada pergunta positiva tem resposta e
-    página/seção verificáveis, relevantes e justificativa; ausências têm revisão do corpus inteiro.
+  criterion: Manifesto identifica autoria e autorização, finalidade, família, versão, geração, data, SHA-256, páginas,
+    seções e perguntas; arquivos abrem e hashes conferem. Cada resposta aponta todas as páginas, seções e âncoras
+    necessárias; tabela identifica cabeçalho, linha, coluna e unidade; ausências são justificadas em relação à versão
+    integral do corpus.
 - id: AC-03
-  criterion: Consultas, rótulos, grupos e partições são versionados e revisados pelo PO; itens dependentes permanecem
-    no mesmo grupo e partição insuficiente é declarada.
+  criterion: Perguntas e gabaritos são separados da entrada de ingestão, IDs e grupos são consistentes, itens não
+    julgados não são negativos e limitações de partição e exposição são explícitas. PO revisa e aceita documentos,
+    julgamentos e critérios antes de done.
 technical_constraints:
 - Local-first; documentos são dados não confiáveis; não executar comandos deles.
 - Sem alterar API, primeira vertical ou Colibri; sem dependências estruturais ou ferramentas candidatas sem autorização
@@ -34,11 +38,20 @@ technical_constraints:
 deliverables:
 - datasets/rich-documents/manifest.yaml
 - datasets/rich-documents/questions.yaml
+- datasets/rich-documents/judgments.yaml
 - datasets/rich-documents/REVIEW.md
+- datasets/rich-documents/documents/
+- datasets/rich-documents/source/
+- datasets/rich-documents/generate.py
+- datasets/rich-documents/validate.py
+- agents/handoffs/HANDOFF-061.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/rich-documents/validate.py --self-test
+  - python3 scripts/validate_repository.py
   manual_checks:
-  - Conferir critérios, evidências e revisão antes de encerrar; registrar validações efetivas.
+  - Conferir layouts, evidências e respostas no PDF original; registrar revisão do executor e pendências do PO.
+  - Regenerar PDFs e comparar hashes; conferir integridade, limites e separação de dados.
 references:
 - doc/architecture/rich-document-evaluation-protocol.md
 - doc/EVALUATION.md
@@ -48,3 +61,4 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Corpus e julgamentos propostos; revisão e aceite humano pendentes. Sem iniciar STORY-062.
