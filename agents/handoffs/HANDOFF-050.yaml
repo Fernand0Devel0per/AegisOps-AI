@@ -5,8 +5,8 @@ spec_id: SPEC-050
 source_agent: Codex — engenharia
 target_agent: PO e próximo executor
 status: completed
-summary: Estudo comparativo concluído por autorrevisão; manter vertical existente, protótipo não adotado e
-  EPIC-005 em andamento.
+summary: Estudo concluído por autorrevisão e encerramento ratificado pelo PO; pipeline mantido, protótipo não
+  adotado e EPIC-005 aberto.
 completed_work:
 - Demonstrada independência técnica com a vertical STORY-021 e recuperação separada STORY-031; exceção de dependência
   autorizada pelo PO documentada.
@@ -105,7 +105,8 @@ pending_work:
 - Futuras mudanças arquiteturais ou de API exigem ADR e aprovação prévia; nenhum workflow foi adotado.
 - EPIC-005 permanece em andamento por instrução do PO; não avançar automaticamente para outra história.
 next_steps:
-- Aguardar orientação do PO; consultar exceção, avaliação e ADR antes de trabalho futuro.
+- Não há outra história catalogada no EPIC-005. Aguardar orientação do PO sobre sua continuidade; STORY-060
+  pertence ao EPIC-006 e seu épico depende do EPIC-005.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -119,3 +120,39 @@ resolved_issues:
 - Primeira coleta do teste falhou ao importar scripts no modo importlib; carregamento isolado corrigido e teste
   repetido.
 - Primeira verificação mypy encontrou bytes | memoryview; conversão corrigida e verificação repetida.
+maintenance_updates:
+- date: '2026-11-07'
+  authorization: PO revisou o relatório workflow-evaluation.md, HANDOFF-050 e ADR-0007, aprovou manter pipeline
+    e não adotar protótipo e ratificou o encerramento da STORY-050.
+  basis: Equivalência das saídas nos cenários exercitados, ausência de benefício demonstrado em qualidade ou
+    retomada e maior complexidade do protótipo.
+  review_distinction: A revisão original registrada em review foi autorrevisão do executor; esta atualização
+    registra o aceite humano posterior do PO.
+  changed_files:
+  - path: roadmap/stories/STORY-050.yaml
+    reason: Registrar aceite e ratificação do PO.
+  - path: agents/handoffs/HANDOFF-050.yaml
+    reason: Registrar revisão humana posterior e continuidade.
+  - path: doc/adr/0007-comparacao-workflow.md
+    reason: Registrar ratificação sem alterar decisão aceita.
+  - path: roadmap/index.yaml
+    reason: Atualizar continuidade mantendo estados.
+  - path: agents/README.md
+    reason: Atualizar referência à revisão do PO.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar estado da decisão de workflow.
+  validation:
+    executed:
+    - python3 scripts/validate_repository.py
+    - git diff --check
+    - git diff --cached --check
+    - Conferência local dos estados, catálogo, aceite e distinção da autorrevisão.
+    passed:
+    - Validação documental e verificações de whitespace executadas sem falhas.
+    - Estados de STORY-050, ACT-050, ADR-0007, STORY-041, EPIC-004 e EPIC-005 consistentes; nenhuma outra história
+      catalogada em EPIC-005.
+    not_executed:
+    - 'Testes de aplicação e inferência: atualização exclusivamente documental; código e protótipo não alterados.'
+    - 'CI remota, push, PR e merge: não autorizados.'
+  next_step: Não há outra história catalogada no EPIC-005. STORY-060 é do EPIC-006 e seu gate de épico permanece
+    dependente do EPIC-005.

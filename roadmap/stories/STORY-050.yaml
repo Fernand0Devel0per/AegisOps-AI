@@ -54,8 +54,8 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Estudo concluído por autorrevisão; manter vertical existente e protótipo isolado. Exceção
-  aprovada preserva STORY-041 parcial e EPIC-004 aberto; EPIC-005 não encerrado.
+refinement_notes: Estudo concluído por autorrevisão e encerramento ratificado pelo PO; manter vertical existente
+  e protótipo isolado. Exceção preserva STORY-041 parcial e EPIC-004 aberto; EPIC-005 permanece em andamento.
 acceptance_evidence:
 - id: AC-01
   evidence: doc/architecture/workflow-evaluation.md
@@ -66,3 +66,12 @@ acceptance_evidence:
 - id: AC-03
   evidence: scripts/workflow_050.py
   result: Protótipo não fornece ferramentas privilegiadas; callable de teste confiável não é sandbox.
+po_acceptance:
+  date: '2026-11-07'
+  scope: PO revisou relatório, handoff e ADR; aprovou manter o pipeline atual, não adotar o protótipo e ratificou
+    o encerramento da STORY-050.
+  basis: Equivalência das saídas nos cenários exercitados, ausência de benefício demonstrado em qualidade ou
+    retomada e maior complexidade do protótipo.
+  limits: Aceite não amplia os resultados dos mocks, não encerra EPIC-005 nem altera as pendências do EPIC-004
+    e da STORY-041.
+  evidence: agents/handoffs/HANDOFF-050.yaml

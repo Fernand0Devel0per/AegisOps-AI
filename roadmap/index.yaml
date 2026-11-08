@@ -4,8 +4,8 @@ source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 5
 next_story: STORY-050
 next_activity: ACT-050
-next_step_note: STORY-050 concluída por autorrevisão; EPIC-005 e EPIC-004 permanecem em andamento. Aguardar
-  orientação do PO sem iniciar outra história.
+next_step_note: STORY-050 ratificada pelo PO; EPIC-005 permanece aberto, sem outra história catalogada. STORY-041
+  e EPIC-004 seguem em andamento.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos

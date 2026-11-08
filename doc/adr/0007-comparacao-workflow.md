@@ -4,6 +4,10 @@
 
 `accepted` para a decisão de **não alterar** a arquitetura existente nesta comparação. Autoridade: o PO autorizou a STORY-050, incluindo a alternativa de manter o pipeline; a decisão técnica se limita a preservar o desenho já aceito no ADR-0001 e não representa aprovação do PO para uma nova arquitetura. Não substitui os ADRs 0001, 0002 ou 0006. O protótipo não é adotado.
 
+## Ratificação posterior do PO
+
+Em 2026-11-07, o PO revisou o relatório, o handoff e este ADR; aprovou explicitamente manter o pipeline atual e não adotar o protótipo, e ratificou a conclusão da STORY-050. A aprovação se fundamenta nos resultados controlados e não amplia suas evidências nem autoriza mudanças de arquitetura. A decisão aceita acima permanece a mesma; a autorrevisão anterior está preservada no [HANDOFF-050](../../agents/handoffs/HANDOFF-050.yaml).
+
 ## Data e contexto
 
 2026-11-07. A STORY-050 compara a rota existente com um protótipo local de estado explícito, usando mocks e dados sintéticos. A exceção autorizada de dependência preserva a STORY-041 parcial e está documentada em [transição](../decisions/story-050-excecao-dependencia.md).
