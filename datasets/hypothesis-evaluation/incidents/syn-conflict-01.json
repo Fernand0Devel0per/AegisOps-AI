@@ -1,0 +1,18 @@
+{
+  "id": "SYN-CONFLICT-01",
+  "version": "1.0-proposta",
+  "synthetic": true,
+  "service": "Gateway fictício",
+  "window_utc": "2026-11-03T14:00:00Z/2026-11-03T14:05:00Z",
+  "scope": "Somente avaliação documental; não é fixture aceita pela API.",
+  "evidence": [
+    {
+      "id": "EVD-C01-01",
+      "summary": "Sonda sintética A informa 0 falhas em 100 solicitações ao gateway, no intervalo indicado."
+    },
+    {
+      "id": "EVD-C01-02",
+      "summary": "Sonda sintética B informa 100 falhas em 100 solicitações ao mesmo gateway e intervalo; a relação entre amostras e a calibragem são desconhecidas."
+    }
+  ]
+}

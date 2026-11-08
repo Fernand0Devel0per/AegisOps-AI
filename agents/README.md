@@ -24,4 +24,6 @@ A [STORY-030](../roadmap/stories/STORY-030.yaml) está concluída: [SPEC-030](sp
 
 Estados e convenções estão em [conventions.md](../doc/standards/conventions.md). O fluxo completo está em [workflow.md](../doc/standards/workflow.md).
 
-A [STORY-031](../roadmap/stories/STORY-031.yaml) foi concluída localmente com autorrevisão; [SPEC-031](specs/SPEC-031.yaml), [ACT-031](activities/ACT-031.yaml) e [HANDOFF-031](handoffs/HANDOFF-031.yaml) registram a entrega e continuidade.
+A [STORY-031](../roadmap/stories/STORY-031.yaml) foi concluída e integrada no PR 8; [SPEC-031](specs/SPEC-031.yaml), [ACT-031](activities/ACT-031.yaml) e [HANDOFF-031](handoffs/HANDOFF-031.yaml) registram a entrega e continuidade.
+
+O EPIC-003 foi encerrado após o merge informado e pedido do PO; o [HANDOFF-031](handoffs/HANDOFF-031.yaml) registra o fechamento. A [STORY-040](../roadmap/stories/STORY-040.yaml) foi concluída após aceite conjunto do PO: [SPEC-040](specs/SPEC-040.yaml), [ACT-040](activities/ACT-040.yaml) e [HANDOFF-040](handoffs/HANDOFF-040.yaml) registram escopo e limitações. STORY-041 foi alinhada à descrição e permanece backlog, exigindo refinamento antes da execução.

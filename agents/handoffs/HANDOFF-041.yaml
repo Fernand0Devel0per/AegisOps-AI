@@ -1,0 +1,181 @@
+id: HANDOFF-041
+activity_id: ACT-041
+story_id: STORY-041
+spec_id: SPEC-041
+source_agent: Codex — implementação
+target_agent: Product Owner e próximo executor da STORY-041
+status: partial
+summary: 'STORY-041 parcial: incremento aprovado de catálogo estruturado e orientações curadas implementado
+  e testado; linguagem natural e avaliação integral pendentes.'
+completed_work:
+- Confirmadas STORY-040 done, ACT-040 completed e EPIC-003 done; branch feat/story-041 criada a partir de 2e7bcd4.
+- Mock assíncrono e seleção estrita de referências; fatos e comparação temporal construídos a partir de sinais
+  validados, com fallback e distinção de falhas.
+- Suíte de testes passou após reinstalação não editável; verificação independente limitada a IDs e regras determinísticas.
+- Confrontadas lacunas da rubrica; alternativas para texto livre e revisão humana documentadas, sem alterar
+  casos ou corpus.
+changed_files:
+- path: roadmap/stories/STORY-041.yaml
+  reason: Refinamento e transição para in_progress.
+- path: roadmap/index.yaml
+  reason: Sincronizar estado e ponteiros.
+- path: roadmap/epics/EPIC-004.yaml
+  reason: Registrar trabalho parcial sem concluir o épico.
+- path: agents/specs/SPEC-041.yaml
+  reason: Contrato e mapeamento dos critérios, incluindo limites.
+- path: agents/activities/ACT-041.yaml
+  reason: Atividade vinculada e em execução.
+- path: src/aegisops/descriptive.py
+  reason: Análise estruturada restrita e gateway mock.
+- path: tests/unit/test_descriptive.py
+  reason: Verificar recorte, rejeições e fallback offline.
+- path: doc/EVALUATION.md
+  reason: Registrar cobertura parcial dos casos e métricas não mensuradas.
+- path: doc/decisions/story-041-alternativas.md
+  reason: Preparar alternativas concretas para revisão.
+- path: doc/decisions/open-questions.md
+  reason: Registrar questão de desenho pendente.
+- path: agents/handoffs/HANDOFF-041.yaml
+  reason: Continuidade e evidência sem presumir conclusão.
+decisions_made:
+- Função Python independente e opt-in; nenhuma mudança no contrato HTTP nem no Colibri.
+- Apenas fatos construídos pelo núcleo são aceitos; resposta com campos extras é rejeitada globalmente, sem
+  supressão parcial.
+- Comparação somente para dois sinais de mesma métrica, unidade e agregação com períodos ordenáveis não sobrepostos.
+acceptance_evidence:
+- id: AC-01
+  state: partial
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Mock e limites estruturados testados; falta prompt de geração e adaptador real autorizado.
+- id: AC-02
+  state: partial
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Vínculos, fontes curadas, rejeições e integridade testados; falta cobertura de fontes e intenção
+    em linguagem natural.
+- id: AC-03
+  state: partial
+  evidence: tests/unit/test_curated_analysis.py
+  remaining: Falhas e fallback testados no recorte; cobertura integral da rubrica não demonstrada.
+- id: AC-04
+  state: pending
+  evidence: doc/EVALUATION.md
+  remaining: Casos relacionados individualmente aos testes; falta execução integral e métricas por estágio
+    quando autorizadas.
+validation:
+  executed:
+  - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests
+  - uv run --offline --locked --no-sync ruff format --check src tests
+  - uv run --offline --locked --no-sync mypy src tests
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: 173 testes passaram após reinstalação; Ruff e mypy sem erros.
+    evidence: tests/unit/test_descriptive.py
+  - check: 'Pyright 0 erros, 1 aviso: PyYAML sem fonte resolvível em scripts/validate_repository.py.'
+    evidence: doc/standards/validation.md
+  - check: Validador documental passou; fixtures com 21 IDs válidos; corpus lexical com 11 unidades, 10 consultas
+      e 10 mutações inválidas rejeitadas.
+    evidence: doc/EVALUATION.md
+  - check: Verificações de whitespace sem erros.
+    evidence: agents/handoffs/HANDOFF-041.yaml
+  failed:
+  - Primeira execução mypy detectou tipo incompatível no teste; corrigido e reexecutado com sucesso.
+  not_executed:
+  - 'Inferência real, medição de modelo, uso remoto/pago e custos: não autorizados.'
+  - 'Revisão humana semântica e aceite da STORY-041: ainda não ocorreram.'
+  - 'Self-test do validador documental: não modificado nesta atividade.'
+review:
+  type: Autorrevisão pelo executor; revisão do PO pendente.
+  evidence: doc/decisions/story-041-alternativas.md
+known_issues:
+- Entrada é estruturada; perguntas em linguagem natural continuam objetivo futuro e não são interpretadas.
+- Somente DU-5XX, BK-CPU e BK-MEM têm orientação curada; não há interpretação geral de runbooks nem das fixtures
+  sintéticas em texto.
+- Mock não gera texto; não existe prompt de geração descritiva ou adaptador real para esta análise.
+- Tempo assíncrono depende de cancelamento cooperativo; IDs não comprovam suporte semântico geral.
+- Não foram medidas as métricas por estágio ou executados integralmente os 24 casos.
+pending_work:
+- Avaliar separadamente alternativas e riscos para perguntas em linguagem natural; não introduzir revisão humana
+  por requisição.
+- Completar critérios e avaliação da STORY-041 com as devidas autorizações; obter aprovação e ADR antes de
+  alterações relevantes de arquitetura ou contrato público.
+- Solicitar revisão da entrega e registrar evidências antes de concluir história ou atividade.
+- Preparar protocolo e obter autorização específica antes de qualquer experimento real.
+next_steps:
+- Continuar somente a STORY-041 conforme autorização; consultar cobertura por caso e alternativas para linguagem
+  natural.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+git:
+  branch: feat/story-041
+  base: 2e7bcd4
+  note: Exclusão preexistente agents/handoffs/STORY-020-blocked.md e stash STORY-021 preservados fora do commit;
+    sem push.
+maintenance_updates:
+- date: '2026-11-07'
+  authorization: PO aprovou alternativa 1 para catálogo estruturado e fontes curadas; sem geração livre, revisão
+    por requisição, alteração da API ou inferência real.
+  summary: Adicionada análise interna estruturada com seleção explícita de evidências e três orientações curadas,
+    fonte e hash fixados, limites, mock e fallback.
+  changed_files:
+  - path: src/aegisops/curated_analysis.py
+    reason: Observações, comparações, orientação curada e verificação de contexto e proveniência.
+  - path: tests/unit/test_curated_analysis.py
+    reason: Cenários estruturados, dados inválidos, respostas adversariais, integridade, timeout e fallback.
+  - path: agents/specs/SPEC-041.yaml
+    reason: Atualizar contrato interno e mapeamento para alternativa aprovada.
+  - path: agents/activities/ACT-041.yaml
+    reason: Registrar autorização e limites do incremento.
+  - path: roadmap/stories/STORY-041.yaml
+    reason: Registrar estado parcial e novos testes.
+  - path: roadmap/index.yaml
+    reason: Manter ponteiro e estado coerentes.
+  - path: roadmap/epics/EPIC-004.yaml
+    reason: Registrar avanço sem concluir épico.
+  - path: doc/EVALUATION.md
+    reason: Mapear mecanismos e pendências para cada um dos 24 casos.
+  - path: doc/DEVELOPMENT.md
+    reason: Documentar função interna e seus limites.
+  - path: doc/decisions/story-041-alternativas.md
+    reason: Registrar decisão explícita do PO.
+  - path: doc/decisions/story-041-linguagem-natural.md
+    reason: Registrar alternativas e riscos para objetivo futuro.
+  - path: doc/decisions/open-questions.md
+    reason: Atualizar questão e preservar requisito de decisão arquitetural.
+  - path: agents/handoffs/HANDOFF-041.yaml
+    reason: Continuidade e evidências do incremento.
+  validation:
+    commands:
+    - uv sync --offline --locked --no-editable --reinstall-package aegisops-ai
+    - uv run --offline --locked --no-sync pytest -q
+    - uv run --offline --locked --no-sync ruff check src tests
+    - uv run --offline --locked --no-sync ruff format --check src tests
+    - uv run --offline --locked --no-sync mypy src tests
+    - uv run --offline --locked --no-sync pyright
+    - python3 scripts/validate_repository.py
+    - python3 scripts/validate_incidents.py
+    - python3 datasets/evaluation/validate.py --self-test
+    - git diff --check
+    - git diff --cached --check
+    results:
+    - Pacote reinstalado; aviso do uv sobre symlink do Python base, instalação concluída.
+    - 190 testes passaram; Ruff e mypy passaram; Pyright 0 erros e 1 aviso de origem PyYAML.
+    - Validadores documental, incidentes e corpus lexical passaram; 10 mutações inválidas rejeitadas.
+    - Primeiro mypy do incremento falhou por tipo de tupla; ajustado e revalidado.
+    - Revisão é autorrevisão do executor, não aceite do PO.
+  limitations:
+  - Sem inferência real, métricas de qualidade por estágio, geração livre, conexão remota, implantação ou alteração
+    da API.
+  - Observações recebidas não têm veracidade ou hash externo verificados; orientações fixas são vinculadas
+    a hash, versão e origem do corpus.
+  - Os 24 casos foram relacionados aos mecanismos e lacunas; não houve execução integral ou teste independente.
+  next_steps:
+  - Prosseguir STORY-041 sem marcar conclusão automática; linguagem natural deve ser avaliada separadamente.

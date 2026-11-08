@@ -1,25 +1,28 @@
 id: STORY-040
-title: Definir avaliação e políticas para análise ampliada com LLM
+title: Definir avaliação e políticas para análise descritiva com LLM
 epic: EPIC-004
-description: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.
-objective: Fixar casos esperados e medidas de citações, apoio, custo e latência antes do experimento.
-context: Derivada da Etapa 4 do plano original; não há implementação desta capacidade no bootstrap.
+description: Fixar casos esperados e medidas de correção descritiva, citações, apoio, custo e latência antes do experimento.
+objective: Preparar avaliação descritiva baseada em evidências antes do experimento, sem exigir hipóteses causais.
+context: EPIC-003 concluído; Etapa 4 consultada. Preparação documental distinta da explicação restrita e da avaliação lexical.
 priority: medium
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
 - STORY-031
 scope:
   included:
-  - Dataset e rubrica de hipóteses
+  - Dataset e rubrica de análise descritiva e casos negativos de alegações sem apoio
   - Políticas de contexto e evidência
   - Metas prévias ao teste
   excluded:
   - Métricas fabricadas
   - Escolha de modelo sem comparação
+  - Inferência, implementação de analista, gateway ou integração à API
+  - Alterações no corpus ou julgamentos de recuperação
+  - Exigência ou desenvolvimento de hipóteses causais
 acceptance_criteria:
 - id: AC-01
-  criterion: Dataset e rubrica incluem citação inexistente, hipótese sem apoio, dado insuficiente e falha
+  criterion: Dataset e rubrica de análise descritiva incluem citação inexistente, afirmação sem apoio, dado insuficiente e falha
     do provedor.
 - id: AC-02
   criterion: Métricas/metas e procedimento de custo/latência estão definidos antes dos testes reais.
@@ -28,13 +31,28 @@ technical_constraints:
   os limites local-first/read-only para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
-- datasets/evaluation/
+- datasets/hypothesis-evaluation/
+- doc/decisions/story-040-avaliacao.md
 - doc/EVALUATION.md
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - git diff --check
+  - git diff --cached --check
   manual_checks:
-  - PO revisa adequação das métricas e limites de custo.
+  - PO único revisor humano revisa casos, rótulos, rubrica e métricas; registrar decisões e ausência de segundo revisor.
+  - PO aprova limites técnicos antes de qualquer experimento futuro; manter separada da revisão documental.
 references:
+- agents/specs/SPEC-040.yaml
+- agents/activities/ACT-040.yaml
+- agents/handoffs/HANDOFF-040.yaml
+- datasets/hypothesis-evaluation/cases.yaml
+- datasets/hypothesis-evaluation/REVIEW.md
+- datasets/hypothesis-evaluation/changes-v3.yaml
+- datasets/hypothesis-evaluation/changes-v4.yaml
+- doc/decisions/story-040-avaliacao.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -44,3 +62,8 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+
+refinement_notes: PO aceitou a conclusão da entrega em resposta conjunta; limites técnicos e autorização para experimento permanecem futuros. Não se atribuem decisões individuais por caso.
+acceptance_evidence:
+- "AC-01: 24 casos e rubrica em datasets/hypothesis-evaluation/cases.yaml e doc/decisions/story-040-avaliacao.md; aceite conjunto do PO em datasets/hypothesis-evaluation/REVIEW.md."
+- "AC-02: métricas, metas experimentais e procedimento em doc/decisions/story-040-avaliacao.md; PO aceitou entrega, limites técnicos e autorização de experimento permanecem futuros."

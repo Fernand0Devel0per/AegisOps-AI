@@ -1,16 +1,17 @@
 id: STORY-041
-title: Introduzir analista opcional com gateway e verificador determinístico
+title: Introduzir analista descritivo opcional com gateway e verificador determinístico
 epic: EPIC-004
-description: Adicionar hipóteses com saída tipada, limites, mock offline e tratamento de falhas.
-objective: Adicionar hipóteses com saída tipada, limites, mock offline e tratamento de falhas.
-context: Análise ampliada de hipóteses da Etapa 4; complementa a explicação local da primeira vertical prevista na STORY-021.
+description: Introduzir análise descritiva com saída tipada, limites, mock offline e tratamento de falhas.
+objective: Introduzir análise descritiva baseada em evidências, sem exigir hipóteses causais.
+context: STORY-040 concluída com aceite conjunto; análise descritiva, sem inferência real autorizada.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_progress
+refinement_required: false
 dependencies:
 - STORY-040
 scope:
   included:
+  - Análise descritiva com observações, limites e referências rastreáveis
   - Adaptador de provedor
   - Prompt versionado
   - Timeout/tokens/fallback
@@ -18,27 +19,49 @@ scope:
   excluded:
   - Ações de alteração
   - LLM como autoridade de evidência
+  - Exigência de hipóteses causais nesta etapa
+  - Inferência real ou serviços remotos/pagos sem autorização específica
 acceptance_criteria:
 - id: AC-01
-  criterion: Modo mock funciona sem internet ou credenciais; chamadas reais são opcionais.
+  criterion: Modo mock offline com saída estruturada, prompt versionado e limites de contexto, tempo e ciclos;
+    sem credenciais.
 - id: AC-02
-  criterion: Referências inexistentes são rejeitadas por regras fora do LLM.
+  criterion: Verificação independente rejeita referências inexistentes ou fora do contexto e não exibe conteúdo
+    inválido; observações e orientação documental são distinguidas, com limitações e sem causalidade inventada.
 - id: AC-03
-  criterion: Timeout e indisponibilidade têm resultado controlado e testes; avaliação usa dataset/metas
-    prévias.
+  criterion: Timeout, indisponibilidade, rejeição, insuficiência e abstenção são diferenciados, preservando
+    triagem determinística e sem alterar a API existente.
+- id: AC-04
+  criterion: Casos e rubrica da STORY-040 exercitam fidelidade, intenção, segurança e política de exibição;
+    métricas separam geração bruta, aceita e exibida, utilidade, abstenções e rejeições; limitações e avaliações
+    humanas pendentes são explícitas.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
+- Verificação de IDs não prova suporte semântico; não presumir mecanismo automático de verificação semântica.
+- Limites técnicos de qualquer experimento real e sua execução exigem aprovação específica do PO.
 deliverables:
 - src/aegisops/
-- tests/evaluation/
+- tests/
 - doc/EVALUATION.md
+- agents/specs/SPEC-041.yaml
+- agents/activities/ACT-041.yaml
+- agents/handoffs/HANDOFF-041.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - tests/unit/test_curated_analysis.py
+  - tests/unit/test_descriptive.py
+  - uv run --offline --locked --no-sync pytest -q
   manual_checks:
-  - Registrar custo/latência medidos e limitações do provedor.
+  - Avaliar comportamento com casos e métricas da STORY-040 sem confundir simulações e inferência real.
+  - Registrar latência, recursos e despesas efetivamente observadas quando uma execução for autorizada; valor
+    ausente é desconhecido.
 references:
+- roadmap/stories/STORY-040.yaml
+- agents/handoffs/HANDOFF-040.yaml
+- datasets/hypothesis-evaluation/cases.yaml
+- doc/decisions/story-040-avaliacao.md
 - AegisOps_AI_Plano_do_Zero.md
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -48,3 +71,5 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Alternativa 1 aprovada pelo PO em 2026-11-07; incremento estruturado e orientações curadas
+  em validação, sem concluir a história. Linguagem natural permanece objetivo futuro.

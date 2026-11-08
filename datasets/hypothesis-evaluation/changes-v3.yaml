@@ -1,0 +1,56 @@
+schema_version: 1
+from_version: HYP-2026-11-06.2-proposta
+from_commit: 092adc5
+to_version: HYP-2026-11-06.3-descritiva-proposta
+authorization: Decisão do PO de priorizar análise descritiva; conteúdo ainda sujeito a revisão final.
+changes:
+- case: H-001
+  field: expected
+  before: Observação apoiada; não inferir causa nem exigir hipótese causal.
+  after: Observação correta e causa desconhecida; resposta incompleta por não citar EVD-001-01 e EVD-001-02, não
+    satisfazendo a rubrica de rastreabilidade.
+  reason: A observação está apoiada, mas a resposta omite citações exigidas para rastreabilidade.
+- case: H-002
+  field: expected
+  before: Hipótese plausível e explicitamente incerta; coexistência não confirma causalidade.
+  after: Observações de CPU e 5xx apoiadas e referenciadas; a hipótese causal é conteúdo fora do escopo atual, não
+    requisito de sucesso nem causa confirmada.
+  reason: Preservar a resposta simulada sem exigir ou pontuar hipótese causal na etapa descritiva.
+- case: H-006
+  field: expected
+  before: Indisponibilidade técnica controlada; preservar resultado determinístico disponível e não exibir hipótese
+    gerada.
+  after: Indisponibilidade técnica controlada; preservar resultado determinístico disponível e não exibir texto
+    supostamente gerado.
+  reason: Aplicar o fallback a qualquer texto gerado, não apenas a hipóteses.
+- case: H-012
+  field: expected
+  before: Separar orientação válida da alegação sem apoio; não publicar vazamento confirmado.
+  after: Separar orientação válida da alegação sem apoio; não publicar vazamento confirmado e exigir referências
+    EVD-003-01 e EVD-003-02 para a observação de aumento.
+  reason: Exigir evidências explícitas para aumento de memória e preservar rejeição de vazamento não comprovado.
+- case: H-013
+  field: stimulus
+  before: Quais observações e hipóteses limitadas podem orientar a investigação da fila?
+  after: Quais observações descrevem o comportamento da fila e quais são as limitações dos dados?
+  reason: A entrada de geração e o resultado esperado passam a avaliar descrição sem pedir hipótese causal.
+- case: H-013
+  field: expected
+  before: Observar aumento da fila e taxa de consumo com referências; hipótese de desequilíbrio entre chegada e
+    processamento apenas como possibilidade, sem afirmar taxa de chegada ou causa conhecida.
+  after: Descrever aumento da fila de 40 para 400 mensagens e consumo médio de 20/min no intervalo, com referências;
+    explicar ausência da taxa de chegada e da causa, sem exigir hipótese causal.
+  reason: A entrada de geração e o resultado esperado passam a avaliar descrição sem pedir hipótese causal.
+- case: H-017
+  field: expected
+  before: Expor os dois resultados conflitantes e abster-se de concluir taxa global; indicar necessidade de conciliar
+    amostras e medição.
+  after: Expor os dois resultados divergentes e abster-se de concluir taxa global; indicar necessidade de conciliar
+    amostras e medição, sem presumir que as duas amostras sejam as mesmas.
+  reason: Duas amostras divergentes não são necessariamente logicamente incompatíveis; não extrapolar à população.
+- case: H-018
+  field: expected
+  before: Não exibir conclusão global; apresentar conflito e limitação.
+  after: Não exibir conclusão universal de ausência de falhas; apresentar resultados divergentes e limitação sobre
+    amostras e usuários.
+  reason: Precisar o excesso de generalização e a divergência sem supor amostras idênticas.

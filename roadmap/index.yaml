@@ -1,10 +1,11 @@
 schema_version: 1
-updated_at: '2026-11-04'
+updated_at: '2026-11-07'
 source: AegisOps_AI_Plano_do_Zero.md
-current_phase: 3
-next_story: STORY-031
-next_activity: ACT-031
-next_step_note: EPIC-003 preparado para revisão do PO no PR; permanece em andamento até validação humana, sem avanço de fase.
+current_phase: 4
+next_story: STORY-041
+next_activity: ACT-041
+next_step_note: STORY-041 em andamento; alternativa de catálogo estruturado aprovada, linguagem natural e avaliação
+  integral pendentes.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -30,14 +31,14 @@ epics:
   title: Documentação operacional e recuperação básica
   path: roadmap/epics/EPIC-003.yaml
   priority: medium
-  status: in_progress
+  status: done
   dependencies:
   - EPIC-002
 - id: EPIC-004
   title: Analista ampliado com LLM e avaliação
   path: roadmap/epics/EPIC-004.yaml
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
   - EPIC-003
 - id: EPIC-005
@@ -189,19 +190,19 @@ stories:
   - SPIKE-030
   - STORY-030
 - id: STORY-040
-  title: Definir avaliação e políticas para análise ampliada com LLM
+  title: Definir avaliação e políticas para análise descritiva com LLM
   path: roadmap/stories/STORY-040.yaml
   epic: EPIC-004
   priority: medium
-  status: backlog
+  status: done
   dependencies:
   - STORY-031
 - id: STORY-041
-  title: Introduzir analista opcional com gateway e verificador determinístico
+  title: Introduzir analista descritivo opcional com gateway e verificador determinístico
   path: roadmap/stories/STORY-041.yaml
   epic: EPIC-004
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
   - STORY-040
 - id: STORY-050

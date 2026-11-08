@@ -120,3 +120,7 @@ FastAPI 0.162.0 e Uvicorn 0.54.0 são dependências de runtime; HTTPX2 2.15.1 é
 A STORY-031 fornece `aegisops.retrieval.retrieve(query, k=5)` como função local independente da API. O pacote não editável inclui o corpus revisado em `aegisops/data/runbooks/`; a função valida hashes, versão e origem antes de cada consulta. Cada `Passage` inclui ID, caminho versionado no repositório, versão do corpus e hash da unidade, URL e versão da fonte original, texto e pontuação. Caminho também se resolve no recurso instalado sob `aegisops/data/runbooks/` pelo nome do arquivo, sem depender do diretório corrente.
 
 Consultas sem termos ou acima de 4096 caracteres e valores de `k` fora de 1 a 5 geram `InvalidQuery`; recurso ausente ou adulterado gera `CorpusError`. Resultado `abstained` significa apenas que nenhum trecho compartilhou termos, e não prova ausência de runbook aplicável. Documentos externos são dados, não instruções; a função não executa comandos. Estratégia, limitações, reprodução e medição exploratória estão em [EVALUATION](EVALUATION.md).
+
+## Catálogo descritivo curado em desenvolvimento
+
+O módulo interno `aegisops.curated_analysis` oferece seleção explícita de evidências e de orientações DU-5XX, BK-CPU e BK-MEM com verificação da versão local do corpus. A seleção é estruturada e o mock opera offline; não há interpretação de perguntas livres nem alteração da API. Veja o escopo, os limites e a relação com os 24 casos em [EVALUATION](EVALUATION.md). Essa capacidade continua parcial e não oferece verificação semântica geral.

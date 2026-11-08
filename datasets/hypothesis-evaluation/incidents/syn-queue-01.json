@@ -1,0 +1,18 @@
+{
+  "id": "SYN-QUEUE-01",
+  "version": "1.0-proposta",
+  "synthetic": true,
+  "service": "Fila de faturamento fictícia",
+  "window_utc": "2026-11-01T10:00:00Z/2026-11-01T10:05:00Z",
+  "scope": "Somente avaliação documental; não é fixture aceita pela API.",
+  "evidence": [
+    {
+      "id": "EVD-Q01-01",
+      "summary": "Profundidade da fila: 40 mensagens no início e 400 ao fim do intervalo; medidor sintético da fila."
+    },
+    {
+      "id": "EVD-Q01-02",
+      "summary": "Taxa média de consumo: 20 mensagens por minuto no mesmo intervalo; medidor sintético."
+    }
+  ]
+}

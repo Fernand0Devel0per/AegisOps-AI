@@ -3,7 +3,7 @@ title: Documentação operacional e recuperação básica
 source_phase: 3
 objective: Estudar fontes e avaliação própria revisada antes de construir baseline lexical de runbooks Markdown
   com rastreabilidade.
-status: in_progress
+status: done
 priority: medium
 dependencies:
 - EPIC-002
@@ -31,4 +31,7 @@ exit_evidence:
 - 'Estudo e protocolo revisados: doc/research/SPIKE-030.md e agents/handoffs/HANDOFF-029.yaml.'
 - 'Trechos com ID, origem e versão: src/aegisops/retrieval.py e tests/evaluation/test_retrieval.py.'
 - 'Relevância e ausência relativa ao corpus: datasets/evaluation/queries.yaml, datasets/evaluation/REVIEW.md e doc/EVALUATION.md.'
-refinement_notes: Critérios com evidências e histórias concluídas; entrega preparada para revisão do PO no PR. O épico permanece em andamento até a validação humana; merge aguarda autorização posterior.
+completion_evidence:
+- SPIKE-030, STORY-030 e STORY-031 concluídas; evidências por critério em exit_evidence.
+- PR 8 integrado no commit 4ca50a56b620beb666a08aa9323619f85d44f6c0; PO informou o merge e solicitou registrar o encerramento em 2026-11-06, conforme agents/handoffs/HANDOFF-031.yaml.
+refinement_notes: Épico concluído; avaliação lexical exploratória e limitações permanecem registradas em doc/EVALUATION.md.
