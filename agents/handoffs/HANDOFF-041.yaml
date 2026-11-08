@@ -108,8 +108,7 @@ pending_work:
 - Solicitar revisão da entrega e registrar evidências antes de concluir história ou atividade.
 - Preparar protocolo e obter autorização específica antes de qualquer experimento real.
 next_steps:
-- Conciliar com o PO o encerramento informado e os critérios pendentes da STORY-041; após a decisão, atualizar
-  contratos e gates com evidências.
+- Manter pendências da STORY-041 rastreáveis; STORY-050 foi autorizada por exceção sem concluir EPIC-004.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -209,3 +208,25 @@ maintenance_updates:
   - Não houve nova inferência, avaliação de modelo ou aceite individual das pendências.
   pending_work:
   - PO deve decidir tratamento das pendências da STORY-041 antes do encerramento formal e da liberação da STORY-050.
+- date: '2026-11-07'
+  authorization: PO autorizou exceção documentada para iniciar STORY-050 após demonstrar independência técnica,
+    sem concluir STORY-041 ou EPIC-004.
+  summary: Exceção registrada e dependências do estudo ajustadas para capacidades já concluídas; critérios
+    pendentes da STORY-041 preservados.
+  changed_files:
+  - path: doc/decisions/story-050-excecao-dependencia.md
+    reason: Registrar autorização, independência técnica, alteração do gate e riscos.
+  - path: roadmap/stories/STORY-041.yaml
+    reason: Atualizar continuidade sem alterar estado ou aceite.
+  - path: roadmap/epics/EPIC-004.yaml
+    reason: Registrar exceção sem encerrar épico.
+  - path: agents/handoffs/HANDOFF-041.yaml
+    reason: Registrar direcionamento posterior ao merge.
+  validation:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  limitations:
+  - Sem inferência real ou conclusão dos critérios pendentes da STORY-041.
+  pending_work:
+  - Manter STORY-041 e EPIC-004 abertos; ver pending_work acima.

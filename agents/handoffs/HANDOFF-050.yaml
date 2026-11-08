@@ -1,0 +1,121 @@
+id: HANDOFF-050
+activity_id: ACT-050
+story_id: STORY-050
+spec_id: SPEC-050
+source_agent: Codex — engenharia
+target_agent: PO e próximo executor
+status: completed
+summary: Estudo comparativo concluído por autorrevisão; manter vertical existente, protótipo não adotado e
+  EPIC-005 em andamento.
+completed_work:
+- Demonstrada independência técnica com a vertical STORY-021 e recuperação separada STORY-031; exceção de dependência
+  autorizada pelo PO documentada.
+- STORY-041 e EPIC-004 permanecem in_progress com critérios e evidências preservados.
+- Comparados a rota real e protótipo isolado em cenários equivalentes com seletores simulados; decisão de manter
+  a arquitetura corrente.
+changed_files:
+- path: roadmap/stories/STORY-050.yaml
+  reason: Refinamento, gate e evidências da história.
+- path: roadmap/index.yaml
+  reason: Sincronizar status, dependências e ponteiros.
+- path: roadmap/epics/EPIC-005.yaml
+  reason: Exceção de entrada e épico em andamento.
+- path: roadmap/epics/EPIC-004.yaml
+  reason: Manter estado e registrar exceção.
+- path: roadmap/stories/STORY-041.yaml
+  reason: Preservar pendências e registrar exceção.
+- path: agents/README.md
+  reason: Atualizar continuidade entre histórias.
+- path: agents/handoffs/HANDOFF-041.yaml
+  reason: Registrar autorização sem fechar a atividade parcial.
+- path: agents/specs/SPEC-050.yaml
+  reason: Contrato e mapeamento de aceite.
+- path: agents/activities/ACT-050.yaml
+  reason: Atividade e validações.
+- path: doc/decisions/open-questions.md
+  reason: Registrar pendências e continuidade.
+- path: doc/decisions/story-050-excecao-dependencia.md
+  reason: Documentar exceção do PO e independência técnica.
+- path: doc/architecture/workflow-evaluation.md
+  reason: Congelar protocolo e relatar comparação.
+- path: doc/adr/0007-comparacao-workflow.md
+  reason: Registrar decisão de manter a vertical.
+- path: doc/adr/README.md
+  reason: Catalogar ADR.
+- path: scripts/workflow_050.py
+  reason: Protótipo isolado de estado em memória.
+- path: tests/evaluation/test_workflow_050.py
+  reason: Cenários comparativos da rota real com mocks.
+- path: agents/handoffs/HANDOFF-050.yaml
+  reason: Continuidade e revisão da atividade.
+decisions_made:
+- Gate da STORY-050 usa STORY-021 e STORY-031 concluídas; EPIC-005 depende de EPIC-003 para o estudo autorizado.
+- Manter vertical aceita; não integrar protótipo, framework ou persistência. ADR-0007 não presume aprovação
+  humana de arquitetura nova.
+acceptance_evidence:
+- id: AC-01
+  evidence: doc/architecture/workflow-evaluation.md
+  result: Comparação e recomendação documentadas; qualidade limitada às saídas dos mocks.
+- id: AC-02
+  evidence: tests/evaluation/test_workflow_050.py
+  result: Nenhum workflow adotado; protótipo exercita estado, limite e falhas localmente.
+- id: AC-03
+  evidence: scripts/workflow_050.py
+  result: Sem ferramentas privilegiadas expostas; seletor de teste é callable confiável e não há sandbox geral.
+validation:
+  executed:
+  - uv run --offline --locked --no-sync pytest -q tests/evaluation/test_workflow_050.py
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests scripts/workflow_050.py
+  - uv run --offline --locked --no-sync ruff format --check src tests scripts/workflow_050.py
+  - uv run --offline --locked --no-sync mypy src tests scripts/workflow_050.py
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: 12 testes específicos e 202 testes no conjunto passaram.
+    evidence: tests/evaluation/test_workflow_050.py
+  - check: Ruff, formato e mypy passaram; Pyright 0 erros e 1 aviso de origem PyYAML no validador.
+    evidence: doc/standards/validation.md
+  - check: Validadores documental e de incidentes passaram; corpus lexical e 10 mutações inválidas passaram.
+    evidence: doc/architecture/workflow-evaluation.md
+  - check: Autorrevisão dos critérios e das diferenças de escopo; nenhum aceite humano alegado.
+    evidence: doc/architecture/workflow-evaluation.md
+  - check: Sem erro de whitespace nos diffs.
+    evidence: agents/handoffs/HANDOFF-050.yaml
+  failed: []
+  not_executed:
+  - 'Reinstalação não editável: src/ não foi alterado; pacote existente usado.'
+  - 'Inferência real, medição de qualidade de modelo, desempenho e custos: não autorizadas ou não realizadas.'
+  - 'CI remota, push, PR e implantação: não solicitados.'
+  - 'Revisão humana por outro revisor: não ocorreu; workflow permite autorrevisão.'
+  - 'Self-test do validador documental: o arquivo do validador não foi alterado.'
+review:
+  type: Autorrevisão do executor; decisão de não alterar arquitetura existente, sem alegar aceite do PO.
+  evidence: doc/architecture/workflow-evaluation.md
+known_issues:
+- O protótipo não tem deadline próprio, persistência, replay ou cancelamento; timeout é simulado como ModelUnavailable.
+- Comparação não integra recuperação ou análise descritiva, usa código comum e não demonstra qualidade semântica.
+- Seletor é callable confiável de teste, não sandbox; sem execução de ferramentas de alteração.
+- STORY-041 e EPIC-004 permanecem incompletos; 24 casos e medidas reais seguem pendentes.
+pending_work:
+- Futuras mudanças arquiteturais ou de API exigem ADR e aprovação prévia; nenhum workflow foi adotado.
+- EPIC-005 permanece em andamento por instrução do PO; não avançar automaticamente para outra história.
+next_steps:
+- Aguardar orientação do PO; consultar exceção, avaliação e ADR antes de trabalho futuro.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+- doc/adr/0007-comparacao-workflow.md
+git:
+  branch: feat/story-050
+  base: 6cad0d3 (contém merge 90f78a2 do PR 9)
+  note: Exclusão local preexistente e stash preservados; sem push, PR ou merge nesta atividade.
+resolved_issues:
+- Primeira coleta do teste falhou ao importar scripts no modo importlib; carregamento isolado corrigido e teste
+  repetido.
+- Primeira verificação mypy encontrou bytes | memoryview; conversão corrigida e verificação repetida.

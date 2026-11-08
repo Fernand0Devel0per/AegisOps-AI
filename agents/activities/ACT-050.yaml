@@ -1,0 +1,45 @@
+id: ACT-050
+story_id: STORY-050
+spec_id: SPEC-050
+title: Comparar fluxo existente e protótipo explícito offline
+objective: Executar estudo controlado e registrar recomendação sem alterar API ou adotar arquitetura.
+status: completed
+agent:
+  role: Agente de engenharia
+  responsibility: Comparar, testar, documentar decisão proposta e preparar handoff.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-050.yaml
+- agents/specs/SPEC-050.yaml
+- agents/handoffs/HANDOFF-041.yaml
+- doc/decisions/story-050-excecao-dependencia.md
+expected_outputs:
+- doc/architecture/workflow-evaluation.md
+- doc/adr/0007-comparacao-workflow.md
+- scripts/workflow_050.py
+- tests/evaluation/test_workflow_050.py
+- agents/handoffs/HANDOFF-050.yaml
+constraints:
+- Sem inferência real, rede, dependência nova, persistência ou modificação da primeira vertical e API.
+- Protótipo não é adoção; não usar ferramentas privilegiadas.
+execution_steps:
+- Definir comparação antes dos testes.
+- Implementar protótipo isolado e cenários com mocks.
+- Registrar resultados, revisão e limitações.
+validation:
+  commands:
+  - uv run --offline --locked --no-sync pytest -q
+  - uv run --offline --locked --no-sync ruff check src tests scripts/workflow_050.py
+  - uv run --offline --locked --no-sync mypy src tests scripts/workflow_050.py
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - python3 scripts/validate_incidents.py
+  - python3 datasets/evaluation/validate.py --self-test
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Registrar resultados efetivamente observados.
+dependencies:
+- ACT-021
+- ACT-031
+handoff_required: true
