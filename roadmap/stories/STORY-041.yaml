@@ -71,5 +71,5 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Alternativa 1 aprovada pelo PO em 2026-11-07; incremento estruturado e orientações curadas
-  em validação, sem concluir a história. Linguagem natural permanece objetivo futuro.
+refinement_notes: Incremento integrado no PR 9; STORY-041 permanece parcial. O PO autorizou exceção específica
+  de dependência para estudo da STORY-050, sem aceitar pendências como concluídas.

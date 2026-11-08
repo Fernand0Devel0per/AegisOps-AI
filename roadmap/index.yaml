@@ -1,11 +1,11 @@
 schema_version: 1
 updated_at: '2026-11-07'
 source: AegisOps_AI_Plano_do_Zero.md
-current_phase: 4
-next_story: STORY-041
-next_activity: ACT-041
-next_step_note: STORY-041 em andamento; alternativa de catálogo estruturado aprovada, linguagem natural e avaliação
-  integral pendentes.
+current_phase: 5
+next_story: STORY-050
+next_activity: ACT-050
+next_step_note: STORY-050 ratificada pelo PO; EPIC-005 permanece aberto, sem outra história catalogada. STORY-041
+  e EPIC-004 seguem em andamento.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -45,9 +45,9 @@ epics:
   title: Orquestração de agentes e controle de estado
   path: roadmap/epics/EPIC-005.yaml
   priority: medium
-  status: backlog
+  status: in_progress
   dependencies:
-  - EPIC-004
+  - EPIC-003
 - id: EPIC-006
   title: RAG com documentos ricos
   path: roadmap/epics/EPIC-006.yaml
@@ -210,9 +210,10 @@ stories:
   path: roadmap/stories/STORY-050.yaml
   epic: EPIC-005
   priority: medium
-  status: backlog
+  status: done
   dependencies:
-  - STORY-041
+  - STORY-021
+  - STORY-031
 - id: STORY-060
   title: Avaliar ingestão estruturada e RAG em documentos ricos
   path: roadmap/stories/STORY-060.yaml

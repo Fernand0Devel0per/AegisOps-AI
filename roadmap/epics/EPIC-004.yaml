@@ -19,5 +19,5 @@ stories:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
-refinement_notes: STORY-040 concluída após aceite conjunto do PO; STORY-041 em andamento com catálogo estruturado
-  e fontes curadas. Nenhum critério de saída do épico é declarado concluído.
+refinement_notes: PR 9 integrado; EPIC-004 permanece em andamento. PO autorizou estudo independente da STORY-050
+  sem concluir ou ocultar as pendências da STORY-041.

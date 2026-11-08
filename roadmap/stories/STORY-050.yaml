@@ -3,37 +3,43 @@ title: Avaliar workflow explícito e controle de estado
 epic: EPIC-005
 description: Comparar pipeline com alternativa orquestrada e manter a opção mais justificável.
 objective: Comparar pipeline com alternativa orquestrada e manter a opção mais justificável.
-context: Derivada da Etapa 5 do plano original; não há implementação desta capacidade no bootstrap.
+context: Comparação local autorizada pelo PO com exceção documental à dependência da STORY-041, que permanece
+  parcial.
 priority: medium
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
-- STORY-041
+- STORY-021
+- STORY-031
 scope:
   included:
-  - Experimento de estado/retomada/branches
-  - ADR da comparação
-  - Limites e falhas se adotado
+  - Comparar vertical existente com protótipo local de estados explícitos
+  - Documentar retomada, falhas, limites, observabilidade e ADR proposto
+  - Dados sintéticos e mocks sem inferência real
   excluded:
   - Adotar LangGraph por obrigação
   - Loops ilimitados
   - Ferramentas privilegiadas
 acceptance_criteria:
 - id: AC-01
-  criterion: Comparação registra simplicidade, retomada, observabilidade e qualidade; decisão pode manter
-    pipeline.
+  criterion: Comparação registra simplicidade, retomada, observabilidade e qualidade; decisão pode manter pipeline.
 - id: AC-02
   criterion: Se adotado, estado é inspecionável, iterações limitadas e falhas de etapa testadas.
 - id: AC-03
   criterion: Nenhuma ferramenta recebe privilégio de alteração.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
 - doc/architecture/workflow-evaluation.md
+- doc/adr/0007-comparacao-workflow.md
+- scripts/workflow_050.py
+- tests/evaluation/test_workflow_050.py
+- agents/handoffs/HANDOFF-050.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - tests/evaluation/test_workflow_050.py
   manual_checks:
   - Revisar evidência e decisão antes de incorporar dependência.
 references:
@@ -41,8 +47,31 @@ references:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
+- doc/decisions/story-050-excecao-dependencia.md
+- agents/handoffs/HANDOFF-041.yaml
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Estudo concluído por autorrevisão e encerramento ratificado pelo PO; manter vertical existente
+  e protótipo isolado. Exceção preserva STORY-041 parcial e EPIC-004 aberto; EPIC-005 permanece em andamento.
+acceptance_evidence:
+- id: AC-01
+  evidence: doc/architecture/workflow-evaluation.md
+  result: Comparação do baseline real e protótipo controlado; decisão de manter a vertical em doc/adr/0007-comparacao-workflow.md.
+- id: AC-02
+  evidence: tests/evaluation/test_workflow_050.py
+  result: Protótipo não adotado; estado, limites e falhas exercitados no estudo, sem persistência.
+- id: AC-03
+  evidence: scripts/workflow_050.py
+  result: Protótipo não fornece ferramentas privilegiadas; callable de teste confiável não é sandbox.
+po_acceptance:
+  date: '2026-11-07'
+  scope: PO revisou relatório, handoff e ADR; aprovou manter o pipeline atual, não adotar o protótipo e ratificou
+    o encerramento da STORY-050.
+  basis: Equivalência das saídas nos cenários exercitados, ausência de benefício demonstrado em qualidade ou
+    retomada e maior complexidade do protótipo.
+  limits: Aceite não amplia os resultados dos mocks, não encerra EPIC-005 nem altera as pendências do EPIC-004
+    e da STORY-041.
+  evidence: agents/handoffs/HANDOFF-050.yaml

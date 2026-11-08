@@ -1,0 +1,66 @@
+id: SPEC-050
+story_id: STORY-050
+title: Comparação isolada de pipeline e máquina de estados
+status: ready
+problem_statement: Verificar se estado e transições explícitos justificam maior complexidade sem alterar a
+  vertical existente.
+proposed_solution: Comparar a rota HTTP existente com protótipo separado em scripts, usando contratos e mocks
+  idênticos em cenários controlados; sem adoção em produção.
+architecture:
+  components:
+  - Rota existente de triagem e explicação restrita.
+  - Protótipo de estados em memória e testes comparativos locais.
+  interactions:
+  - Nenhuma integração com a API, novo provedor ou ferramenta privilegiada.
+  data_flow:
+  - Entrada sintética → triagem → seleção mock → verificação → resposta ou fallback; estados inspecionáveis
+    somente no protótipo.
+interfaces:
+- Protótipo Python local sob scripts; não é interface pública nem substitui API.
+data_contracts:
+- Comparar resposta HTTP da vertical com resultado equivalente do protótipo nos mesmos cenários.
+- Estado em memória, sem persistência nem retomada após reinício; histórico limitado de transições e uma tentativa
+  de seleção.
+- Seleção e referências verificadas pelas funções existentes; falha inesperada preserva tratamento interno
+  como erro e não vira sucesso.
+dependencies:
+- roadmap/stories/STORY-021.yaml
+- roadmap/stories/STORY-031.yaml
+- doc/decisions/story-050-excecao-dependencia.md
+security_considerations:
+- Somente mock injetado, sem chamadas reais; nenhuma execução de comando ou alteração de infraestrutura.
+observability:
+- Comparar status de saída e rastros explícitos; nenhuma stack externa ou inferência sobre observabilidade
+  de produção.
+error_handling:
+- Distinguir entrada inválida, insuficiência, indisponibilidade, rejeição e erro interno; preservar triagem
+  no fallback aplicável.
+implementation_steps:
+- Registrar independência e exceção autorizada.
+- Congelar critérios de comparação antes de testar.
+- Exercitar protótipo e rota com cenários equivalentes, registrar decisão e limitações.
+test_strategy:
+- Testes offline de sucesso, entrada inválida, dados insuficientes, timeout e indisponibilidade simulados,
+  erro interno, referência inválida, limites e estado.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Comparar cenários e registrar complexidade, inspeção, retomada, observabilidade e qualidade do
+    recorte.
+  evidence: doc/architecture/workflow-evaluation.md
+- criterion_id: AC-02
+  validation: Se adoção for proposta, exigir estado, limites e testes; protótipo não é adoção.
+  evidence: tests/evaluation/test_workflow_050.py
+- criterion_id: AC-03
+  validation: Inspecionar e testar interfaces de leitura e mock, sem ferramentas privilegiadas.
+  evidence: scripts/workflow_050.py
+open_questions:
+- O estudo mantém a vertical existente; adoção futura de workflow ou mudança estrutural exige evidências, ADR
+  e aprovação do PO.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0006-proposta-integracao-colibri.md
+references:
+- roadmap/stories/STORY-050.yaml
+- agents/handoffs/HANDOFF-041.yaml
+- doc/standards/workflow.md
