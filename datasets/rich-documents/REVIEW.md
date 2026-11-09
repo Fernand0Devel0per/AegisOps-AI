@@ -1,6 +1,6 @@
 # Revisão do corpus sintético RICH-01 v1.0.0
 
-Estado: **proposta para revisão do PO**, 2026-11-08. A inspeção e os julgamentos abaixo são do agente executor; nenhuma revisão ou aceite humano é alegado. O corpus é pequeno e exploratório, sem suficiência estatística. Não houve teste independente ou cego, nem medição de ingestão ou recuperação.
+Estado: **aceito pelo PO para avaliação exploratória**, 2026-11-08. O [aceite humano posterior](../../doc/decisions/story-061-aceite.md) é separado da inspeção e autorrevisão do executor abaixo. O corpus é pequeno e exploratório, sem suficiência estatística. Não houve teste independente ou cego, nem medição de ingestão ou recuperação.
 
 ## Origem, reprodução e limites
 
@@ -23,13 +23,13 @@ O gerador sobrescreve os PDFs: para comparar sem alterá-los, chamar `generate(s
 | RD-04 | Contexto de títulos e subseções | 1 | `e9ce8a858af315e82c4a0e2cdf1af0cfec9bae45045cc4a2546941ad11a88f58` |
 | RD-05 | Relacionar evidências em páginas distintas | 2 | `90eb2d35e72a68e5cf2dce93c3d66f7e7b1be1615758d1e901c3b36e78c8daff` |
 
-A inspeção visual do executor cobriu todas as seis páginas rasterizadas localmente: tabela com cabeçalhos e duas linhas, colunas lado a lado, títulos/subseções e quebra de página no RD-05. Foram conferidos também os textos dos originais por página, as relações de tabela, os títulos e os períodos. Para Q12 e Q13, o executor examinou o conteúdo completo dos cinco PDFs: não há limite de deadlock do Atlas nem endereço IP do Lume. Isso é revisão do executor, não aprovação humana nem prova automatizada de ausência semântica.
+A inspeção visual do executor cobriu todas as seis páginas rasterizadas localmente: tabela com cabeçalhos e duas linhas, colunas lado a lado, títulos/subseções e quebra de página no RD-05. Foram conferidos também os textos dos originais por página, as relações de tabela, os títulos e os períodos. Para Q12 e Q13, o executor examinou o conteúdo completo dos cinco PDFs: não há limite de deadlock do Atlas nem endereço IP do Lume. Isso descreve a revisão do executor, distinta da revisão e do aceite humano posteriores e de qualquer prova automatizada de ausência semântica.
 
 O validador abre os PDFs via Poppler, confere limites, arquivos, hashes, páginas, versões, IDs, seções e âncoras, incluindo células em uma mesma linha física e relações de grupo. O teste de mutação rejeita hash, ID repetido, página, âncora, grupo, ausência sem justificativa, linha de tabela e PDF ausente. Encontrar texto e coordenadas não prova que uma resposta seja sustentada ou que um PDF tenha o layout correto; essas conclusões exigem leitura e revisão visual. A tabela de evidências a seguir permite ao PO conferir o original, inclusive relações e ausência.
 
-## Julgamentos propostos para revisão humana
+## Julgamentos revisados
 
-Todos os itens permanecem `pending`. Recomendação do executor: aceitar o julgamento proposto após conferência humana do documento e das relações indicadas; a recomendação não representa aceite.
+O PO aprovou Q01–Q13 no escopo registrado no [aceite](../../doc/decisions/story-061-aceite.md). Os campos `pending` no arquivo de gabaritos são históricos e foram preservados para manter seus bytes aprovados. As recomendações na tabela representam a autorrevisão anterior do executor.
 
 | ID e pergunta | Resposta esperada | Documento e página | Justificativa e âncoras para revisão | Recomendação |
 |---|---|---|---|---|
@@ -44,11 +44,11 @@ Todos os itens permanecem `pending`. Recomendação do executor: aceitar o julga
 | Q09: Qual condição de memória aciona a investigação de consumo por processo? | Memória livre abaixo de 12% por 5 minutos | RD-04 p. 1 | 1. Diagnóstico de recursos > 1.2 Memória: “Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.” | Conferir e aceitar se correto |
 | Q10: No cenário em que a mensagem mais antiga atingiu 18 minutos, qual comparação é indicada? | Comparar a taxa de entrada com a taxa de processamento | RD-05 p. 1, RD-05 p. 2 | 1. Sinal da fila Órion: “No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.”; 2. Ação para OR-7: “Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.” | Conferir e aceitar se correto |
 | Q11: Qual janela deve ser usada para registrar as duas taxas associadas ao cenário OR-7? | A mesma janela de 10 minutos | RD-05 p. 2 | 2. Ação para OR-7: “Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.”; 2. Ação para OR-7: “Registrar ambas as taxas na mesma janela de 10 minutos.” | Conferir e aceitar se correto |
-| Q12: Qual é o limite de deadlock do serviço Atlas? | Sem resposta no corpus | Todos: RD-01 a RD-05, p. 1–2 conforme documento | Não consta em nenhum dos cinco PDFs v1.0.0; conferência humana integral pendente. | Conferir e aceitar se correto |
-| Q13: Qual é o endereço IP do serviço Lume? | Sem resposta no corpus | Todos: RD-01 a RD-05, p. 1–2 conforme documento | Não consta em nenhum dos cinco PDFs v1.0.0; conferência humana integral pendente. | Conferir e aceitar se correto |
+| Q12: Qual é o limite de deadlock do serviço Atlas? | Sem resposta no corpus | Todos: RD-01 a RD-05, p. 1–2 conforme documento | Não consta em nenhum dos cinco PDFs v1.0.0; conferência humana declarada no aceite do PO. | Conferir e aceitar se correto |
+| Q13: Qual é o endereço IP do serviço Lume? | Sem resposta no corpus | Todos: RD-01 a RD-05, p. 1–2 conforme documento | Não consta em nenhum dos cinco PDFs v1.0.0; conferência humana declarada no aceite do PO. | Conferir e aceitar se correto |
 
 ## Agrupamento e próximas dependências
 
-Os grupos `atlas`, `filas`, `http`, `recursos`, `orion` e `ausencias` mantêm variantes relacionadas juntas; o grupo de ausências é conservador. Não há partições de desenvolvimento e avaliação: a amostra é pequena e já foi exposta ao executor. Antes de qualquer avaliação, congelar versões, manifesto, grupos e política de acesso; caso haja partição, manter documentos, cenários e variantes no mesmo grupo e justificar sua independência. Nenhum conteúdo não julgado deve ser convertido automaticamente em negativo.
+Os grupos `atlas`, `filas`, `http`, `recursos`, `orion` e `ausencias` foram aceitos apenas para exploração. Antes de dividir o conjunto, é necessário rever Q12/Atlas, Q13/Lume e a dependência das ausências do corpus inteiro; o grupo `ausencias` sozinho não assegura independência. Não há partições de desenvolvimento e avaliação: a amostra é pequena e já foi exposta ao executor. Antes de qualquer avaliação, congelar versões, manifesto, grupos e política de acesso; caso haja partição, manter documentos, cenários e variantes no mesmo grupo e justificar sua independência. Nenhum conteúdo não julgado deve ser convertido automaticamente em negativo.
 
-Para concluir STORY-061 o PO deve revisar os cinco documentos, a tabela, as 13 perguntas e seus gabaritos, as duas ausências, a política de grupos, os critérios e limites; registrar explicitamente o alcance do aceite e resolver eventuais observações. STORY-062 depende de STORY-061 `done` após esse gate, de contrato próprio refinado e de autorização específica. O protocolo de avaliação e a seleção de ferramentas para 062 permanecem pendentes; não foram executados OCR, extração comparativa, chunking experimental, recuperação, embeddings ou inferência.
+O PO informou a revisão e aprovou o corpus, julgamentos e critérios para exploração; o alcance está no [registro de aceite](../../doc/decisions/story-061-aceite.md). STORY-062 depende de contrato próprio refinado e autorização específica. O protocolo de avaliação e a seleção de ferramentas para 062 permanecem pendentes; não foram executados OCR, extração comparativa, chunking experimental, recuperação, embeddings ou inferência.

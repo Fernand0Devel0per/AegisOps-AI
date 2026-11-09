@@ -4,13 +4,21 @@ story_id: STORY-061
 spec_id: SPEC-061
 source_agent: Codex — engenharia e autorrevisão
 target_agent: Product Owner e próximo executor autorizado
-status: partial
-summary: Corpus sintético e 13 julgamentos propostos produzidos e verificados localmente; revisão e aceite do PO pendentes.
+status: completed
+summary: STORY-061 concluída após revisão e aceite do PO do corpus RICH-01 v1.0.0 para uso exploratório; STORY-062
+  não iniciada.
 completed_work:
-- Base ed20a92 em feat/story-060 verificada; EPIC-005 done e STORY-050 done; branch feat/story-061 criada dessa base.
+- Base ed20a92 em feat/story-060 verificada; EPIC-005 done e STORY-050 done; branch feat/story-061 criada dessa
+  base.
 - SPEC-061 e ACT-061 refinados antes da construção; critérios e estados sincronizados com história e índice.
-- Cinco PDFs de seis páginas no total, fontes YAML, manifesto, perguntas separadas dos gabaritos e tabela de revisão produzidos.
-- Inspeção visual pelo executor de todas as seis páginas e conferência de âncoras, relações e duas ausências; revisão humana pendente.
+- Cinco PDFs de seis páginas no total, fontes YAML, manifesto, perguntas separadas dos gabaritos e tabela de revisão
+  produzidos.
+- Inspeção visual pelo executor de todas as seis páginas e conferência de âncoras, relações e duas ausências; na
+  entrega inicial, antes da revisão humana posterior.
+- PO revisou e aprovou documentos, 13 julgamentos, critérios e grupos para exploração; ressalvas e hashes exatos
+  em doc/decisions/story-061-aceite.md.
+- Rechecados hashes e validador do corpus, reprodução byte a byte e critérios/DoD; proposta para STORY-062 preparada
+  sem execução.
 changed_files:
 - path: datasets/rich-documents/
   reason: PDFs, fontes, manifesto, perguntas, gabaritos, gerador, validador e relatório para revisão humana.
@@ -19,7 +27,7 @@ changed_files:
 - path: agents/specs/SPEC-061.yaml
   reason: Contrato concreto e mapeamento de aceite.
 - path: agents/activities/ACT-061.yaml
-  reason: Execução autorizada e revisão pendente.
+  reason: Atividade autorizada, posteriormente concluída após revisão humana.
 - path: roadmap/index.yaml
   reason: Sincronizar história, épico e próximo passo.
 - path: roadmap/epics/EPIC-006.yaml
@@ -34,10 +42,17 @@ changed_files:
   reason: Atualizar Q-009 sem antecipar decisões futuras.
 - path: agents/handoffs/HANDOFF-061.yaml
   reason: Evidências, limitações e próximo gate.
+- path: doc/decisions/story-061-aceite.md
+  reason: Registrar alcance do aceite humano, hashes e rastreamento dos critérios.
+- path: doc/architecture/story-062-proposta.md
+  reason: Apresentar alternativas e limites propostos sem iniciar o estudo.
 decisions_made:
-- Somente documents/ é a entrada dos mecanismos futuros; perguntas e gabaritos ficam em arquivos separados e não recuperáveis por política.
-- Conjunto exploratório sem partição independente ou cega; variantes e fontes de um cenário permanecem no mesmo grupo.
-- ReportLab 4.4.10 e PyYAML 6.0.2 preexistentes usados localmente; nenhuma instalação ou dependência estrutural adicionada.
+- Somente documents/ é a entrada dos mecanismos futuros; perguntas e gabaritos ficam em arquivos separados e não
+  recuperáveis por política.
+- Conjunto exploratório sem partição independente ou cega; variantes e fontes de um cenário permanecem no mesmo
+  grupo.
+- ReportLab 4.4.10 e PyYAML 6.0.2 preexistentes usados localmente; nenhuma instalação ou dependência estrutural
+  adicionada.
 validation:
   executed:
   - python3 datasets/rich-documents/validate.py --self-test
@@ -47,6 +62,10 @@ validation:
   - python3 scripts/validate_repository.py
   - git diff --check
   - git diff --cached --check
+  - '2026-11-08: python3 datasets/rich-documents/validate.py --self-test; sha256sum do manifesto, perguntas, gabaritos
+    e PDFs.'
+  - '2026-11-08: regeneração em diretório temporário e comparação byte a byte dos cinco PDFs.'
+  - '2026-11-08: python3 scripts/validate_repository.py; git diff --check; git diff --cached --check.'
   passed:
   - check: Cinco PDFs, seis páginas e 13 perguntas; oito mutações estruturais rejeitadas; hashes e reprodução idênticos.
     evidence: datasets/rich-documents/REVIEW.md
@@ -56,25 +75,34 @@ validation:
     evidence: agents/handoffs/HANDOFF-061.yaml
   - check: Validador documental e verificações de whitespace passaram.
     evidence: agents/handoffs/HANDOFF-061.yaml
+  - check: Aceite humano posterior, hashes do corpus e ACs/DoD conferidos para RICH-01 v1.0.0.
+    evidence: doc/decisions/story-061-aceite.md
+  - check: Conferidos estados do índice e contratos, 13 perguntas e duas ausências; STORY-062 permanece backlog.
+    evidence: doc/decisions/story-061-aceite.md
   failed: []
   not_executed:
-  - Revisão e aceite humanos; PO deve revisar a entrega concreta.
   - Testes de aplicação e CI remota; não há mudança da aplicação e não houve publicação.
   - Experimentos de extração comparativa, chunking, recuperação, OCR, gráficos ou inferência; fora do escopo autorizado.
 review:
-  type: Autorrevisão do executor; revisão semântica e aceite do PO pendentes.
-  evidence: datasets/rich-documents/REVIEW.md
+  type: Autorrevisão do executor originalmente registrada em REVIEW.md; aceite humano posterior do PO registrado
+    separadamente.
+  evidence: doc/decisions/story-061-aceite.md
 known_issues:
 - Amostra pequena e exposta ao executor; sem teste independente ou cego, e nenhuma medida de desempenho.
 - Verificação de âncoras é estrutural e não substitui leitura dos PDFs nem julgamento semântico humano.
 - Pyright reporta aviso de fonte do módulo yaml no validador documental existente, sem erro.
-- Primeira checagem de diff staged sinalizou whitespace interno dos PDFs, pois Git os detectou como texto; .gitattributes os declara binários e a checagem foi repetida.
-- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e excluídos da entrega.
+- Primeira checagem de diff staged sinalizou whitespace interno dos PDFs, pois Git os detectou como texto; .gitattributes
+  os declara binários e a checagem foi repetida.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados e excluídos
+  da entrega.
 pending_work:
-- PO revisar documentos, gabaritos, ausências, grupos e critérios; registrar alcance do aceite e resolver observações.
-- Somente após aceite e todos os critérios, atualizar história, atividade, índice e handoff; STORY-062 exige autorização específica.
+- Antes de divisão em conjuntos, revisar vínculos de Q12 com Atlas, Q13 com Lume e dependência das ausências sobre
+  o corpus inteiro.
+- Eventuais mudanças de documentos, hashes ou gabaritos exigem versionamento e avaliação do impacto sobre o aceite.
+- STORY-062 exige autorização específica, contrato refinado, decisões sobre extrator, limites e instalação quando
+  aplicável.
 next_steps:
-- Aguardar revisão do PO da tabela e dos PDFs em datasets/rich-documents/REVIEW.md; não iniciar STORY-062 automaticamente.
+- Apresentar ao PO doc/architecture/story-062-proposta.md; não iniciar automaticamente STORY-062.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -82,4 +110,14 @@ related_adrs:
 git:
   branch: feat/story-061
   base: ed20a92
-  note: Base local não presumida publicada; sem push, PR ou merge. Exclusão preexistente e stash não incluídos.
+  note: Continuidade na branch local feat/story-061; commit anterior 90f009f, sem push, PR ou merge. Exclusão e
+    stash preexistentes preservados.
+maintenance_updates:
+- date: '2026-11-08'
+  authorization: PO revisou e aprovou RD-01 a RD-05, Q01 a Q13, grupos para exploração e critérios; confirmou hashes
+    e suporte das respostas, com ressalvas.
+  review_distinction: Aceite humano posterior à autorrevisão; gabaritos originais mantidos byte a byte e estado
+    histórico pending sobreposto pelo aceite identificado por hashes.
+  evidence: doc/decisions/story-061-aceite.md
+  result: AC-01 a AC-03 e DoD conferidos; STORY-061 done, ACT-061 completed; proposta de STORY-062 sem autorização
+    de execução.

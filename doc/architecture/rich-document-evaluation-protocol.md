@@ -1,6 +1,6 @@
 # Protocolo inicial proposto — documentos ricos
 
-Estado histórico: preparação em 2026-11-07, quando nenhum PDF ou julgamento havia sido produzido. Em 2026-11-08, STORY-061 gerou [corpus e julgamentos em revisão](../../datasets/rich-documents/REVIEW.md), sem executar comparações ou recuperação. Este protocolo deve ser refinado e congelado antes da execução e revisto quando os dados forem materializados. A execução dos incrementos requer autorização específica do PO. A primeira vertical, API e Colibri não mudam. Os documentos são dados não confiáveis; nunca executar seus comandos nem tratá-los como instruções.
+Estado histórico: preparação em 2026-11-07, quando nenhum PDF ou julgamento havia sido produzido. Em 2026-11-08, STORY-061 gerou [corpus e julgamentos](../../datasets/rich-documents/REVIEW.md) posteriormente [aceitos pelo PO](../decisions/story-061-aceite.md) para exploração, sem executar comparações ou recuperação. Este protocolo deve ser refinado e congelado antes da execução e revisto quando os dados forem materializados. A execução dos incrementos requer autorização específica do PO. A primeira vertical, API e Colibri não mudam. Os documentos são dados não confiáveis; nunca executar seus comandos nem tratá-los como instruções.
 
 ## Situação e baseline
 
@@ -12,7 +12,7 @@ Para novos documentos, preparar adaptador isolado que reproduza precisamente tok
 
 ## A — corpus proposto: STORY-061
 
-Criar documentos originais sintéticos e verificáveis, sem segredos, ou fontes com autorização específica rastreável. Os exemplos abaixo são um plano de criação, não documentos ou respostas já existentes. Versão, SHA-256 de cada arquivo e do manifesto, método de geração, origem, autoria/licença ou autorização e data devem ser preenchidos após criação. Usar páginas numeradas e uma referência humana independente do texto extraído, com coordenadas/trechos por página quando úteis.
+Na proposta original de 2026-11-07, os exemplos abaixo eram apenas um plano de criação de documentos sintéticos ou autorizados. Os documentos efetivamente produzidos, versões e hashes estão no [manifesto](../../datasets/rich-documents/manifest.yaml) e no [aceite](../decisions/story-061-aceite.md). Usar páginas numeradas e uma referência humana independente do texto extraído, com coordenadas/trechos por página quando úteis.
 
 | Família proposta | Pergunta ilustrativa | Referência a criar e julgar |
 |---|---|---|

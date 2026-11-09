@@ -3,9 +3,9 @@ title: Construir corpus e julgamentos para documentos ricos
 epic: EPIC-006
 description: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
 objective: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
-context: Execução local autorizada pelo PO em 2026-11-08; corpus e julgamentos aguardam revisão humana.
+context: Corpus RICH-01 v1.0.0 aprovado pelo PO em 2026-11-08 para avaliação exploratória.
 priority: medium
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-050
@@ -56,9 +56,18 @@ references:
 - doc/architecture/rich-document-evaluation-protocol.md
 - doc/EVALUATION.md
 - doc/decisions/open-questions.md
+- doc/decisions/story-061-aceite.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Corpus e julgamentos propostos; revisão e aceite humano pendentes. Sem iniciar STORY-062.
+refinement_notes: Critérios, DoD e aceite humano registrados em doc/decisions/story-061-aceite.md; STORY-062 continua
+  backlog e exige autorização.
+completion_evidence:
+- criterion_id: AC-01
+  evidence: datasets/rich-documents/REVIEW.md; doc/decisions/story-061-aceite.md
+- criterion_id: AC-02
+  evidence: datasets/rich-documents/manifest.yaml; datasets/rich-documents/judgments.yaml; doc/decisions/story-061-aceite.md
+- criterion_id: AC-03
+  evidence: doc/decisions/story-061-aceite.md; datasets/rich-documents/REVIEW.md

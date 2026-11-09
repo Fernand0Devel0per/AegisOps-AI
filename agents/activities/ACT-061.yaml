@@ -3,7 +3,7 @@ story_id: STORY-061
 spec_id: SPEC-061
 title: Construir corpus sintético e preparar julgamentos para revisão
 objective: Construir e revisar corpus sintético ou autorizado com perguntas e evidências localizáveis.
-status: in_review
+status: completed
 agent:
   role: Agente de engenharia
   responsibility: Construir, validar, inspecionar e encaminhar corpus e julgamentos ao PO.

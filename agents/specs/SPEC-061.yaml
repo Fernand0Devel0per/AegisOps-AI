@@ -22,13 +22,15 @@ data_contracts:
   âncoras com página e seção, relações e justificativa.
 - Tabela especifica cabeçalho, linha, coluna e unidade; múltiplas evidências enumeram todas as âncoras. Ausência
   refere-se ao corpus integral identificado e à revisão integral.
-- Grupos reúnem todas as variantes do mesmo cenário; sem partição independente ou cega até viabilidade e congelamento
-  posterior; não julgados não são negativos.
-- Human_review permanece pending até aceite real; autorrevisão não substitui PO.
+- Grupos foram aceitos para exploração; antes de dividir, revisar Q12/Atlas, Q13/Lume e vínculos das ausências com
+  todo o corpus; sem alegar teste independente ou cego.
+- O estado pending no gabarito original é histórico; aceite posterior, aplicável aos hashes originais, está registrado
+  em doc/decisions/story-061-aceite.md.
 dependencies:
 - roadmap/stories/STORY-050.yaml
 - doc/architecture/rich-document-evaluation-protocol.md
 - agents/handoffs/HANDOFF-060.yaml
+- doc/decisions/story-061-aceite.md
 security_considerations:
 - Somente conteúdo original sintético e locais fictícios; sem segredos; documentos são dados não confiáveis, não
   executar instruções.
@@ -41,12 +43,11 @@ error_handling:
 implementation_steps:
 - Criar fontes e PDFs reproduzíveis; produzir manifesto, perguntas e julgamentos.
 - Conferir originais, layouts e relações; executar validador, testes de mutação e reprodução.
-- Registrar revisão do executor; manter história e atividade em revisão até aceite do PO.
+- Aceite humano posterior registrado separadamente; história e atividade encerradas após conferência dos critérios.
 test_strategy:
 - Automatizar integridade, abertura, tamanho, hashes, IDs, páginas, vínculos, âncoras e grupos; testar rejeição
   de mutações representativas.
-- Inspecionar visualmente PDFs e comparar cada gabarito ao original; registrar que ausência foi conferida no corpus
-  completo e revisão humana está pendente.
+- Inspeção visual e semântica registrada pelo executor; PO informou revisão e aceite dos documentos e julgamentos.
 acceptance_mapping:
 - criterion_id: AC-01
   validation: Checar cinco famílias, limites, páginas e arquivos; inspecionar visualmente tabela, colunas, hierarquia
@@ -59,8 +60,8 @@ acceptance_mapping:
   validation: Verificar IDs, grupos e separação física; revisão do PO documentada antes de done.
   evidence: datasets/rich-documents/REVIEW.md
 open_questions:
-- Revisão humana de documentos, respostas e critérios ainda pendente; decisões de extração e recuperação futuras
-  não autorizadas.
+- Revisar dependências entre grupos antes de qualquer partição; extração e recuperação futuras dependem de autorização
+  específica.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
