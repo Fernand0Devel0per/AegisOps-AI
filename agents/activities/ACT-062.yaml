@@ -1,35 +1,41 @@
 id: ACT-062
 story_id: STORY-062
 spec_id: SPEC-062
-title: Execução futura — Comparar extração e chunking de documentos ricos
+title: Comparar extração e chunking em sandbox local
 objective: Medir preservação e perdas de extração e chunking com corpus revisado.
-status: pending
+status: in_progress
 agent:
   role: Agente de engenharia
-  responsibility: Revisar contrato e executar somente após autorização específica.
+  responsibility: Congelar protocolo, executar configurações seguras, medir e preparar revisão do PO.
 inputs:
 - AGENTS.md
 - roadmap/stories/STORY-062.yaml
 - agents/specs/SPEC-062.yaml
-- doc/architecture/rich-document-evaluation-protocol.md
-- agents/handoffs/HANDOFF-060.yaml
+- agents/handoffs/HANDOFF-061.yaml
+- datasets/rich-document-experiment/protocol.md
+- doc/architecture/story-062-proposta.md
 expected_outputs:
 - doc/architecture/rich-document-ingestion-results.md
+- datasets/rich-document-experiment/protocol.md
+- datasets/rich-document-experiment/
+- agents/handoffs/HANDOFF-062.yaml
 constraints:
-- 'Proposta preliminar: não iniciar enquanto spec estiver draft, dependências não concluídas ou PO não autorizar
-  execução.'
-- Não alterar a API, primeira vertical ou Colibri; não instalar ferramentas nem executar modelos sem autorização
-  aplicável.
+- Sem rede, GPU, OCR, inferência, API, Colibri, recuperação ou Docling; pdfplumber somente local e isolado.
+- Conferir limites efetivos antes de processar; resultados exploratórios sem aceite humano presumido.
+- STORY-062 permanece em revisão até aceite explícito; não iniciar STORY-063.
 execution_steps:
-- Resolver decisões pertinentes e tornar o contrato suficiente.
-- Após autorização e gates, executar escopo e registrar evidências.
-- Revisar, validar e produzir handoff.
+- Congelar rubrica, parâmetros e ambiente antes de extrair.
+- Executar extrações isoladas, salvar saídas antes de chunking e registrar medições.
+- Avaliar por evidências originais, testar, documentar falhas e encaminhar revisão ao PO.
 validation:
   commands:
+  - python3 datasets/rich-document-experiment/test_pipeline.py
+  - python3 datasets/rich-documents/validate.py --self-test
   - python3 scripts/validate_repository.py
   - git diff --check
+  - git diff --cached --check
   expected_results:
-  - Registrar resultados e verificações específicas reais; não tratar preparação como experimento.
+  - Resultados, limites e validações reais registrados; falhas e revisão humana pendente explícitas.
 dependencies:
 - ACT-061
 handoff_required: true

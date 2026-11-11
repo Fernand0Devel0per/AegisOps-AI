@@ -1,50 +1,62 @@
 id: SPEC-062
 story_id: STORY-062
-title: Contrato preliminar — Comparar extração e chunking de documentos ricos
-status: draft
-problem_statement: Medir preservação e perdas de extração e chunking com corpus revisado.
-proposed_solution: Ver protocolo proposto; fixar detalhes e aprovações antes de execução.
+title: Comparação isolada de extração e chunking em RICH-01
+status: ready
+problem_statement: Medir preservação de evidências e perda de contexto ao extrair e dividir PDFs antes de avaliar
+  recuperação.
+proposed_solution: Poppler textual e pdfplumber local, mais diagnóstico Poppler layout; congelar saídas antes de
+  aplicar chunking fixo e estrutural viável.
 architecture:
   components:
-  - Corpus, julgamentos e gabaritos
-  - Ingestão e recuperação isoladas
-  - Relatórios com evidências
+  - Sandbox e controle de recursos locais; extratores; saídas congeladas; chunkers; avaliador e relatório.
   interactions:
-  - Sem integração à API, primeira vertical ou Colibri.
+  - Sem API, Colibri, indexação, recuperação, inferência ou rede.
   data_flow:
-  - Documentos não confiáveis → extração isolada → trechos e proveniência → avaliação, quando autorizada.
+  - PDFs aprovados → extratores isolados → saídas congeladas → chunking → avaliação contra julgamentos aprovados.
 interfaces:
-- Artefatos locais versionados; nenhuma mudança de contrato público.
+- Arquivos experimentais locais; sem alterações de interface pública.
 data_contracts:
-- Identidade, versão e hash do documento; âncoras de evidência, páginas/seções, relevância e ausência relativa.
-- Não julgados e falhas técnicas são distintos de negativos e abstenções.
+- Corpo de entrada exclusivo do diretório documents/ e hash aprovado; saída com documento, página, texto, estrutura
+  nativa e provenance.
+- Chunks com offsets, tamanho, documento, página e estratégia; limites de página e ausência de seção distinguíveis.
+- Avaliação por 15 ocorrências e 11 perguntas positivas; relações OR, HI e TB congeladas antes de extrair; não julgados
+  e falhas separados.
+- Poppler estrutural inviável sem estrutura demonstrável; pdfplumber não fornece hierarquia semântica de títulos
+  automaticamente.
 dependencies:
-- doc/architecture/rich-document-evaluation-protocol.md
-- roadmap/stories/STORY-062.yaml
+- roadmap/stories/STORY-061.yaml
+- agents/handoffs/HANDOFF-061.yaml
+- datasets/rich-document-experiment/protocol.md
+- doc/architecture/story-062-proposta.md
 security_considerations:
-- Não executar conteúdo de documentos; dados sintéticos ou autorizados; fixar limites antes da execução.
+- Sandbox sem rede e sem acesso a gabaritos; 1 CPU, 1 GiB agregado, 30 s, 100 MiB temporários, 1 MiB de texto e
+  200 chunks por configuração/documento.
+- Não executar conteúdo dos PDFs, usar GPU, OCR, inferência, serviços pagos ou rede.
 observability:
-- Registrar configuração, ambiente, tempo, CPU, memória, falhas e exclusões quando houver execução.
+- Registrar opções, hashes, versões, limites efetivos, tempo de parede, CPU e pico agregado de memória por execução,
+  mais falhas.
 error_handling:
-- Não converter falha de extração ou consulta em abstenção ou sucesso.
+- Se isolamento ou limites não forem verificáveis, não executar a configuração; rejeitar limites excedidos sem truncamento
+  silencioso.
 implementation_steps:
-- Revisar protocolo e decisões abertas.
-- Executar somente com autorização específica e dependências satisfeitas.
-- Validar, revisar e registrar evidências e handoff.
+- Congelar rubrica e configuração antes de extrair e verificar ambiente.
+- Processar PDFs isolados, congelar saídas, aplicar chunks separadamente e medir.
+- Avaliar por referência, documentar limitações e enviar ao PO para revisão.
 test_strategy:
-- Validar rastreabilidade, critérios, falhas e reproduzibilidade adequados ao incremento; sem inventar resultados.
+- Testar isolamento e limites, casos de falha e integridade de offsets e chunks; verificar hashes do corpus e reprodutibilidade.
+- Autorrevisão semântica distinta de cálculo automático e aceite humano.
 acceptance_mapping:
 - criterion_id: AC-01
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Conferir protocolo congelado, hashes e parâmetros de isolamento efetivos, versões e falhas por documento.
+  evidence: datasets/rich-document-experiment/protocol.md
 - criterion_id: AC-02
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Julgar 15 ocorrências, 11 questões e relações de tabelas, ordem e hierarquia com evidências e denominadores.
+  evidence: doc/architecture/rich-document-ingestion-results.md
 - criterion_id: AC-03
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Registrar por processo/documento parede, CPU e memória agregada e testar reprodução, limites e falhas.
+  evidence: doc/architecture/rich-document-ingestion-results.md
 open_questions:
-- 'Q-009: autorização do experimento, recursos, ferramentas e eventual decisão arquitetural.'
+- Aceite humano dos resultados e decisão posterior de tecnologia; nenhuma adoção de ferramenta nesta atividade.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md

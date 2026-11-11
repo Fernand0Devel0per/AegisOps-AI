@@ -3,10 +3,10 @@ title: Comparar extração e chunking de documentos ricos
 epic: EPIC-006
 description: Medir preservação e perdas de extração e chunking com corpus revisado.
 objective: Medir preservação e perdas de extração e chunking com corpus revisado.
-context: Incremento proposto da STORY-060; execução depende de autorização específica e revisão dos contratos.
+context: Execução local controlada autorizada pelo PO em 2026-11-11; aceite humano necessário para concluir.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_progress
+refinement_required: false
 dependencies:
 - STORY-061
 scope:
@@ -32,15 +32,24 @@ technical_constraints:
   e ADR apropriado.
 deliverables:
 - doc/architecture/rich-document-ingestion-results.md
+- datasets/rich-document-experiment/protocol.md
+- datasets/rich-document-experiment/
+- agents/handoffs/HANDOFF-062.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/rich-document-experiment/test_pipeline.py
+  - python3 scripts/validate_repository.py
   manual_checks:
-  - Conferir critérios, evidências e revisão antes de encerrar; registrar validações efetivas.
+  - Conferir saídas e métricas pela rubrica congelada; não confundir indicador textual com julgamento semântico.
+  - Registrar resultados reais, falhas, isolamento e recursos; entregar para revisão humana.
 references:
 - doc/architecture/rich-document-evaluation-protocol.md
 - doc/EVALUATION.md
 - doc/decisions/open-questions.md
 - roadmap/stories/STORY-061.yaml
+- doc/architecture/story-062-proposta.md
+- datasets/rich-document-experiment/protocol.md
+- agents/handoffs/HANDOFF-061.yaml
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
