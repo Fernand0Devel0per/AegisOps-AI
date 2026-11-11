@@ -1,0 +1,13 @@
+{
+  "extractor": "poppler",
+  "document_id": "RD-03",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Duas colunas: respostas HTTP\n1. Diagnóstico por serviço\nServiço Íris\n\nServiço Lume\n\nPara Íris, aumento de HTTP 503\n\nPara Lume, aumento de HTTP 429\n\nindica verificar o pool de conexões.\n\nindica verificar o limite de requisições.\n\nNão alterar o timeout nesta etapa.\n\nNão reiniciar o pool nesta etapa.\n\nRD-03 | página 1 | versão 1.0.0 | sintético\n\n\f",
+      "lines": [],
+      "tables": [],
+      "structure": "unavailable"
+    }
+  ]
+}

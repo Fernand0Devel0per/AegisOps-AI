@@ -1,0 +1,16 @@
+{
+  "document_id": "RD-03",
+  "extractor": "pdfplumber",
+  "strategy": "structural",
+  "chunks": [
+    {
+      "page": 1,
+      "start": 0,
+      "end": 335,
+      "text": "Duas colunas: respostas HTTP\n1. Diagnóstico por serviço\nServiço Íris Serviço Lume\nPara Íris, aumento de HTTP 503 Para Lume, aumento de HTTP 429\nindica verificar o pool de conexões. indica verificar o limite de requisições.\nNão alterar o timeout nesta etapa. Não reiniciar o pool nesta etapa.\nRD-03 | página 1 | versão 1.0.0 | sintético",
+      "section": null,
+      "section_status": "not_extracted",
+      "loss_warning": null
+    }
+  ]
+}

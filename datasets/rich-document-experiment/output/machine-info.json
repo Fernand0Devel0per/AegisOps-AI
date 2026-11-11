@@ -1,0 +1,10 @@
+{
+  "cpu": "12th Gen Intel(R) Core(TM) i5-1235U",
+  "os": "Fedora Linux 43, Linux 7.2.13-100.fc43.x86_64, glibc 2.42",
+  "logical_cpus_visible": 12,
+  "scope_affinity_cpu": 0,
+  "bwrap": "0.12.0",
+  "python": "3.14.8",
+  "poppler": "25.07.0",
+  "measurement_notes": "Informações locais consultadas no encerramento da rodada; clock/frequência e cache não controlados."
+}

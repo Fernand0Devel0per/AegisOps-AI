@@ -1,0 +1,235 @@
+reviewer: Executor; julgamentos semânticos manuais após congelar saídas; revisão humana do PO pendente.
+method: Conferência da saída original e dos chunks contra os PDFs e gabaritos aprovados; cada ocorrência inclui
+  contexto necessário; associação ambígua não conta como preservada.
+extractors:
+  poppler:
+    Q01:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q02:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q03:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q04:
+      anchors:
+      - false
+      relation: false
+      reason: Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha;
+        associação de coluna não está preservada de forma verificável.
+    Q05:
+      anchors:
+      - false
+      relation: false
+      reason: Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha;
+        associação de coluna não está preservada de forma verificável.
+    Q06:
+      anchors:
+      - true
+      - false
+      relation: false
+      reason: Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação
+        da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual
+        dos trechos.
+    Q07:
+      anchors:
+      - true
+      - false
+      relation: false
+      reason: Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação
+        da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual
+        dos trechos.
+    Q08:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q09:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q10:
+      anchors:
+      - true
+      - true
+      relation: true
+      reason: As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que
+        respeite página.
+    Q11:
+      anchors:
+      - true
+      - true
+      relation: true
+      reason: As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela.
+  pdfplumber:
+    Q01:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q02:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q03:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q04:
+      anchors:
+      - true
+      relation: true
+      reason: Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam
+        texto, não metadados de célula.
+    Q05:
+      anchors:
+      - true
+      relation: true
+      reason: Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam
+        texto, não metadados de célula.
+    Q06:
+      anchors:
+      - true
+      - false
+      relation: false
+      reason: Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação
+        da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual
+        dos trechos.
+    Q07:
+      anchors:
+      - true
+      - false
+      relation: false
+      reason: Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação
+        da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual
+        dos trechos.
+    Q08:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q09:
+      anchors:
+      - true
+      relation: true
+      reason: Trecho, contexto e relação necessários presentes na saída indicada.
+    Q10:
+      anchors:
+      - true
+      - true
+      relation: true
+      reason: As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que
+        respeite página.
+    Q11:
+      anchors:
+      - true
+      - true
+      relation: true
+      reason: As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela.
+relations:
+  poppler:
+    OR-01:
+      preserved: false
+      reason: Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente
+        a associação.
+    OR-02:
+      preserved: false
+      reason: Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente
+        a associação.
+    OR-03:
+      preserved: false
+      reason: Leitura alterna linhas das colunas em vez de completar Íris antes de Lume.
+    HI-01:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-02:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-03:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e orientação em sequência; não há metadado semântico de hierarquia.
+    TB-01:
+      textual: false
+      native_table: false
+      reason: Cabeçalho, linha, coluna e unidade linearizados sem fronteira de linha de tabela verificável.
+    TB-02:
+      textual: false
+      native_table: false
+      reason: Cabeçalho, linha, coluna e unidade linearizados sem fronteira de linha de tabela verificável.
+  pdfplumber:
+    OR-01:
+      preserved: false
+      reason: Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente
+        a associação.
+    OR-02:
+      preserved: false
+      reason: Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente
+        a associação.
+    OR-03:
+      preserved: false
+      reason: Leitura alterna linhas das colunas em vez de completar Íris antes de Lume.
+    HI-01:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-02:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-03:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e orientação em sequência; não há metadado semântico de hierarquia.
+    TB-01:
+      textual: true
+      native_table: true
+      reason: Cabeçalho, linha, coluna e unidade preservados em linhas; tabela nativa fornecida pela biblioteca.
+    TB-02:
+      textual: true
+      native_table: true
+      reason: Cabeçalho, linha, coluna e unidade preservados em linhas; tabela nativa fornecida pela biblioteca.
+  poppler_layout:
+    OR-01:
+      preserved: true
+      reason: Espaçamento de layout mantém alinhamento visual da coluna, permitindo associar sinal e orientação;
+        não é estrutura semântica nativa.
+    OR-02:
+      preserved: true
+      reason: Espaçamento de layout mantém alinhamento visual da coluna, permitindo associar sinal e orientação;
+        não é estrutura semântica nativa.
+    OR-03:
+      preserved: false
+      reason: Leitura alterna linhas das colunas em vez de completar Íris antes de Lume.
+    HI-01:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-02:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e condição em sequência; não há metadado semântico de hierarquia.
+    HI-03:
+      textual: true
+      native_hierarchy: false
+      reason: Títulos e orientação em sequência; não há metadado semântico de hierarquia.
+    TB-01:
+      textual: true
+      native_table: false
+      reason: Cabeçalho, linha, coluna e unidade preservados em linhas espaciais; sem metadado nativo de célula.
+    TB-02:
+      textual: true
+      native_table: false
+      reason: Cabeçalho, linha, coluna e unidade preservados em linhas espaciais; sem metadado nativo de célula.

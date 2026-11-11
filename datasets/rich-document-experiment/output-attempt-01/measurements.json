@@ -1,0 +1,4208 @@
+[
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03808189000119455,
+    "cpu_seconds": 0.037088,
+    "memory_peak_bytes": 16986112,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00012334302300587296,
+      "extraction": 0.008262923976872116
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0354880100057926,
+    "cpu_seconds": 0.034445,
+    "memory_peak_bytes": 17018880,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.85050103534013e-05,
+      "extraction": 0.007395206979708746
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.036294100020313635,
+    "cpu_seconds": 0.035188,
+    "memory_peak_bytes": 17186816,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.693299605511129e-05,
+      "extraction": 0.007464455004082993
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03671663999557495,
+    "cpu_seconds": 0.035918,
+    "memory_peak_bytes": 17035264,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.467999916523695e-05,
+      "extraction": 0.008149388013407588
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03695441398303956,
+    "cpu_seconds": 0.03649,
+    "memory_peak_bytes": 17022976,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 8.893900667317212e-05,
+      "extraction": 0.00784404098521918
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03547300599166192,
+    "cpu_seconds": 0.034703,
+    "memory_peak_bytes": 16994304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.9824985479936e-05,
+      "extraction": 0.007549416011897847
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03650297501008026,
+    "cpu_seconds": 0.035447,
+    "memory_peak_bytes": 17162240,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.365500252693892e-05,
+      "extraction": 0.007430786004988477
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03604220901615918,
+    "cpu_seconds": 0.035173,
+    "memory_peak_bytes": 17035264,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.755800081416965e-05,
+      "extraction": 0.00802144399494864
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.037145059992326424,
+    "cpu_seconds": 0.036615,
+    "memory_peak_bytes": 17248256,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00010265898890793324,
+      "extraction": 0.007791467010974884
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.037186276022112,
+    "cpu_seconds": 0.036095,
+    "memory_peak_bytes": 17293312,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.344698628410697e-05,
+      "extraction": 0.008148830995196477
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.037855959992157295,
+    "cpu_seconds": 0.037419,
+    "memory_peak_bytes": 17428480,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010221198317594826,
+      "extraction": 0.008115404023556039
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.038320677005685866,
+    "cpu_seconds": 0.037547,
+    "memory_peak_bytes": 17002496,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013766699703410268,
+      "extraction": 0.008418665995122865
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03835213801357895,
+    "cpu_seconds": 0.037057,
+    "memory_peak_bytes": 16982016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00010080597712658346,
+      "extraction": 0.00816463099909015
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04090157299651764,
+    "cpu_seconds": 0.039895,
+    "memory_peak_bytes": 17018880,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.737201617099345e-05,
+      "extraction": 0.00820981597644277
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03676643001381308,
+    "cpu_seconds": 0.035813,
+    "memory_peak_bytes": 17317888,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001247169857379049,
+      "extraction": 0.007885171013185754
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03803434400469996,
+    "cpu_seconds": 0.037506,
+    "memory_peak_bytes": 17100800,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010935100726783276,
+      "extraction": 0.008031694975215942
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04432426200946793,
+    "cpu_seconds": 0.043467,
+    "memory_peak_bytes": 17723392,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 8.67100025061518e-05,
+      "extraction": 0.015251345001161098
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04528534799464978,
+    "cpu_seconds": 0.044621,
+    "memory_peak_bytes": 16965632,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.866998880170286e-05,
+      "extraction": 0.015621191007085145
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.053257886989740655,
+    "cpu_seconds": 0.04992,
+    "memory_peak_bytes": 17649664,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011470698518678546,
+      "extraction": 0.022146597009850666
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04304721101652831,
+    "cpu_seconds": 0.041762,
+    "memory_peak_bytes": 17301504,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.440599776804447e-05,
+      "extraction": 0.014685232017654926
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.035616501001641154,
+    "cpu_seconds": 0.034592,
+    "memory_peak_bytes": 16891904,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 9.87109960988164e-05,
+      "extraction": 0.007421216985676438
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03490198898361996,
+    "cpu_seconds": 0.03423,
+    "memory_peak_bytes": 17326080,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.694699499756098e-05,
+      "extraction": 0.007272279995959252
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03881972300587222,
+    "cpu_seconds": 0.03781,
+    "memory_peak_bytes": 17113088,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.922098251990974e-05,
+      "extraction": 0.009115421999013051
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03515442501520738,
+    "cpu_seconds": 0.034151,
+    "memory_peak_bytes": 17256448,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.673699969425797e-05,
+      "extraction": 0.007463515008566901
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.034969139989698306,
+    "cpu_seconds": 0.033477,
+    "memory_peak_bytes": 17551360,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00013384301564656198,
+      "extraction": 0.0074396299896761775
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03608134400565177,
+    "cpu_seconds": 0.034441,
+    "memory_peak_bytes": 17215488,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.412101306021214e-05,
+      "extraction": 0.0074530029960442334
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03703396298806183,
+    "cpu_seconds": 0.035877,
+    "memory_peak_bytes": 17334272,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.109001257456839e-05,
+      "extraction": 0.008420719997957349
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04087573001743294,
+    "cpu_seconds": 0.039965,
+    "memory_peak_bytes": 17260544,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012685201363638043,
+      "extraction": 0.009156078973319381
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.039984236005693674,
+    "cpu_seconds": 0.038486,
+    "memory_peak_bytes": 17072128,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00010661201667971909,
+      "extraction": 0.007645281992154196
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.036580217973096296,
+    "cpu_seconds": 0.035586,
+    "memory_peak_bytes": 17006592,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.458198863081634e-05,
+      "extraction": 0.008073447010247037
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.040405295992968604,
+    "cpu_seconds": 0.039003,
+    "memory_peak_bytes": 17117184,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011130899656563997,
+      "extraction": 0.00824628898408264
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03908088299795054,
+    "cpu_seconds": 0.038313,
+    "memory_peak_bytes": 17362944,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.317399235442281e-05,
+      "extraction": 0.007793997996486723
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04919468899606727,
+    "cpu_seconds": 0.045857,
+    "memory_peak_bytes": 17240064,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00011673799599520862,
+      "extraction": 0.011433495994424447
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03624557299190201,
+    "cpu_seconds": 0.034845,
+    "memory_peak_bytes": 16973824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.55959951877594e-05,
+      "extraction": 0.007775147998472676
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03734390900353901,
+    "cpu_seconds": 0.036459,
+    "memory_peak_bytes": 17379328,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010331199155189097,
+      "extraction": 0.0077917260059621185
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03573340000002645,
+    "cpu_seconds": 0.034569,
+    "memory_peak_bytes": 17051648,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.900498505681753e-05,
+      "extraction": 0.007664545002626255
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04345994899631478,
+    "cpu_seconds": 0.042047,
+    "memory_peak_bytes": 17571840,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 8.863300899975002e-05,
+      "extraction": 0.014489918976323679
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04587353000533767,
+    "cpu_seconds": 0.044933,
+    "memory_peak_bytes": 17068032,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001226399908773601,
+      "extraction": 0.01723593199858442
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0437083329888992,
+    "cpu_seconds": 0.04289,
+    "memory_peak_bytes": 17580032,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.635802078060806e-05,
+      "extraction": 0.014383560977876186
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.045494374993722886,
+    "cpu_seconds": 0.043808,
+    "memory_peak_bytes": 17379328,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "poppler_layout",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011195597471669316,
+      "extraction": 0.015304330998333171
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09702344500692561,
+    "cpu_seconds": 0.095969,
+    "memory_peak_bytes": 27049984,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 8.774598245508969e-05,
+      "extraction": 0.05540963899693452
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10663790698163211,
+    "cpu_seconds": 0.105181,
+    "memory_peak_bytes": 27156480,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010470100096426904,
+      "extraction": 0.06764543399913236
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09586750500602648,
+    "cpu_seconds": 0.094543,
+    "memory_peak_bytes": 27566080,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.973799413070083e-05,
+      "extraction": 0.05681006898521446
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0918442810070701,
+    "cpu_seconds": 0.090732,
+    "memory_peak_bytes": 26902528,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.082599379122257e-05,
+      "extraction": 0.05412526201689616
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10181979500339366,
+    "cpu_seconds": 0.100487,
+    "memory_peak_bytes": 27123712,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 9.08880028873682e-05,
+      "extraction": 0.060860939003759995
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09629759902600199,
+    "cpu_seconds": 0.095385,
+    "memory_peak_bytes": 27246592,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.875700925476849e-05,
+      "extraction": 0.056299166986718774
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09471911497530527,
+    "cpu_seconds": 0.094421,
+    "memory_peak_bytes": 26943488,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.201699867844582e-05,
+      "extraction": 0.056591393979033455
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09489853700506501,
+    "cpu_seconds": 0.093095,
+    "memory_peak_bytes": 27471872,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.70449875947088e-05,
+      "extraction": 0.05490432400256395
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09818350998102687,
+    "cpu_seconds": 0.096811,
+    "memory_peak_bytes": 27049984,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.000104286998976022,
+      "extraction": 0.05580632100463845
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09887063200585544,
+    "cpu_seconds": 0.09787,
+    "memory_peak_bytes": 27607040,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.828099817037582e-05,
+      "extraction": 0.05798188399057835
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09334976700483821,
+    "cpu_seconds": 0.092018,
+    "memory_peak_bytes": 27275264,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.981599239632487e-05,
+      "extraction": 0.05472101000486873
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10112108298926614,
+    "cpu_seconds": 0.099623,
+    "memory_peak_bytes": 27213824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010249699698761106,
+      "extraction": 0.057457680988591164
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09868300697416998,
+    "cpu_seconds": 0.098356,
+    "memory_peak_bytes": 27267072,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 9.731599129736423e-05,
+      "extraction": 0.05701485101599246
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10170539698447101,
+    "cpu_seconds": 0.100383,
+    "memory_peak_bytes": 27410432,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.555098949931562e-05,
+      "extraction": 0.05869021802209318
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10016041900962591,
+    "cpu_seconds": 0.098716,
+    "memory_peak_bytes": 27295744,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001006239908747375,
+      "extraction": 0.058445630013011396
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09780807900824584,
+    "cpu_seconds": 0.096945,
+    "memory_peak_bytes": 27308032,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.656800491735339e-05,
+      "extraction": 0.05689869201160036
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.10510752198752016,
+    "cpu_seconds": 0.101904,
+    "memory_peak_bytes": 27512832,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00012472199159674346,
+      "extraction": 0.05910053401021287
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09773173602297902,
+    "cpu_seconds": 0.096067,
+    "memory_peak_bytes": 27672576,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.593901293352246e-05,
+      "extraction": 0.057695277995662764
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09749632200691849,
+    "cpu_seconds": 0.096141,
+    "memory_peak_bytes": 27602944,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 8.635502308607101e-05,
+      "extraction": 0.05757078397436999
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.09579201499582268,
+    "cpu_seconds": 0.094206,
+    "memory_peak_bytes": 27316224,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "extract",
+    "configuration": "pdfplumber",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 9.357501403428614e-05,
+      "extraction": 0.056372014980297536
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021512229985091835,
+    "cpu_seconds": 0.020424,
+    "memory_peak_bytes": 12894208,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.0001231119967997074,
+      "chunking": 3.876019036397338e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022819799021817744,
+    "cpu_seconds": 0.021344,
+    "memory_peak_bytes": 13225984,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011755598825402558,
+      "chunking": 3.4650147426873446e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02189928898587823,
+    "cpu_seconds": 0.020499,
+    "memory_peak_bytes": 13029376,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011850299779325724,
+      "chunking": 3.7940044421702623e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021964515995932743,
+    "cpu_seconds": 0.021636,
+    "memory_peak_bytes": 12914688,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013353500980883837,
+      "chunking": 4.184985300526023e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022141955996630713,
+    "cpu_seconds": 0.021534,
+    "memory_peak_bytes": 12931072,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00011174700921401381,
+      "chunking": 3.7080026231706142e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533198,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02155955700436607,
+    "cpu_seconds": 0.020717,
+    "memory_peak_bytes": 13012992,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011317298049107194,
+      "chunking": 3.721012035384774e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022446838003816083,
+    "cpu_seconds": 0.021622,
+    "memory_peak_bytes": 12779520,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001238719851244241,
+      "chunking": 3.955006832256913e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02268929500132799,
+    "cpu_seconds": 0.022055,
+    "memory_peak_bytes": 13340672,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012414398952387273,
+      "chunking": 3.968016244471073e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023741398996207863,
+    "cpu_seconds": 0.022627,
+    "memory_peak_bytes": 12857344,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00019093399168923497,
+      "chunking": 5.228008376434445e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021687343978555873,
+    "cpu_seconds": 0.020704,
+    "memory_peak_bytes": 13037568,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011166700278408825,
+      "chunking": 3.7330028135329485e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021781560993986204,
+    "cpu_seconds": 0.021119,
+    "memory_peak_bytes": 13139968,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011209500371478498,
+      "chunking": 3.7799763958901167e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02161231799982488,
+    "cpu_seconds": 0.020754,
+    "memory_peak_bytes": 13086720,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014256598660722375,
+      "chunking": 3.723020199686289e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021927219000644982,
+    "cpu_seconds": 0.021433,
+    "memory_peak_bytes": 12660736,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00011837901547551155,
+      "chunking": 3.94799280911684e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022264541999902576,
+    "cpu_seconds": 0.021518,
+    "memory_peak_bytes": 13295616,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012948497897014022,
+      "chunking": 4.087021807208657e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021287073992425576,
+    "cpu_seconds": 0.020554,
+    "memory_peak_bytes": 13012992,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011916199582628906,
+      "chunking": 3.852008376270533e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021678434015484527,
+    "cpu_seconds": 0.020356,
+    "memory_peak_bytes": 12935168,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00011175099643878639,
+      "chunking": 3.749009920284152e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023010017001070082,
+    "cpu_seconds": 0.022054,
+    "memory_peak_bytes": 12951552,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00017899301019497216,
+      "chunking": 7.5690040830522776e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02227284901891835,
+    "cpu_seconds": 0.021088,
+    "memory_peak_bytes": 13078528,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013821499305777252,
+      "chunking": 6.532995030283928e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021839652996277437,
+    "cpu_seconds": 0.02088,
+    "memory_peak_bytes": 13275136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00017833401216194034,
+      "chunking": 7.380003808066249e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02155359700554982,
+    "cpu_seconds": 0.020072,
+    "memory_peak_bytes": 12812288,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "poppler/fixed",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00010678198304958642,
+      "chunking": 6.267015123739839e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "stage": "chunk",
+    "configuration": "poppler/structural",
+    "status": "infeasible",
+    "reason": "Poppler textual não fornece estrutura nativa."
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021945803018752486,
+    "cpu_seconds": 0.021196,
+    "memory_peak_bytes": 13635584,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00013887198292650282,
+      "chunking": 3.876019036397338e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022051014995668083,
+    "cpu_seconds": 0.020632,
+    "memory_peak_bytes": 12959744,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012905802577733994,
+      "chunking": 3.9000005926936865e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02362934299162589,
+    "cpu_seconds": 0.02151,
+    "memory_peak_bytes": 13516800,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00023750500986352563,
+      "chunking": 4.308996722102165e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.024110333004500717,
+    "cpu_seconds": 0.023391,
+    "memory_peak_bytes": 13537280,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00016629399033263326,
+      "chunking": 4.203000571578741e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022905038989847526,
+    "cpu_seconds": 0.021834,
+    "memory_peak_bytes": 12935168,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00020559297990985215,
+      "chunking": 5.341018550097942e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022314474976155907,
+    "cpu_seconds": 0.021294,
+    "memory_peak_bytes": 13033472,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00019822202739305794,
+      "chunking": 5.351990694180131e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0218796239932999,
+    "cpu_seconds": 0.020637,
+    "memory_peak_bytes": 12910592,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001330119848717004,
+      "chunking": 3.960012691095471e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022126596013549715,
+    "cpu_seconds": 0.020848,
+    "memory_peak_bytes": 13115392,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014663100591860712,
+      "chunking": 3.7080026231706142e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022080768016166985,
+    "cpu_seconds": 0.021089,
+    "memory_peak_bytes": 12705792,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00015023499145172536,
+      "chunking": 4.6339991968125105e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022246618027566,
+    "cpu_seconds": 0.020825,
+    "memory_peak_bytes": 13094912,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012939597945660353,
+      "chunking": 3.949011443182826e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02149451698642224,
+    "cpu_seconds": 0.020762,
+    "memory_peak_bytes": 12902400,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001285070029553026,
+      "chunking": 3.703986294567585e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021450517000630498,
+    "cpu_seconds": 0.020707,
+    "memory_peak_bytes": 13099008,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00017518599634058774,
+      "chunking": 4.569999873638153e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023731530003715307,
+    "cpu_seconds": 0.023229,
+    "memory_peak_bytes": 13193216,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00018947297940030694,
+      "chunking": 4.4000043999403715e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021968005021335557,
+    "cpu_seconds": 0.021065,
+    "memory_peak_bytes": 13017088,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013014901196584105,
+      "chunking": 3.802007995545864e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02209390900679864,
+    "cpu_seconds": 0.02164,
+    "memory_peak_bytes": 12886016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00017858899082057178,
+      "chunking": 4.91298851557076e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022439823020249605,
+    "cpu_seconds": 0.021345,
+    "memory_peak_bytes": 13062144,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014506300794892013,
+      "chunking": 3.8040161598473787e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.024268434004625306,
+    "cpu_seconds": 0.023356,
+    "memory_peak_bytes": 12877824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00014606601325795054,
+      "chunking": 6.95799826644361e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02165122699807398,
+    "cpu_seconds": 0.020187,
+    "memory_peak_bytes": 13172736,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00015928398352116346,
+      "chunking": 6.518996087834239e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021953357005259022,
+    "cpu_seconds": 0.020864,
+    "memory_peak_bytes": 13262848,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013026499073021114,
+      "chunking": 6.496993592008948e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021675866009900346,
+    "cpu_seconds": 0.020597,
+    "memory_peak_bytes": 13107200,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/fixed",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013495099847204983,
+      "chunking": 6.824993761256337e-06
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021898798004258424,
+    "cpu_seconds": 0.020884,
+    "memory_peak_bytes": 12689408,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-01",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.0001489069836679846,
+      "chunking": 1.4240999007597566e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023210690007545054,
+    "cpu_seconds": 0.022459,
+    "memory_peak_bytes": 13017088,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-01",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00017976001254282892,
+      "chunking": 1.6053993022069335e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.021401568985311314,
+    "cpu_seconds": 0.020719,
+    "memory_peak_bytes": 12992512,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-01",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001276079856324941,
+      "chunking": 1.314000110141933e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02173512999434024,
+    "cpu_seconds": 0.020722,
+    "memory_peak_bytes": 13365248,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-01",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001295020047109574,
+      "chunking": 1.2900010915473104e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02217400900553912,
+    "cpu_seconds": 0.021405,
+    "memory_peak_bytes": 12939264,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-02",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00013606299762614071,
+      "chunking": 1.3468990800902247e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023528616002295166,
+    "cpu_seconds": 0.023106,
+    "memory_peak_bytes": 12943360,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-02",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001733920071274042,
+      "chunking": 1.5402009012177587e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02199107300839387,
+    "cpu_seconds": 0.020866,
+    "memory_peak_bytes": 13099008,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-02",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014398197527043521,
+      "chunking": 1.3118027709424496e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022359473019605502,
+    "cpu_seconds": 0.021658,
+    "memory_peak_bytes": 12845056,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-02",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014835401088930666,
+      "chunking": 1.4290009858086705e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022295266011497006,
+    "cpu_seconds": 0.021343,
+    "memory_peak_bytes": 13668352,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-03",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.0001441360218450427,
+      "chunking": 1.3195996871218085e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022303850011667237,
+    "cpu_seconds": 0.02172,
+    "memory_peak_bytes": 13295616,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-03",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00012991702533327043,
+      "chunking": 1.2477976270020008e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023951163020683452,
+    "cpu_seconds": 0.022722,
+    "memory_peak_bytes": 12775424,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-03",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001457399921491742,
+      "chunking": 1.431402051821351e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533196,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022233541996683925,
+    "cpu_seconds": 0.021128,
+    "memory_peak_bytes": 13041664,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-03",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00013865801156498492,
+      "chunking": 1.2867007171735168e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022492479998618364,
+    "cpu_seconds": 0.021795,
+    "memory_peak_bytes": 13139968,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-04",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00018790099420584738,
+      "chunking": 1.4551013009622693e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533197,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023113428003853187,
+    "cpu_seconds": 0.022773,
+    "memory_peak_bytes": 13025280,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-04",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00015364601858891547,
+      "chunking": 1.4739984180778265e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02204225500463508,
+    "cpu_seconds": 0.021408,
+    "memory_peak_bytes": 13160448,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-04",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.0001403010101057589,
+      "chunking": 1.4325982192531228e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022938632988370955,
+    "cpu_seconds": 0.021571,
+    "memory_peak_bytes": 13152256,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-04",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014567197649739683,
+      "chunking": 1.4057004591450095e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02357425302034244,
+    "cpu_seconds": 0.02262,
+    "memory_peak_bytes": 13078528,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-05",
+    "repeat": 0,
+    "phase": "warmup",
+    "worker_timing": {
+      "worker_initialization": 0.00018603401258587837,
+      "chunking": 1.9883998902514577e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022228068992262706,
+    "cpu_seconds": 0.021379,
+    "memory_peak_bytes": 12804096,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-05",
+    "repeat": 1,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014463698607869446,
+      "chunking": 1.6206002328544855e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023899624007754028,
+    "cpu_seconds": 0.023901,
+    "memory_peak_bytes": 13058048,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-05",
+    "repeat": 2,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014923399430699646,
+      "chunking": 1.7337006283923984e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.022552229987923056,
+    "cpu_seconds": 0.02185,
+    "memory_peak_bytes": 13160448,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "chunk",
+    "configuration": "pdfplumber/structural",
+    "document_id": "RD-05",
+    "repeat": 3,
+    "phase": "measured",
+    "worker_timing": {
+      "worker_initialization": 0.00014749201363883913,
+      "chunking": 1.812897971831262e-05
+    },
+    "sandbox": {
+      "network_namespace": 4026533195,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  }
+]

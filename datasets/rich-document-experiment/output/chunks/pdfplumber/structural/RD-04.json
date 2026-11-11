@@ -1,0 +1,16 @@
+{
+  "document_id": "RD-04",
+  "extractor": "pdfplumber",
+  "strategy": "structural",
+  "chunks": [
+    {
+      "page": 1,
+      "start": 0,
+      "end": 374,
+      "text": "Guia hierárquico de recursos\n1. Diagnóstico de recursos\n1.1 CPU\nSe a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.\n1.2 Memória\nSe a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.\n2. Orientações\n2.1 Registro\nRegistrar a janela de observação antes de formular hipóteses.\nRD-04 | página 1 | versão 1.0.0 | sintético",
+      "section": null,
+      "section_status": "not_extracted",
+      "loss_warning": null
+    }
+  ]
+}

@@ -21,5 +21,4 @@ references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
 - doc/architecture/rich-document-evaluation-protocol.md
-refinement_notes: STORY-061 concluída após aceite exploratório do PO; STORY-060/062/063 permanecem backlog e dependem
-  de autorizações específicas.
+refinement_notes: STORY-061 done; STORY-062 em revisão com resultados exploratórios; STORY-060/063 permanecem backlog.

@@ -3,7 +3,7 @@ story_id: STORY-062
 spec_id: SPEC-062
 title: Comparar extração e chunking em sandbox local
 objective: Medir preservação e perdas de extração e chunking com corpus revisado.
-status: in_progress
+status: in_review
 agent:
   role: Agente de engenharia
   responsibility: Congelar protocolo, executar configurações seguras, medir e preparar revisão do PO.

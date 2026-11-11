@@ -1,6 +1,6 @@
 # Proposta para revisão — STORY-062: extração e chunking
 
-Estado: **proposta, não autorização de execução**, 2026-11-08. A [STORY-062](../../roadmap/stories/STORY-062.yaml) continua em backlog, SPEC-062 em draft e ACT-062 pending. A [STORY-061](../../roadmap/stories/STORY-061.yaml) foi concluída após [aceite do PO](../decisions/story-061-aceite.md). Este documento não registra experimento, resultado, instalação ou decisão de arquitetura. Nenhuma configuração aqui está aprovada até decisão específica.
+Estado histórico em 2026-11-08: **proposta, não autorização de execução**. Em 2026-11-11, o PO autorizou a execução local e os [resultados estão em revisão](rich-document-ingestion-results.md). A [STORY-062](../../roadmap/stories/STORY-062.yaml) estava em backlog, SPEC-062 em draft e ACT-062 pending na data da proposta. A [STORY-061](../../roadmap/stories/STORY-061.yaml) foi concluída após [aceite do PO](../decisions/story-061-aceite.md). Este documento não registra experimento, resultado, instalação ou decisão de arquitetura. A decisão posterior e os parâmetros efetivos estão no protocolo congelado e nos resultados.
 
 ## Objetivo e entradas
 

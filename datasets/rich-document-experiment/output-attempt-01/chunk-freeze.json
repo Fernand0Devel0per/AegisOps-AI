@@ -1,0 +1,19 @@
+{
+  "files": {
+    "chunks/pdfplumber/fixed/RD-01.json": "ace88039df68bfb127d823c712cbadaaca5307297b32b9347f34a33c1e90c048",
+    "chunks/pdfplumber/fixed/RD-02.json": "f29d73e25ad3d982d37b291f265d658731a4265d09a70a74218b888049f3c511",
+    "chunks/pdfplumber/fixed/RD-03.json": "f7237b2b794292246a931a51d20605c15af802b68d36a7ab68dedddf092142fa",
+    "chunks/pdfplumber/fixed/RD-04.json": "f81094a444181d80a1bdb905a8f3470d7549572084ba206e24fd73169fc8aae1",
+    "chunks/pdfplumber/fixed/RD-05.json": "1523c0a54374cf38a4eb3bb5234609637870c915bec23c3913ed005c2d63cf3f",
+    "chunks/pdfplumber/structural/RD-01.json": "22ea0abf1cf9c901908f9438f82bebf59da06110d725780ad9fb653f3be1940d",
+    "chunks/pdfplumber/structural/RD-02.json": "4712699a79a4abaf21a5e7130416fbc2c7d8fcab94ea86cc81c5359e8bb60af9",
+    "chunks/pdfplumber/structural/RD-03.json": "5b9f37b1b3c92d241f04d64cc7828edec209fe05edb9c76aa826865942182446",
+    "chunks/pdfplumber/structural/RD-04.json": "56fbe0ff9679d258c813392a4c703c8e3b0bd1c08a431301f975260d289dcd41",
+    "chunks/pdfplumber/structural/RD-05.json": "d820c55fafb1626cf7e94e12bde3c2512f33ed1c0d2969080c5a8b9137473164",
+    "chunks/poppler/fixed/RD-01.json": "950f95892e872c9478c7bfb0c4aa1463db43a034b6c79175ebc3431da4819df4",
+    "chunks/poppler/fixed/RD-02.json": "69aee41bf8bed34472dcf152212a22a10c0ad16dae73bd426ede4fa1f99b04c6",
+    "chunks/poppler/fixed/RD-03.json": "12d4ddfb8c4560a0152e027a8b97b6821b4661fc76ffced94655e631713cb6d6",
+    "chunks/poppler/fixed/RD-04.json": "3ff12f449b69e27c47fb02c253d73b1b818106747da32bac54de6d0061a9fb74",
+    "chunks/poppler/fixed/RD-05.json": "bcfa24e59e62780394ee19fc135df6fb685d2a2e3233d17ac413b3489f681d55"
+  }
+}

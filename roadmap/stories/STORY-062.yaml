@@ -5,7 +5,7 @@ description: Medir preservação e perdas de extração e chunking com corpus re
 objective: Medir preservação e perdas de extração e chunking com corpus revisado.
 context: Execução local controlada autorizada pelo PO em 2026-11-11; aceite humano necessário para concluir.
 priority: medium
-status: in_progress
+status: in_review
 refinement_required: false
 dependencies:
 - STORY-061
@@ -55,3 +55,14 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Experimento exploratório e autorrevisão concluídos; aceite explícito do PO pendente. STORY-063
+  não iniciada.
+review_evidence:
+- criterion_id: AC-01
+  evidence: datasets/rich-document-experiment/protocol.md; datasets/rich-document-experiment/output/preflight.json;
+    datasets/rich-document-experiment/output/environment.json
+- criterion_id: AC-02
+  evidence: doc/architecture/rich-document-ingestion-results.md; datasets/rich-document-experiment/semantic-review.yaml;
+    datasets/rich-document-experiment/output/evaluation.json
+- criterion_id: AC-03
+  evidence: datasets/rich-document-experiment/output/measurements.json; datasets/rich-document-experiment/test_pipeline.py
