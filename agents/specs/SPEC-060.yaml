@@ -1,17 +1,18 @@
 id: SPEC-060
 story_id: STORY-060
-title: Preparação e desenho agregado dos incrementos
-status: draft
+title: Consolidação da avaliação exploratória de documentos ricos
+status: ready
 problem_statement: Consolidar avaliação por incrementos de corpus, ingestão e recuperação com baseline lexical e
   decisão fundamentada.
-proposed_solution: Preparação documental; execução agregada depende dos resultados e da autorização dos incrementos.
+proposed_solution: Consolidar evidências aceitas dos incrementos 061 a 063, limites dos gates e decisão técnica
+  de manter baseline em ADR.
 architecture:
   components:
   - Corpus, julgamentos e gabaritos
   - Ingestão e recuperação isoladas
   - Relatórios com evidências
   interactions:
-  - Sem integração à API, primeira vertical ou Colibri.
+  - Sem integração à API, primeira vertical ou Colibri; preservar corpus, julgamentos e resultados históricos.
   data_flow:
   - Documentos não confiáveis → extração isolada → trechos e proveniência → avaliação, quando autorizada.
 interfaces:
@@ -22,6 +23,9 @@ data_contracts:
 dependencies:
 - doc/architecture/rich-document-evaluation-protocol.md
 - roadmap/stories/STORY-060.yaml
+- agents/handoffs/HANDOFF-061.yaml
+- agents/handoffs/HANDOFF-062.yaml
+- agents/handoffs/HANDOFF-063.yaml
 security_considerations:
 - Não executar conteúdo de documentos; dados sintéticos ou autorizados; fixar limites antes da execução.
 observability:
@@ -29,24 +33,25 @@ observability:
 error_handling:
 - Não converter falha de extração ou consulta em abstenção ou sucesso.
 implementation_steps:
-- Revisar protocolo e decisões abertas.
-- Executar somente com autorização específica e dependências satisfeitas.
-- Validar, revisar e registrar evidências e handoff.
+- Conferir dependências concluídas, aceites, evidências e limitações.
+- Consolidar critérios da história e gates do épico; fundamentar decisão de manter baseline em ADR.
+- Validar documentação, registrar autorrevisão e encaminhar PR para conferência humana.
 test_strategy:
-- Validar rastreabilidade, critérios, falhas e reproduzibilidade adequados ao incremento; sem inventar resultados.
+- Validar contratos, referências, estados, integridade documental e whitespace; experimentos não são reexecutados.
 acceptance_mapping:
 - criterion_id: AC-01
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Conferir origem, versão, evidências, ausências relativas e grupos sem afirmar partição independente.
+  evidence: doc/decisions/story-061-aceite.md
 - criterion_id: AC-02
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Consolidar métricas e controles das STORY-062/063, ressaltando limites de chunking e seção.
+  evidence: doc/architecture/epic-006-closure.md
 - criterion_id: AC-03
-  validation: Conferir evidência e denominadores conforme protocolo e critério da história.
-  evidence: doc/architecture/rich-document-evaluation-protocol.md
+  validation: Documentar decisão técnica de manter baseline em ADR sem adoção estrutural.
+  evidence: doc/adr/0008-documentos-ricos-manter-baseline.md
 open_questions:
-- 'Q-009: autorização do experimento, recursos, ferramentas e eventual decisão arquitetural.'
+- Revisão do PR pelo PO pendente; qualquer incremento ou mudança estrutural futura exige autorização apropriada.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/adr/0007-comparacao-workflow.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md

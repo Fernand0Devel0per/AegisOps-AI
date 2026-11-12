@@ -17,3 +17,5 @@ O [ADR-0007](0007-comparacao-workflow.md) registra a decisão técnica de manter
 Estados: `proposed` → `accepted`; uma decisão aceita pode tornar-se `superseded` por novo ADR ou `deprecated` por abandono documentado. Registre autor/autoridade da aceitação e relações com decisões anteriores. Não reescreva silenciosamente ADR aceito. Correções editoriais não podem mudar seu sentido.
 
 Banco, comunicação entre serviços, autenticação, frameworks, padrões de integração, dependências estruturais e mudanças relevantes de arquitetura exigem ADR. Detalhes triviais de implementação não exigem registro. Candidatas da tabela de stack não são decisões aceitas.
+
+O [ADR-0008](0008-documentos-ricos-manter-baseline.md) registra a decisão técnica de manter o baseline existente após a avaliação exploratória de documentos ricos; a revisão do PR pelo PO está pendente.

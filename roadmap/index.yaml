@@ -3,9 +3,9 @@ updated_at: '2026-11-12'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 6
 next_story: STORY-060
-next_activity: ACT-060
-next_step_note: Aguardar decisão do PO sobre gates e continuidade; ACT-060 já concluiu apenas a preparação,
-  e nova execução da STORY-060 exige refinamento e autorização. EPIC-006 segue em andamento.
+next_activity: ACT-064
+next_step_note: Aguardar revisão do PR de encerramento pelo PO; ponteiros identificam a consolidação concluída.
+  A próxima fase e experimentos futuros não foram iniciados.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -52,7 +52,7 @@ epics:
   title: RAG com documentos ricos
   path: roadmap/epics/EPIC-006.yaml
   priority: medium
-  status: in_progress
+  status: done
   dependencies:
   - EPIC-005
 - id: EPIC-007
@@ -219,7 +219,7 @@ stories:
   path: roadmap/stories/STORY-060.yaml
   epic: EPIC-006
   priority: medium
-  status: backlog
+  status: done
   dependencies:
   - STORY-050
   - STORY-061

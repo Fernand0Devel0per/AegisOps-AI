@@ -59,7 +59,7 @@ definition_of_done:
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
 refinement_notes: Avaliação exploratória concluída e aceita pelo PO; registro humano separado da autorrevisão.
-  STORY-060 e EPIC-006 não concluídos.
+  No aceite de 063, STORY-060 e EPIC-006 ainda estavam abertos; consolidação posterior em doc/architecture/epic-006-closure.md.
 review_evidence:
 - criterion_id: AC-01
   evidence: datasets/rich-document-retrieval/protocol.md; datasets/rich-document-retrieval/output/equivalence-c1.json;

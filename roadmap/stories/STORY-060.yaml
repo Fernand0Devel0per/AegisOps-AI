@@ -5,11 +5,10 @@ description: Consolidar avaliação por incrementos de corpus, ingestão e recup
   fundamentada.
 objective: Consolidar avaliação por incrementos de corpus, ingestão e recuperação com baseline lexical e decisão
   fundamentada.
-context: Etapa 6; esta história agrega os incrementos STORY-061/062/063. Não existe RAG completo nem avaliação de
-  documentos ricos concluída.
+context: Etapa 6; consolidação dos incrementos exploratórios STORY-061/062/063. Não existe RAG completo implementado.
 priority: medium
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
 - STORY-050
 - STORY-061
@@ -44,6 +43,8 @@ deliverables:
 - doc/architecture/rich-document-retrieval-results.md
 - datasets/rich-documents/manifest.yaml
 - datasets/rich-documents/questions.yaml
+- doc/architecture/epic-006-closure.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
 validation:
   automated_tests: []
   manual_checks:
@@ -57,10 +58,20 @@ references:
 - roadmap/stories/STORY-062.yaml
 - roadmap/stories/STORY-063.yaml
 - doc/architecture/rich-document-evaluation-protocol.md
+- doc/architecture/epic-006-closure.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Agregadora em backlog; contratos de execução exigem refinamento após resultados dos incrementos.
-  Preparação documental não executa experimento.
+refinement_notes: Consolidada na branch após pedido do PO para fechamento; revisão do PR pendente. Estudos
+  exploratórios têm limitações de chunking e citações de seção; nenhuma adoção estrutural.
+
+review_evidence:
+- criterion_id: AC-01
+  evidence: doc/decisions/story-061-aceite.md
+- criterion_id: AC-02
+  evidence: doc/architecture/epic-006-closure.md
+- criterion_id: AC-03
+  evidence: doc/adr/0008-documentos-ricos-manter-baseline.md

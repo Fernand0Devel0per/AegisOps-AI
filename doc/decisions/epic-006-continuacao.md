@@ -1,5 +1,7 @@
 # STORY-060 e EPIC-006 — análise para decisão do PO
 
+> Registro histórico anterior ao pedido de encerramento. A situação posterior e o PR proposto estão na [consolidação](../architecture/epic-006-closure.md).
+
 Análise documental em 2026-11-12 após o [aceite da STORY-063](story-063-aceite.md). Não altera critérios nem inicia execução. Fontes: [STORY-060](../../roadmap/stories/STORY-060.yaml), [EPIC-006](../../roadmap/epics/EPIC-006.yaml), estudos de [ingestão](../architecture/rich-document-ingestion-results.md) e [recuperação](../architecture/rich-document-retrieval-results.md).
 
 | Gate real | Situação e evidência |

@@ -1,0 +1,82 @@
+id: HANDOFF-064
+activity_id: ACT-064
+story_id: STORY-060
+spec_id: SPEC-060
+source_agent: Codex — engenharia e autorrevisão
+target_agent: Product Owner
+status: completed
+summary: Consolidação documental do encerramento solicitado para STORY-060 e EPIC-006; PR para revisão do PO.
+completed_work:
+- Conferidos os aceites dos incrementos 061/062/063, seus critérios, resultados e limitações.
+- Consolidados gates e critérios da STORY-060 e EPIC-006 sem alegar suporte automático a seção ou efeito de fronteiras de chunking.
+- ADR-0008 registra decisão técnica de manter baseline existente, sem integração de ferramenta ou mudança estrutural.
+- História e épico atualizados na branch de fechamento; PR destina-se à conferência humana antes de integração.
+changed_files:
+- path: doc/architecture/epic-006-closure.md
+  reason: Evidência consolidada dos critérios, limites e gates.
+- path: doc/adr/0008-documentos-ricos-manter-baseline.md
+  reason: Decisão técnica de manter baseline e alternativas.
+- path: agents/specs/SPEC-060.yaml
+  reason: Refinar contrato de consolidação e mapeamento de aceite.
+- path: agents/activities/ACT-064.yaml
+  reason: Contrato da consolidação, separado da preparação ACT-060.
+- path: agents/handoffs/HANDOFF-064.yaml
+  reason: Continuidade e evidências do fechamento.
+- path: agents/handoffs/HANDOFF-063.yaml
+  reason: Referência à consolidação posterior sem alterar evidências históricas.
+- path: roadmap/stories/STORY-063.yaml
+  reason: Distinguir o estado histórico dos gates da consolidação posterior.
+- path: roadmap/stories/STORY-060.yaml
+  reason: Estado e evidências da história consolidados.
+- path: roadmap/epics/EPIC-006.yaml
+  reason: Gate e estado do épico consolidados.
+- path: roadmap/index.yaml
+  reason: Estados e continuidade sincronizados.
+- path: doc/adr/README.md
+  reason: Índice do ADR.
+- path: doc/decisions/epic-006-continuacao.md
+  reason: Apontar análise histórica à consolidação posterior.
+- path: doc/decisions/open-questions.md
+  reason: Atualizar estado das questões sem adotar tecnologia.
+- path: README.md
+  reason: Expor estado proposto e limites.
+- path: agents/README.md
+  reason: Documentar continuidade e revisão pendente.
+decisions_made:
+- Manter baseline existente conforme ADR-0008; não adotar extrator, framework ou infraestrutura.
+- Pedido do PO autoriza preparar fechamento e PR; não registra revisão humana já realizada do diff ou ADR.
+validation:
+  executed:
+  - Conferência documental de critérios, dependências, aceites e referências aos resultados históricos.
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  passed:
+  - check: Critérios e limites consolidados com referências recuperáveis para revisão.
+    evidence: doc/architecture/epic-006-closure.md
+  - check: 'Validador documental PASS: 104 YAML, 11 épicos, 26 histórias, 67 Markdown; whitespace verificado. Plano local não verificado pelo validador.'
+    evidence: agents/handoffs/HANDOFF-064.yaml
+  failed: []
+  not_executed:
+  - Novo experimento, reexecução de benchmark, inferência, testes de aplicação e mudanças de implementação não integram a consolidação documental.
+  - Revisão humana do PR e do ADR ainda não ocorreu; não houve merge autorizado.
+review:
+  type: Autorrevisão do executor; PO solicitou fechamento e conferirá o PR posteriormente.
+  evidence: doc/architecture/epic-006-closure.md
+known_issues:
+- Estudos sintéticos e expostos; não são avaliação independente, cega, de escala ou de RAG completo.
+- Páginas curtas não exercitam fronteiras de chunking; metadados de seção não foram produzidos nos chunks.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados.
+pending_work:
+- PO conferir PR, consolidação, ADR e suficiência dos gates; integrar somente após autorização apropriada.
+- Pesquisa futura de metadados e documentos longos depende de autorização específica.
+next_steps:
+- Aguardar conferência do PR; não iniciar automaticamente outra fase ou experimento.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
+git:
+  branch: feat/story-060
+  base: 4944504
+  note: Branch local avançada por fast-forward a partir da preparação anterior; sem merge na main.

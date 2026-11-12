@@ -1,0 +1,41 @@
+id: ACT-064
+story_id: STORY-060
+spec_id: SPEC-060
+title: Consolidar evidências e preparar fechamento do EPIC-006
+objective: Consolidar aceites, critérios, limites e decisão de manter o baseline, submetendo o encerramento à revisão do PO.
+status: completed
+agent:
+  role: Agente de engenharia
+  responsibility: Conferir evidências, consolidar gates, registrar decisão técnica, validar e preparar PR.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-060.yaml
+- roadmap/epics/EPIC-006.yaml
+- agents/specs/SPEC-060.yaml
+- agents/handoffs/HANDOFF-061.yaml
+- agents/handoffs/HANDOFF-062.yaml
+- agents/handoffs/HANDOFF-063.yaml
+- doc/decisions/epic-006-continuacao.md
+expected_outputs:
+- doc/architecture/epic-006-closure.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
+- agents/handoffs/HANDOFF-064.yaml
+constraints:
+- Não reexecutar estudos, integrar experimentos, alterar API ou adotar dependências estruturais.
+- Não alegar revisão do PR pelo PO antes de ocorrer; não fazer merge sem autorização.
+execution_steps:
+- Conferir dependências, evidências e aceites anteriores.
+- Consolidar critérios e limites; documentar decisão técnica e estados na branch.
+- Validar e autorrevisar; preparar PR para conferência humana.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Contratos, evidências e referências consistentes; limitações e validações reais no handoff.
+dependencies:
+- ACT-061
+- ACT-062
+- ACT-063
+handoff_required: true

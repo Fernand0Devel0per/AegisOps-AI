@@ -141,3 +141,6 @@ git:
   branch: feat/story-063
   base: cc7d700
   note: Protocolo congelado em 49bad30 antes dos rankings; sem push, PR, merge, tag ou release.
+
+continuity_update:
+- Após este handoff, PO solicitou fechar STORY-060 e EPIC-006 e revisar PR; a consolidação posterior está em doc/architecture/epic-006-closure.md e agents/handoffs/HANDOFF-064.yaml.

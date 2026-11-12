@@ -2,7 +2,7 @@ id: EPIC-006
 title: RAG com documentos ricos
 source_phase: 6
 objective: Comparar ingestão e recuperação estruturadas com o baseline.
-status: in_progress
+status: done
 priority: medium
 dependencies:
 - EPIC-005
@@ -21,5 +21,5 @@ references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
 - doc/architecture/rich-document-evaluation-protocol.md
-refinement_notes: STORY-061, STORY-062 e STORY-063 concluídas com aceite do PO; STORY-060 segue em backlog
-  e EPIC-006 em andamento, com gates analisados em doc/decisions/epic-006-continuacao.md.
+refinement_notes: Encerramento proposto na branch por solicitação do PO; revisão do PR pendente. Gates e
+  limites em doc/architecture/epic-006-closure.md; sem integração de RAG ou adoção estrutural.
