@@ -1,0 +1,13 @@
+{
+  "extractor": "poppler_layout",
+  "document_id": "RD-04",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Guia hierárquico de recursos\n\n1. Diagnóstico de recursos\n\n1.1 CPU\n\nSe a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.\n1.2 Memória\n\nSe a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.\n2. Orientações\n\n2.1 Registro\n\nRegistrar a janela de observação antes de formular hipóteses.\n\n\n\n\nRD-04 | página 1 | versão 1.0.0 | sintético\n\f",
+      "lines": [],
+      "tables": [],
+      "structure": "unavailable"
+    }
+  ]
+}

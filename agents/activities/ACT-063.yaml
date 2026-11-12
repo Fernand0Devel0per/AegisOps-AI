@@ -1,0 +1,41 @@
+id: ACT-063
+story_id: STORY-063
+spec_id: SPEC-063
+title: Avaliar recuperação lexical e citações em sandbox local
+objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
+status: completed
+agent:
+  role: Agente de engenharia
+  responsibility: Comprovar equivalência, executar ranking isolado, avaliar evidências e preparar revisão do PO.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-063.yaml
+- agents/specs/SPEC-063.yaml
+- agents/handoffs/HANDOFF-062.yaml
+- datasets/rich-document-retrieval/protocol.md
+- doc/architecture/story-063-proposta.md
+expected_outputs:
+- doc/architecture/rich-document-retrieval-results.md
+- doc/architecture/story-063-metadata-options.md
+- datasets/rich-document-retrieval/
+- agents/handoffs/HANDOFF-063.yaml
+constraints:
+- Sem rede, GPU, OCR, LLM, API, Colibri, embeddings, D1 ou E1; preservar artefatos históricos.
+- Não executar ranking RICH-01 antes de equivalência C1 e verificação dos limites; congelar rankings antes de abrir
+  gabaritos.
+- Aceite explícito do PO registrado; STORY-060 e EPIC-006 não concluem automaticamente.
+execution_steps:
+- Congelar protocolo e parâmetros; comprovar isolamento e equivalência C1.
+- Ranquear B1/C1, medir recursos e congelar resultados antes da avaliação.
+- Julgar citações e âncoras, testar e preparar proposta de metadados e handoff.
+validation:
+  commands:
+  - python3 datasets/rich-document-retrieval/test_retrieval.py
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Resultados individuais, métricas, limites, falhas e aceite posterior do PO registrados.
+dependencies:
+- ACT-062
+handoff_required: true

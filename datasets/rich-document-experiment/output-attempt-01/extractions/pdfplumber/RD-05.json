@@ -1,0 +1,112 @@
+{
+  "extractor": "pdfplumber",
+  "document_id": "RD-05",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Investigação entre páginas\n1. Sinal da fila Órion\nNo cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.\nA ação associada ao cenário OR-7 está descrita na seção 2.\nRD-05 | página 1 | versão 1.0.0 | sintético",
+      "lines": [
+        {
+          "text": "Investigação entre páginas",
+          "bbox": [
+            45.0,
+            40.78780000000006,
+            224.732,
+            54.78780000000006
+          ]
+        },
+        {
+          "text": "1. Sinal da fila Órion",
+          "bbox": [
+            45.0,
+            77.37380000000007,
+            160.38,
+            89.37380000000007
+          ]
+        },
+        {
+          "text": "No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.",
+          "bbox": [
+            45.0,
+            102.95980000000009,
+            365.14000000000004,
+            112.95980000000009
+          ]
+        },
+        {
+          "text": "A ação associada ao cenário OR-7 está descrita na seção 2.",
+          "bbox": [
+            45.0,
+            121.95980000000009,
+            314.02,
+            131.9598000000001
+          ]
+        },
+        {
+          "text": "RD-05 | página 1 | versão 1.0.0 | sintético",
+          "bbox": [
+            45.0,
+            799.7528,
+            210.09599999999998,
+            808.7528
+          ]
+        }
+      ],
+      "tables": [],
+      "structure": "native_position_lines_and_tables; no heading semantics"
+    },
+    {
+      "page": 2,
+      "text": "Investigação entre páginas\n2. Ação para OR-7\nPara o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.\nRegistrar ambas as taxas na mesma janela de 10 minutos.\nRD-05 | página 2 | versão 1.0.0 | sintético",
+      "lines": [
+        {
+          "text": "Investigação entre páginas",
+          "bbox": [
+            45.0,
+            40.78780000000006,
+            224.732,
+            54.78780000000006
+          ]
+        },
+        {
+          "text": "2. Ação para OR-7",
+          "bbox": [
+            45.0,
+            77.37380000000007,
+            148.368,
+            89.37380000000007
+          ]
+        },
+        {
+          "text": "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+          "bbox": [
+            45.0,
+            102.95980000000009,
+            404.60999999999996,
+            112.95980000000009
+          ]
+        },
+        {
+          "text": "Registrar ambas as taxas na mesma janela de 10 minutos.",
+          "bbox": [
+            45.0,
+            121.95980000000009,
+            305.6600000000001,
+            131.9598000000001
+          ]
+        },
+        {
+          "text": "RD-05 | página 2 | versão 1.0.0 | sintético",
+          "bbox": [
+            45.0,
+            799.7528,
+            210.09599999999998,
+            808.7528
+          ]
+        }
+      ],
+      "tables": [],
+      "structure": "native_position_lines_and_tables; no heading semantics"
+    }
+  ]
+}

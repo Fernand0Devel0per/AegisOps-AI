@@ -1,0 +1,16 @@
+{
+  "document_id": "RD-01",
+  "extractor": "pdfplumber",
+  "strategy": "structural",
+  "chunks": [
+    {
+      "page": 1,
+      "start": 0,
+      "end": 335,
+      "text": "Latência do serviço Atlas\n1. Latência do Atlas\nDurante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms.\nNa janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms.\nO runbook recomenda verificar a latência a cada 5 minutos.\nOs valores descrevem observações sintéticas e não demonstram causa.\nRD-01 | página 1 | versão 1.0.0 | sintético",
+      "section": null,
+      "section_status": "not_extracted",
+      "loss_warning": null
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+id: STORY-063
+title: Avaliar recuperação e citações em documentos ricos
+epic: EPIC-006
+description: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
+objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
+context: Execução exploratória local autorizada e aceita pelo PO em 2026-11-12; sem adoção estrutural.
+priority: medium
+status: done
+refinement_required: false
+dependencies:
+- STORY-062
+scope:
+  included:
+  - Baseline lexical e alternativas autorizadas
+  - Avaliação por configuração, citações e ausências
+  excluded:
+  - Inferência real
+  - Banco vetorial ou adoção de dependência sem autorização
+  - Conclusão de superioridade sem evidência suficiente
+acceptance_criteria:
+- id: AC-01
+  criterion: Baseline lexical equivalente e configurações congeladas são avaliados no mesmo corpus, extração e unidade
+    de julgamento; diferenças não controladas são discriminadas.
+- id: AC-02
+  criterion: Recall@k, MRR@k, relevância quando julgada, cobertura, citações, ausências, latência, CPU e memória
+    reportam definições, numeradores, denominadores, erros, exclusões e resultados por configuração.
+- id: AC-03
+  criterion: Relatório revisado apresenta limitações e decisão recomendada; adoção estrutural somente após ADR apropriado
+    e aprovação do PO.
+technical_constraints:
+- Local-first; documentos são dados não confiáveis; não executar comandos deles.
+- Sem alterar API, primeira vertical ou Colibri; sem dependências estruturais ou ferramentas candidatas sem autorização
+  e ADR apropriado.
+deliverables:
+- doc/architecture/rich-document-retrieval-results.md
+- doc/architecture/story-063-metadata-options.md
+- datasets/rich-document-retrieval/
+- agents/handoffs/HANDOFF-063.yaml
+validation:
+  automated_tests:
+  - python3 datasets/rich-document-retrieval/test_retrieval.py
+  - python3 scripts/validate_repository.py
+  manual_checks:
+  - Confirmar equivalência C1 antes do benchmark; conferir citações e relações semânticas por consulta após congelar
+    ranking.
+  - Registrar limites efetivos, resultados individuais, falhas e aceite humano separado da autorrevisão.
+references:
+- doc/architecture/rich-document-evaluation-protocol.md
+- doc/EVALUATION.md
+- doc/decisions/open-questions.md
+- roadmap/stories/STORY-062.yaml
+- doc/architecture/story-063-proposta.md
+- datasets/rich-document-retrieval/protocol.md
+- agents/handoffs/HANDOFF-062.yaml
+- doc/decisions/story-063-aceite.md
+definition_of_done:
+- Todos os critérios de aceite com evidência recuperável.
+- Validações pertinentes executadas; não executadas e falhas explicitadas.
+- Revisão registrada e observações resolvidas; aceite do PO quando exigido.
+- Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Avaliação exploratória concluída e aceita pelo PO; registro humano separado da autorrevisão.
+  No aceite de 063, STORY-060 e EPIC-006 ainda estavam abertos; consolidação posterior em doc/architecture/epic-006-closure.md.
+review_evidence:
+- criterion_id: AC-01
+  evidence: datasets/rich-document-retrieval/protocol.md; datasets/rich-document-retrieval/output/equivalence-c1.json;
+    datasets/rich-document-retrieval/output/ranking-freeze.json
+- criterion_id: AC-02
+  evidence: doc/architecture/rich-document-retrieval-results.md; datasets/rich-document-retrieval/output/evaluation.json;
+    datasets/rich-document-retrieval/output/measurements.json
+- criterion_id: AC-03
+  evidence: doc/architecture/rich-document-retrieval-results.md; doc/architecture/story-063-metadata-options.md;
+    agents/handoffs/HANDOFF-063.yaml

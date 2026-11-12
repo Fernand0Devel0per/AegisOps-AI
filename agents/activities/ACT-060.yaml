@@ -1,0 +1,35 @@
+id: ACT-060
+story_id: STORY-060
+spec_id: SPEC-060
+title: Auditar EPIC-005 e preparar avaliação de documentos ricos
+objective: Encerrar gate quando comprovado e preparar contratos e protocolo, sem executar incrementos.
+status: completed
+agent:
+  role: Agente de engenharia
+  responsibility: Auditar evidências, preparar contratos e protocolo e registrar revisão e handoff.
+inputs:
+- AGENTS.md
+- roadmap/stories/STORY-060.yaml
+- agents/handoffs/HANDOFF-050.yaml
+- doc/architecture/workflow-evaluation.md
+- doc/adr/0007-comparacao-workflow.md
+expected_outputs:
+- doc/architecture/epic-005-closure.md
+- doc/architecture/rich-document-evaluation-protocol.md
+- agents/handoffs/HANDOFF-060.yaml
+constraints:
+- Não executar incrementos, modelos ou ferramentas candidatas; não modificar API ou primeira vertical.
+execution_steps:
+- Auditar gate e registrar encerramento autorizado.
+- Preparar incrementos, critérios, protocolo e continuidade.
+- Validar e revisar alterações documentais.
+validation:
+  commands:
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  expected_results:
+  - Registrar resultados efetivos e limitações no handoff.
+dependencies:
+- ACT-050
+handoff_required: true

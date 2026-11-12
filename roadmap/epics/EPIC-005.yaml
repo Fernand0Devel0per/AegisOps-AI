@@ -2,7 +2,7 @@ id: EPIC-005
 title: Orquestração de agentes e controle de estado
 source_phase: 5
 objective: Avaliar necessidade de workflow explícito e adotar somente com ganho demonstrado.
-status: in_progress
+status: done
 priority: medium
 dependencies:
 - EPIC-003
@@ -17,5 +17,17 @@ stories:
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
-refinement_notes: Exceção autorizada para estudo independente com componentes já implementados; EPIC-004 permanece
-  em andamento e suas lacunas não são concluídas.
+refinement_notes: Concluído após conferência dos critérios e autorização do PO; exceção anterior preserva EPIC-004
+  e STORY-041 em andamento.
+exit_evidence:
+- criterion: Decisão de adotar ou manter pipeline tem comparação documentada.
+  evidence: doc/architecture/workflow-evaluation.md; doc/adr/0007-comparacao-workflow.md
+  result: Comparação controlada e decisão de manter pipeline; limitações explicitadas.
+- criterion: 'Se adotado: sem loops ilimitados, estado inspecionável e falhas de etapa testadas.'
+  evidence: doc/adr/0007-comparacao-workflow.md; tests/evaluation/test_workflow_050.py
+  result: 'Não aplicável como gate de adoção: protótipo não adotado; testes de estado e falhas limitados ao estudo.'
+completion_evidence:
+- STORY-050 done e ACT-050 completed; critérios, validações e autorrevisão em agents/handoffs/HANDOFF-050.yaml.
+- PO ratificou STORY-050 e decisão no ADR-0007; nesta solicitação autorizou encerrar EPIC-005 caso os critérios
+  estivessem comprovados.
+- Base local c74adaa integra 4f20be8 e acd4eff; revisão de encerramento em doc/architecture/epic-005-closure.md.

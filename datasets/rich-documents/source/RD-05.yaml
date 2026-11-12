@@ -1,0 +1,16 @@
+id: RD-05
+title: Investigação entre páginas
+family: multiplas_paginas
+pages:
+- - kind: heading
+    content: 1. Sinal da fila Órion
+  - kind: text
+    content: No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.
+  - kind: text
+    content: A ação associada ao cenário OR-7 está descrita na seção 2.
+- - kind: heading
+    content: 2. Ação para OR-7
+  - kind: text
+    content: Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.
+  - kind: text
+    content: Registrar ambas as taxas na mesma janela de 10 minutos.

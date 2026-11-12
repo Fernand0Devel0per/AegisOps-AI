@@ -1,0 +1,105 @@
+id: HANDOFF-060
+activity_id: ACT-060
+story_id: STORY-060
+spec_id: SPEC-060
+source_agent: Codex — engenharia e autorrevisão
+target_agent: Product Owner e próximo executor autorizado
+status: completed
+summary: Auditoria encerra EPIC-005 conforme autorização do PO; preparação documental da STORY-060 e incrementos,
+  sem executar corpus ou experimento.
+completed_work:
+- Conferidos gates, critérios e evidências da STORY-050, revisão e aceite humano, decisão ADR-0007 e integração
+  local na base c74adaa.
+- EPIC-005 done; EPIC-006 e STORY-060/061/062/063 backlog; ACT-060 é somente preparação e não conclui história.
+- Corpus, protocolo e ferramentas descritos como propostas; contratos futuros draft e atividades pending.
+changed_files:
+- path: README.md
+  reason: Estado público do épico concluído e preparação.
+- path: agents/README.md
+  reason: Continuidade e ponteiros.
+- path: roadmap/epics/EPIC-005.yaml
+  reason: Estado done e critérios com evidências.
+- path: roadmap/epics/EPIC-006.yaml
+  reason: Incrementos e limites.
+- path: roadmap/index.yaml
+  reason: Estado e catálogo sincronizados.
+- path: roadmap/stories/STORY-060.yaml
+  reason: Escopo agregado, dependências e aceite.
+- path: roadmap/stories/STORY-061.yaml
+  reason: Proposta do corpus e julgamentos.
+- path: roadmap/stories/STORY-062.yaml
+  reason: Proposta da ingestão e chunking.
+- path: roadmap/stories/STORY-063.yaml
+  reason: Proposta da avaliação de recuperação.
+- path: agents/specs/SPEC-060.yaml
+  reason: Contrato preliminar agregado e mapeamento.
+- path: agents/specs/SPEC-061.yaml
+  reason: Contrato preliminar do corpus.
+- path: agents/specs/SPEC-062.yaml
+  reason: Contrato preliminar da ingestão.
+- path: agents/specs/SPEC-063.yaml
+  reason: Contrato preliminar da avaliação.
+- path: agents/activities/ACT-060.yaml
+  reason: Atividade documental retrospectiva concluída.
+- path: agents/activities/ACT-061.yaml
+  reason: Atividade futura não autorizada.
+- path: agents/activities/ACT-062.yaml
+  reason: Atividade futura não autorizada.
+- path: agents/activities/ACT-063.yaml
+  reason: Atividade futura não autorizada.
+- path: doc/architecture/epic-005-closure.md
+  reason: Auditoria de gate e DoD com referências.
+- path: doc/architecture/rich-document-evaluation-protocol.md
+  reason: Protocolo inicial, plano de corpus, comparação, alternativas e riscos.
+- path: doc/decisions/open-questions.md
+  reason: Decisões pendentes para Q-009.
+- path: agents/handoffs/HANDOFF-060.yaml
+  reason: Continuidade, validação e revisão.
+decisions_made:
+- STORY-060 agrega os incrementos 061 a 063; dependências são sequenciais e não há exceção nova.
+- Estado de fase 6 identifica preparação; não significa início de experimento nem implementação de RAG.
+- Nenhuma ferramenta candidata, dependência estrutural, modelo real ou alteração arquitetural foi adotada.
+validation:
+  executed:
+  - Verificação da ancestralidade Git de 4f20be8 e acd4eff em c74adaa, estado local, branches e stash.
+  - python3 scripts/validate_repository.py
+  - git diff --check
+  - git diff --cached --check
+  - Conferência manual de estados, dependências e mapeamentos dos ACs em specs draft.
+  passed:
+  - check: Gate do EPIC-005, critérios da história, revisão do PO e decisão do ADR conferidos; base contém os commits
+      da STORY-050.
+    evidence: doc/architecture/epic-005-closure.md
+  - check: Validação documental e verificações de whitespace aprovadas.
+    evidence: agents/handoffs/HANDOFF-060.yaml
+  failed: []
+  not_executed:
+  - Testes de aplicação e medições de corpus rico não executados; mudança exclusivamente documental.
+  - Instalação de ferramentas candidatas, inferência real, CI remota, push, PR e merge não autorizados.
+  - Revisão humana desta preparação ainda não ocorreu; aceite anterior da STORY-050 é distinto.
+review:
+  type: Autorrevisão do executor, sem alegar nova revisão humana.
+  evidence: doc/architecture/epic-005-closure.md
+known_issues:
+- Baseline lexical usa corpus Markdown fixo e não aceita documentos arbitrários; adaptador equivalente depende de
+  implementação e validação futura.
+- Corpus, respostas, versões e hashes de PDFs ricos ainda não existem; exemplos no protocolo são apenas propostas.
+- STORY-041 e EPIC-004 mantêm suas pendências; limitações do estudo 050 permanecem registradas.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados.
+- Uma conferência manual buscou SPEC-60 em vez de SPEC-060 e falhou; caminho corrigido e conferência repetida com
+  sucesso.
+pending_work:
+- PO revisar esta preparação e autorizar próximo incremento separadamente; revisar corpus e julgamentos antes da
+  medição.
+- Refinar specs draft, aprovar limites, ferramentas e ADRs aplicáveis antes de executar trabalho dependente.
+next_steps:
+- Após autorização específica, refinar STORY-061 e seu contrato; criar corpus e julgamentos e pedir revisão do PO,
+  sem iniciar STORY-062 automaticamente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md
+git:
+  branch: feat/story-060
+  base: c74adaa
+  note: Exclusão local e stash preservados; sem push, PR ou merge nesta atividade.

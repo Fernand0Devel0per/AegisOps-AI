@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""Executado apenas no sandbox; não acessa manifesto, perguntas nem gabaritos."""
+
+import json
+import os
+import socket
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+MAX_TEXT = 1024 * 1024
+START = time.monotonic()
+
+
+def read_limited(command, available):
+    process = subprocess.Popen(
+        command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL
+    )
+    result = bytearray()
+    with process.stdout:
+        while True:
+            data = process.stdout.read(65536)
+            if not data:
+                break
+            result.extend(data)
+            if len(result) > available:
+                process.kill()
+                process.wait()
+                raise ValueError("Limite de texto excedido")
+    if process.wait():
+        raise RuntimeError("pdftotext falhou")
+    return result.decode("utf-8")
+
+
+def poppler(path, pages, layout):
+    result = []
+    size = 0
+    for page in range(1, pages + 1):
+        command = [
+            "pdftotext",
+            "-enc",
+            "UTF-8",
+            "-eol",
+            "unix",
+            "-f",
+            str(page),
+            "-l",
+            str(page),
+        ]
+        if layout:
+            command.append("-layout")
+        raw = read_limited(command + [str(path), "-"], MAX_TEXT - size)
+        size += len(raw.encode("utf-8"))
+        result.append(
+            {
+                "page": page,
+                "text": raw,
+                "lines": [],
+                "tables": [],
+                "structure": "unavailable",
+            }
+        )
+    return result
+
+
+def plumber(path, pages):
+    import pdfplumber
+
+    result = []
+    with pdfplumber.open(path) as pdf:
+        if len(pdf.pages) != pages:
+            raise ValueError("Número de páginas divergente")
+        for number, page in enumerate(pdf.pages, 1):
+            text = page.extract_text(x_tolerance=3, y_tolerance=3, layout=False) or ""
+            lines = [
+                {"text": x["text"], "bbox": [x["x0"], x["top"], x["x1"], x["bottom"]]}
+                for x in page.extract_text_lines(x_tolerance=3, y_tolerance=3)
+            ]
+            tables = [
+                {"bbox": list(t.bbox), "rows": t.extract()} for t in page.find_tables()
+            ]
+            result.append(
+                {
+                    "page": number,
+                    "text": text,
+                    "lines": lines,
+                    "tables": tables,
+                    "structure": "native_position_lines_and_tables; no heading semantics",
+                }
+            )
+    if sum(len(p["text"].encode("utf-8")) for p in result) > MAX_TEXT:
+        raise ValueError("Limite de texto excedido")
+    return result
+
+
+def environment():
+    interfaces = socket.if_nameindex()
+    total = sum(
+        os.statvfs(p).f_blocks * os.statvfs(p).f_frsize for p in ("/tmp", "/dev/shm")
+    )
+    if [name for _, name in interfaces] != ["lo"] or total > 104857600:
+        raise RuntimeError("Isolamento ou limite de temporários não comprovado")
+    return {
+        "network_namespace": os.stat("/proc/self/ns/net").st_ino,
+        "interfaces": interfaces,
+        "temp_capacity_bytes": total,
+        "affinity": sorted(os.sched_getaffinity(0)),
+    }
+
+
+def main():
+    mode, ident, pages = sys.argv[1], sys.argv[2], int(sys.argv[3])
+    env = environment()
+    if len(env["affinity"]) != 1:
+        raise RuntimeError("Afinidade não limitada a 1 CPU")
+    path = Path("/input") / (ident + ".pdf")
+    ready = time.monotonic()
+    data = (
+        plumber(path, pages)
+        if mode == "pdfplumber"
+        else poppler(path, pages, mode == "poppler_layout")
+    )
+    finished = time.monotonic()
+    print(
+        json.dumps(
+            {
+                "extractor": mode,
+                "document_id": ident,
+                "pages": data,
+                "sandbox": env,
+                "timing_seconds": {
+                    "worker_initialization": ready - START,
+                    "extraction": finished - ready,
+                },
+            },
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

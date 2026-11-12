@@ -1,0 +1,20 @@
+{
+  "files": {
+    "extractions/pdfplumber/RD-01.json": "23cea3ee73421b8954fc89bf388f86bc090b407378ae4fbf766bee2a861b9dc1",
+    "extractions/pdfplumber/RD-02.json": "53f2b7ee1af7f6fd155d1c847cebc88a846bead9927f67316402ffb076a81846",
+    "extractions/pdfplumber/RD-03.json": "1bd8cd00dffa50b0ceca491aa28dbe24dbc1beb8961c36c4a2e70ac52383e06d",
+    "extractions/pdfplumber/RD-04.json": "bd46894f7972f4ed3fe4a903eee473739331ced5e8097d2adf4acdfd26b7a838",
+    "extractions/pdfplumber/RD-05.json": "c3c0eb8df63aac73a68de48daff3451eb1a6c28e2a42537b73352e8418761dfa",
+    "extractions/poppler/RD-01.json": "979ed198a7449e769771c2b327ff8956e9012a96e3199e8cb79f644226fe542b",
+    "extractions/poppler/RD-02.json": "2394efc217b61cf77a21bfa4eef1417a1ddeb06a630fc23255b641e1d9444e2f",
+    "extractions/poppler/RD-03.json": "6f78e8203b5a98a48d6b18f4039a81527b4a204696b6adc3e85fe6ffa161c475",
+    "extractions/poppler/RD-04.json": "534a83fcb7bb86842f116ce64e4b173ce5e15e72f314eec99627b21e8932c1a3",
+    "extractions/poppler/RD-05.json": "6217e65c9ff37cd9791204d94f1434053b148966400743d269eb00c6604b0f7f",
+    "extractions/poppler_layout/RD-01.json": "0f716c0f9acc486032c9bf31f394a817198bf3af53cd80a06f1c1647c0792fe9",
+    "extractions/poppler_layout/RD-02.json": "53d36f71a647649cdc4a33735a6b933128ae942b91fca821cb87c85396c4d5d7",
+    "extractions/poppler_layout/RD-03.json": "bded67c65bad3d87f73056ad0ee633de3762a4b9a07e1925692e108632fb5764",
+    "extractions/poppler_layout/RD-04.json": "657bee02a97ed53b52f156f5a401b02f18ac0035de791cdccb215f8bd6a82af8",
+    "extractions/poppler_layout/RD-05.json": "e9b157109d51a917fb578328da2e9c8bfd8704a1baccdd668e073acb150d65db"
+  },
+  "protocol_sha256": "bf98f432fa17057f06f0b9050b432c40217d57cc770c1336e588fe2a8e79907b"
+}

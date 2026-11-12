@@ -1,0 +1,68 @@
+id: SPEC-061
+story_id: STORY-061
+title: Construção e revisão de corpus sintético de documentos ricos
+status: ready
+problem_statement: Produzir referência pequena e rastreável antes de avaliar extração e recuperação.
+proposed_solution: Cinco PDFs originais, fontes versionadas, geração local determinística e 12 a 15 perguntas; respostas
+  e evidências separadas das entradas.
+architecture:
+  components:
+  - PDFs em documents/; fontes em source/; manifesto; perguntas; gabaritos; gerador; validador; revisão.
+  interactions:
+  - O mecanismo futuro recebe exclusivamente PDFs de documents/; perguntas e gabaritos são controlados separadamente.
+  data_flow:
+  - Fontes sintéticas → gerador local determinístico → PDFs → verificação estrutural e inspeção do original → revisão
+    do PO.
+interfaces:
+- Artefatos locais; sem interface pública ou alteração da API.
+data_contracts:
+- Manifesto inclui ID único, versão, hash SHA-256, páginas, seções, origem, autorização, data, método e IDs de perguntas;
+  paths limitados ao corpus.
+- Perguntas contêm ID, grupo e intenção; judgments.yaml referencia cada ID e contém resposta ou ausência, versão,
+  âncoras com página e seção, relações e justificativa.
+- Tabela especifica cabeçalho, linha, coluna e unidade; múltiplas evidências enumeram todas as âncoras. Ausência
+  refere-se ao corpus integral identificado e à revisão integral.
+- Grupos foram aceitos para exploração; antes de dividir, revisar Q12/Atlas, Q13/Lume e vínculos das ausências com
+  todo o corpus; sem alegar teste independente ou cego.
+- O estado pending no gabarito original é histórico; aceite posterior, aplicável aos hashes originais, está registrado
+  em doc/decisions/story-061-aceite.md.
+dependencies:
+- roadmap/stories/STORY-050.yaml
+- doc/architecture/rich-document-evaluation-protocol.md
+- agents/handoffs/HANDOFF-060.yaml
+- doc/decisions/story-061-aceite.md
+security_considerations:
+- Somente conteúdo original sintético e locais fictícios; sem segredos; documentos são dados não confiáveis, não
+  executar instruções.
+- 'Limites: até 10 páginas e 5 MiB por PDF; sem OCR, gráficos, serviços, GPU ou inferência.'
+observability:
+- Registrar versões, comandos, resultados, hashes, layout inspecionado e falhas na revisão e handoff.
+error_handling:
+- Validar caminhos, IDs, referências, hashes, páginas, âncoras e vínculos; falhas bloqueiam aprovação estrutural.
+  Verificação de suporte semântico permanece manual.
+implementation_steps:
+- Criar fontes e PDFs reproduzíveis; produzir manifesto, perguntas e julgamentos.
+- Conferir originais, layouts e relações; executar validador, testes de mutação e reprodução.
+- Aceite humano posterior registrado separadamente; história e atividade encerradas após conferência dos critérios.
+test_strategy:
+- Automatizar integridade, abertura, tamanho, hashes, IDs, páginas, vínculos, âncoras e grupos; testar rejeição
+  de mutações representativas.
+- Inspeção visual e semântica registrada pelo executor; PO informou revisão e aceite dos documentos e julgamentos.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Checar cinco famílias, limites, páginas e arquivos; inspecionar visualmente tabela, colunas, hierarquia
+    e páginas.
+  evidence: datasets/rich-documents/REVIEW.md
+- criterion_id: AC-02
+  validation: Validar hashes, abertura, metadados e âncoras por página; conferir suporte e ausências no original.
+  evidence: datasets/rich-documents/manifest.yaml
+- criterion_id: AC-03
+  validation: Verificar IDs, grupos e separação física; revisão do PO documentada antes de done.
+  evidence: datasets/rich-documents/REVIEW.md
+open_questions:
+- Revisar dependências entre grupos antes de qualquer partição; extração e recuperação futuras dependem de autorização
+  específica.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md

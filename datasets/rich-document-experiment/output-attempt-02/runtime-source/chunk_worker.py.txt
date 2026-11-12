@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""Divide uma saída de extração já congelada sem ler gabaritos ou PDFs."""
+import json
+import os
+import socket
+import sys
+import time
+START = time.monotonic()
+
+def fixed(text):
+    chunks=[]
+    for start in range(0,len(text),500):
+        end=min(start+600,len(text))
+        chunks.append((start,end))
+        if end==len(text): break
+    return chunks
+
+def units(page):
+    text=page['text']; cursor=0; found=[]
+    for line in page['lines']:
+        start=text.find(line['text'],cursor)
+        if start<0: raise ValueError('Linha nativa não alinhada ao texto congelado')
+        end=start+len(line['text'])
+        found.append((start,end,line['bbox']))
+        cursor=end
+    if not found or text[:found[0][0]].strip() or text[found[-1][1]:].strip():
+        raise ValueError('Linhas não cobrem o texto')
+    for (_,a,_),(b,_,_) in zip(found,found[1:]):
+        if text[a:b].strip(): raise ValueError('Lacuna textual sem unidade nativa')
+    return found
+
+def table_grouped_units(page):
+    lines=units(page); tables=page['tables']; result=[]
+    for start,end,bbox in lines:
+        x=(bbox[0]+bbox[2])/2; y=(bbox[1]+bbox[3])/2
+        table=next((i for i,t in enumerate(tables) if t['bbox'][0]<=x<=t['bbox'][2] and t['bbox'][1]<=y<=t['bbox'][3]),None)
+        if table is not None and result and result[-1][2]==table:
+            result[-1]=(result[-1][0],end,table)
+        else:
+            result.append((start,end,table))
+    return result
+
+def structural(page):
+    groups=table_grouped_units(page); chunks=[]; start=groups[0][0]; end=start
+    for unit_start,unit_end,_ in groups:
+        if unit_end-start>600 and end>start:
+            chunks.append((start,end)); start=unit_start
+        while unit_end-start>600:
+            chunks.append((start,start+600)); start+=600
+        end=unit_end
+    if end>start: chunks.append((start,end))
+    return chunks
+
+def main():
+    mode=sys.argv[1]
+    with open('/input.json',encoding='utf-8') as f: source=json.load(f)
+    env={'network_namespace':os.stat('/proc/self/ns/net').st_ino,'interfaces':socket.if_nameindex(),'temp_capacity_bytes':sum(os.statvfs(p).f_blocks*os.statvfs(p).f_frsize for p in ('/tmp','/dev/shm')),'affinity':sorted(os.sched_getaffinity(0))}
+    if [n for _,n in env['interfaces']]!=['lo'] or env['temp_capacity_bytes']>104857600 or len(env['affinity'])!=1: raise RuntimeError('Isolamento não comprovado')
+    ready=time.monotonic(); chunks=[]
+    for page in source['pages']:
+        text=page['text']
+        if mode=='structural' and page['structure']=='unavailable': raise ValueError('Estrutura nativa indisponível')
+        spans=fixed(text) if mode=='fixed' else structural(page)
+        for start,end in spans:
+            chunks.append({'page':page['page'],'start':start,'end':end,'text':text[start:end],'section':None,'section_status':'not_extracted','loss_warning':'fragmento de linha' if mode=='structural' and end-start==600 else None})
+    if len(chunks)>200: raise ValueError('Limite de chunks excedido')
+    done=time.monotonic()
+    print(json.dumps({'document_id':source['document_id'],'extractor':source['extractor'],'strategy':mode,'chunks':chunks,'sandbox':env,'timing_seconds':{'worker_initialization':ready-START,'chunking':done-ready}},ensure_ascii=False,separators=(',',':')))
+if __name__=='__main__': main()

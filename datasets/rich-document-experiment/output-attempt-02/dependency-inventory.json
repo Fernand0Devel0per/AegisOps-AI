@@ -1,0 +1,116 @@
+{
+  "source": "Metadados locais instalados; sem instalação ou download; extras não utilizados excluídos. Licenças transitivas de artefatos compilados devem ser revisadas antes de distribuição ou adoção.",
+  "packages": [
+    {
+      "name": "pdfplumber",
+      "version": "0.11.10",
+      "license": "License :: OSI Approved :: MIT License",
+      "dependencies": [
+        {
+          "requirement": "pdfminer.six==20260107",
+          "installed": "20260107",
+          "compatible": true
+        },
+        {
+          "requirement": "Pillow>=12.2.0",
+          "installed": "12.2.0",
+          "compatible": true
+        },
+        {
+          "requirement": "pypdfium2>=5.9.0",
+          "installed": "5.10.1",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "name": "pdfminer.six",
+      "version": "20260107",
+      "license": "MIT",
+      "dependencies": [
+        {
+          "requirement": "charset-normalizer>=2.0.0",
+          "installed": "3.4.3",
+          "compatible": true
+        },
+        {
+          "requirement": "cryptography>=36.0.0",
+          "installed": "46.0.7",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "name": "Pillow",
+      "version": "12.2.0",
+      "license": "MIT-CMU",
+      "dependencies": []
+    },
+    {
+      "name": "pypdfium2",
+      "version": "5.10.1",
+      "license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+      "dependencies": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.4.3",
+      "license": "MIT",
+      "dependencies": []
+    },
+    {
+      "name": "cryptography",
+      "version": "46.0.7",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "dependencies": [
+        {
+          "requirement": "cffi>=2.0.0 ; python_full_version >= '3.9' and platform_python_implementation != 'PyPy'",
+          "installed": "2.0.0",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "name": "cffi",
+      "version": "2.0.0",
+      "license": "MIT",
+      "dependencies": [
+        {
+          "requirement": "pycparser; implementation_name != \"PyPy\"",
+          "installed": "2.22",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "name": "pycparser",
+      "version": "2.22",
+      "license": "BSD-3-Clause",
+      "dependencies": [
+        {
+          "requirement": "ply==3.11",
+          "installed": "3.11",
+          "compatible": true
+        }
+      ]
+    },
+    {
+      "name": "ply",
+      "version": "3.11",
+      "license": "BSD",
+      "dependencies": []
+    }
+  ],
+  "compatibility": "Todos os requisitos aplicáveis identificados conferem com versões instaladas.",
+  "runtime": "Python 3.14.8 no ambiente local; instalação local exposta ao sandbox experimental em leitura; não integra dependências de produção.",
+  "files_sha256": {
+    "protocol.md": "bf98f432fa17057f06f0b9050b432c40217d57cc770c1336e588fe2a8e79907b",
+    "worker.py": "9ede2b5d9a1542a73e5a1b1e5ef39e01fdc64c876592201520906e8713a2babe",
+    "chunk_worker.py": "13d8c33978bce7be7e889fd8d6feacf19596dfd4f538a345335059f1ccbf2146",
+    "supervisor.py": "35447b6df3e061a400d9949f7418f6689c0e9d1ade7e0fec035f363d93326984",
+    "probe.py": "3173433823245f0111dfd231ac0244f7c37696236bdb78cfaddc5db5bbbe9537",
+    "run.py": "2974b3d45b75cea81b97345da8ce3dbc68101edc35f23186bfebc47532c19525",
+    "semantic-review.yaml": "8293cb11c90d41ed171f805ad2ba91df519f328164d913466f958b39e0b4f683",
+    "evaluate.py": "adb2dcca8bb4ba39361376f875060f71b01b791608a112f52b6f5cd5217e430d"
+  }
+}

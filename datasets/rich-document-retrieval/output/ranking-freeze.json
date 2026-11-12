@@ -1,0 +1,11 @@
+{
+  "files": {
+    "rankings.json": "3144f33ef514f876330bae6834db5be5488d82bcf0c80e55a86d3b07026ee356",
+    "provenance.json": "a9fa5c8b4c8c7e20911b2e2a137a116f9cbb21df045d375cedd274c314f0cac8",
+    "index-statistics.json": "c6dc7d60f429eaa3c42f157b959501f6801ca5d1d7fa56c11b7d99a18abb36ff",
+    "measurements.json": "d22add88a183e9b29bb493003fa38c528e8883ac02b319926aa8bbe7720934aa",
+    "environment.json": "1023c054b27bb3b354d90532ce5e940ae78cbaf812cc4aced4f3b902d5133120"
+  },
+  "protocol_sha256": "197bd75a5c927767dd0a91906f03198f8fefa960de2dad711a111a8d11fedbdf",
+  "note": "Congelado antes do avaliador consultar judgments.yaml ou semantic-review.yaml."
+}

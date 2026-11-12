@@ -1,0 +1,774 @@
+{
+  "reviewer": "autorrevisão semântica do executor; não é aceite humano",
+  "metrics": {
+    "poppler": {
+      "occurrences_preserved": 11,
+      "occurrences_total": 15,
+      "questions_preserved": 7,
+      "questions_total": 11,
+      "single_chunk_eligible": 6,
+      "single_chunk_total": 11,
+      "questions": [
+        {
+          "question_id": "Q01",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q02",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q03",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q04",
+          "document_id": "RD-02",
+          "anchors_preserved": [
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+        },
+        {
+          "question_id": "Q05",
+          "document_id": "RD-02",
+          "anchors_preserved": [
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+        },
+        {
+          "question_id": "Q06",
+          "document_id": "RD-03",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+        },
+        {
+          "question_id": "Q07",
+          "document_id": "RD-03",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+        },
+        {
+          "question_id": "Q08",
+          "document_id": "RD-04",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q09",
+          "document_id": "RD-04",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q10",
+          "document_id": "RD-05",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": false,
+          "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+        },
+        {
+          "question_id": "Q11",
+          "document_id": "RD-05",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+        }
+      ]
+    },
+    "pdfplumber": {
+      "occurrences_preserved": 13,
+      "occurrences_total": 15,
+      "questions_preserved": 9,
+      "questions_total": 11,
+      "single_chunk_eligible": 8,
+      "single_chunk_total": 11,
+      "questions": [
+        {
+          "question_id": "Q01",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q02",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q03",
+          "document_id": "RD-01",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q04",
+          "document_id": "RD-02",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+        },
+        {
+          "question_id": "Q05",
+          "document_id": "RD-02",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+        },
+        {
+          "question_id": "Q06",
+          "document_id": "RD-03",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+        },
+        {
+          "question_id": "Q07",
+          "document_id": "RD-03",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "relation_preserved": false,
+          "question_preserved": false,
+          "single_page": true,
+          "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+        },
+        {
+          "question_id": "Q08",
+          "document_id": "RD-04",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q09",
+          "document_id": "RD-04",
+          "anchors_preserved": [
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+        },
+        {
+          "question_id": "Q10",
+          "document_id": "RD-05",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": false,
+          "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+        },
+        {
+          "question_id": "Q11",
+          "document_id": "RD-05",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "relation_preserved": true,
+          "question_preserved": true,
+          "single_page": true,
+          "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+        }
+      ]
+    },
+    "poppler/fixed": {
+      "documents": 5,
+      "chunks": 6,
+      "lengths": [
+        339,
+        323,
+        346,
+        379,
+        225,
+        225
+      ],
+      "overlap_characters": 0,
+      "single_chunk_questions": 6,
+      "multi_chunk_questions": 7,
+      "questions": [
+        {
+          "question_id": "Q01",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q02",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q03",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q04",
+          "anchors_preserved": [
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q05",
+          "anchors_preserved": [
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q06",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q07",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q08",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q09",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q10",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q11",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        }
+      ],
+      "notes": "Todos os chunks preservam o texto integral da sua página; relações semânticas herdadas da avaliação de extração."
+    },
+    "pdfplumber/fixed": {
+      "documents": 5,
+      "chunks": 6,
+      "lengths": [
+        335,
+        310,
+        335,
+        374,
+        221,
+        221
+      ],
+      "overlap_characters": 0,
+      "single_chunk_questions": 8,
+      "multi_chunk_questions": 9,
+      "questions": [
+        {
+          "question_id": "Q01",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q02",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q03",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q04",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q05",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q06",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q07",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q08",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q09",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q10",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q11",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        }
+      ],
+      "notes": "Todos os chunks preservam o texto integral da sua página; relações semânticas herdadas da avaliação de extração."
+    },
+    "pdfplumber/structural": {
+      "documents": 5,
+      "chunks": 6,
+      "lengths": [
+        335,
+        310,
+        335,
+        374,
+        221,
+        221
+      ],
+      "overlap_characters": 0,
+      "single_chunk_questions": 8,
+      "multi_chunk_questions": 9,
+      "questions": [
+        {
+          "question_id": "Q01",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q02",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q03",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q04",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q05",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q06",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q07",
+          "anchors_preserved": [
+            true,
+            false
+          ],
+          "union_sufficient": false,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q08",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q09",
+          "anchors_preserved": [
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        },
+        {
+          "question_id": "Q10",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": false
+        },
+        {
+          "question_id": "Q11",
+          "anchors_preserved": [
+            true,
+            true
+          ],
+          "union_sufficient": true,
+          "single_chunk_sufficient": true
+        }
+      ],
+      "notes": "Todos os chunks preservam o texto integral da sua página; relações semânticas herdadas da avaliação de extração."
+    }
+  },
+  "relations": {
+    "poppler": {
+      "OR-01": {
+        "preserved": false,
+        "reason": "Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente a associação."
+      },
+      "OR-02": {
+        "preserved": false,
+        "reason": "Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente a associação."
+      },
+      "OR-03": {
+        "preserved": false,
+        "reason": "Leitura alterna linhas das colunas em vez de completar Íris antes de Lume."
+      },
+      "HI-01": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-02": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-03": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e orientação em sequência; não há metadado semântico de hierarquia."
+      },
+      "TB-01": {
+        "textual": false,
+        "native_table": false,
+        "reason": "Cabeçalho, linha, coluna e unidade linearizados sem fronteira de linha de tabela verificável."
+      },
+      "TB-02": {
+        "textual": false,
+        "native_table": false,
+        "reason": "Cabeçalho, linha, coluna e unidade linearizados sem fronteira de linha de tabela verificável."
+      }
+    },
+    "pdfplumber": {
+      "OR-01": {
+        "preserved": false,
+        "reason": "Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente a associação."
+      },
+      "OR-02": {
+        "preserved": false,
+        "reason": "Sinais e orientações das colunas aparecem intercalados; falta posicionamento por trecho que sustente a associação."
+      },
+      "OR-03": {
+        "preserved": false,
+        "reason": "Leitura alterna linhas das colunas em vez de completar Íris antes de Lume."
+      },
+      "HI-01": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-02": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-03": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e orientação em sequência; não há metadado semântico de hierarquia."
+      },
+      "TB-01": {
+        "textual": true,
+        "native_table": true,
+        "reason": "Cabeçalho, linha, coluna e unidade preservados em linhas; tabela nativa fornecida pela biblioteca."
+      },
+      "TB-02": {
+        "textual": true,
+        "native_table": true,
+        "reason": "Cabeçalho, linha, coluna e unidade preservados em linhas; tabela nativa fornecida pela biblioteca."
+      }
+    },
+    "poppler_layout": {
+      "OR-01": {
+        "preserved": true,
+        "reason": "Espaçamento de layout mantém alinhamento visual da coluna, permitindo associar sinal e orientação; não é estrutura semântica nativa."
+      },
+      "OR-02": {
+        "preserved": true,
+        "reason": "Espaçamento de layout mantém alinhamento visual da coluna, permitindo associar sinal e orientação; não é estrutura semântica nativa."
+      },
+      "OR-03": {
+        "preserved": false,
+        "reason": "Leitura alterna linhas das colunas em vez de completar Íris antes de Lume."
+      },
+      "HI-01": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-02": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e condição em sequência; não há metadado semântico de hierarquia."
+      },
+      "HI-03": {
+        "textual": true,
+        "native_hierarchy": false,
+        "reason": "Títulos e orientação em sequência; não há metadado semântico de hierarquia."
+      },
+      "TB-01": {
+        "textual": true,
+        "native_table": false,
+        "reason": "Cabeçalho, linha, coluna e unidade preservados em linhas espaciais; sem metadado nativo de célula."
+      },
+      "TB-02": {
+        "textual": true,
+        "native_table": false,
+        "reason": "Cabeçalho, linha, coluna e unidade preservados em linhas espaciais; sem metadado nativo de célula."
+      }
+    }
+  },
+  "resources": {
+    "poppler": {
+      "n": 15,
+      "wall_mean_seconds": 0.0407572473360536,
+      "cpu_mean_seconds": 0.04003113333333334,
+      "memory_peak_max_bytes": 17338368,
+      "worker_operation_mean_seconds": 0.010028689864945288,
+      "worker_initialization_partial_mean_seconds": 0.00011457347233469287
+    },
+    "poppler_layout": {
+      "n": 15,
+      "wall_mean_seconds": 0.040765938399514805,
+      "cpu_mean_seconds": 0.039738,
+      "memory_peak_max_bytes": 17604608,
+      "worker_operation_mean_seconds": 0.00983719753761155,
+      "worker_initialization_partial_mean_seconds": 0.00010881619721961519
+    },
+    "pdfplumber": {
+      "n": 15,
+      "wall_mean_seconds": 0.10350199392996728,
+      "cpu_mean_seconds": 0.10206733333333333,
+      "memory_peak_max_bytes": 27492352,
+      "worker_operation_mean_seconds": 0.059963845259820424,
+      "worker_initialization_partial_mean_seconds": 0.00011480060638859868
+    },
+    "poppler/fixed": {
+      "n": 15,
+      "wall_mean_seconds": 0.0238525934672604,
+      "cpu_mean_seconds": 0.023102666666666667,
+      "memory_peak_max_bytes": 13508608,
+      "worker_operation_mean_seconds": 6.02453559016188e-06,
+      "worker_initialization_partial_mean_seconds": 0.0001544239348731935
+    },
+    "pdfplumber/fixed": {
+      "n": 15,
+      "wall_mean_seconds": 0.023876468332794807,
+      "cpu_mean_seconds": 0.022975266666666667,
+      "memory_peak_max_bytes": 13688832,
+      "worker_operation_mean_seconds": 4.984799306839704e-06,
+      "worker_initialization_partial_mean_seconds": 0.00016281953042683502
+    },
+    "pdfplumber/structural": {
+      "n": 15,
+      "wall_mean_seconds": 0.023737508861813694,
+      "cpu_mean_seconds": 0.022957,
+      "memory_peak_max_bytes": 13385728,
+      "worker_operation_mean_seconds": 2.5577336782589554e-05,
+      "worker_initialization_partial_mean_seconds": 0.00016413326763237517
+    }
+  }
+}

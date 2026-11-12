@@ -1,0 +1,77 @@
+{
+  "extractor": "pdfplumber",
+  "document_id": "RD-03",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Duas colunas: respostas HTTP\n1. Diagnóstico por serviço\nServiço Íris Serviço Lume\nPara Íris, aumento de HTTP 503 Para Lume, aumento de HTTP 429\nindica verificar o pool de conexões. indica verificar o limite de requisições.\nNão alterar o timeout nesta etapa. Não reiniciar o pool nesta etapa.\nRD-03 | página 1 | versão 1.0.0 | sintético",
+      "lines": [
+        {
+          "text": "Duas colunas: respostas HTTP",
+          "bbox": [
+            45.0,
+            40.78780000000006,
+            251.16400000000002,
+            54.78780000000006
+          ]
+        },
+        {
+          "text": "1. Diagnóstico por serviço",
+          "bbox": [
+            45.0,
+            77.37380000000007,
+            195.048,
+            89.37380000000007
+          ]
+        },
+        {
+          "text": "Serviço Íris Serviço Lume",
+          "bbox": [
+            45.0,
+            102.95980000000009,
+            380.58,
+            112.95980000000009
+          ]
+        },
+        {
+          "text": "Para Íris, aumento de HTTP 503 Para Lume, aumento de HTTP 429",
+          "bbox": [
+            45.0,
+            120.95980000000009,
+            470.63,
+            130.9598000000001
+          ]
+        },
+        {
+          "text": "indica verificar o pool de conexões. indica verificar o limite de requisições.",
+          "bbox": [
+            45.0,
+            138.9598000000001,
+            483.38,
+            148.9598000000001
+          ]
+        },
+        {
+          "text": "Não alterar o timeout nesta etapa. Não reiniciar o pool nesta etapa.",
+          "bbox": [
+            45.0,
+            156.9598000000001,
+            458.96000000000004,
+            166.9598000000001
+          ]
+        },
+        {
+          "text": "RD-03 | página 1 | versão 1.0.0 | sintético",
+          "bbox": [
+            45.0,
+            799.7528,
+            210.09599999999998,
+            808.7528
+          ]
+        }
+      ],
+      "tables": [],
+      "structure": "native_position_lines_and_tables; no heading semantics"
+    }
+  ]
+}

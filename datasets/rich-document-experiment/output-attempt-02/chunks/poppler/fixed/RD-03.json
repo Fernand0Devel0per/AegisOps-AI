@@ -1,0 +1,16 @@
+{
+  "document_id": "RD-03",
+  "extractor": "poppler",
+  "strategy": "fixed",
+  "chunks": [
+    {
+      "page": 1,
+      "start": 0,
+      "end": 346,
+      "text": "Duas colunas: respostas HTTP\n1. Diagnóstico por serviço\nServiço Íris\n\nServiço Lume\n\nPara Íris, aumento de HTTP 503\n\nPara Lume, aumento de HTTP 429\n\nindica verificar o pool de conexões.\n\nindica verificar o limite de requisições.\n\nNão alterar o timeout nesta etapa.\n\nNão reiniciar o pool nesta etapa.\n\nRD-03 | página 1 | versão 1.0.0 | sintético\n\n\f",
+      "section": null,
+      "section_status": "not_extracted",
+      "loss_warning": null
+    }
+  ]
+}

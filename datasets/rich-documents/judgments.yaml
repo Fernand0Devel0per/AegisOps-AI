@@ -1,0 +1,194 @@
+schema_version: 1
+corpus_version: 1.0.0
+judgments:
+- question_id: Q01
+  status: answerable
+  expected_answer: 840 ms
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-01
+    document_version: 1.0.0
+    page: 1
+    section: 1. Latência do Atlas
+    anchor: Durante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms.
+  relation: Âncora suficiente.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q02
+  status: answerable
+  expected_answer: 310 ms
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-01
+    document_version: 1.0.0
+    page: 1
+    section: 1. Latência do Atlas
+    anchor: Na janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms.
+  relation: Âncora suficiente.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q03
+  status: answerable
+  expected_answer: A cada 5 minutos
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-01
+    document_version: 1.0.0
+    page: 1
+    section: 1. Latência do Atlas
+    anchor: O runbook recomenda verificar a latência a cada 5 minutos.
+  relation: Âncora suficiente.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q04
+  status: answerable
+  expected_answer: 120 mensagens
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-02
+    document_version: 1.0.0
+    page: 1
+    section: 1. Limites das filas
+    anchor: Vega | 120 mensagens | 8 minutos
+  relation: Âncora suficiente.
+  justification: A célula resulta do cruzamento da linha e coluna indicadas, com a unidade explícita.
+  table:
+    header: 1. Limites das filas
+    row: Vega
+    column: Limite de alerta
+    unit: mensagens
+- question_id: Q05
+  status: answerable
+  expected_answer: 15 minutos
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-02
+    document_version: 1.0.0
+    page: 1
+    section: 1. Limites das filas
+    anchor: Lyra | 75 mensagens | 15 minutos
+  relation: Âncora suficiente.
+  justification: A célula resulta do cruzamento da linha e coluna indicadas, com a unidade explícita.
+  table:
+    header: 1. Limites das filas
+    row: Lyra
+    column: Idade máxima
+    unit: minutos
+- question_id: Q06
+  status: answerable
+  expected_answer: O pool de conexões
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-03
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico por serviço
+    anchor: Para Íris, aumento de HTTP 503
+  - document_id: RD-03
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico por serviço
+    anchor: indica verificar o pool de conexões.
+  relation: As duas âncoras na mesma coluna associam sinal e orientação.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q07
+  status: answerable
+  expected_answer: O limite de requisições
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-03
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico por serviço
+    anchor: Para Lume, aumento de HTTP 429
+  - document_id: RD-03
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico por serviço
+    anchor: indica verificar o limite de requisições.
+  relation: As duas âncoras na mesma coluna associam sinal e orientação.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q08
+  status: answerable
+  expected_answer: CPU acima de 90% por 10 minutos
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-04
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico de recursos > 1.1 CPU
+    anchor: Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.
+  relation: Âncora suficiente.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q09
+  status: answerable
+  expected_answer: Memória livre abaixo de 12% por 5 minutos
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-04
+    document_version: 1.0.0
+    page: 1
+    section: 1. Diagnóstico de recursos > 1.2 Memória
+    anchor: Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.
+  relation: Âncora suficiente.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q10
+  status: answerable
+  expected_answer: Comparar a taxa de entrada com a taxa de processamento
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-05
+    document_version: 1.0.0
+    page: 1
+    section: 1. Sinal da fila Órion
+    anchor: No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.
+  - document_id: RD-05
+    document_version: 1.0.0
+    page: 2
+    section: 2. Ação para OR-7
+    anchor: Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.
+  relation: Todas as âncoras são necessárias; OR-7 associa sinal e ação.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q11
+  status: answerable
+  expected_answer: A mesma janela de 10 minutos
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence:
+  - document_id: RD-05
+    document_version: 1.0.0
+    page: 2
+    section: 2. Ação para OR-7
+    anchor: Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.
+  - document_id: RD-05
+    document_version: 1.0.0
+    page: 2
+    section: 2. Ação para OR-7
+    anchor: Registrar ambas as taxas na mesma janela de 10 minutos.
+  relation: Ambas as âncoras são necessárias para identificar as taxas e a janela.
+  justification: Resposta explicitamente sustentada pela evidência citada.
+- question_id: Q12
+  status: absent
+  expected_answer: null
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence: []
+  relation: Ausência relativa aos cinco PDFs da versão 1.0.0.
+  justification: O executor conferiu todas as páginas dos cinco originais; o atributo solicitado não aparece. Revisão
+    humana pendente.
+- question_id: Q13
+  status: absent
+  expected_answer: null
+  corpus_version: 1.0.0
+  human_review: pending
+  evidence: []
+  relation: Ausência relativa aos cinco PDFs da versão 1.0.0.
+  justification: O executor conferiu todas as páginas dos cinco originais; o atributo solicitado não aparece. Revisão
+    humana pendente.

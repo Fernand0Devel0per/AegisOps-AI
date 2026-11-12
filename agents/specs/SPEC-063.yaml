@@ -1,0 +1,63 @@
+id: SPEC-063
+story_id: STORY-063
+title: Avaliação isolada de recuperação lexical e citações de RICH-01
+status: ready
+problem_statement: Avaliar recuperação de evidências e citações de duas extrações preservando o baseline e os julgamentos.
+proposed_solution: Adaptador lexical equivalente à STORY-031, B1 e C1 congelados, top 3/5 e contexto limitado a
+  1800 caracteres, com julgamento posterior.
+architecture:
+  components:
+  - Adaptador lexical e índice isolados; controlador restrito; rankings congelados; avaliador; relatórios e proposta
+    de metadados.
+  interactions:
+  - Sem alterar API, Colibri, baseline C1 ou corpus anterior; ranker não recebe gabaritos nem registros externos
+    de proveniência, embora IDs codifiquem documento/página.
+  data_flow:
+  - Chunks id/text → índice → consulta → rankings e contexto congelados → avaliador com julgamentos e proveniência.
+interfaces:
+- Artefatos experimentais locais; nenhuma interface pública.
+data_contracts:
+- NFKD, remoção de marcas, casefold, termos alfanuméricos distintos, interseção, score positivo, empate por ID,
+  k 1 a 5, erros e abstenção conforme STORY-031.
+- IDs estáveis por documento/página/chunk; orçamento 1800 caracteres inclui cabeçalho de ID, texto, newline e truncamento.
+- Unidade semântica é ocorrência pergunta-âncora; 11 positivas/15 ocorrências; Q10 requer união de duas páginas;
+  Q12/Q13 são ausências relativas.
+- Citação resolvível e afirmação sustentada são julgamentos distintos; não julgados e falhas não são negativos.
+dependencies:
+- roadmap/stories/STORY-062.yaml
+- agents/handoffs/HANDOFF-062.yaml
+- doc/architecture/story-063-proposta.md
+- datasets/rich-document-retrieval/protocol.md
+security_considerations:
+- Sem rede, GPU, OCR, inferência, serviços ou infraestrutura nova; sem acesso do ranker a rótulos.
+- 'Controle verificável por processo e filhos: 1 CPU, 1 GiB, 30 s, 100 MiB temporários, 200 chunks e 1 MiB por documento.'
+observability:
+- Registrar índices e consultas por repetição, CPU, parede, memória, tamanho, termos, falhas, hashes e ambiente.
+error_handling:
+- Se equivalência C1 ou controles falharem, interromper processamento afetado; falhas não viram abstenções nem negativos.
+implementation_steps:
+- Congelar protocolo e confirmar equivalência lexical com C1 antes de ranquear RICH-01.
+- Ranquear B1/C1 para k=3/5 isoladamente; congelar saídas antes de ler gabaritos.
+- Julgar citações e âncoras, medir recursos, testar falhas e encaminhar revisão ao PO.
+test_strategy:
+- Testes de equivalência C1, Unicode, empates, limites, invalidez, integridade e orçamento; preservação do corpus
+  histórico.
+- Julgamento semântico do executor separado de cálculo automatizado e aceite humano.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Equivalência por consulta/k no C1 e testes de Unicode, empates, erros e hashes; B1/C1 mesmos parâmetros
+    e julgamento.
+  evidence: datasets/rich-document-retrieval/protocol.md
+- criterion_id: AC-02
+  validation: Registrar por consulta e agregado recall, MRR, evidências, citações, ausências, recursos, falhas e
+    denominadores.
+  evidence: doc/architecture/rich-document-retrieval-results.md
+- criterion_id: AC-03
+  validation: Registrar limites, autorrevisão e recomendação sem adoção; apresentar PO para revisão.
+  evidence: doc/architecture/rich-document-retrieval-results.md
+open_questions:
+- Aceite exploratório humano registrado em doc/decisions/story-063-aceite.md; qualquer adoção arquitetural permanece pendente.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md

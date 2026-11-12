@@ -1,0 +1,29 @@
+{
+  "description": "Testes sintéticos sem PDF: saída não zero e processo que excede 30 s; ambos executados no mesmo sandbox/cgroup das configurações.",
+  "failure": {
+    "status": "failed",
+    "returncode": 7,
+    "stderr": "",
+    "wall_seconds": 0.014757251978153363,
+    "cpu_seconds": 0.013744,
+    "memory_peak_bytes": 11128832,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ]
+  },
+  "timeout": {
+    "status": "timeout",
+    "returncode": null,
+    "stderr": "Prazo de 30 segundos excedido",
+    "wall_seconds": 30.03239284400479,
+    "cpu_seconds": 0.014852,
+    "memory_peak_bytes": 11304960,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ]
+  }
+}

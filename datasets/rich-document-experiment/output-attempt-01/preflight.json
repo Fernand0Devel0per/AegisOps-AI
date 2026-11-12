@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "returncode": 0,
+  "stderr": "",
+  "wall_seconds": 0.023328679002588615,
+  "cpu_seconds": 0.022787,
+  "memory_peak_bytes": 12791808,
+  "memory_max_bytes": 1073741824,
+  "cpu_max": "100000 100000",
+  "affinity": [
+    0
+  ],
+  "result": {
+    "namespace": 4026533195,
+    "interfaces": [
+      [
+        1,
+        "lo"
+      ]
+    ],
+    "host_loopback_access": false,
+    "cpu_affinity": [
+      0
+    ],
+    "temp_capacity_bytes": 104857600,
+    "writable_root": false,
+    "writable_dev": false,
+    "gabaritos_visible": false
+  }
+}

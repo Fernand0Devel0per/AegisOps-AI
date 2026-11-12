@@ -1,37 +1,50 @@
 id: STORY-060
 title: Avaliar ingestão estruturada e RAG em documentos ricos
 epic: EPIC-006
-description: Comparar chunking e recuperação com corpus autorizado e baseline existente.
-objective: Comparar chunking e recuperação com corpus autorizado e baseline existente.
-context: Derivada da Etapa 6 do plano original; não há implementação desta capacidade no bootstrap.
+description: Consolidar avaliação por incrementos de corpus, ingestão e recuperação com baseline lexical e decisão
+  fundamentada.
+objective: Consolidar avaliação por incrementos de corpus, ingestão e recuperação com baseline lexical e decisão
+  fundamentada.
+context: Etapa 6; consolidação dos incrementos exploratórios STORY-061/062/063. Não existe RAG completo implementado.
 priority: medium
-status: backlog
-refinement_required: true
+status: done
+refinement_required: false
 dependencies:
 - STORY-050
+- STORY-061
+- STORY-062
+- STORY-063
 scope:
   included:
-  - PDFs autorizados e extração
-  - Chunking simples/estruturado
-  - Avaliação lexical/vetorial e metadados
+  - Consolidar corpus e julgamentos revisados da STORY-061
+  - Consolidar extração e chunking da STORY-062
+  - Consolidar recuperação, medidas e citações da STORY-063
+  - Justificar decisão de manter baseline ou propor alteração em ADR; obter aprovação antes de mudança estrutural
   excluded:
-  - Superioridade pressuposta
-  - Vector database sem necessidade
+  - Presumir superioridade de vetor ou ferramenta
+  - Alterar API, primeira vertical ou Colibri
+  - Adotar dependência estrutural sem evidências e autorização
 acceptance_criteria:
 - id: AC-01
-  criterion: Corpus informa autorização e perguntas com evidência conhecida.
+  criterion: Corpus autorizado ou sintético, versionado e revisado tem perguntas, respostas, relevância e evidências
+    localizáveis; ausências e partições documentadas.
 - id: AC-02
-  criterion: Comparação de chunking e retrieval reporta métricas adequadas, falhas e citações página/seção.
+  criterion: Comparação reproduzível de ingestão, chunking e recuperação documenta métricas, denominadores, falhas,
+    recursos e citações por página/seção, controlando fatores de confusão.
 - id: AC-03
-  criterion: Escolha Docling/FAISS/pgvector ou manutenção lexical é justificada em ADR com operação e
-    limites.
+  criterion: Decisão de manter baseline ou propor tecnologia é justificada em ADR com evidências, operação e limites;
+    mudança estrutural exige aprovação do PO antes da implementação.
 technical_constraints:
-- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter
-  os limites local-first/read-only para a investigação.
+- Respeitar as partes vigentes do ADR-0001, com a substituição parcial pelo ADR-0002, e manter os limites local-first/read-only
+  para a investigação.
 - Não introduzir ferramenta estrutural sem ADR e aprovação quando ainda não autorizada.
 deliverables:
-- datasets/evaluation/
-- doc/EVALUATION.md
+- doc/architecture/rich-document-ingestion-results.md
+- doc/architecture/rich-document-retrieval-results.md
+- datasets/rich-documents/manifest.yaml
+- datasets/rich-documents/questions.yaml
+- doc/architecture/epic-006-closure.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
 validation:
   automated_tests: []
   manual_checks:
@@ -41,8 +54,24 @@ references:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
 - doc/decisions/open-questions.md
+- roadmap/stories/STORY-061.yaml
+- roadmap/stories/STORY-062.yaml
+- roadmap/stories/STORY-063.yaml
+- doc/architecture/rich-document-evaluation-protocol.md
+- doc/architecture/epic-006-closure.md
+- doc/adr/0008-documentos-ricos-manter-baseline.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações do escopo resolvidas.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Consolidada na branch após pedido do PO para fechamento; revisão do PR pendente. Estudos
+  exploratórios têm limitações de chunking e citações de seção; nenhuma adoção estrutural.
+
+review_evidence:
+- criterion_id: AC-01
+  evidence: doc/decisions/story-061-aceite.md
+- criterion_id: AC-02
+  evidence: doc/architecture/epic-006-closure.md
+- criterion_id: AC-03
+  evidence: doc/adr/0008-documentos-ricos-manter-baseline.md

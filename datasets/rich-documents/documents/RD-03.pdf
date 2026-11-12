@@ -1,0 +1,98 @@
+%PDF-1.3
+%“Œ‹ž ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/Contents 8 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 7 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+5 0 obj
+<<
+/PageMode /UseNone /Pages 7 0 R /Type /Catalog
+>>
+endobj
+6 0 obj
+<<
+/Author (AegisOps AI \204 corpus sint\351tico) /CreationDate (D:20000101000000+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20000101000000+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (unspecified) /Title (Duas colunas: respostas HTTP) /Trapped /False
+>>
+endobj
+7 0 obj
+<<
+/Count 1 /Kids [ 4 0 R ] /Type /Pages
+>>
+endobj
+8 0 obj
+<<
+/Length 1022
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 14 Tf 16.8 TL ET
+BT 1 0 0 1 45 790 Tm (Duas colunas: respostas HTTP) Tj T* ET
+BT /F2 12 Tf 14.4 TL ET
+BT 1 0 0 1 45 755 Tm (1. Diagn\363stico por servi\347o) Tj T* ET
+BT /F2 10 Tf 12 TL ET
+BT 1 0 0 1 45 731 Tm (Servi\347o \315ris) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 713 Tm (Para \315ris, aumento de HTTP 503) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 695 Tm (indica verificar o pool de conex\365es.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 45 677 Tm (N\343o alterar o timeout nesta etapa.) Tj T* ET
+BT /F2 10 Tf 12 TL ET
+BT 1 0 0 1 315 731 Tm (Servi\347o Lume) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 315 713 Tm (Para Lume, aumento de HTTP 429) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 315 695 Tm (indica verificar o limite de requisi\347\365es.) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 315 677 Tm (N\343o reiniciar o pool nesta etapa.) Tj T* ET
+BT /F1 9 Tf 10.8 TL ET
+BT 1 0 0 1 45 35 Tm (RD-03 | p\341gina 1 | vers\343o 1.0.0 | sint\351tico) Tj T* ET
+ 
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000061 00000 n 
+0000000102 00000 n 
+0000000209 00000 n 
+0000000321 00000 n 
+0000000524 00000 n 
+0000000592 00000 n 
+0000000900 00000 n 
+0000000959 00000 n 
+trailer
+<<
+/ID 
+[<c210b0cd1f3e2e0c0736aeea2cd997bf><c210b0cd1f3e2e0c0736aeea2cd997bf>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 6 0 R
+/Root 5 0 R
+/Size 9
+>>
+startxref
+2032
+%%EOF

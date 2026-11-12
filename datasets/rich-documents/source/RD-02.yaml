@@ -1,0 +1,23 @@
+id: RD-02
+title: Tabela das filas Vega e Lyra
+family: tabela
+pages:
+- - kind: heading
+    content: 1. Limites das filas
+  - kind: text
+    content: Cada limite corresponde à linha da fila e à coluna indicada.
+  - kind: table
+    content:
+      headers:
+      - Fila
+      - Limite de alerta
+      - Idade máxima
+      rows:
+      - - Vega
+        - 120 mensagens
+        - 8 minutos
+      - - Lyra
+        - 75 mensagens
+        - 15 minutos
+  - kind: text
+    content: Os limites são exemplos sintéticos, não políticas de produção.

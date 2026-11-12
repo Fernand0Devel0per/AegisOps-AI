@@ -1,0 +1,112 @@
+{
+  "extractor": "pdfplumber",
+  "document_id": "RD-02",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Tabela das filas Vega e Lyra\n1. Limites das filas\nCada limite corresponde à linha da fila e à coluna indicada.\nFila Limite de alerta Idade máxima\nVega 120 mensagens 8 minutos\nLyra 75 mensagens 15 minutos\nOs limites são exemplos sintéticos, não políticas de produção.\nRD-02 | página 1 | versão 1.0.0 | sintético",
+      "lines": [
+        {
+          "text": "Tabela das filas Vega e Lyra",
+          "bbox": [
+            45.0,
+            40.78780000000006,
+            231.75999999999996,
+            54.78780000000006
+          ]
+        },
+        {
+          "text": "1. Limites das filas",
+          "bbox": [
+            45.0,
+            77.37380000000007,
+            151.71599999999998,
+            89.37380000000007
+          ]
+        },
+        {
+          "text": "Cada limite corresponde à linha da fila e à coluna indicada.",
+          "bbox": [
+            45.0,
+            102.95980000000009,
+            306.79,
+            112.95980000000009
+          ]
+        },
+        {
+          "text": "Fila Limite de alerta Idade máxima",
+          "bbox": [
+            50.0,
+            136.9598000000001,
+            426.14000000000004,
+            146.9598000000001
+          ]
+        },
+        {
+          "text": "Vega 120 mensagens 8 minutos",
+          "bbox": [
+            50.0,
+            161.9598000000001,
+            403.35,
+            171.9598000000001
+          ]
+        },
+        {
+          "text": "Lyra 75 mensagens 15 minutos",
+          "bbox": [
+            50.0,
+            186.9598000000001,
+            408.91,
+            196.9598000000001
+          ]
+        },
+        {
+          "text": "Os limites são exemplos sintéticos, não políticas de produção.",
+          "bbox": [
+            45.0,
+            216.9598000000001,
+            320.67,
+            226.9598000000001
+          ]
+        },
+        {
+          "text": "RD-02 | página 1 | versão 1.0.0 | sintético",
+          "bbox": [
+            45.0,
+            799.7528,
+            210.09599999999998,
+            808.7528
+          ]
+        }
+      ],
+      "tables": [
+        {
+          "bbox": [
+            45.0,
+            129.88980000000004,
+            540.0,
+            204.88980000000004
+          ],
+          "rows": [
+            [
+              "Fila",
+              "Limite de alerta",
+              "Idade máxima"
+            ],
+            [
+              "Vega",
+              "120 mensagens",
+              "8 minutos"
+            ],
+            [
+              "Lyra",
+              "75 mensagens",
+              "15 minutos"
+            ]
+          ]
+        }
+      ],
+      "structure": "native_position_lines_and_tables; no heading semantics"
+    }
+  ]
+}

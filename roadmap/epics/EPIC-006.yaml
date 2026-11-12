@@ -2,20 +2,24 @@ id: EPIC-006
 title: RAG com documentos ricos
 source_phase: 6
 objective: Comparar ingestão e recuperação estruturadas com o baseline.
-status: backlog
+status: done
 priority: medium
 dependencies:
 - EPIC-005
 scope:
-- Corpus autorizado e ingestão
-- Avaliação de chunking e retrieval
+- Corpus sintético ou autorizado e julgamentos
+- Comparação de extração, chunking e recuperação; decisões condicionais a evidência e aprovação
 exit_criteria:
 - Documentos têm origem autorizada e citações por página/seção.
 - Comparação medida, com falhas de extração e métricas adequadas ao dataset.
 stories:
 - STORY-060
+- STORY-061
+- STORY-062
+- STORY-063
 references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
-refinement_notes: Revisar tamanho, dependências e decisões antes de preparar specs/atividades. Ordem entre
-  fases é planejamento educacional; tecnologias opcionais não são obrigatórias.
+- doc/architecture/rich-document-evaluation-protocol.md
+refinement_notes: Encerramento proposto na branch por solicitação do PO; revisão do PR pendente. Gates e
+  limites em doc/architecture/epic-006-closure.md; sem integração de RAG ou adoção estrutural.

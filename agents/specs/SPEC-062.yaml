@@ -1,0 +1,64 @@
+id: SPEC-062
+story_id: STORY-062
+title: Comparação isolada de extração e chunking em RICH-01
+status: ready
+problem_statement: Medir preservação de evidências e perda de contexto ao extrair e dividir PDFs antes de avaliar
+  recuperação.
+proposed_solution: Poppler textual e pdfplumber local, mais diagnóstico Poppler layout; congelar saídas antes de
+  aplicar chunking fixo e estrutural viável.
+architecture:
+  components:
+  - Sandbox e controle de recursos locais; extratores; saídas congeladas; chunkers; avaliador e relatório.
+  interactions:
+  - Sem API, Colibri, indexação, recuperação, inferência ou rede.
+  data_flow:
+  - PDFs aprovados → extratores isolados → saídas congeladas → chunking → avaliação contra julgamentos aprovados.
+interfaces:
+- Arquivos experimentais locais; sem alterações de interface pública.
+data_contracts:
+- Corpo de entrada exclusivo do diretório documents/ e hash aprovado; saída com documento, página, texto, estrutura
+  nativa e provenance.
+- Chunks com offsets, tamanho, documento, página e estratégia; limites de página e ausência de seção distinguíveis.
+- Avaliação por 15 ocorrências e 11 perguntas positivas; relações OR, HI e TB congeladas antes de extrair; não julgados
+  e falhas separados.
+- Poppler estrutural inviável sem estrutura demonstrável; pdfplumber não fornece hierarquia semântica de títulos
+  automaticamente.
+dependencies:
+- roadmap/stories/STORY-061.yaml
+- agents/handoffs/HANDOFF-061.yaml
+- datasets/rich-document-experiment/protocol.md
+- doc/architecture/story-062-proposta.md
+- doc/decisions/story-062-aceite.md
+security_considerations:
+- Sandbox sem rede e sem acesso a gabaritos; 1 CPU, 1 GiB agregado, 30 s, 100 MiB temporários, 1 MiB de texto e
+  200 chunks por configuração/documento.
+- Não executar conteúdo dos PDFs, usar GPU, OCR, inferência, serviços pagos ou rede.
+observability:
+- Registrar opções, hashes, versões, limites efetivos, tempo de parede, CPU e pico agregado de memória por execução,
+  mais falhas.
+error_handling:
+- Se isolamento ou limites não forem verificáveis, não executar a configuração; rejeitar limites excedidos sem truncamento
+  silencioso.
+implementation_steps:
+- Congelar rubrica e configuração antes de extrair e verificar ambiente.
+- Processar PDFs isolados, congelar saídas, aplicar chunks separadamente e medir.
+- Avaliar por referência, documentar limitações e enviar ao PO para revisão.
+test_strategy:
+- Testar isolamento e limites, casos de falha e integridade de offsets e chunks; verificar hashes do corpus e reprodutibilidade.
+- Autorrevisão semântica distinta de cálculo automático e aceite humano.
+acceptance_mapping:
+- criterion_id: AC-01
+  validation: Conferir protocolo congelado, hashes e parâmetros de isolamento efetivos, versões e falhas por documento.
+  evidence: datasets/rich-document-experiment/protocol.md
+- criterion_id: AC-02
+  validation: Julgar 15 ocorrências, 11 questões e relações de tabelas, ordem e hierarquia com evidências e denominadores.
+  evidence: doc/architecture/rich-document-ingestion-results.md
+- criterion_id: AC-03
+  validation: Registrar por processo/documento parede, CPU e memória agregada e testar reprodução, limites e falhas.
+  evidence: doc/architecture/rich-document-ingestion-results.md
+open_questions:
+- PO aceitou os resultados exploratórios; adoção tecnológica e STORY-063 dependem de autorização específica.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md

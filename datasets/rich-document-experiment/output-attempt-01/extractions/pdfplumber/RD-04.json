@@ -1,0 +1,104 @@
+{
+  "extractor": "pdfplumber",
+  "document_id": "RD-04",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Guia hierárquico de recursos\n1. Diagnóstico de recursos\n1.1 CPU\nSe a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.\n1.2 Memória\nSe a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.\n2. Orientações\n2.1 Registro\nRegistrar a janela de observação antes de formular hipóteses.\nRD-04 | página 1 | versão 1.0.0 | sintético",
+      "lines": [
+        {
+          "text": "Guia hierárquico de recursos",
+          "bbox": [
+            45.0,
+            40.78780000000006,
+            239.51599999999996,
+            54.78780000000006
+          ]
+        },
+        {
+          "text": "1. Diagnóstico de recursos",
+          "bbox": [
+            45.0,
+            77.37380000000007,
+            198.384,
+            89.37380000000007
+          ]
+        },
+        {
+          "text": "1.1 CPU",
+          "bbox": [
+            45.0,
+            102.95980000000009,
+            82.78999999999999,
+            112.95980000000009
+          ]
+        },
+        {
+          "text": "Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.",
+          "bbox": [
+            45.0,
+            126.95980000000009,
+            409.03,
+            136.9598000000001
+          ]
+        },
+        {
+          "text": "1.2 Memória",
+          "bbox": [
+            45.0,
+            145.9598000000001,
+            102.80000000000001,
+            155.9598000000001
+          ]
+        },
+        {
+          "text": "Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.",
+          "bbox": [
+            45.0,
+            169.9598000000001,
+            437.3699999999999,
+            179.9598000000001
+          ]
+        },
+        {
+          "text": "2. Orientações",
+          "bbox": [
+            45.0,
+            187.37380000000007,
+            127.70399999999998,
+            199.37380000000007
+          ]
+        },
+        {
+          "text": "2.1 Registro",
+          "bbox": [
+            45.0,
+            212.9598000000001,
+            102.24,
+            222.9598000000001
+          ]
+        },
+        {
+          "text": "Registrar a janela de observação antes de formular hipóteses.",
+          "bbox": [
+            45.0,
+            236.9598000000001,
+            320.68000000000006,
+            246.9598000000001
+          ]
+        },
+        {
+          "text": "RD-04 | página 1 | versão 1.0.0 | sintético",
+          "bbox": [
+            45.0,
+            799.7528,
+            210.09599999999998,
+            808.7528
+          ]
+        }
+      ],
+      "tables": [],
+      "structure": "native_position_lines_and_tables; no heading semantics"
+    }
+  ]
+}

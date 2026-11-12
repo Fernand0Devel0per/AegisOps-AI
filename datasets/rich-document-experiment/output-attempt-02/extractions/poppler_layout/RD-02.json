@@ -1,0 +1,13 @@
+{
+  "extractor": "poppler_layout",
+  "document_id": "RD-02",
+  "pages": [
+    {
+      "page": 1,
+      "text": "Tabela das filas Vega e Lyra\n\n1. Limites das filas\n\nCada limite corresponde à linha da fila e à coluna indicada.\n\n\n Fila                               Limite de alerta             Idade máxima\n\n Vega                               120 mensagens                8 minutos\n\n Lyra                               75 mensagens                 15 minutos\n\n\nOs limites são exemplos sintéticos, não políticas de produção.\n\n\n\n\nRD-02 | página 1 | versão 1.0.0 | sintético\n\f",
+      "lines": [],
+      "tables": [],
+      "structure": "unavailable"
+    }
+  ]
+}

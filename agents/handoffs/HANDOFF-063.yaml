@@ -1,0 +1,146 @@
+id: HANDOFF-063
+activity_id: ACT-063
+story_id: STORY-063
+spec_id: SPEC-063
+source_agent: Codex — engenharia e autorrevisão
+target_agent: Product Owner e próximo executor autorizado
+status: completed
+summary: Avaliação lexical exploratória B1/C1 concluída e aceita pelo PO, com ressalvas; aceite humano distinto
+  da autorrevisão.
+completed_work:
+- Base cc7d700 verificada; branch feat/story-063 criada; corpus aprovado e 30 saídas históricas conferidos por hash.
+- STORY-063, SPEC-063 e ACT-063 refinados; protocolo congelado no commit 49bad30 antes de observar rankings.
+- Adaptador isolado confrontado com C1 original em 50 combinações consulta/k, 32 casos adicionais, empate controlado
+  e integridade; equivalência passou.
+- Controles de isolamento e recursos verificados; executados B1/C1, 13 consultas e k 3/5 com aquecimento e três
+  repetições.
+- Rankings, índice de proveniência, medições e contexto congelados antes da leitura dos gabaritos; julgamentos semânticos
+  e métricas produzidos separadamente.
+- Proposta conceitual de sidecar e texto enriquecido preparada sem escolher ou implementar alternativa.
+- PO aprovou em 2026-11-12 os resultados exploratórios e suas limitações; aceite humano posterior registrado separadamente
+  sem reescrever julgamentos ou saídas.
+- Cadeia de hashes, corpus, 30 saídas da STORY-062, 52 rankings e vínculos de avaliação conferidos sem reexecutar
+  o experimento.
+- Análise dos gates da STORY-060/EPIC-006 e proposta experimental futura preparadas sem iniciar outra atividade.
+changed_files:
+- path: datasets/rich-document-retrieval/
+  reason: Protocolo, adaptador, trabalhadores isolados, provas de equivalência, rankings, avaliações, medições e
+    testes.
+- path: doc/architecture/rich-document-retrieval-results.md
+  reason: Métricas, evidências, citações, limites, falhas e recomendações para revisão do PO.
+- path: doc/architecture/story-063-metadata-options.md
+  reason: Comparar conceitualmente sidecar e texto enriquecido sem implementação.
+- path: roadmap/stories/STORY-063.yaml
+  reason: Critérios rastreados e conclusão após aceite humano.
+- path: agents/specs/SPEC-063.yaml
+  reason: Contrato implementável e mapeamento dos critérios.
+- path: agents/activities/ACT-063.yaml
+  reason: Atividade concluída após aceite humano.
+- path: agents/handoffs/HANDOFF-063.yaml
+  reason: Estado, validações, limitações e continuidade.
+- path: roadmap/index.yaml
+  reason: Estado sincronizado e próximo gate.
+- path: roadmap/epics/EPIC-006.yaml
+  reason: Épico permanece em andamento; STORY-063 concluída.
+- path: README.md
+  reason: Estado público da avaliação exploratória.
+- path: agents/README.md
+  reason: Continuidade e ponteiro para handoff.
+- path: doc/architecture/story-063-proposta.md
+  reason: Distinguir proposta histórica da execução posteriormente autorizada.
+- path: doc/decisions/open-questions.md
+  reason: Atualizar estado sem adoção estrutural.
+- path: doc/decisions/story-063-aceite.md
+  reason: Registrar aceite humano e critérios com identificação por hashes.
+- path: doc/decisions/epic-006-continuacao.md
+  reason: Analisar gates reais e opções sem concluir a história agregada ou o épico.
+- path: doc/architecture/rich-document-next-increment-proposal.md
+  reason: Propor pesquisa futura delimitada para decisão humana.
+decisions_made:
+- B1 e C1 usaram a mesma tokenização, ranking, k e orçamento; rankings coincidiram em IDs e scores.
+- O ranker recebeu apenas IDs/textos e consultas; IDs codificam documento/página, mas gabaritos e registros externos
+  de proveniência não foram montados no sandbox.
+- Julgamentos semânticos derivam da revisão 062 aceita e da conferência do conteúdo disponível; o cálculo e a revisão
+  do executor são distintos do aceite humano.
+- Limite de 1800 caracteres inclui cabeçalho de ID; metadados externos de citação não são enviados ao ranker ou
+  ao contexto.
+- Sidecar, texto enriquecido e Poppler layout como benchmark não foram implementados ou executados.
+validation:
+  executed:
+  - python3 datasets/rich-document-retrieval/run.py equivalence
+  - python3 datasets/rich-document-retrieval/run.py rank
+  - python3 datasets/rich-document-retrieval/judge.py; python3 datasets/rich-document-retrieval/evaluate.py
+  - python3 datasets/rich-document-retrieval/test_retrieval.py
+  - python3 datasets/rich-document-experiment/test_pipeline.py
+  - Comparação byte a byte da avaliação regenerada, verificação de hashes e ausência de diff dos artefatos históricos.
+  - uv run --offline --locked --no-sync ruff check datasets/rich-document-retrieval
+  - uv run --offline --locked --no-sync pyright
+  - python3 scripts/validate_repository.py
+  - git diff --check; git diff --cached --check
+  - 'Encerramento: conferência somente de leitura de ancestralidade e hashes, cadeias de congelamento, PDFs, 30
+    saídas históricas e 52 rankings; sem reexecutar experimentos.'
+  - "Encerramento: python3 scripts/validate_repository.py; git diff --check; git diff --cached --check; conferência
+    dos links locais dos três novos documentos."
+  passed:
+  - check: Equivalência C1 aprovada com 50 consultas/cortes, 32 casos adicionais, empate e integridade; hashes e
+      regras originais preservados.
+    evidence: datasets/rich-document-retrieval/output/equivalence-c1.json
+  - check: Quatorze testes de Unicode, empates, consultas e k inválidos, integridade, orçamento, citações e união
+      de páginas passaram.
+    evidence: datasets/rich-document-retrieval/test_retrieval.py
+  - check: Controles de CPU, memória, temporários e isolamento de rede verificados; 216 execuções incluindo aquecimento
+      e três repetições, sem falha técnica observada.
+    evidence: datasets/rich-document-retrieval/output/preflight.json
+  - check: Métricas, citações e valores individuais registrados; comparação reprodutível da avaliação e 12 testes
+      históricos passaram.
+    evidence: datasets/rich-document-retrieval/output/evaluation.json
+  - check: Validador documental, Ruff e verificações de whitespace passaram; pyright sem erros e com aviso preexistente
+      sobre fonte de yaml no validador documental.
+    evidence: agents/handoffs/HANDOFF-063.yaml
+  - check: 'Encerramento: commits 49bad30 e 8dbbf82 existem e têm ancestralidade esperada; arquivos históricos sem
+      diff, hashes e vínculos consistentes, métricas conferidas.'
+    evidence: doc/decisions/story-063-aceite.md
+  - check: 'Encerramento: validador PASS em 102 YAML, 11 épicos, 26 histórias e 65 Markdown; links locais e whitespace
+      passaram. Plano local não verificado pelo validador.'
+    evidence: agents/handoffs/HANDOFF-063.yaml
+  failed: []
+  not_executed:
+  - Poppler layout como benchmark, sidecar, texto enriquecido, novo chunking, embeddings, OCR, Docling ou inferência
+    real, fora da autorização.
+  - Testes de aplicação, CI remota, publicação, push, PR e merge; aplicação não alterada e publicação não autorizada.
+  - No encerramento não foram reexecutados benchmark, equivalência, testes de aplicação ou medições; conferência
+    documental e de integridade não substitui nova execução.
+review:
+  type: Autorrevisão semântica do executor, separada do aceite posterior do PO.
+  evidence: datasets/rich-document-retrieval/output/semantic-review.json
+  human_acceptance: PO aprovou resultados exploratórios em 2026-11-12, com ressalvas; doc/decisions/story-063-aceite.md.
+known_issues:
+- Conjunto sintético e exposto não constitui teste independente ou cego e não suporta generalização.
+- Rankings B1/C1 idênticos; diferenças de métricas refletem a capacidade das representações de sustentar as relações
+  tabulares.
+- O MRR conta primeira âncora relevante e pode ser 1 mesmo quando Q06/Q07 não têm relação completa; citações resolvíveis
+  não provam suporte.
+- As seis páginas curtas couberam no orçamento; nenhuma truncação real ocorreu; teste sintético cobre a borda.
+- Q10 exige união de duas páginas; Q12/Q13 retornam trechos relacionados mas insuficientes e não abstenção.
+- Resultados de poucos milissegundos incluem overhead do sandbox; não são evidência de escalabilidade ou custo de
+  produção.
+- Exclusão local preexistente agents/handoffs/STORY-020-blocked.md e stash da STORY-021 foram preservados.
+pending_work:
+- PO decidir a suficiência dos gates da STORY-060 e EPIC-006 e a sequência de consolidação ou eventual estudo, conforme
+  doc/decisions/epic-006-continuacao.md.
+- Qualquer avaliação de sidecar, texto enriquecido, novo corpus, modelo ou mudança estrutural requer decisão e autorização
+  específicas.
+next_steps:
+- Aguardar decisão do PO; não iniciar STORY-060 nem outro experimento automaticamente. ACT-060 documenta somente
+  a preparação já concluída.
+related_adrs:
+- doc/adr/0001-monolito-modular-baseline-deterministico.md
+- doc/adr/0002-llm-local-primeira-vertical.md
+- doc/adr/0007-comparacao-workflow.md
+git:
+  branch: feat/story-063
+  base: cc7d700
+  note: Protocolo congelado em 49bad30 antes dos rankings; sem push, PR, merge, tag ou release.
+
+continuity_update:
+- Após este handoff, PO solicitou fechar STORY-060 e EPIC-006 e revisar PR; a consolidação posterior está em doc/architecture/epic-006-closure.md e agents/handoffs/HANDOFF-064.yaml.

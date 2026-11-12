@@ -1,0 +1,16 @@
+{
+  "document_id": "RD-02",
+  "extractor": "pdfplumber",
+  "strategy": "fixed",
+  "chunks": [
+    {
+      "page": 1,
+      "start": 0,
+      "end": 310,
+      "text": "Tabela das filas Vega e Lyra\n1. Limites das filas\nCada limite corresponde à linha da fila e à coluna indicada.\nFila Limite de alerta Idade máxima\nVega 120 mensagens 8 minutos\nLyra 75 mensagens 15 minutos\nOs limites são exemplos sintéticos, não políticas de produção.\nRD-02 | página 1 | versão 1.0.0 | sintético",
+      "section": null,
+      "section_status": "not_extracted",
+      "loss_warning": null
+    }
+  ]
+}
