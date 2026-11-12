@@ -1,10 +1,11 @@
 schema_version: 1
-updated_at: '2026-11-11'
+updated_at: '2026-11-12'
 source: AegisOps_AI_Plano_do_Zero.md
 current_phase: 6
-next_story: STORY-062
-next_activity: ACT-062
-next_step_note: STORY-062 em revisão do PO; STORY-063 permanece backlog e não será iniciada automaticamente.
+next_story: STORY-063
+next_activity: ACT-063
+next_step_note: STORY-062 concluída após aceite humano; STORY-063 em backlog com proposta para revisão e execução
+  não autorizada. STORY-060 e EPIC-006 continuam abertos.
 epics:
 - id: EPIC-000
   title: Descoberta e requisitos
@@ -237,7 +238,7 @@ stories:
   path: roadmap/stories/STORY-062.yaml
   epic: EPIC-006
   priority: medium
-  status: in_review
+  status: done
   dependencies:
   - STORY-061
 - id: STORY-063

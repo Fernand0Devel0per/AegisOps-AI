@@ -4,18 +4,26 @@ story_id: STORY-062
 spec_id: SPEC-062
 source_agent: Codex — engenharia e autorrevisão
 target_agent: Product Owner e próximo executor autorizado
-status: partial
-summary: Comparação local exploratória executada e autorrevisada; STORY-062 e ACT-062 aguardam revisão e aceite do PO.
+status: completed
+summary: STORY-062 concluída após aceite humano dos resultados exploratórios; STORY-063 somente proposta e não iniciada.
 completed_work:
 - Base 7bb7bfc verificada como ancestral; branch feat/story-062 criada, exclusão e stash preexistentes preservados.
-- Corpus, perguntas e gabaritos conferidos por hash; protocolos, critérios, relações e configurações congelados no commit 2a4cdb6 antes da extração.
+- Corpus, perguntas e gabaritos conferidos por hash; protocolos, critérios, relações e configurações congelados
+  no commit 2a4cdb6 antes da extração.
 - Isolamento de rede, cgroup de CPU/memória, afinidade e tmpfs limitados foram verificados antes de processar PDFs.
-- Executadas extrações Poppler textual, Poppler layout diagnóstico e pdfplumber local, com aquecimento e três repetições por documento; saídas congeladas antes dos chunks.
-- Aplicados chunking fixo a ambos e estrutural a pdfplumber; Poppler estrutural documentado como inviável por ausência de estrutura nativa.
-- Judicadas 15 ocorrências, 11 perguntas positivas e relações OR/HI/TB pelo executor; relatório, metadados e medições individuais preparados para revisão.
+- Executadas extrações Poppler textual, Poppler layout diagnóstico e pdfplumber local, com aquecimento e três repetições
+  por documento; saídas congeladas antes dos chunks.
+- Aplicados chunking fixo a ambos e estrutural a pdfplumber; Poppler estrutural documentado como inviável por ausência
+  de estrutura nativa.
+- Judicadas 15 ocorrências, 11 perguntas positivas e relações OR/HI/TB pelo executor; relatório, metadados e medições
+  individuais preparados para revisão.
+- PO aprovou os resultados e limitações em 2026-11-12; decisão separada e hashes dos artefatos em doc/decisions/story-062-aceite.md.
+- Critérios e DoD conferidos; proposta da STORY-063 preparada sem execução nem alteração dos artefatos experimentais
+  históricos.
 changed_files:
 - path: datasets/rich-document-experiment/
-  reason: Protocolo, código isolado, dependências, saídas e chunks com hashes, julgamento individual, medições, testes e tentativas anteriores.
+  reason: Protocolo, código isolado, dependências, saídas e chunks com hashes, julgamento individual, medições,
+    testes e tentativas anteriores.
 - path: doc/architecture/rich-document-ingestion-results.md
   reason: Resultados, metodologia, limites, perdas, recursos e recomendações exploratórias.
 - path: roadmap/stories/STORY-062.yaml
@@ -38,10 +46,16 @@ changed_files:
   reason: Distinguir proposta histórica da execução posteriormente autorizada.
 - path: doc/decisions/open-questions.md
   reason: Estado da comparação sem adoção arquitetural.
+- path: doc/decisions/story-062-aceite.md
+  reason: Registrar aceite do PO, escopo, hashes, ressalvas e conferência de ACs/DoD.
+- path: doc/architecture/story-063-proposta.md
+  reason: Apresentar opções de recuperação para decisão futura sem iniciar STORY-063.
 decisions_made:
-- pdfplumber 0.11.10 e dependências estavam instalados; compatibilidade e licenças declaradas consultadas localmente, sem instalação nem modificação das dependências do projeto.
+- pdfplumber 0.11.10 e dependências estavam instalados; compatibilidade e licenças declaradas consultadas localmente,
+  sem instalação nem modificação das dependências do projeto.
 - Critérios de preservação semântica são autorrevisão do executor; buscas textuais são indicadores e não prova semântica.
-- Teste de 600 caracteres não diferenciou estratégias em páginas curtas; chunks não propagam metadados nativos de células e seções, limitação explícita.
+- Teste de 600 caracteres não diferenciou estratégias em páginas curtas; chunks não propagam metadados nativos de
+  células e seções, limitação explícita.
 - Nenhum extrator ou estratégia foi adotado para produção; recuperação e STORY-063 não executadas.
 validation:
   executed:
@@ -53,40 +67,58 @@ validation:
   - uv run --offline --locked --no-sync pyright
   - python3 scripts/validate_repository.py
   - git diff --check; git diff --cached --check
+  - '2026-11-12: python3 datasets/rich-document-experiment/test_pipeline.py.'
+  - '2026-11-12: conferência SHA-256 do corpus, índices, 30 saídas, arquivos de código, protocolo e resultados aceitos.'
+  - '2026-11-12: python3 scripts/validate_repository.py; git diff --check; git diff --cached --check.'
   passed:
-  - check: Doze testes de offsets, limites, integridade, fronteira de tabela e casos inválidos passaram; saída não zero e timeout foram classificados corretamente.
+  - check: Doze testes de offsets, limites, integridade, fronteira de tabela e casos inválidos passaram; saída não
+      zero e timeout foram classificados corretamente.
     evidence: datasets/rich-document-experiment/output/failure-probes.json
-  - check: Cinco PDFs, seis páginas, 13 perguntas e hashes aprovados; oito mutações inválidas rejeitadas pelo validador do corpus.
+  - check: Cinco PDFs, seis páginas, 13 perguntas e hashes aprovados; oito mutações inválidas rejeitadas pelo validador
+      do corpus.
     evidence: doc/decisions/story-061-aceite.md
   - check: Isolamento de rede e controles agregados de CPU, memória e temporários verificados antes do processamento.
     evidence: datasets/rich-document-experiment/output/preflight.json
   - check: Saídas de extração e chunks idênticas em três rodadas; métricas e julgamentos registrados com denominadores.
     evidence: datasets/rich-document-experiment/output/evaluation.json
-  - check: Ruff sem falhas; pyright sem erros, com um aviso preexistente de resolução de fonte do módulo yaml no validador documental.
+  - check: Ruff sem falhas; pyright sem erros, com um aviso preexistente de resolução de fonte do módulo yaml no
+      validador documental.
     evidence: agents/handoffs/HANDOFF-062.yaml
   - check: Validador documental e verificações de whitespace passaram.
     evidence: agents/handoffs/HANDOFF-062.yaml
+  - check: Doze testes passaram novamente; hashes do corpus, 15 extrações, 15 arquivos de chunks, código e protocolo
+      conferem; aceite do PO e ACs/DoD registrados.
+    evidence: doc/decisions/story-062-aceite.md
   failed: []
   not_executed:
-  - Aceite humano dos resultados; PO deve revisar escopo, critérios, limitações e julgamentos do executor.
   - Testes de aplicação, CI remota e publicação; código da aplicação não foi alterado e não houve push.
   - Recuperação, embeddings, OCR, Docling, inferência real e STORY-063, por exclusão de escopo.
+  - Nova extração, chunking, medições de desempenho ou sondas de timeout não foram reexecutados no encerramento
+    documental; evidências históricas preservadas.
 review:
-  type: Autorrevisão semântica do executor; o PO ainda não revisou nem aceitou os resultados.
-  evidence: datasets/rich-document-experiment/semantic-review.yaml
+  type: Autorrevisão semântica do executor na execução; aceite humano posterior do PO em 2026-11-12, com ressalvas.
+  evidence: doc/decisions/story-062-aceite.md
 known_issues:
-- Corpus pequeno e todas as páginas inferiores a 600 caracteres impedem avaliar diferença real entre estratégias de chunking ou generalizar.
+- Corpus pequeno e todas as páginas inferiores a 600 caracteres impedem avaliar diferença real entre estratégias
+  de chunking ou generalizar.
 - Saídas textuais principais intercalam colunas; Q06/Q07 não preservam associação semântica na representação salva.
-- Chunks preservam texto de tabela, mas não transportam metadados nativos de células ou seções; Q10 exige evidência em páginas separadas.
-- Medidas incluem inicialização e overhead, e memory.peak inclui o supervisor; inicialização interna reportada é parcial.
-- Primeira versão do agrupamento não protegia tabelas em fronteiras de 600; corrigida e rodada repetida, com saídas idênticas neste corpus.
-- Um teste sintético inicialmente usava tamanho inferior à fronteira; corrigido; lint inicial também foi corrigido antes da rodada final.
+- Chunks preservam texto de tabela, mas não transportam metadados nativos de células ou seções; Q10 exige evidência
+  em páginas separadas.
+- Medidas incluem inicialização e overhead, e memory.peak inclui o supervisor; inicialização interna reportada é
+  parcial.
+- Primeira versão do agrupamento não protegia tabelas em fronteiras de 600; corrigida e rodada repetida, com saídas
+  idênticas neste corpus.
+- Um teste sintético inicialmente usava tamanho inferior à fronteira; corrigido; lint inicial também foi corrigido
+  antes da rodada final.
 - Exclusão local agents/handoffs/STORY-020-blocked.md e stash da STORY-021 preservados.
 pending_work:
-- PO revisar resultados, semântica das associações, condições de isolamento e decisões por critério; registrar aceite antes de done.
-- Antes de STORY-063 definir autorização, política de grupos/ausências e transporte de estrutura; não iniciá-la automaticamente.
+- Para STORY-063, PO deve decidir autorização, orçamento, métricas, isolamento e transporte de estrutura antes de
+  qualquer execução.
+- Antes de particionar, revisar dependências de Q12/Atlas, Q13/Lume e a abrangência das ausências no corpus completo.
+- Nenhuma adoção de ferramenta ou mudança de arquitetura foi aprovada neste aceite.
 next_steps:
-- Solicitar revisão concreta do PO do relatório, protocolo e julgamentos; resolver observações e atualizar estado somente após aceite explícito.
+- Apresentar doc/architecture/story-063-proposta.md ao PO e aguardar autorização específica; não iniciar STORY-063
+  automaticamente.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
@@ -94,4 +126,12 @@ related_adrs:
 git:
   branch: feat/story-062
   base: 7bb7bfc
-  note: Protocolo anterior à extração no commit 2a4cdb6; sem push, PR, merge, tag ou release.
+  note: Branch local feat/story-062 baseada em 7bb7bfc; protocolo 2a4cdb6 e resultados c1d0a61; sem push, PR, merge,
+    tag ou release.
+maintenance_updates:
+- date: '2026-11-12'
+  authorization: PO aprovou os resultados exploratórios, medições locais e limitações da STORY-062, sem adotar ferramenta.
+  review_distinction: Autorrevisão do executor permaneceu intacta; aceite humano posterior registrado separadamente
+    por hashes.
+  evidence: doc/decisions/story-062-aceite.md
+  result: AC-01 a AC-03 e DoD conferidos; STORY-062 done e ACT-062 completed; proposta da STORY-063 sem execução.

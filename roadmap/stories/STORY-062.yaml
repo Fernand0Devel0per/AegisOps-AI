@@ -3,9 +3,9 @@ title: Comparar extração e chunking de documentos ricos
 epic: EPIC-006
 description: Medir preservação e perdas de extração e chunking com corpus revisado.
 objective: Medir preservação e perdas de extração e chunking com corpus revisado.
-context: Execução local controlada autorizada pelo PO em 2026-11-11; aceite humano necessário para concluir.
+context: Resultados exploratórios de RICH-01 v1.0.0 aceitos pelo PO em 2026-11-12; sem adoção de ferramenta.
 priority: medium
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-061
@@ -50,13 +50,14 @@ references:
 - doc/architecture/story-062-proposta.md
 - datasets/rich-document-experiment/protocol.md
 - agents/handoffs/HANDOFF-061.yaml
+- doc/decisions/story-062-aceite.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Experimento exploratório e autorrevisão concluídos; aceite explícito do PO pendente. STORY-063
-  não iniciada.
+refinement_notes: Critérios, DoD e aceite humano posteriores registrados em doc/decisions/story-062-aceite.md; STORY-063
+  continua backlog.
 review_evidence:
 - criterion_id: AC-01
   evidence: datasets/rich-document-experiment/protocol.md; datasets/rich-document-experiment/output/preflight.json;
@@ -66,3 +67,13 @@ review_evidence:
     datasets/rich-document-experiment/output/evaluation.json
 - criterion_id: AC-03
   evidence: datasets/rich-document-experiment/output/measurements.json; datasets/rich-document-experiment/test_pipeline.py
+completion_evidence:
+- criterion_id: AC-01
+  evidence: datasets/rich-document-experiment/protocol.md; datasets/rich-document-experiment/output/environment.json;
+    datasets/rich-document-experiment/output/preflight.json; doc/decisions/story-062-aceite.md
+- criterion_id: AC-02
+  evidence: doc/architecture/rich-document-ingestion-results.md; datasets/rich-document-experiment/semantic-review.yaml;
+    datasets/rich-document-experiment/output/evaluation.json; doc/decisions/story-062-aceite.md
+- criterion_id: AC-03
+  evidence: datasets/rich-document-experiment/output/measurements.json; datasets/rich-document-experiment/test_pipeline.py;
+    agents/handoffs/HANDOFF-062.yaml

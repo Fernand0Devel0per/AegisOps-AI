@@ -28,6 +28,7 @@ dependencies:
 - agents/handoffs/HANDOFF-061.yaml
 - datasets/rich-document-experiment/protocol.md
 - doc/architecture/story-062-proposta.md
+- doc/decisions/story-062-aceite.md
 security_considerations:
 - Sandbox sem rede e sem acesso a gabaritos; 1 CPU, 1 GiB agregado, 30 s, 100 MiB temporários, 1 MiB de texto e
   200 chunks por configuração/documento.
@@ -56,7 +57,7 @@ acceptance_mapping:
   validation: Registrar por processo/documento parede, CPU e memória agregada e testar reprodução, limites e falhas.
   evidence: doc/architecture/rich-document-ingestion-results.md
 open_questions:
-- Aceite humano dos resultados e decisão posterior de tecnologia; nenhuma adoção de ferramenta nesta atividade.
+- PO aceitou os resultados exploratórios; adoção tecnológica e STORY-063 dependem de autorização específica.
 related_adrs:
 - doc/adr/0001-monolito-modular-baseline-deterministico.md
 - doc/adr/0002-llm-local-primeira-vertical.md
