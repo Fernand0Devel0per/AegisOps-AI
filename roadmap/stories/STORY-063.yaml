@@ -3,9 +3,9 @@ title: Avaliar recuperação e citações em documentos ricos
 epic: EPIC-006
 description: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
-context: Execução exploratória local autorizada pelo PO em 2026-11-12; requer revisão e aceite antes de done.
+context: Execução exploratória local autorizada e aceita pelo PO em 2026-11-12; sem adoção estrutural.
 priority: medium
-status: in_review
+status: done
 refinement_required: false
 dependencies:
 - STORY-062
@@ -43,7 +43,7 @@ validation:
   manual_checks:
   - Confirmar equivalência C1 antes do benchmark; conferir citações e relações semânticas por consulta após congelar
     ranking.
-  - Registrar limites efetivos, resultados individuais, falhas e revisão humana pendente.
+  - Registrar limites efetivos, resultados individuais, falhas e aceite humano separado da autorrevisão.
 references:
 - doc/architecture/rich-document-evaluation-protocol.md
 - doc/EVALUATION.md
@@ -52,12 +52,13 @@ references:
 - doc/architecture/story-063-proposta.md
 - datasets/rich-document-retrieval/protocol.md
 - agents/handoffs/HANDOFF-062.yaml
+- doc/decisions/story-063-aceite.md
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
-refinement_notes: Avaliação exploratória concluída com autorrevisão semântica; aceite explícito do PO pendente.
+refinement_notes: Avaliação exploratória concluída e aceita pelo PO; registro humano separado da autorrevisão.
   STORY-060 e EPIC-006 não concluídos.
 review_evidence:
 - criterion_id: AC-01

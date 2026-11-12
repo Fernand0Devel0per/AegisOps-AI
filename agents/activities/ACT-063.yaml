@@ -3,7 +3,7 @@ story_id: STORY-063
 spec_id: SPEC-063
 title: Avaliar recuperação lexical e citações em sandbox local
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
-status: in_review
+status: completed
 agent:
   role: Agente de engenharia
   responsibility: Comprovar equivalência, executar ranking isolado, avaliar evidências e preparar revisão do PO.
@@ -23,7 +23,7 @@ constraints:
 - Sem rede, GPU, OCR, LLM, API, Colibri, embeddings, D1 ou E1; preservar artefatos históricos.
 - Não executar ranking RICH-01 antes de equivalência C1 e verificação dos limites; congelar rankings antes de abrir
   gabaritos.
-- Manter história e atividade em revisão até aceite explícito; STORY-060 e EPIC-006 não concluem automaticamente.
+- Aceite explícito do PO registrado; STORY-060 e EPIC-006 não concluem automaticamente.
 execution_steps:
 - Congelar protocolo e parâmetros; comprovar isolamento e equivalência C1.
 - Ranquear B1/C1, medir recursos e congelar resultados antes da avaliação.
@@ -35,7 +35,7 @@ validation:
   - git diff --check
   - git diff --cached --check
   expected_results:
-  - Resultados individuais, métricas, limites e falhas registrados; revisão do PO pendente.
+  - Resultados individuais, métricas, limites, falhas e aceite posterior do PO registrados.
 dependencies:
 - ACT-062
 handoff_required: true
