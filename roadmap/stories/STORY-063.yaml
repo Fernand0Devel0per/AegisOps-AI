@@ -5,7 +5,7 @@ description: Comparar recuperação com controles, métricas e rastreabilidade s
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
 context: Execução exploratória local autorizada pelo PO em 2026-11-12; requer revisão e aceite antes de done.
 priority: medium
-status: in_progress
+status: in_review
 refinement_required: false
 dependencies:
 - STORY-062
@@ -57,3 +57,15 @@ definition_of_done:
 - Validações pertinentes executadas; não executadas e falhas explicitadas.
 - Revisão registrada e observações resolvidas; aceite do PO quando exigido.
 - Handoff versionável produzido; história e índice atualizados em conjunto.
+refinement_notes: Avaliação exploratória concluída com autorrevisão semântica; aceite explícito do PO pendente.
+  STORY-060 e EPIC-006 não concluídos.
+review_evidence:
+- criterion_id: AC-01
+  evidence: datasets/rich-document-retrieval/protocol.md; datasets/rich-document-retrieval/output/equivalence-c1.json;
+    datasets/rich-document-retrieval/output/ranking-freeze.json
+- criterion_id: AC-02
+  evidence: doc/architecture/rich-document-retrieval-results.md; datasets/rich-document-retrieval/output/evaluation.json;
+    datasets/rich-document-retrieval/output/measurements.json
+- criterion_id: AC-03
+  evidence: doc/architecture/rich-document-retrieval-results.md; doc/architecture/story-063-metadata-options.md;
+    agents/handoffs/HANDOFF-063.yaml

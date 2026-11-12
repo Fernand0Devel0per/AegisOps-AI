@@ -1,0 +1,7114 @@
+[
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.028097340022213757,
+    "cpu_seconds": 0.02755,
+    "memory_peak_bytes": 14295040,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "B1",
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 0.00041846500243991613,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027313650003634393,
+    "cpu_seconds": 0.027398,
+    "memory_peak_bytes": 13766656,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "B1",
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 0.0003378340043127537,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02497158996993676,
+    "cpu_seconds": 0.024956,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "B1",
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 0.0003568229731172323,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02656678599305451,
+    "cpu_seconds": 0.025275,
+    "memory_peak_bytes": 13811712,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "B1",
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 0.00037421303568407893,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026960915012750775,
+    "cpu_seconds": 0.025743,
+    "memory_peak_bytes": 14225408,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.002304144203663e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02545809798175469,
+    "cpu_seconds": 0.024983,
+    "memory_peak_bytes": 13725696,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.9284036979079247e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026959146023727953,
+    "cpu_seconds": 0.026365,
+    "memory_peak_bytes": 14172160,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.10490096732974e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026722655980847776,
+    "cpu_seconds": 0.025845,
+    "memory_peak_bytes": 13950976,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.942297866567969e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025898618972860277,
+    "cpu_seconds": 0.024522,
+    "memory_peak_bytes": 13864960,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.311002653092146e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02613084902986884,
+    "cpu_seconds": 0.025388,
+    "memory_peak_bytes": 13979648,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.453198147937655e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026381666015367955,
+    "cpu_seconds": 0.025266,
+    "memory_peak_bytes": 14135296,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.561896927654743e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02719539904501289,
+    "cpu_seconds": 0.026665,
+    "memory_peak_bytes": 14225408,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 8.333101868629456e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027093670039903373,
+    "cpu_seconds": 0.026624,
+    "memory_peak_bytes": 14241792,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.523802246898413e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02679094299674034,
+    "cpu_seconds": 0.026164,
+    "memory_peak_bytes": 13762560,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.6197051890194416e-05,
+    "sandbox": {
+      "network_namespace": 4026534293,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025098880985751748,
+    "cpu_seconds": 0.023979,
+    "memory_peak_bytes": 14049280,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 4.849204560741782e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.034453764965292066,
+    "cpu_seconds": 0.032818,
+    "memory_peak_bytes": 14254080,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.77460159547627e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02619458199478686,
+    "cpu_seconds": 0.025563,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.0219026636332273e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.023921189014799893,
+    "cpu_seconds": 0.02384,
+    "memory_peak_bytes": 14139392,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 0.00010399799793958664,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025613759004045278,
+    "cpu_seconds": 0.024974,
+    "memory_peak_bytes": 14016512,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.6778022553771734e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02467234997311607,
+    "cpu_seconds": 0.024623,
+    "memory_peak_bytes": 13791232,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.113700171932578e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027078423008788377,
+    "cpu_seconds": 0.026343,
+    "memory_peak_bytes": 14323712,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 8.024298585951328e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02573516604024917,
+    "cpu_seconds": 0.024363,
+    "memory_peak_bytes": 13955072,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.054603727534413e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02624674903927371,
+    "cpu_seconds": 0.025085,
+    "memory_peak_bytes": 13635584,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.721502333879471e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025573284015990794,
+    "cpu_seconds": 0.024867,
+    "memory_peak_bytes": 14295040,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.344502955675125e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026533608965110034,
+    "cpu_seconds": 0.025905,
+    "memory_peak_bytes": 13656064,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.970798131078482e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02778977295383811,
+    "cpu_seconds": 0.027062,
+    "memory_peak_bytes": 14266368,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.188203744590282e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02652863599359989,
+    "cpu_seconds": 0.025991,
+    "memory_peak_bytes": 13733888,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.841798312962055e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0265787829994224,
+    "cpu_seconds": 0.02552,
+    "memory_peak_bytes": 13975552,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 9.394396329298615e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.028902175021357834,
+    "cpu_seconds": 0.027862,
+    "memory_peak_bytes": 14147584,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.5980985052883625e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025362504995428026,
+    "cpu_seconds": 0.024103,
+    "memory_peak_bytes": 13688832,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.223200423642993e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025156790972687304,
+    "cpu_seconds": 0.023732,
+    "memory_peak_bytes": 13942784,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.0398015193641186e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02569837699411437,
+    "cpu_seconds": 0.024912,
+    "memory_peak_bytes": 13873152,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.295703886076808e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02511396200861782,
+    "cpu_seconds": 0.024158,
+    "memory_peak_bytes": 14036992,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 9.129696991294622e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025754691974725574,
+    "cpu_seconds": 0.024623,
+    "memory_peak_bytes": 14237696,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.258002784103155e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025239023962058127,
+    "cpu_seconds": 0.024908,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.429500015452504e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026317708019632846,
+    "cpu_seconds": 0.025394,
+    "memory_peak_bytes": 14299136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 0.00010447902604937553,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02569109498290345,
+    "cpu_seconds": 0.024754,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.908403545618057e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02538863499648869,
+    "cpu_seconds": 0.024812,
+    "memory_peak_bytes": 14196736,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.085995119065046e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02558953099651262,
+    "cpu_seconds": 0.024579,
+    "memory_peak_bytes": 13959168,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.047904025763273e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02589761500712484,
+    "cpu_seconds": 0.025127,
+    "memory_peak_bytes": 14290944,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 9.176600724458694e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02700458699837327,
+    "cpu_seconds": 0.025388,
+    "memory_peak_bytes": 13840384,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.213097367435694e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025988998007960618,
+    "cpu_seconds": 0.024549,
+    "memory_peak_bytes": 13725696,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.705398507416248e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.028262325969990343,
+    "cpu_seconds": 0.025115,
+    "memory_peak_bytes": 14159872,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.626499816775322e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.024924851953983307,
+    "cpu_seconds": 0.023928,
+    "memory_peak_bytes": 14172160,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.292702164500952e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025287694996222854,
+    "cpu_seconds": 0.023954,
+    "memory_peak_bytes": 14233600,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.777601083740592e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02540072798728943,
+    "cpu_seconds": 0.024251,
+    "memory_peak_bytes": 13914112,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.358104292303324e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025515717046801,
+    "cpu_seconds": 0.025049,
+    "memory_peak_bytes": 14073856,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.015802500769496e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025351755029987544,
+    "cpu_seconds": 0.024594,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.608399027958512e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025506257021334022,
+    "cpu_seconds": 0.024148,
+    "memory_peak_bytes": 13942784,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.352399941533804e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026494065998122096,
+    "cpu_seconds": 0.025311,
+    "memory_peak_bytes": 13963264,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.713502807542682e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026008517015725374,
+    "cpu_seconds": 0.025141,
+    "memory_peak_bytes": 13955072,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.279395893216133e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02622543298639357,
+    "cpu_seconds": 0.025164,
+    "memory_peak_bytes": 13664256,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.020699558779597e-05,
+    "sandbox": {
+      "network_namespace": 4026534293,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025834542990196496,
+    "cpu_seconds": 0.025263,
+    "memory_peak_bytes": 14319616,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.556198397651315e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025510639999993145,
+    "cpu_seconds": 0.02523,
+    "memory_peak_bytes": 13885440,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.286497227847576e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025368325994350016,
+    "cpu_seconds": 0.024544,
+    "memory_peak_bytes": 13811712,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.890498869121075e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027524748002178967,
+    "cpu_seconds": 0.026528,
+    "memory_peak_bytes": 14131200,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.744300480931997e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02661106502637267,
+    "cpu_seconds": 0.026907,
+    "memory_peak_bytes": 14139392,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.246300810948014e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025606536015402526,
+    "cpu_seconds": 0.025164,
+    "memory_peak_bytes": 13758464,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.570800906047225e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0259684250340797,
+    "cpu_seconds": 0.024817,
+    "memory_peak_bytes": 14114816,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.076903082430363e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026139334950130433,
+    "cpu_seconds": 0.02547,
+    "memory_peak_bytes": 14073856,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.666796980425715e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026557596982456744,
+    "cpu_seconds": 0.025563,
+    "memory_peak_bytes": 14061568,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.5572967287153e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025314141996204853,
+    "cpu_seconds": 0.024429,
+    "memory_peak_bytes": 14270464,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.254302570596337e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.024846590007655323,
+    "cpu_seconds": 0.024758,
+    "memory_peak_bytes": 13926400,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.751297041773796e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02551084803417325,
+    "cpu_seconds": 0.024746,
+    "memory_peak_bytes": 14016512,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.432196823880076e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026181323046330363,
+    "cpu_seconds": 0.024873,
+    "memory_peak_bytes": 13766656,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.555399158969522e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025987281987909228,
+    "cpu_seconds": 0.0248,
+    "memory_peak_bytes": 14524416,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.141100311651826e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026173643011134118,
+    "cpu_seconds": 0.025101,
+    "memory_peak_bytes": 14053376,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 8.140999125316739e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026232826989144087,
+    "cpu_seconds": 0.025584,
+    "memory_peak_bytes": 14221312,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.972701521590352e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026362125005107373,
+    "cpu_seconds": 0.024669,
+    "memory_peak_bytes": 14270464,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.483698962256312e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02463175798766315,
+    "cpu_seconds": 0.023826,
+    "memory_peak_bytes": 14135296,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.576301530003548e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025787217018660158,
+    "cpu_seconds": 0.02446,
+    "memory_peak_bytes": 13975552,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.368599133566022e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026578454999253154,
+    "cpu_seconds": 0.025978,
+    "memory_peak_bytes": 14213120,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.029296830296516e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026232029020320624,
+    "cpu_seconds": 0.024825,
+    "memory_peak_bytes": 13926400,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.433599628508091e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025857625005301088,
+    "cpu_seconds": 0.024994,
+    "memory_peak_bytes": 13787136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.122900569811463e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02696007303893566,
+    "cpu_seconds": 0.025887,
+    "memory_peak_bytes": 13639680,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.769096944481134e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.024075679015368223,
+    "cpu_seconds": 0.024616,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.285199197009206e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0259378679911606,
+    "cpu_seconds": 0.024715,
+    "memory_peak_bytes": 14114816,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.367198122665286e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025379550002980977,
+    "cpu_seconds": 0.024714,
+    "memory_peak_bytes": 13877248,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.662099622189999e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025528440019115806,
+    "cpu_seconds": 0.024862,
+    "memory_peak_bytes": 13721600,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 0.00010485301027074456,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026012893998995423,
+    "cpu_seconds": 0.024733,
+    "memory_peak_bytes": 14311424,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.274298695847392e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.030909576977137476,
+    "cpu_seconds": 0.029966,
+    "memory_peak_bytes": 14036992,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.80150294303894e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026769697025883943,
+    "cpu_seconds": 0.025554,
+    "memory_peak_bytes": 13885440,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.112498860806227e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02735901396954432,
+    "cpu_seconds": 0.026176,
+    "memory_peak_bytes": 14118912,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.433100836351514e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02716847200645134,
+    "cpu_seconds": 0.026383,
+    "memory_peak_bytes": 13746176,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.347797509282827e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026520929008256644,
+    "cpu_seconds": 0.026116,
+    "memory_peak_bytes": 13840384,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.27740116417408e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025885652983561158,
+    "cpu_seconds": 0.024566,
+    "memory_peak_bytes": 14090240,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.323697743937373e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025740267999935895,
+    "cpu_seconds": 0.02479,
+    "memory_peak_bytes": 14159872,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.291801739484072e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025290783029049635,
+    "cpu_seconds": 0.024539,
+    "memory_peak_bytes": 14192640,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.488600047305226e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026255526987370104,
+    "cpu_seconds": 0.025265,
+    "memory_peak_bytes": 13729792,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 0.00010550400475040078,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02587394102010876,
+    "cpu_seconds": 0.024724,
+    "memory_peak_bytes": 13885440,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.64269900880754e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026071125990711153,
+    "cpu_seconds": 0.025142,
+    "memory_peak_bytes": 13803520,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.15659698471427e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02541902201483026,
+    "cpu_seconds": 0.02398,
+    "memory_peak_bytes": 13959168,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.200398249551654e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02586125599918887,
+    "cpu_seconds": 0.024489,
+    "memory_peak_bytes": 13877248,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.887501174584031e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026324659993406385,
+    "cpu_seconds": 0.02528,
+    "memory_peak_bytes": 13942784,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.906699854880571e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026045449019875377,
+    "cpu_seconds": 0.024845,
+    "memory_peak_bytes": 13836288,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.57950115762651e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02568328403867781,
+    "cpu_seconds": 0.024769,
+    "memory_peak_bytes": 13705216,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.010499782860279e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02520553901558742,
+    "cpu_seconds": 0.023982,
+    "memory_peak_bytes": 14331904,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.356998346745968e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025357882026582956,
+    "cpu_seconds": 0.02408,
+    "memory_peak_bytes": 13983744,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.935797864571214e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0256144090089947,
+    "cpu_seconds": 0.024665,
+    "memory_peak_bytes": 13910016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.145502604544163e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025720101955812424,
+    "cpu_seconds": 0.024944,
+    "memory_peak_bytes": 13910016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 0.00010083196684718132,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025956876983400434,
+    "cpu_seconds": 0.025238,
+    "memory_peak_bytes": 13811712,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.717296153306961e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02627000299980864,
+    "cpu_seconds": 0.025055,
+    "memory_peak_bytes": 13979648,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.473400233313441e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02549037797143683,
+    "cpu_seconds": 0.024916,
+    "memory_peak_bytes": 14274560,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.411700112745166e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02594833995681256,
+    "cpu_seconds": 0.025165,
+    "memory_peak_bytes": 13840384,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.0403021052479744e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027302775997668505,
+    "cpu_seconds": 0.026148,
+    "memory_peak_bytes": 14000128,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.23050145804882e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026474216021597385,
+    "cpu_seconds": 0.025926,
+    "memory_peak_bytes": 13901824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.039702566340566e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02612417098134756,
+    "cpu_seconds": 0.025043,
+    "memory_peak_bytes": 13971456,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.245600525289774e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025553043000400066,
+    "cpu_seconds": 0.024348,
+    "memory_peak_bytes": 13885440,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "B1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.307801231741905e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026209681993350387,
+    "cpu_seconds": 0.024958,
+    "memory_peak_bytes": 14118912,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "C1",
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 0.0003279040101915598,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025944603024981916,
+    "cpu_seconds": 0.024373,
+    "memory_peak_bytes": 14069760,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "C1",
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 0.0003759139799512923,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026238270045723766,
+    "cpu_seconds": 0.025207,
+    "memory_peak_bytes": 13901824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "C1",
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 0.00037941697519272566,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026743264985270798,
+    "cpu_seconds": 0.025708,
+    "memory_peak_bytes": 14008320,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "index",
+    "configuration": "C1",
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 0.00032710301456972957,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026693951978813857,
+    "cpu_seconds": 0.025514,
+    "memory_peak_bytes": 14200832,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.90349843353033e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02650597703177482,
+    "cpu_seconds": 0.026049,
+    "memory_peak_bytes": 14430208,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.669200956821442e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026241540035698563,
+    "cpu_seconds": 0.025747,
+    "memory_peak_bytes": 14278656,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.321200635284185e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02643929497571662,
+    "cpu_seconds": 0.025829,
+    "memory_peak_bytes": 14331904,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.392196519300342e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.030383945966605097,
+    "cpu_seconds": 0.029764,
+    "memory_peak_bytes": 14376960,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.920599844306707e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026458398962859064,
+    "cpu_seconds": 0.025264,
+    "memory_peak_bytes": 14118912,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.556697189807892e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02679617196554318,
+    "cpu_seconds": 0.02583,
+    "memory_peak_bytes": 13824000,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.283402374014258e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02700489095877856,
+    "cpu_seconds": 0.025854,
+    "memory_peak_bytes": 13803520,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q01",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.650097202509642e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026281617989297956,
+    "cpu_seconds": 0.025367,
+    "memory_peak_bytes": 14344192,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.3086027037352324e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025592265999875963,
+    "cpu_seconds": 0.024997,
+    "memory_peak_bytes": 13889536,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 4.986301064491272e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02541677199769765,
+    "cpu_seconds": 0.024251,
+    "memory_peak_bytes": 13967360,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.088199395686388e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025278595043346286,
+    "cpu_seconds": 0.024388,
+    "memory_peak_bytes": 14168064,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.147495539858937e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025231962965335697,
+    "cpu_seconds": 0.024261,
+    "memory_peak_bytes": 13877248,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.2268034778535366e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025628760049585253,
+    "cpu_seconds": 0.024827,
+    "memory_peak_bytes": 13873152,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.0340022426098585e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026226488989777863,
+    "cpu_seconds": 0.025333,
+    "memory_peak_bytes": 13910016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.598698044195771e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02886855002725497,
+    "cpu_seconds": 0.027528,
+    "memory_peak_bytes": 13803520,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q02",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.4407049901783466e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02706154901534319,
+    "cpu_seconds": 0.0262,
+    "memory_peak_bytes": 13918208,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 8.056900696828961e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02668790303869173,
+    "cpu_seconds": 0.024545,
+    "memory_peak_bytes": 14077952,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 8.398503996431828e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026699518028181046,
+    "cpu_seconds": 0.025825,
+    "memory_peak_bytes": 14090240,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.918300641700625e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025972141011152416,
+    "cpu_seconds": 0.025115,
+    "memory_peak_bytes": 13877248,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.16100151091814e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025995853007771075,
+    "cpu_seconds": 0.024946,
+    "memory_peak_bytes": 13873152,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.567698437720537e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02809272997546941,
+    "cpu_seconds": 0.027299,
+    "memory_peak_bytes": 14118912,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.81550009176135e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02713737200247124,
+    "cpu_seconds": 0.026268,
+    "memory_peak_bytes": 13889536,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.507500074803829e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027387297013774514,
+    "cpu_seconds": 0.026612,
+    "memory_peak_bytes": 13946880,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q03",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.819999543949962e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025886704039294273,
+    "cpu_seconds": 0.025992,
+    "memory_peak_bytes": 13901824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 8.610199438408017e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025729273969773203,
+    "cpu_seconds": 0.025064,
+    "memory_peak_bytes": 13742080,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.116203101351857e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026523679960519075,
+    "cpu_seconds": 0.02554,
+    "memory_peak_bytes": 14036992,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.509203765541315e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0259249719674699,
+    "cpu_seconds": 0.025041,
+    "memory_peak_bytes": 13848576,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.649594822898507e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026608287007547915,
+    "cpu_seconds": 0.02512,
+    "memory_peak_bytes": 13783040,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.471700569614768e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025996283977292478,
+    "cpu_seconds": 0.025036,
+    "memory_peak_bytes": 13774848,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.193702574819326e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026853095972910523,
+    "cpu_seconds": 0.025644,
+    "memory_peak_bytes": 14307328,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.0730031691491604e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025258825975470245,
+    "cpu_seconds": 0.02423,
+    "memory_peak_bytes": 14290944,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q04",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.62929960526526e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025679194019176066,
+    "cpu_seconds": 0.02488,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.323202978819609e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02684263000264764,
+    "cpu_seconds": 0.025922,
+    "memory_peak_bytes": 13893632,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.986302858218551e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027041502995416522,
+    "cpu_seconds": 0.026298,
+    "memory_peak_bytes": 14270464,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.592698628082871e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026114422013051808,
+    "cpu_seconds": 0.024736,
+    "memory_peak_bytes": 13893632,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.071503205224872e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02690991898998618,
+    "cpu_seconds": 0.026262,
+    "memory_peak_bytes": 13713408,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.27830158919096e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02534855797421187,
+    "cpu_seconds": 0.025404,
+    "memory_peak_bytes": 13750272,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.432703230530024e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026641272008419037,
+    "cpu_seconds": 0.025489,
+    "memory_peak_bytes": 13733888,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 5.957396933808923e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025770907988771796,
+    "cpu_seconds": 0.02437,
+    "memory_peak_bytes": 13725696,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q05",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.156798917800188e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02697579999221489,
+    "cpu_seconds": 0.025566,
+    "memory_peak_bytes": 13787136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.713200127705932e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02591431699693203,
+    "cpu_seconds": 0.025333,
+    "memory_peak_bytes": 14200832,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.0193007811903954e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025522588985040784,
+    "cpu_seconds": 0.024808,
+    "memory_peak_bytes": 14008320,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.192394696176052e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02603503002319485,
+    "cpu_seconds": 0.025309,
+    "memory_peak_bytes": 13848576,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.386300083249807e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026767463015858084,
+    "cpu_seconds": 0.026312,
+    "memory_peak_bytes": 13725696,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.984302308410406e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02736624696990475,
+    "cpu_seconds": 0.025974,
+    "memory_peak_bytes": 13979648,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.524300599470735e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.0263517809798941,
+    "cpu_seconds": 0.025109,
+    "memory_peak_bytes": 14094336,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.978202145546675e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026306721032597125,
+    "cpu_seconds": 0.025556,
+    "memory_peak_bytes": 14163968,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q06",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 9.017100092023611e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02580722002312541,
+    "cpu_seconds": 0.024683,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.474800804629922e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025485675025265664,
+    "cpu_seconds": 0.024814,
+    "memory_peak_bytes": 14188544,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.439397111535072e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02681715798098594,
+    "cpu_seconds": 0.025791,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.995099829509854e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02891785401152447,
+    "cpu_seconds": 0.02584,
+    "memory_peak_bytes": 14094336,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.689400808885694e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025495087960734963,
+    "cpu_seconds": 0.024517,
+    "memory_peak_bytes": 13942784,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.517797010019422e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02590445295209065,
+    "cpu_seconds": 0.025104,
+    "memory_peak_bytes": 13897728,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.674701580777764e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02628702501533553,
+    "cpu_seconds": 0.025538,
+    "memory_peak_bytes": 13807616,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.0824037063866854e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026221260020975024,
+    "cpu_seconds": 0.024955,
+    "memory_peak_bytes": 13938688,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q07",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.70139561407268e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027527932019438595,
+    "cpu_seconds": 0.02673,
+    "memory_peak_bytes": 13930496,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.747100269421935e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.04062833695206791,
+    "cpu_seconds": 0.038841,
+    "memory_peak_bytes": 13942784,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 0.000122560013551265,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03604466002434492,
+    "cpu_seconds": 0.034611,
+    "memory_peak_bytes": 14159872,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 0.00012193497968837619,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02815353003097698,
+    "cpu_seconds": 0.027412,
+    "memory_peak_bytes": 14127104,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 8.352805161848664e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026359383016824722,
+    "cpu_seconds": 0.025934,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 8.226395584642887e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02681334799854085,
+    "cpu_seconds": 0.025876,
+    "memory_peak_bytes": 14004224,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.298198761418462e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02644112502457574,
+    "cpu_seconds": 0.025322,
+    "memory_peak_bytes": 13901824,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.956100696697831e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026831656985450536,
+    "cpu_seconds": 0.025684,
+    "memory_peak_bytes": 13918208,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q08",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.646901601925492e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026888257008977234,
+    "cpu_seconds": 0.026022,
+    "memory_peak_bytes": 13733888,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.70200097374618e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027643941983114928,
+    "cpu_seconds": 0.026338,
+    "memory_peak_bytes": 14299136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.703097071498632e-05,
+    "sandbox": {
+      "network_namespace": 4026534303,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026339155971072614,
+    "cpu_seconds": 0.025781,
+    "memory_peak_bytes": 14004224,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.082700565457344e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026728475000709295,
+    "cpu_seconds": 0.026075,
+    "memory_peak_bytes": 13971456,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.979797035455704e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02692118100821972,
+    "cpu_seconds": 0.026759,
+    "memory_peak_bytes": 13848576,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.109303260222077e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026102726988028735,
+    "cpu_seconds": 0.024776,
+    "memory_peak_bytes": 14106624,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.139099761843681e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026142101967707276,
+    "cpu_seconds": 0.025094,
+    "memory_peak_bytes": 13905920,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 9.169499389827251e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025710082962177694,
+    "cpu_seconds": 0.024762,
+    "memory_peak_bytes": 14004224,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q09",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 8.790200809016824e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02732263703364879,
+    "cpu_seconds": 0.026572,
+    "memory_peak_bytes": 14188544,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.552996976301074e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026605862949509174,
+    "cpu_seconds": 0.025737,
+    "memory_peak_bytes": 13791232,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.018196629360318e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026808431022800505,
+    "cpu_seconds": 0.026012,
+    "memory_peak_bytes": 14061568,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.546697113662958e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026760893990285695,
+    "cpu_seconds": 0.025888,
+    "memory_peak_bytes": 13856768,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.082096999511123e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026507659000344574,
+    "cpu_seconds": 0.025617,
+    "memory_peak_bytes": 13971456,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 7.07849976606667e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027146800013724715,
+    "cpu_seconds": 0.0255,
+    "memory_peak_bytes": 14180352,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.86459825374186e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027121945982798934,
+    "cpu_seconds": 0.026541,
+    "memory_peak_bytes": 13840384,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 0.00010178901720792055,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027313166006933898,
+    "cpu_seconds": 0.026118,
+    "memory_peak_bytes": 14241792,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q10",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.64339929446578e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02763049997156486,
+    "cpu_seconds": 0.026552,
+    "memory_peak_bytes": 13819904,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.921601016074419e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02779646695125848,
+    "cpu_seconds": 0.026948,
+    "memory_peak_bytes": 13856768,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 7.443601498380303e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026723817049060017,
+    "cpu_seconds": 0.025219,
+    "memory_peak_bytes": 13766656,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.076695328578353e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02627548499731347,
+    "cpu_seconds": 0.025704,
+    "memory_peak_bytes": 13934592,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.643799133598804e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026906026992946863,
+    "cpu_seconds": 0.025948,
+    "memory_peak_bytes": 13914112,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.84990081936121e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026798381994012743,
+    "cpu_seconds": 0.026008,
+    "memory_peak_bytes": 13848576,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.440002471208572e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025915124046150595,
+    "cpu_seconds": 0.024955,
+    "memory_peak_bytes": 14499840,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.952998228371143e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026213511999230832,
+    "cpu_seconds": 0.025392,
+    "memory_peak_bytes": 14159872,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q11",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 7.503299275413156e-05,
+    "sandbox": {
+      "network_namespace": 4026534291,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026394831016659737,
+    "cpu_seconds": 0.025803,
+    "memory_peak_bytes": 13840384,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 9.204796515405178e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026573051989544183,
+    "cpu_seconds": 0.025625,
+    "memory_peak_bytes": 13856768,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.85849629715085e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.025577187014278024,
+    "cpu_seconds": 0.024841,
+    "memory_peak_bytes": 13803520,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.0839985962957144e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02628876204835251,
+    "cpu_seconds": 0.024813,
+    "memory_peak_bytes": 14299136,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.8538978919386864e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02587358100572601,
+    "cpu_seconds": 0.025369,
+    "memory_peak_bytes": 13922304,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.341602420434356e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.028157867956906557,
+    "cpu_seconds": 0.027629,
+    "memory_peak_bytes": 13910016,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 6.197701441124082e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.026086441008374095,
+    "cpu_seconds": 0.025404,
+    "memory_peak_bytes": 13991936,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.123998900875449e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027435703959781677,
+    "cpu_seconds": 0.027121,
+    "memory_peak_bytes": 14024704,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q12",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 6.638199556618929e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02684250398306176,
+    "cpu_seconds": 0.026584,
+    "memory_peak_bytes": 13721600,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 6.487197242677212e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.03149431402562186,
+    "cpu_seconds": 0.027045,
+    "memory_peak_bytes": 13950976,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.708599928766489e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027852308994624764,
+    "cpu_seconds": 0.027314,
+    "memory_peak_bytes": 14102528,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 7.103604730218649e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.027241698990110308,
+    "cpu_seconds": 0.026548,
+    "memory_peak_bytes": 14172160,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 3,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.836697528138757e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02640724799130112,
+    "cpu_seconds": 0.025723,
+    "memory_peak_bytes": 13885440,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 0,
+    "phase": "warmup",
+    "operation_seconds": 5.8303994592279196e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02542359399376437,
+    "cpu_seconds": 0.024979,
+    "memory_peak_bytes": 13869056,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 1,
+    "phase": "measured",
+    "operation_seconds": 5.381100345402956e-05,
+    "sandbox": {
+      "network_namespace": 4026534292,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02655203000176698,
+    "cpu_seconds": 0.026059,
+    "memory_peak_bytes": 13967360,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 2,
+    "phase": "measured",
+    "operation_seconds": 6.22220104560256e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  },
+  {
+    "status": "ok",
+    "returncode": 0,
+    "stderr": "",
+    "wall_seconds": 0.02685831399867311,
+    "cpu_seconds": 0.025701,
+    "memory_peak_bytes": 14135296,
+    "memory_max_bytes": 1073741824,
+    "cpu_max": "100000 100000",
+    "affinity": [
+      0
+    ],
+    "stage": "query",
+    "configuration": "C1",
+    "question_id": "Q13",
+    "k": 5,
+    "repeat": 3,
+    "phase": "measured",
+    "operation_seconds": 5.712901474907994e-05,
+    "sandbox": {
+      "network_namespace": 4026534290,
+      "interfaces": [
+        [
+          1,
+          "lo"
+        ]
+      ],
+      "temp_capacity_bytes": 104857600,
+      "affinity": [
+        0
+      ]
+    }
+  }
+]

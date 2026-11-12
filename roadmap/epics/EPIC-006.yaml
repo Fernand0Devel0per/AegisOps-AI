@@ -21,5 +21,5 @@ references:
 - AegisOps_AI_Plano_do_Zero.md
 - doc/architecture/overview.md
 - doc/architecture/rich-document-evaluation-protocol.md
-refinement_notes: STORY-061 e STORY-062 concluídas; STORY-063 e STORY-060 permanecem backlog. EPIC-006 segue em
-  andamento.
+refinement_notes: STORY-061 e STORY-062 concluídas; STORY-063 em revisão e STORY-060 em backlog; EPIC-006 segue
+  em andamento.

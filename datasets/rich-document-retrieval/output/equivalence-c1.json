@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "returncode": 0,
+  "stderr": "",
+  "wall_seconds": 0.16240477503743023,
+  "cpu_seconds": 0.15859,
+  "memory_peak_bytes": 23904256,
+  "memory_max_bytes": 1073741824,
+  "cpu_max": "100000 100000",
+  "affinity": [
+    0
+  ],
+  "result": {
+    "status": "pass",
+    "c1_queries": 10,
+    "c1_comparisons": 50,
+    "additional_cases": 32,
+    "tie": "pass",
+    "original_corpus_integrity": "pass",
+    "adapter_integrity": "pass",
+    "results": "IDs, scores, ordem, cortes e estados equivalentes",
+    "network_namespace": 4026534290
+  },
+  "protocol_sha256": "197bd75a5c927767dd0a91906f03198f8fefa960de2dad711a111a8d11fedbdf",
+  "adapter_sha256": "4b1253346a0d8b1d72c54bfee89c8d47ed4a79def8474beddcbcd14ca6696876",
+  "equivalence_worker_sha256": "0533f16b1b05ae3a5935dd1353a6931ad750f16fb2c49c0e1de421901843f12b",
+  "original_retrieval_sha256": "8ede7516552bc363eb0109a140f8214452c3604a0e1fde5c99fdc6d9f523fbb3"
+}

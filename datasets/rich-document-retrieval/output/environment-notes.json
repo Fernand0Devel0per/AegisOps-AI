@@ -1,0 +1,12 @@
+{
+  "collected_after_ranking": "Informações adicionais locais; não integram entrada nem saída do ranker.",
+  "cpu": "12th Gen Intel(R) Core(TM) i5-1235U",
+  "logical_cpus_visible": 12,
+  "affinity_cpu": 0,
+  "kernel": "7.2.13-100.fc43.x86_64",
+  "architecture": "x86_64",
+  "systemd": "258 (258.11-1.fc43)",
+  "bubblewrap": "0.12.0",
+  "python": "3.14.8",
+  "index_size_definition": "Bytes de JSON UTF-8 compacto contendo IDs, textos e listas de termos por chunk; não é índice em disco ou tamanho de memória."
+}

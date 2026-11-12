@@ -1,0 +1,19 @@
+{
+  "python": "3.14.8 (main, Oct  1 2026, 00:00:00) [GCC 15.3.1 20260722 (Red Hat 15.3.1-1)]",
+  "os": "Linux-7.2.13-100.fc43.x86_64-x86_64-with-glibc2.42",
+  "cpu": 0,
+  "protocol_sha256": "197bd75a5c927767dd0a91906f03198f8fefa960de2dad711a111a8d11fedbdf",
+  "adapter_sha256": "4b1253346a0d8b1d72c54bfee89c8d47ed4a79def8474beddcbcd14ca6696876",
+  "worker_sha256": "7ddcf7b50b9c15d84ef47d75f1a7f59f33d22f059de6959ae73bb3bbb5b600ee",
+  "controller_sha256": "06d25e86c15efc91c9d7de95659c3611e0043d59641a1eae701119a0d02bb1bc",
+  "equivalence_sha256": "5a80028f163e45e7f6da8602adad2b86b9033a4ae2efa06e6875ce13b828068e",
+  "corpus_hashes": {
+    "manifest.yaml": "f9a0f97730c9fe7366c0dbcfc3843113565a43b0217ee41367b44e4ef3dd787a",
+    "questions.yaml": "e21061f00d88453da2920c38232fd12c7a75e8eafe093f7b24618f43bae57fcd",
+    "judgments.yaml": "7860c4e2eb8b84fffa3c9383da5735ae88bf5659d97ef211e3daa6899f5771ee"
+  },
+  "frozen_062_hashes": {
+    "extraction-freeze.json": "5d7dd517b0a7b45e79a1da3a6b2ae2d982cc96b8560cb3dd49e963a57cb72928",
+    "chunk-freeze.json": "8aad19af2e30cd4ce11dbac0cf0081a62094ee4af395d245edab16bf748b6eb2"
+  }
+}

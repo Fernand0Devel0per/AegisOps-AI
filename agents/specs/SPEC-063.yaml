@@ -10,7 +10,8 @@ architecture:
   - Adaptador lexical e índice isolados; controlador restrito; rankings congelados; avaliador; relatórios e proposta
     de metadados.
   interactions:
-  - Sem alterar API, Colibri, baseline C1 ou corpus anterior; ranker não recebe gabaritos nem proveniência.
+  - Sem alterar API, Colibri, baseline C1 ou corpus anterior; ranker não recebe gabaritos nem registros externos
+    de proveniência, embora IDs codifiquem documento/página.
   data_flow:
   - Chunks id/text → índice → consulta → rankings e contexto congelados → avaliador com julgamentos e proveniência.
 interfaces:

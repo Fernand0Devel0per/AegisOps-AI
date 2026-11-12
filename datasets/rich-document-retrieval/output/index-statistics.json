@@ -1,0 +1,18 @@
+{
+  "B1": {
+    "index_size_bytes": 4049,
+    "chunks": 6,
+    "unique_terms": 150,
+    "term_occurrences": 226,
+    "records_sha256": "0e860483726dea83a855bc51b9d027b619a32687d753ea42eb6342f96e12e2fc",
+    "index_sha256": "bb0120e07cbb4d0bcb936d1974af91c531fc88e46c2709833f9cb6e6f96e3790"
+  },
+  "C1": {
+    "index_size_bytes": 3957,
+    "chunks": 6,
+    "unique_terms": 150,
+    "term_occurrences": 226,
+    "records_sha256": "c37c2eefd14d10456bbb6d8c164eda9cb859938be58134ce392df39c3049b89e",
+    "index_sha256": "f6ca02e7c46dd96a7f23d864405c7d59d26bd1eaf98085f20062d50b609658ba"
+  }
+}

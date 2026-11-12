@@ -3,7 +3,7 @@ story_id: STORY-063
 spec_id: SPEC-063
 title: Avaliar recuperação lexical e citações em sandbox local
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
-status: in_progress
+status: in_review
 agent:
   role: Agente de engenharia
   responsibility: Comprovar equivalência, executar ranking isolado, avaliar evidências e preparar revisão do PO.

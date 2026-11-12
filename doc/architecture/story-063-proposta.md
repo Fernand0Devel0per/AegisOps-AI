@@ -1,6 +1,6 @@
 # Proposta para revisão — STORY-063: recuperação e citações
 
-Estado em 2026-11-12: **proposta para decisão, não autorização para executar**. [STORY-063](../../roadmap/stories/STORY-063.yaml) permanece backlog, [SPEC-063](../../agents/specs/SPEC-063.yaml) draft e [ACT-063](../../agents/activities/ACT-063.yaml) pending. A [STORY-062 foi aceita](../decisions/story-062-aceite.md) para fins exploratórios; este documento não contém implementação, ranking, métricas obtidas ou adoção.
+Estado histórico no início de 2026-11-12: **proposta para decisão, não autorização para executar**. O PO autorizou posteriormente a execução; [resultados](rich-document-retrieval-results.md) estão em revisão. [STORY-063](../../roadmap/stories/STORY-063.yaml) permanecia backlog, [SPEC-063](../../agents/specs/SPEC-063.yaml) estava draft e [ACT-063](../../agents/activities/ACT-063.yaml) pending. A [STORY-062 foi aceita](../decisions/story-062-aceite.md) para fins exploratórios; este documento não contém implementação, ranking, métricas obtidas ou adoção.
 
 ## Objetivo, referência e comparações
 

@@ -1,0 +1,567 @@
+{
+  "reviewer": "Executor; revisão semântica da representação e conteúdo após congelar rankings, com base no julgamento 062 aceito pelo PO. Aceite humano desta avaliação pendente.",
+  "ranking_freeze_sha256": "528fa7f41ec5210024e0dc101bb45fdc89af7e99e05dc364baa2a5e03f7ca711",
+  "method": "Âncora elegível somente se aprovada na revisão semântica 062 e termos/contexto essenciais aparecem integralmente no trecho exibido; não julgados permanecem distintos de negativos.",
+  "configurations": {
+    "B1": {
+      "Q01": {
+        "status": "answerable",
+        "expected_answer": "840 ms",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "Durante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms.",
+            "eligible": true,
+            "required_text": [
+              "Durante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q02": {
+        "status": "answerable",
+        "expected_answer": "310 ms",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "Na janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms.",
+            "eligible": true,
+            "required_text": [
+              "Na janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q03": {
+        "status": "answerable",
+        "expected_answer": "A cada 5 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "O runbook recomenda verificar a latência a cada 5 minutos.",
+            "eligible": true,
+            "required_text": [
+              "O runbook recomenda verificar a latência a cada 5 minutos."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q04": {
+        "status": "answerable",
+        "expected_answer": "120 mensagens",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-02",
+            "page": 1,
+            "anchor": "Vega | 120 mensagens | 8 minutos",
+            "eligible": false,
+            "required_text": [
+              "Fila",
+              "Limite de alerta",
+              "Idade máxima",
+              "Vega",
+              "120 mensagens",
+              "8 minutos"
+            ],
+            "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+          }
+        ],
+        "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+      },
+      "Q05": {
+        "status": "answerable",
+        "expected_answer": "15 minutos",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-02",
+            "page": 1,
+            "anchor": "Lyra | 75 mensagens | 15 minutos",
+            "eligible": false,
+            "required_text": [
+              "Fila",
+              "Limite de alerta",
+              "Idade máxima",
+              "Lyra",
+              "75 mensagens",
+              "15 minutos"
+            ],
+            "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+          }
+        ],
+        "reason": "Cabeçalhos, valores e unidades estão em linhas separadas sem estrutura de célula ou fronteira de linha; associação de coluna não está preservada de forma verificável."
+      },
+      "Q06": {
+        "status": "answerable",
+        "expected_answer": "O pool de conexões",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "Para Íris, aumento de HTTP 503",
+            "eligible": true,
+            "required_text": [
+              "Para Íris, aumento de HTTP 503"
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "indica verificar o pool de conexões.",
+            "eligible": false,
+            "required_text": [
+              "indica verificar o pool de conexões."
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          }
+        ],
+        "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+      },
+      "Q07": {
+        "status": "answerable",
+        "expected_answer": "O limite de requisições",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "Para Lume, aumento de HTTP 429",
+            "eligible": true,
+            "required_text": [
+              "Para Lume, aumento de HTTP 429"
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "indica verificar o limite de requisições.",
+            "eligible": false,
+            "required_text": [
+              "indica verificar o limite de requisições."
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          }
+        ],
+        "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+      },
+      "Q08": {
+        "status": "answerable",
+        "expected_answer": "CPU acima de 90% por 10 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-04",
+            "page": 1,
+            "anchor": "Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.",
+            "eligible": true,
+            "required_text": [
+              "1. Diagnóstico de recursos",
+              "1.1 CPU",
+              "Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q09": {
+        "status": "answerable",
+        "expected_answer": "Memória livre abaixo de 12% por 5 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-04",
+            "page": 1,
+            "anchor": "Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.",
+            "eligible": true,
+            "required_text": [
+              "1. Diagnóstico de recursos",
+              "1.2 Memória",
+              "Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q10": {
+        "status": "answerable",
+        "expected_answer": "Comparar a taxa de entrada com a taxa de processamento",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-05",
+            "page": 1,
+            "anchor": "No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.",
+            "eligible": true,
+            "required_text": [
+              "No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos."
+            ],
+            "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento."
+            ],
+            "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+          }
+        ],
+        "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+      },
+      "Q11": {
+        "status": "answerable",
+        "expected_answer": "A mesma janela de 10 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento."
+            ],
+            "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Registrar ambas as taxas na mesma janela de 10 minutos.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+              "Registrar ambas as taxas na mesma janela de 10 minutos."
+            ],
+            "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+          }
+        ],
+        "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+      },
+      "Q12": {
+        "status": "absent",
+        "related_document": "RD-01",
+        "reason": "Ausência aprovada apenas para o corpus completo; retorno relacionado é insuficiente para a informação solicitada."
+      },
+      "Q13": {
+        "status": "absent",
+        "related_document": "RD-03",
+        "reason": "Ausência aprovada apenas para o corpus completo; retorno relacionado é insuficiente para a informação solicitada."
+      }
+    },
+    "C1": {
+      "Q01": {
+        "status": "answerable",
+        "expected_answer": "840 ms",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "Durante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms.",
+            "eligible": true,
+            "required_text": [
+              "Durante 10:00–10:20 UTC, a latência p95 do Atlas foi 840 ms."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q02": {
+        "status": "answerable",
+        "expected_answer": "310 ms",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "Na janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms.",
+            "eligible": true,
+            "required_text": [
+              "Na janela anterior de 09:40–10:00 UTC, o p95 foi 310 ms."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q03": {
+        "status": "answerable",
+        "expected_answer": "A cada 5 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-01",
+            "page": 1,
+            "anchor": "O runbook recomenda verificar a latência a cada 5 minutos.",
+            "eligible": true,
+            "required_text": [
+              "O runbook recomenda verificar a latência a cada 5 minutos."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q04": {
+        "status": "answerable",
+        "expected_answer": "120 mensagens",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-02",
+            "page": 1,
+            "anchor": "Vega | 120 mensagens | 8 minutos",
+            "eligible": true,
+            "required_text": [
+              "Fila",
+              "Limite de alerta",
+              "Idade máxima",
+              "Vega",
+              "120 mensagens",
+              "8 minutos"
+            ],
+            "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+          }
+        ],
+        "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+      },
+      "Q05": {
+        "status": "answerable",
+        "expected_answer": "15 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-02",
+            "page": 1,
+            "anchor": "Lyra | 75 mensagens | 15 minutos",
+            "eligible": true,
+            "required_text": [
+              "Fila",
+              "Limite de alerta",
+              "Idade máxima",
+              "Lyra",
+              "75 mensagens",
+              "15 minutos"
+            ],
+            "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+          }
+        ],
+        "reason": "Linhas textuais e tabela nativa extraída mantêm cabeçalhos, células, valor e unidade; chunks preservam texto, não metadados de célula."
+      },
+      "Q06": {
+        "status": "answerable",
+        "expected_answer": "O pool de conexões",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "Para Íris, aumento de HTTP 503",
+            "eligible": true,
+            "required_text": [
+              "Para Íris, aumento de HTTP 503"
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "indica verificar o pool de conexões.",
+            "eligible": false,
+            "required_text": [
+              "indica verificar o pool de conexões."
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          }
+        ],
+        "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+      },
+      "Q07": {
+        "status": "answerable",
+        "expected_answer": "O limite de requisições",
+        "relation_preserved_in_extraction": false,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "Para Lume, aumento de HTTP 429",
+            "eligible": true,
+            "required_text": [
+              "Para Lume, aumento de HTTP 429"
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-03",
+            "page": 1,
+            "anchor": "indica verificar o limite de requisições.",
+            "eligible": false,
+            "required_text": [
+              "indica verificar o limite de requisições."
+            ],
+            "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+          }
+        ],
+        "reason": "Sinal contém o serviço, mas as duas colunas intercalam sinais antes das duas orientações; a associação da orientação com o serviço fica ambígua. A saída oferece bbox por linha inteira, não posicionamento individual dos trechos."
+      },
+      "Q08": {
+        "status": "answerable",
+        "expected_answer": "CPU acima de 90% por 10 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-04",
+            "page": 1,
+            "anchor": "Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos.",
+            "eligible": true,
+            "required_text": [
+              "1. Diagnóstico de recursos",
+              "1.1 CPU",
+              "Se a CPU permanecer acima de 90% por 10 minutos, investigar processos ativos."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q09": {
+        "status": "answerable",
+        "expected_answer": "Memória livre abaixo de 12% por 5 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-04",
+            "page": 1,
+            "anchor": "Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo.",
+            "eligible": true,
+            "required_text": [
+              "1. Diagnóstico de recursos",
+              "1.2 Memória",
+              "Se a memória livre ficar abaixo de 12% por 5 minutos, investigar consumo por processo."
+            ],
+            "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+          }
+        ],
+        "reason": "Trecho, contexto e relação necessários presentes na saída indicada."
+      },
+      "Q10": {
+        "status": "answerable",
+        "expected_answer": "Comparar a taxa de entrada com a taxa de processamento",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-05",
+            "page": 1,
+            "anchor": "No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos.",
+            "eligible": true,
+            "required_text": [
+              "No cenário OR-7, a idade da mensagem mais antiga atingiu 18 minutos."
+            ],
+            "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento."
+            ],
+            "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+          }
+        ],
+        "reason": "As duas âncoras e relação OR-7 estão presentes em páginas separadas; não cabem em um único chunk que respeite página."
+      },
+      "Q11": {
+        "status": "answerable",
+        "expected_answer": "A mesma janela de 10 minutos",
+        "relation_preserved_in_extraction": true,
+        "evidence": [
+          {
+            "occurrence": 1,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento."
+            ],
+            "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+          },
+          {
+            "occurrence": 2,
+            "document_id": "RD-05",
+            "page": 2,
+            "anchor": "Registrar ambas as taxas na mesma janela de 10 minutos.",
+            "eligible": true,
+            "required_text": [
+              "Para o cenário OR-7, comparar a taxa de entrada com a taxa de processamento.",
+              "Registrar ambas as taxas na mesma janela de 10 minutos."
+            ],
+            "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+          }
+        ],
+        "reason": "As duas âncoras estão na página 2 e mantêm a referência às duas taxas e à janela."
+      },
+      "Q12": {
+        "status": "absent",
+        "related_document": "RD-01",
+        "reason": "Ausência aprovada apenas para o corpus completo; retorno relacionado é insuficiente para a informação solicitada."
+      },
+      "Q13": {
+        "status": "absent",
+        "related_document": "RD-03",
+        "reason": "Ausência aprovada apenas para o corpus completo; retorno relacionado é insuficiente para a informação solicitada."
+      }
+    }
+  }
+}
