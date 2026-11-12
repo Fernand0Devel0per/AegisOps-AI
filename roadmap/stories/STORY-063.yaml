@@ -3,10 +3,10 @@ title: Avaliar recuperação e citações em documentos ricos
 epic: EPIC-006
 description: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
-context: Incremento proposto da STORY-060; execução depende de autorização específica e revisão dos contratos.
+context: Execução exploratória local autorizada pelo PO em 2026-11-12; requer revisão e aceite antes de done.
 priority: medium
-status: backlog
-refinement_required: true
+status: in_progress
+refinement_required: false
 dependencies:
 - STORY-062
 scope:
@@ -33,15 +33,25 @@ technical_constraints:
   e ADR apropriado.
 deliverables:
 - doc/architecture/rich-document-retrieval-results.md
+- doc/architecture/story-063-metadata-options.md
+- datasets/rich-document-retrieval/
+- agents/handoffs/HANDOFF-063.yaml
 validation:
-  automated_tests: []
+  automated_tests:
+  - python3 datasets/rich-document-retrieval/test_retrieval.py
+  - python3 scripts/validate_repository.py
   manual_checks:
-  - Conferir critérios, evidências e revisão antes de encerrar; registrar validações efetivas.
+  - Confirmar equivalência C1 antes do benchmark; conferir citações e relações semânticas por consulta após congelar
+    ranking.
+  - Registrar limites efetivos, resultados individuais, falhas e revisão humana pendente.
 references:
 - doc/architecture/rich-document-evaluation-protocol.md
 - doc/EVALUATION.md
 - doc/decisions/open-questions.md
 - roadmap/stories/STORY-062.yaml
+- doc/architecture/story-063-proposta.md
+- datasets/rich-document-retrieval/protocol.md
+- agents/handoffs/HANDOFF-062.yaml
 definition_of_done:
 - Todos os critérios de aceite com evidência recuperável.
 - Validações pertinentes executadas; não executadas e falhas explicitadas.

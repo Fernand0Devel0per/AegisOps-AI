@@ -1,35 +1,41 @@
 id: ACT-063
 story_id: STORY-063
 spec_id: SPEC-063
-title: Execução futura — Avaliar recuperação e citações em documentos ricos
+title: Avaliar recuperação lexical e citações em sandbox local
 objective: Comparar recuperação com controles, métricas e rastreabilidade sobre corpus e ingestão revisados.
-status: pending
+status: in_progress
 agent:
   role: Agente de engenharia
-  responsibility: Revisar contrato e executar somente após autorização específica.
+  responsibility: Comprovar equivalência, executar ranking isolado, avaliar evidências e preparar revisão do PO.
 inputs:
 - AGENTS.md
 - roadmap/stories/STORY-063.yaml
 - agents/specs/SPEC-063.yaml
-- doc/architecture/rich-document-evaluation-protocol.md
-- agents/handoffs/HANDOFF-060.yaml
+- agents/handoffs/HANDOFF-062.yaml
+- datasets/rich-document-retrieval/protocol.md
+- doc/architecture/story-063-proposta.md
 expected_outputs:
 - doc/architecture/rich-document-retrieval-results.md
+- doc/architecture/story-063-metadata-options.md
+- datasets/rich-document-retrieval/
+- agents/handoffs/HANDOFF-063.yaml
 constraints:
-- 'Proposta preliminar: não iniciar enquanto spec estiver draft, dependências não concluídas ou PO não autorizar
-  execução.'
-- Não alterar a API, primeira vertical ou Colibri; não instalar ferramentas nem executar modelos sem autorização
-  aplicável.
+- Sem rede, GPU, OCR, LLM, API, Colibri, embeddings, D1 ou E1; preservar artefatos históricos.
+- Não executar ranking RICH-01 antes de equivalência C1 e verificação dos limites; congelar rankings antes de abrir
+  gabaritos.
+- Manter história e atividade em revisão até aceite explícito; STORY-060 e EPIC-006 não concluem automaticamente.
 execution_steps:
-- Resolver decisões pertinentes e tornar o contrato suficiente.
-- Após autorização e gates, executar escopo e registrar evidências.
-- Revisar, validar e produzir handoff.
+- Congelar protocolo e parâmetros; comprovar isolamento e equivalência C1.
+- Ranquear B1/C1, medir recursos e congelar resultados antes da avaliação.
+- Julgar citações e âncoras, testar e preparar proposta de metadados e handoff.
 validation:
   commands:
+  - python3 datasets/rich-document-retrieval/test_retrieval.py
   - python3 scripts/validate_repository.py
   - git diff --check
+  - git diff --cached --check
   expected_results:
-  - Registrar resultados e verificações específicas reais; não tratar preparação como experimento.
+  - Resultados individuais, métricas, limites e falhas registrados; revisão do PO pendente.
 dependencies:
 - ACT-062
 handoff_required: true
